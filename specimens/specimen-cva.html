@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medisprudence — Specimen CVA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--slate:#1C2536;--teal:#0C8E96;--ink:#14171F;--ink2:#3A3F4D;--muted:#6B7185;--rule:#D4D8E1;--bg:#F7F8FA;--paper:#fff;--red:#9B2C2C;--amber:#C7842A;--teal-light:#E6F5F6;--red-light:#FDF0F0;--amber-light:#FDF5E9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);line-height:1.75;font-size:15px;background:var(--paper);padding:0}
+.doc{max-width:820px;margin:0 auto;padding:40px 48px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;line-height:1.2;font-weight:600;color:var(--slate);letter-spacing:-.02em}
+.mono{font-family:'IBM Plex Mono',monospace}
+
+/* HEADER */
+.doc-header{background:#FFFFFF;color:#1D1D1F;padding:28px 48px;border-bottom:1px solid #E5E5E7;margin-bottom:0}
+.doc-header-top{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:16px;border-bottom:1px solid #E5E5E7;margin-bottom:16px}
+.doc-brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:#1D1D1F;display:flex;align-items:center;letter-spacing:-.02em}
+.doc-brand span{color:inherit}
+.doc-stamp{text-align:right}
+.doc-stamp-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#6E6E73}
+.doc-stamp-val{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#0A9EA2;font-weight:600;margin-top:2px}
+.doc-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:#1D1D1F;margin-bottom:6px;letter-spacing:-.02em}
+.doc-subtitle{font-size:13px;color:#6E6E73}
+
+/* CASE CAPTION */
+.caption{background:var(--bg);border:1px solid var(--rule);padding:20px 24px;margin-bottom:28px}
+.caption-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:14px}
+.caption-row:last-child{border-bottom:none}
+.caption-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.caption-val{font-weight:600;color:var(--slate)}
+
+/* KPI STRIP */
+.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);margin-bottom:32px}
+.kpi{padding:18px;text-align:center;border-right:1px solid var(--rule)}.kpi:last-child{border-right:none}
+.kpi-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.kpi-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--slate)}.kpi-val.green{color:var(--teal)}.kpi-val.red{color:var(--red)}.kpi-val.amber{color:var(--amber)}
+
+/* SECTIONS */
+.section{margin-bottom:32px}
+.section-num{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.section h2{font-size:22px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--teal)}
+.section h3{font-size:18px;margin:18px 0 8px;color:var(--slate)}
+.section p{color:var(--ink2);margin-bottom:10px}
+
+/* FINDING BLOCKS */
+.finding{border-left:3px solid var(--teal);padding:14px 18px;margin:12px 0;background:var(--teal-light)}
+.finding.warn{border-left-color:var(--red);background:var(--red-light)}
+.finding.caution{border-left-color:var(--amber);background:var(--amber-light)}
+.finding-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;font-weight:700}
+.finding.warn .finding-label{color:var(--red)}
+.finding.caution .finding-label{color:var(--amber)}
+.finding p{font-size:14px;color:var(--ink);margin-bottom:0}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+th,td{padding:10px 12px;border:1px solid var(--rule);vertical-align:top;text-align:left}
+thead th{background:var(--slate);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+td:first-child{font-weight:600;color:var(--slate)}
+tr:nth-child(even) td{background:var(--bg)}
+
+/* VERDICT BOX */
+.verdict{border:2px solid var(--teal);background:var(--teal-light);padding:22px 24px;margin:20px 0}
+.verdict-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;font-weight:700}
+.verdict h3{font-size:20px;margin-bottom:8px}
+
+/* FOOTER */
+.doc-footer{border-top:2px solid var(--slate);padding-top:16px;margin-top:40px;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* REFS */
+.ref{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);font-weight:700}
+
+@media(max-width:700px){.doc{padding:20px 18px}.doc-header{padding:20px 18px}.kpi-strip{grid-template-columns:1fr 1fr}.caption-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div style="background:#1D1D1F;padding:12px 48px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:999"><a href="../results.html" style="color:rgba(255,255,255,.7);font-family:monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none">← Back to Results</a><span style="color:rgba(255,255,255,.3);font-size:11px;font-family:monospace">SPECIMEN — Fictional clinical data only. No PHI.</span></div>
+
+<div class="doc-header">
+<div class="doc-header-top">
+<div class="doc-brand"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-right:8px;vertical-align:middle"><line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="16" cy="11" r="2.4" fill="currentColor"/><line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/><line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>Medisprudence</div>
+<div class="doc-stamp">
+<div class="doc-stamp-label">Document type</div>
+<div class="doc-stamp-val">Case Viability Assessment (CVA™)</div>
+</div>
+</div>
+<div class="doc-title">Case Viability Assessment — Motor Vehicle Accident</div>
+<div class="doc-subtitle">Specimen document · Fictional clinical data · No PHI · Prepared to demonstrate deliverable structure</div>
+</div>
+
+<div class="doc">
+
+<!-- CASE CAPTION -->
+<div class="caption">
+<div class="caption-row"><div><div class="caption-label">Claimant</div><div class="caption-val">Jane R. Doe, 44 y/o female</div></div><div><div class="caption-label">Date of incident</div><div class="caption-val">September 14, 2025</div></div></div>
+<div class="caption-row"><div><div class="caption-label">Case type</div><div class="caption-val">Motor vehicle accident — rear-end collision (approx. 40 mph)</div></div><div><div class="caption-label">Jurisdiction</div><div class="caption-val">Superior Court, Maricopa County, Arizona</div></div></div>
+<div class="caption-row"><div><div class="caption-label">Records reviewed</div><div class="caption-val">1,847 pages across 6 providers (ER, orthopedics, PT, pain mgmt, radiology, PCP)</div></div><div><div class="caption-label">Date of review</div><div class="caption-val">April 2026</div></div></div>
+<div class="caption-row"><div><div class="caption-label">Requesting attorney</div><div class="caption-val">[Redacted — Specimen]</div></div><div><div class="caption-label">Reviewed by</div><div class="caption-val">Dr. A. Kasturi, MBBS · Medisprudence</div></div></div>
+</div>
+
+<!-- KPIs -->
+<div class="kpi-strip">
+<div class="kpi"><div class="kpi-label">Case viability</div><div class="kpi-val green">Viable</div></div>
+<div class="kpi"><div class="kpi-label">Defense risk level</div><div class="kpi-val amber">Moderate</div></div>
+<div class="kpi"><div class="kpi-label">Pre-existing issues</div><div class="kpi-val red">2 Flagged</div></div>
+<div class="kpi"><div class="kpi-label">Expert specialty needed</div><div class="kpi-val">Spine · PM&R</div></div>
+</div>
+
+<!-- SECTION 1: EXECUTIVE ASSESSMENT -->
+<div class="section">
+<div class="section-num">Section 01</div>
+<h2>Executive Medical Assessment</h2>
+<p>The claimant, a 44-year-old female office worker with no documented functional limitations prior to the index collision, presents with cervical radiculopathy (C5–C6), lumbar disc herniation (L4–L5, left paracentral), and left shoulder impingement following a rear-end collision at approximately 40 mph. Treatment has included ER evaluation, orthopedic consultation, MRI imaging at two levels, physical therapy (24 sessions), two cervical epidural steroid injections, and pain management with tramadol and gabapentin. As of the most recent records (March 2026), the claimant reports persistent cervical radicular symptoms and has been referred for surgical consultation regarding anterior cervical discectomy and fusion (ACDF) at C5–C6.</p>
+
+<div class="finding">
+<div class="finding-label">Physician assessment</div>
+<p>The documented injury pattern — cervical radiculopathy with MRI-confirmed C5–C6 foraminal stenosis and left paracentral L4–L5 herniation — is biomechanically consistent with the described rear-end collision mechanism at 40 mph. The treatment trajectory (conservative care → epidural injections → surgical referral) follows a medically logical escalation pattern. The case is viable for pursuit, subject to the defense vulnerabilities and pre-existing conditions identified below.</p>
+</div>
+</div>
+
+<!-- SECTION 2: INJURY–TREATMENT COHERENCE -->
+<div class="section">
+<div class="section-num">Section 02</div>
+<h2>Injury–Treatment Coherence Analysis</h2>
+<p>This section evaluates whether the documented treatment pattern is medically consistent with the alleged injury mechanism and clinical findings.</p>
+
+<table>
+<thead><tr><th>Coherence Factor</th><th>Assessment</th><th>Source Reference</th></tr></thead>
+<tbody>
+<tr><td>Mechanism → Injury match</td><td><strong style="color:var(--teal)">Consistent.</strong> Rear-end collision at 40 mph is a well-documented mechanism for cervical hyperextension-flexion injury. C5–C6 is the most common level affected. Lumbar disc herniation at L4–L5 is consistent with axial loading during rear-end impact.</td><td><span class="ref">ER-001 p.4, ORT-003 p.12</span></td></tr>
+<tr><td>Treatment timeline</td><td><strong style="color:var(--teal)">Appropriate.</strong> ER visit day-of-incident. Orthopedic consult within 11 days. MRI cervical spine within 3 weeks. Physical therapy initiated within 4 weeks. Epidural injections after PT failure at 3 months. Surgical referral after second injection failure at 6 months.</td><td><span class="ref">ER-001, ORT-003, PT-008, PM-014</span></td></tr>
+<tr><td>Symptom progression</td><td><strong style="color:var(--amber)">Mixed.</strong> Cervical symptoms show consistent progression with objective findings. However, lumbar symptoms were not documented in the initial ER visit — they first appear in the orthopedic consultation 11 days post-accident. Defense will argue delayed onset weakens the causal link for lumbar injuries.</td><td><span class="ref">ER-001 p.2 vs. ORT-003 p.3</span></td></tr>
+<tr><td>Objective findings correlation</td><td><strong style="color:var(--teal)">Strong.</strong> MRI findings (C5–C6 foraminal stenosis, L4–L5 herniation) correlate with documented dermatome-specific radicular symptoms (C6 distribution upper extremity numbness, L5 distribution left lower extremity pain).</td><td><span class="ref">RAD-005, RAD-006, ORT-003 p.8</span></td></tr>
+</tbody>
+</table>
+
+<div class="finding caution">
+<div class="finding-label">Coherence gap flagged</div>
+<p><strong>Lumbar symptom onset delay:</strong> The absence of lumbar complaints in the initial ER documentation (ER-001, p.2–3) creates a coherence gap. The ER physician documented cervical pain, left shoulder tenderness, and headache — but no lumbar complaints. Lumbar symptoms first appear 11 days later at orthopedic consultation (ORT-003, p.3). This is not fatal — delayed onset of lumbar symptoms after cervical-dominant initial presentation is well-documented in trauma literature — but the attorney must be prepared to address this gap, ideally through the treating orthopedist's testimony or a biomechanical expert.</p>
+</div>
+</div>
+
+<!-- SECTION 3: PRE-EXISTING CONDITIONS -->
+<div class="section">
+<div class="section-num">Section 03</div>
+<h2>Pre-Existing Condition & Defense Ammunition Dossier</h2>
+<p>Two pre-existing conditions will be exploited by defense. Both require proactive preparation.</p>
+
+<div class="finding warn">
+<div class="finding-label">Pre-existing #1 — HIGH DEFENSE VALUE</div>
+<p><strong>2019 lumbar MRI showing L4–L5 disc desiccation.</strong> PCP records (PCP-022, p.14) document a lumbar MRI performed in March 2019 for "intermittent low back pain." The MRI showed mild disc desiccation at L4–L5 with no herniation and no neural compromise. The claimant was treated with NSAIDs and the condition resolved without further treatment. <em>Defense will argue that the current L4–L5 herniation represents progression of a pre-existing degenerative condition, not a new traumatic injury.</em></p>
+<p style="margin-top:8px"><strong>Rebuttal strategy:</strong> The 2019 MRI shows desiccation (degeneration) but no herniation. The current MRI shows a new left paracentral herniation with neural compression. These are different findings. The pre-existing degeneration may have made the disc more vulnerable to traumatic herniation — this is an "eggshell plaintiff" argument, not a causation defense. The treating radiologist's comparison of the two MRIs (RAD-006, p.3) supports this distinction. Attorney should ensure the testifying expert explicitly addresses the 2019 vs. 2026 MRI comparison.</p>
+</div>
+
+<div class="finding warn">
+<div class="finding-label">Pre-existing #2 — MODERATE DEFENSE VALUE</div>
+<p><strong>Anxiety/depression diagnosis and SSRI prescription (2021–present).</strong> PCP records show ongoing sertraline (Zoloft) 100mg since June 2021 for generalized anxiety disorder. Defense will argue that current pain-related functional limitations are confounded by pre-existing psychological comorbidity. This is particularly relevant if the claimant pursues emotional distress damages.</p>
+<p style="margin-top:8px"><strong>Rebuttal strategy:</strong> The pre-existing anxiety was managed on stable medication with no functional limitations, no work absences, and no psychiatric referrals prior to the accident. Post-accident records (PM-014, p.8) show sertraline was increased to 150mg and claimant was referred to a psychologist for new-onset accident-related anxiety. The distinction between stable pre-existing and accident-aggravated psychological condition is defensible but requires explicit documentation in the treating physician's records.</p>
+</div>
+</div>
+
+<!-- SECTION 4: TREATMENT GAP & RED FLAGS -->
+<div class="section">
+<div class="section-num">Section 04</div>
+<h2>Treatment Gap & Red-Flag Analysis</h2>
+
+<table>
+<thead><tr><th>Gap / Red Flag</th><th>Details</th><th>Impact on Case</th><th>Reference</th></tr></thead>
+<tbody>
+<tr><td style="color:var(--red)">6-week PT gap</td><td>Claimant attended 18 of 24 PT sessions, then has a 6-week gap (Nov 12 – Dec 28, 2025) before resuming. No explanation documented in PT records.</td><td><strong>Moderate risk.</strong> Defense will argue the gap shows symptoms were not severe enough to require continuous treatment, weakening damages narrative. Attorney should obtain declaration from claimant explaining the gap (holiday travel, insurance pre-authorization delay, etc.).</td><td><span class="ref">PT-008, p.22–28</span></td></tr>
+<tr><td style="color:var(--amber)">No functional capacity evaluation</td><td>Despite 6+ months of treatment and surgical referral, no formal FCE has been performed to objectively quantify functional limitations.</td><td><strong>Low-moderate risk.</strong> An FCE would provide objective baseline for damages calculation and counter defense claims of symptom exaggeration. Recommend ordering before demand or deposition.</td><td><span class="ref">—</span></td></tr>
+<tr><td style="color:var(--amber)">Inconsistent pain scores</td><td>Pain management records (PM-014) show VAS scores of 7–8/10 at every visit. PT records (PT-008) from the same weeks show VAS 4–5/10 during active exercise.</td><td><strong>Low risk if addressed.</strong> Different pain contexts (rest vs. activity) explain divergence. However, defense IME physician will highlight the inconsistency. Ensure treating pain management physician can explain the distinction at deposition.</td><td><span class="ref">PM-014 p.6,9,12 vs. PT-008 p.15,19,24</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- SECTION 5: DEFENSE VULNERABILITY MEMO -->
+<div class="section">
+<div class="section-num">Section 05 — EXPERT MD EXCLUSIVE</div>
+<h2>Defense Vulnerability Memo</h2>
+<p><em>This section provides physician-authored analysis of how the insurer's medical reviewer and the defense IME examiner are likely to evaluate this claim. This analysis is informed by the reviewing physician's direct experience in utilization management review within a major U.S. commercial payer environment.</em></p>
+
+<h3>Anticipated defense medical strategy</h3>
+<p>Based on the record pattern and the standard defense approach to this injury profile, the defense medical expert is likely to pursue three primary attack lines:</p>
+
+<div class="finding warn">
+<div class="finding-label">Attack line #1 — Pre-existing degenerative causation</div>
+<p><strong>What the defense IME will say:</strong> "The L4–L5 herniation represents natural progression of pre-existing degenerative disc disease documented on the 2019 MRI. The collision may have temporarily exacerbated symptoms, but the underlying structural pathology was pre-existing."</p>
+<p style="margin-top:6px"><strong>Why this argument has traction:</strong> From a payer/utilization review perspective, the 2019 MRI showing disc desiccation at the same level as the current herniation creates a documentation link that will be flagged by any systematic record review. Payer medical directors routinely cite pre-existing imaging findings to deny treatment authorization on causation grounds.</p>
+<p style="margin-top:6px"><strong>How to counter:</strong> The 2019 MRI must be directly compared with the 2026 MRI by the testifying expert. The key distinction is desiccation (degenerative, asymptomatic, no neural compromise) vs. herniation with left paracentral neural compression (traumatic, symptomatic, correlated with radiculopathy). If the treating radiologist documented this comparison (RAD-006, p.3), ensure that language is in the expert's report. If not, order a formal comparison read.</p>
+</div>
+
+<div class="finding warn">
+<div class="finding-label">Attack line #2 — Treatment gap undermines severity</div>
+<p><strong>What the defense IME will say:</strong> "The 6-week gap in physical therapy and the absence of a formal FCE suggest the claimant's symptoms are not as functionally limiting as claimed. A patient with genuine disabling radiculopathy would not voluntarily interrupt treatment."</p>
+<p style="margin-top:6px"><strong>Why this argument has traction:</strong> In utilization review, treatment gaps are a standard trigger for medical necessity denial. If a patient stops attending prescribed therapy, payer reviewers interpret this as evidence that the treatment is either unnecessary or the condition has resolved. Defense medical experts apply the same logic.</p>
+<p style="margin-top:6px"><strong>How to counter:</strong> Obtain a sworn declaration from the claimant explaining the gap. If the reason is logistical (insurance lapse, holiday, family obligation), document it before deposition. Consider ordering an FCE to provide objective functional data that is independent of subjective pain reports.</p>
+</div>
+
+<div class="finding caution">
+<div class="finding-label">Attack line #3 — Surgical recommendation is premature</div>
+<p><strong>What the defense IME will say:</strong> "ACDF at C5–C6 is premature given that the claimant has only completed two epidural injections. Guidelines recommend a minimum of three injections and 6–12 months of conservative care before surgical intervention."</p>
+<p style="margin-top:6px"><strong>Why this argument has traction:</strong> Most payer utilization review criteria (MCG, InterQual) require documented failure of at least three epidural injections or 6 months of multimodal conservative therapy before authorizing cervical fusion. Two injections at 6 months may not meet the threshold that a defense expert applying these criteria would consider adequate.</p>
+<p style="margin-top:6px"><strong>How to counter:</strong> The treating surgeon's operative rationale must document why surgery is indicated despite limited injection history — progressive neurological deficit, failure of two injections to provide meaningful relief, or patient-specific factors that make further injections inappropriate. If this documentation exists, cite it in the demand. If it does not, the attorney should request a supplemental narrative from the surgeon before the case proceeds to expert engagement.</p>
+</div>
+</div>
+
+<!-- SECTION 6: EXPERT READINESS -->
+<div class="section">
+<div class="section-num">Section 06</div>
+<h2>Expert Readiness Brief</h2>
+
+<table>
+<thead><tr><th>Requirement</th><th>Recommendation</th><th>Rationale</th></tr></thead>
+<tbody>
+<tr><td>Primary expert specialty</td><td><strong>Orthopedic spine surgery or PM&R (physical medicine & rehabilitation)</strong></td><td>The primary injuries are cervical and lumbar spine. A spine surgeon can address both the causation question and the surgical recommendation. A PM&R specialist may be preferable if the attorney wants to emphasize functional limitations and long-term disability rather than surgical candidacy.</td></tr>
+<tr><td>Subspecialty precision</td><td><strong>Must have cervical spine surgical experience if ACDF is being pursued</strong></td><td>A general orthopedist without spine surgical experience may be challenged under Daubert on the surgical necessity question. Ensure the expert performs ACDF procedures in clinical practice.</td></tr>
+<tr><td>Key issues for expert</td><td><strong>1.</strong> 2019 vs. 2026 MRI comparison (desiccation vs. herniation). <strong>2.</strong> Lumbar symptom onset delay (11-day gap). <strong>3.</strong> Surgical necessity despite limited injection history. <strong>4.</strong> Functional prognosis with and without surgery.</td><td>These four issues map directly to the anticipated defense attack lines. The expert must address all four in the causation report.</td></tr>
+<tr><td>Daubert preparedness</td><td><strong>Ensure expert can cite peer-reviewed literature on:</strong> delayed symptom onset in rear-end collisions, disc herniation superimposed on degenerative changes, and ACDF outcomes for traumatic C5–C6 radiculopathy</td><td>Defense will challenge causation methodology under FRE 702. The expert's opinions must be tied to published biomechanical and clinical literature, not just clinical experience.</td></tr>
+<tr><td>Expert to avoid</td><td><strong>Do not engage a general neurologist or chiropractor as the primary causation expert</strong></td><td>A neurologist cannot address surgical necessity. A chiropractor will face qualification challenges for spinal surgery opinions. These specialists may have supporting roles but should not be the primary expert.</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- VERDICT -->
+<div class="verdict">
+<div class="verdict-label">Case viability conclusion</div>
+<h3>This case is viable for pursuit. The medical record supports causation and damages, subject to proactive management of the defense vulnerabilities identified above.</h3>
+<p style="color:var(--ink2);font-size:14px;margin-top:8px">The pre-existing 2019 lumbar MRI is the highest-risk defense issue and must be addressed by the testifying expert with a direct imaging comparison. The 6-week PT gap requires a claimant declaration. The surgical recommendation requires supplemental documentation from the treating surgeon. If these three items are addressed before demand, the case profile strengthens substantially.</p>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+<span>Medisprudence · Physician-Directed Medical Case Intelligence</span>
+<span>Specimen · Fictional Data · Not PHI · April 2026</span>
+</div>
+
+<div style="margin-top:20px;padding:14px 16px;background:var(--bg);border-left:3px solid var(--slate);font-size:12px;color:var(--muted);line-height:1.7">
+<strong>Disclaimer:</strong> This document is a specimen prepared with fictional clinical data to demonstrate Medisprudence's deliverable structure. It does not constitute legal advice, expert testimony, or a standard-of-care opinion. Medisprudence provides physician-directed medical case intelligence under attorney supervision. All legal strategy, filing decisions, and expert engagement decisions remain with the retaining attorney.
+</div>
+</div>
+</body>
+</html>
