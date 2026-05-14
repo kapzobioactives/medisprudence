@@ -235,7 +235,8 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
 @media(max-width:900px){
   .wrap{padding:0 20px}
   .nav-center{display:none}
-  .mobile-toggle{display:block}
+  .mobile-toggle{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:var(--r-sm);background:var(--bg-alt);border:1px solid var(--rule-md)!important}
+  .nav-cta{display:none}
   .mobile-drawer{display:block}
   .card-grid-3,.card-grid-4{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:1fr}
@@ -1248,7 +1249,7 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
     <a class="btn-back" href="#home">&#8592; All Services</a>
     <div class="label">Premium Add-On &middot; Standalone Available</div>
     <h1 style="margin-top:10px">Defense Medical Lens&#8482;</h1>
-    <p class="hero-sub">Before mediation, the defense will have a medical theory of the case. This shows you what it is — built by a physician who performed that exact review function from inside a major US commercial payer.</p>
+    <p class="hero-sub">Before mediation, the defense will have a medical theory of the case. This shows you what it is — built by a physician who performed that exact review function from inside a major US commercial payer. Defense firms, TPAs, and carriers use the same analysis from the other direction: physician-grounded medical exposure to set accurate reserves and support defensible settlement authority before the mediation date.</p>
     <div class="label-dim" style="margin-top:12px">From $400 add-on &middot; $950 standalone &middot; 48 hrs add-on &middot; 3&#8211;4 days standalone</div>
   </div>
 </div>
@@ -1270,7 +1271,7 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
 <div class="when-item"><p>Cases approaching mediation, settlement conference, or demand preparation &#8212; ideally 30 days before the mediation date.</p></div>
 <div class="when-item"><p>High-bill soft-tissue and surgical recommendation cases where the defense will challenge treatment necessity aggressively.</p></div>
 <div class="when-item"><p>Cases with significant pre-existing condition exposure where the defense is expected to attribute pathology to baseline degeneration.</p></div>
-<div class="when-item"><p>Defense firms and TPAs running pre-mediation medical exposure review to set accurate reserves.</p></div>
+<div class="when-item"><p><strong>Defense firms, TPAs, and carriers</strong> setting pre-mediation reserves or confirming settlement authority &#8212; physician-authored medical exposure analysis creates a documented, defensible basis for reserve decisions that a claims adjuster cannot produce from medical records alone.</p></div>
 </div>
 <div class="pricing-box" style="margin-top:24px">
 <div><div class="pi-label">Add-On</div><div class="pi-value">$400</div><div class="pi-note">Added to any engagement</div></div>
@@ -1856,13 +1857,25 @@ function openDrawer(){
   var d=document.getElementById('mobile-drawer');
   d.style.display='block';
   requestAnimationFrame(function(){d.classList.add('open');});
+  document.body.style.overflow='hidden';
 }
 function closeDrawer(){
   var d=document.getElementById('mobile-drawer');
   if(!d)return;
   d.classList.remove('open');
+  document.body.style.overflow='';
   setTimeout(function(){d.style.display='none';},350);
 }
+function toggleDrawer(){
+  var d=document.getElementById('mobile-drawer');
+  if(d.classList.contains('open')){closeDrawer();}else{openDrawer();}
+}
+/* Close drawer when any drawer nav link is tapped */
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.drawer-nav,.drawer-cta').forEach(function(el){
+    el.addEventListener('click',function(){setTimeout(closeDrawer,80);});
+  });
+});
 document.addEventListener('click',function(e){
   var q=e.target.closest('.faq-q');
   if(!q)return;
