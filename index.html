@@ -239,6 +239,26 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
 .footer-legal-links a{font-size:11.5px;color:var(--ink-3);transition:.15s;text-decoration:none}
 .footer-legal-links a:hover{color:var(--teal)}
 
+/* PACKAGE CARDS */
+.pkg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:28px 0}
+.pkg-card{background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-xl);padding:28px 26px;display:flex;flex-direction:column;position:relative;transition:.2s}
+.pkg-card:hover{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal),var(--shadow-sm)}
+.pkg-card.pkg-featured{border:2px solid var(--teal);background:linear-gradient(135deg,rgba(10,158,162,.03) 0%,var(--bg) 100%)}
+.pkg-badge{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--teal);color:#fff;padding:3px 10px;border-radius:999px;margin-bottom:14px;align-self:flex-start}
+.pkg-badge-muted{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--bg-alt);color:var(--ink-2);padding:3px 10px;border-radius:999px;margin-bottom:14px;align-self:flex-start;border:1px solid var(--rule-md)}
+.pkg-title{font-family:var(--serif);font-size:22px;font-weight:300;margin-bottom:6px}
+.pkg-sub{font-size:15px;color:var(--ink);line-height:1.7;margin-bottom:16px}
+.pkg-includes{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
+.pkg-includes li{font-size:14.5px;color:var(--ink);padding-left:20px;position:relative;line-height:1.6}
+.pkg-includes li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700}
+.pkg-price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:5px}
+.pkg-price{font-family:var(--serif);font-size:30px;font-weight:300;color:var(--ink)}
+.pkg-was{font-family:var(--mono);font-size:13px;color:var(--ink-3);text-decoration:line-through}
+.pkg-save{font-family:var(--mono);font-size:12px;color:var(--teal);font-weight:500;letter-spacing:.05em}
+.pkg-note{font-size:13px;color:var(--ink-3);margin-bottom:20px}
+.pkg-case-cost{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--teal-text);background:var(--teal-dim);padding:7px 12px;border-radius:var(--r-sm);margin-bottom:18px;line-height:1.5}
+@media(max-width:700px){.pkg-grid{grid-template-columns:1fr}}
+
 /* CTA BARS */
 .cta-bar{background:var(--ink);padding:40px 0}
 .cta-bar h2{color:#fff;font-size:clamp(22px,3vw,36px);max-width:560px;margin:0 auto 12px}
@@ -301,6 +321,8 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
         <a href="/expert-readiness-brief">Expert Readiness Brief</a>
         <a href="/pre-existing-condition-dossier">Pre-existing Condition Dossier</a>
         <a href="/treatment-gap-analysis">Treatment Gap Analysis</a>
+        <div class="dd-section-label">Engagement Options</div>
+        <a href="/packages">Case Packages &amp; Bundles</a>
         <div class="dd-section-label">Partnership</div>
         <a href="/white-label">White-Label for LNC Firms</a>
       </div>
@@ -339,6 +361,7 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
       <a class="drawer-nav" href="/expert-readiness-brief">Expert Readiness Brief</a>
       <a class="drawer-nav" href="/pre-existing-condition-dossier">Pre-existing Condition Dossier</a>
       <a class="drawer-nav" href="/treatment-gap-analysis">Treatment Gap Analysis</a>
+      <a class="drawer-nav" href="/packages">Case Packages &amp; Bundles</a>
       <a class="drawer-nav" href="/white-label">White-Label for LNC Firms</a>
       <div class="drawer-section-label">Practice Areas</div>
       <a class="drawer-nav" href="/personal-injury">Personal Injury</a>
@@ -422,6 +445,42 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
       <a class="card" href="/pre-existing-condition-dossier"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><h4>Pre-existing Condition Dossier</h4><p>Documents what the defense will argue about prior pathology &#8212; and what reduces its impact.</p><div class="card-price">Included in CMIP</div></a>
       <a class="card" href="/white-label"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>White-Label for LNC Firms</h4><p>Physician intelligence delivered under your brand.</p><div class="card-price">Custom pricing</div></a>
     </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="label">Case Packages</div>
+    <h2 style="margin:10px 0 6px;font-size:clamp(22px,3vw,36px)">One decision. One invoice. One case cost line item.</h2>
+    <p style="font-size:17px;color:var(--ink);max-width:640px;margin-bottom:28px">Bundled packages are priced below à la carte rates and designed to advance as a single case cost — no per-service decisions, no multiple invoices.</p>
+    <div class="pkg-grid">
+      <div class="pkg-card pkg-featured">
+        <span class="pkg-badge">Most Popular</span>
+        <div class="pkg-title">Full Case Workup</div>
+        <div class="pkg-sub">Complete pre-expert intelligence in one engagement — from case viability through IME deconstruction and defense simulation.</div>
+        <ul class="pkg-includes">
+          <li>Case Viability Screening (CVA™) — 72 hrs</li>
+          <li>IME Report Deconstruction — 3–5 days</li>
+          <li>Defense Medical Lens™ add-on — 48 hrs</li>
+        </ul>
+        <div class="pkg-price-row"><div class="pkg-price">From $1,100</div><div class="pkg-was">$1,250</div><div class="pkg-save">Save $150</div></div>
+        <div class="pkg-case-cost">Advanceable as a single case cost line item · Recoverable at settlement in contingency-fee matters</div>
+        <a class="btn btn-teal" href="/packages" style="justify-content:center">View Package Details &#8594;</a>
+      </div>
+      <div class="pkg-card">
+        <span class="pkg-badge-muted">IME + Defense</span>
+        <div class="pkg-title">IME Response Package</div>
+        <div class="pkg-sub">You've received a defense IME. This delivers the deconstruction and the full defense medical picture — in one combined engagement.</div>
+        <ul class="pkg-includes">
+          <li>IME Report Deconstruction — 3–5 days</li>
+          <li>Defense Medical Lens™ add-on — 48 hrs</li>
+        </ul>
+        <div class="pkg-price-row"><div class="pkg-price">From $800</div><div class="pkg-was">$900</div><div class="pkg-save">Save $100</div></div>
+        <div class="pkg-case-cost">Advanceable as a single case cost line item · Recoverable at settlement in contingency-fee matters</div>
+        <a class="btn btn-primary" href="/packages" style="justify-content:center">View Package Details &#8594;</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:6px"><a class="btn btn-ghost" href="/packages">All packages and LNC retainer options &#8594;</a></div>
   </div>
 </div>
 
@@ -651,7 +710,9 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
 </div>
 <div class="sec">
   <div class="wrap" style="max-width:760px">
-    <div class="label" style="margin-bottom:14px">About the Service</div><div class="faq-item"><div class="faq-q">What exactly does Medisprudence deliver &#8212; and what does it not deliver? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Medisprudence delivers physician-authored medical case intelligence: IME report deconstruction, case viability screening, defense vulnerability analysis, Defense Medical Lens pre-mediation reports, expert readiness briefs, and related intelligence documents. It does not deliver legal advice, legal strategy, damages valuation, expert testimony, expert affidavits, certificates of merit, court appearances, patient care, or independent medical examinations. All work is delivered under attorney direction.</p></div></div><div class="faq-item"><div class="faq-q">How is Medisprudence different from a legal nurse consultant? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Legal nurse consultants are registered nurses who review medical records and produce chronologies and summaries. That is valuable for extraction and organization. Medisprudence adds the physician interpretation layer &#8212; what the organized record means for causation, for the IME response, for the expert, and for the demand. More specifically, Medisprudence&#8217;s founding physician has reviewed 3,000+ cases as a utilization management physician inside a US commercial payer &#8212; a background no LNC firm has. Our analysis is calibrated to how defense reviewers actually evaluate records, not just what the clinical picture shows.</p></div></div><div class="faq-item"><div class="faq-q">How is Medisprudence different from retaining a medical expert witness? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>A medical expert witness is a testifying expert &#8212; retained for opinion, deposition, and trial. Medisprudence is a non-testifying consulting physician &#8212; retained for pre-expert case intelligence before the expert engagement. The two are complementary, not competing: Medisprudence helps you decide whether to retain an expert, which specialty you need, and what documentation must be in place before the expert reviews the file. The cost of Medisprudence is a fraction of most expert retainer entry costs.</p></div></div><div class="faq-item"><div class="faq-q">What is the Defense Medical Lens&#8482; and why can&#8217;t I get this elsewhere? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>The Defense Medical Lens is a physician-authored simulation of how a defense-side medical reviewer would evaluate the record &#8212; built from the perspective of someone who performed that exact review function. Our founding physician reviewed 3,000+ claims inside a US commercial payer, applying InterQual and MCG criteria under real claims conditions. It is a reconstruction of the actual methodology used by defense reviewers &#8212; because the founding physician applied that methodology himself. No other physician-legal consulting firm in the market has this background.</p></div></div><div class="faq-item"><div class="faq-q">Can Medisprudence serve both plaintiff and defense? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Yes. Medisprudence serves both plaintiff and defense clients under conflict-screened, separate engagements. We do not serve both sides of the same matter. Conflict checks are conducted at intake. Defense and TPA engagements are available for reserve-setting medical exposure analysis, pre-mediation medical review, and WC causation assessment.</p></div></div><div class="label" style="margin-bottom:14px;margin-top:28px">About Privacy and Process</div><div class="faq-item"><div class="faq-q">Do I have to send records to start? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>No. The first step is deliberately low-friction. You send only general case facts &#8212; case type, injury, IME status, approximate record volume, deadline, and the decision you need to make. Do not send PHI by email. Medisprudence confirms scope, pricing, turnaround, and conflict status. BAA and engagement terms are confirmed before any records are transmitted.</p></div></div><div class="faq-item"><div class="faq-q">Medisprudence is operated from India. Does that create any issues? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Cross-border processing is disclosed before any records are accepted and before engagement is formed. This is a deliberate transparency policy. The BAA executed before engagement governs PHI handling under the cross-border framework. All AI-assisted extraction uses systems covered by appropriate contractual safeguards. PHI is not entered into public consumer AI tools. Records are not used for model training.</p></div></div><div class="faq-item"><div class="faq-q">How does Medisprudence handle AI in its work product? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>AI-assisted extraction is used in Stage 1 of the workflow &#8212; capturing dates, providers, diagnoses, procedures, and page references from medical records. This produces structured data, not intelligence. Stage 2 is physician-authored: the founding physician reviews extracted data against original records and applies all clinical intelligence layers. Every deliverable identifies AI-assisted versus physician-authored components at the component level.</p></div></div><div class="faq-item"><div class="faq-q">Does Medisprudence provide expert testimony? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>No. Medisprudence does not provide independent expert testimony, expert affidavits, certificates of merit, or court-facing causation opinions. This is by design. The non-testifying consulting role is structurally distinct from the expert witness role &#8212; it eliminates conflicts, allows more candid analysis, and keeps pricing accessible.</p></div></div><div class="faq-item"><div class="faq-q">What is the typical turnaround? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Case Viability Screening (CVA): 72 hours standard. IME Report Deconstruction: 3&#8211;5 business days. Defense Medical Lens add-on: 48 hours. Defense Medical Lens standalone: 3&#8211;4 days. Full Intelligence Report (CMIP): 5&#8211;10 business days depending on record volume. Rush options are available and confirmed at scope.</p></div></div><div class="faq-item"><div class="faq-q">What does it cost? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Case Viability Screening starts at $350. IME Report Deconstruction starts at $500. Defense Medical Lens starts at $400 as an add-on, $950 standalone. Full Intelligence Report (CMIP) starts at $1,500. All fees are confirmed at scope. No contingent-fee arrangements are available.</p></div></div>
+    <div class="label" style="margin-bottom:14px">About the Service</div><div class="faq-item"><div class="faq-q">What exactly does Medisprudence deliver &#8212; and what does it not deliver? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Medisprudence delivers physician-authored medical case intelligence: IME report deconstruction, case viability screening, defense vulnerability analysis, Defense Medical Lens pre-mediation reports, expert readiness briefs, and related intelligence documents. It does not deliver legal advice, legal strategy, damages valuation, expert testimony, expert affidavits, certificates of merit, court appearances, patient care, or independent medical examinations. All work is delivered under attorney direction.</p></div></div><div class="faq-item"><div class="faq-q">How is Medisprudence different from a legal nurse consultant? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Legal nurse consultants are registered nurses who review medical records and produce chronologies and summaries. That is valuable for extraction and organization. Medisprudence adds the physician interpretation layer &#8212; what the organized record means for causation, for the IME response, for the expert, and for the demand. More specifically, Medisprudence&#8217;s founding physician has reviewed 3,000+ cases as a utilization management physician inside a US commercial payer &#8212; a background no LNC firm has. Our analysis is calibrated to how defense reviewers actually evaluate records, not just what the clinical picture shows.</p></div></div><div class="faq-item"><div class="faq-q">How is Medisprudence different from retaining a medical expert witness? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>A medical expert witness is a testifying expert &#8212; retained for opinion, deposition, and trial. Medisprudence is a non-testifying consulting physician &#8212; retained for pre-expert case intelligence before the expert engagement. The two are complementary, not competing: Medisprudence helps you decide whether to retain an expert, which specialty you need, and what documentation must be in place before the expert reviews the file. The cost of Medisprudence is a fraction of most expert retainer entry costs.</p></div></div><div class="faq-item"><div class="faq-q">What is the Defense Medical Lens&#8482; and why can&#8217;t I get this elsewhere? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>The Defense Medical Lens is a physician-authored simulation of how a defense-side medical reviewer would evaluate the record &#8212; built from the perspective of someone who performed that exact review function. Our founding physician reviewed 3,000+ claims inside a US commercial payer, applying InterQual and MCG criteria under real claims conditions. It is a reconstruction of the actual methodology used by defense reviewers &#8212; because the founding physician applied that methodology himself. No other physician-legal consulting firm in the market has this background.</p></div></div><div class="faq-item"><div class="faq-q">Can Medisprudence serve both plaintiff and defense? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Yes. Medisprudence serves both plaintiff and defense clients under conflict-screened, separate engagements. We do not serve both sides of the same matter. Conflict checks are conducted at intake. Defense and TPA engagements are available for reserve-setting medical exposure analysis, pre-mediation medical review, and WC causation assessment.</p></div></div><div class="label" style="margin-bottom:14px;margin-top:28px">About Privacy and Process</div><div class="faq-item"><div class="faq-q">Do I have to send records to start? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>No. The first step is deliberately low-friction. You send only general case facts &#8212; case type, injury, IME status, approximate record volume, deadline, and the decision you need to make. Do not send PHI by email. Medisprudence confirms scope, pricing, turnaround, and conflict status. BAA and engagement terms are confirmed before any records are transmitted.</p></div></div><div class="faq-item"><div class="faq-q">Medisprudence is operated from India. Does that create any issues? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Cross-border processing is disclosed before any records are accepted and before engagement is formed. This is a deliberate transparency policy. The BAA executed before engagement governs PHI handling under the cross-border framework. All AI-assisted extraction uses systems covered by appropriate contractual safeguards. PHI is not entered into public consumer AI tools. Records are not used for model training.</p></div></div><div class="faq-item"><div class="faq-q">How does Medisprudence handle AI in its work product? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>AI-assisted extraction is used in Stage 1 of the workflow &#8212; capturing dates, providers, diagnoses, procedures, and page references from medical records. This produces structured data, not intelligence. Stage 2 is physician-authored: the founding physician reviews extracted data against original records and applies all clinical intelligence layers. Every deliverable identifies AI-assisted versus physician-authored components at the component level.</p></div></div><div class="faq-item"><div class="faq-q">Does Medisprudence provide expert testimony? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>No. Medisprudence does not provide independent expert testimony, expert affidavits, certificates of merit, or court-facing causation opinions. This is by design. The non-testifying consulting role is structurally distinct from the expert witness role &#8212; it eliminates conflicts, allows more candid analysis, and keeps pricing accessible.</p></div></div><div class="faq-item"><div class="faq-q">What is the typical turnaround? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Case Viability Screening (CVA): 72 hours standard. IME Report Deconstruction: 3&#8211;5 business days. Defense Medical Lens add-on: 48 hours. Defense Medical Lens standalone: 3&#8211;4 days. Full Intelligence Report (CMIP): 5&#8211;10 business days depending on record volume. Rush options are available and confirmed at scope.</p></div></div><div class="faq-item"><div class="faq-q">What does it cost? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Case Viability Screening starts at $350. IME Report Deconstruction starts at $500. Defense Medical Lens starts at $400 as an add-on, $950 standalone. Full Intelligence Report (CMIP) starts at $1,500. All fees are confirmed at scope. No contingent-fee arrangements are available. <a href="/packages" style="color:var(--teal)">Bundled packages are available from $800</a> — below à la carte rates, structured as a single case cost advance.</p></div></div>
+    <div class="faq-item"><div class="faq-q">Can fees be advanced as case costs and recovered at settlement? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Yes &#8212; and this is how most plaintiff attorneys structure Medisprudence fees. In a contingency-fee practice, Medisprudence fees are advanced as case costs against the matter and recovered from settlement proceeds, the same way you would advance expert consultation, medical record retrieval, or investigation costs. Medisprudence is paid at invoice &#8212; the case cost recovery is your firm&#8217;s internal accounting decision, not a Medisprudence payment arrangement. This means there is no new budget category required: Medisprudence fees fit the case cost line item that already exists in every plaintiff practice.</p></div></div>
+    <div class="faq-item"><div class="faq-q">Is deferred billing available for established clients? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>For established attorney clients on confirmed retainer arrangements, deferred billing &#8212; where the engagement fee is invoiced at case resolution rather than upon delivery &#8212; can be discussed at scope confirmation. This is not available for first-time engagements. Contact Medisprudence to discuss whether your firm&#8217;s case volume and practice area make a deferred billing arrangement appropriate.</p></div></div>
     <div style="margin-top:36px;background:var(--bg-alt);border-radius:var(--r-xl);padding:28px 32px;text-align:center">
       <h3 style="font-size:20px;margin-bottom:10px">Still have questions?</h3>
       <p style="margin-bottom:16px">Start with a no-PHI inquiry &#8212; describe the case type and the decision you need to make.</p>
@@ -758,6 +819,11 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
               <label for="f_service">Service Requested <span style="color:var(--danger)">*</span></label>
               <select id="f_service" name="service_requested" required onchange="updateIntakeForm()">
                 <option value="">— Select a service —</option>
+                <optgroup label="Packages">
+                <option value="pkg-full">Full Case Workup Package (CVA + IME + Defense Medical Lens)</option>
+                <option value="pkg-ime">IME Response Package (IME Deconstruction + Defense Medical Lens)</option>
+                </optgroup>
+                <optgroup label="Individual Services">
                 <option value="ime">IME Report Deconstruction</option>
                 <option value="cva">Case Viability Screening (CVA&#8482;)</option>
                 <option value="dml">Defense Medical Lens&#8482;</option>
@@ -766,7 +832,10 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
                 <option value="erb">Expert Readiness Brief</option>
                 <option value="pec">Pre-existing Condition Dossier</option>
                 <option value="tga">Treatment Gap Analysis</option>
+                </optgroup>
+                <optgroup label="Partnership">
                 <option value="white-label">White-Label Partnership</option>
+                </optgroup>
                 <option value="not-sure">Not sure &#8212; help me decide</option>
               </select>
             </div>
@@ -996,18 +1065,18 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
           var svc = document.getElementById('f_service').value;
           var med = document.getElementById('f_dml_mediation') ? document.getElementById('f_dml_mediation').value : '';
 
-          // Block 2 — hide for White-Label Partnership
+          // Block 2 — hide for White-Label Partnership only
           iv('ib-case-context', svc !== 'white-label');
 
-          // Block 3 — IME only
-          iv('ib-ime', svc === 'ime');
+          // Block 3 — IME only (including IME response package)
+          iv('ib-ime', svc === 'ime' || svc === 'pkg-ime');
 
           // Block 4 — DML only
           iv('ib-dml', svc === 'dml');
           iv('ib-dml-date', svc === 'dml' && med !== '' && med !== 'No \u2014 pre-mediation planning');
 
-          // Block 5 — CVA only
-          iv('ib-cva', svc === 'cva');
+          // Block 5 — CVA only (including full package)
+          iv('ib-cva', svc === 'cva' || svc === 'pkg-full');
 
           // Block 6 — CMIP only
           iv('ib-cmip', svc === 'cmip');
@@ -1184,6 +1253,9 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
 <div><div class="pi-label">Turnaround</div><div class="pi-value">3&#8211;5 days</div><div class="pi-note">Rush available</div></div>
 <div><div class="pi-label">Output</div><div class="pi-value">10 sections</div><div class="pi-note">Source-referenced</div></div>
 </div>
+<div style="margin-top:12px;padding:12px 16px;background:var(--teal-dim);border-radius:var(--r-md);border-left:3px solid var(--teal)">
+<p style="font-size:14px;color:var(--ink);margin:0">Advanceable as a case cost and recoverable at settlement in contingency-fee matters. <a href="/packages" style="color:var(--teal-text);font-weight:600">Bundle with the Defense Medical Lens™ from $800 &#8594;</a></p>
+</div>
 <a class="btn btn-primary" href="/intake" style="width:100%;margin-top:18px;justify-content:center">Request IME Deconstruction &#8594;</a></div>
     </div>
   </div>
@@ -1241,6 +1313,9 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
 <div><div class="pi-label">Starting Fee</div><div class="pi-value">$350</div><div class="pi-note">Scope-dependent</div></div>
 <div><div class="pi-label">Turnaround</div><div class="pi-value">72 hours</div><div class="pi-note">Standard</div></div>
 <div><div class="pi-label">Output</div><div class="pi-value">3&#8211;5 pages</div><div class="pi-note">Physician-authored memo</div></div>
+</div>
+<div style="margin-top:12px;padding:12px 16px;background:var(--teal-dim);border-radius:var(--r-md);border-left:3px solid var(--teal)">
+<p style="font-size:14px;color:var(--ink);margin:0">Advanceable as a case cost and recoverable at settlement in contingency-fee matters. <a href="/packages" style="color:var(--teal-text);font-weight:600">Bundle with IME Deconstruction + Defense Medical Lens™ from $1,100 &#8594;</a></p>
 </div>
 <a class="btn btn-primary" href="/intake" style="width:100%;margin-top:18px;justify-content:center">Request Case Screening &#8594;</a></div>
     </div>
@@ -1301,6 +1376,9 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
 <div><div class="pi-label">Standalone</div><div class="pi-value">$950</div><div class="pi-note">3&#8211;4 business days</div></div>
 <div><div class="pi-label">Add-On Speed</div><div class="pi-value">48 hrs</div><div class="pi-note">Mediation date required</div></div>
 </div>
+<div style="margin-top:12px;padding:12px 16px;background:var(--teal-dim);border-radius:var(--r-md);border-left:3px solid var(--teal)">
+<p style="font-size:14px;color:var(--ink);margin:0">Advanceable as a case cost and recoverable at settlement in contingency-fee matters. <a href="/packages" style="color:var(--teal-text);font-weight:600">Bundle with IME Deconstruction from $800 &#8594;</a></p>
+</div>
 <a class="btn btn-primary" href="/intake" style="width:100%;margin-top:18px;justify-content:center">Request Defense Medical Lens &#8594;</a></div>
     </div>
   </div>
@@ -1352,6 +1430,9 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
       <div><div class="pi-label">Starting Fee</div><div class="pi-value">$1,500</div><div class="pi-note">Scope-dependent on record volume</div></div>
       <div><div class="pi-label">Turnaround</div><div class="pi-value">5&#8211;10 days</div><div class="pi-note">Confirmed at scope</div></div>
       <div><div class="pi-label">Components</div><div class="pi-value">7</div><div class="pi-note">Source-referenced throughout</div></div>
+    </div>
+    <div style="margin-top:14px;padding:14px 18px;background:var(--teal-dim);border-radius:var(--r-md);border-left:3px solid var(--teal)">
+      <p style="font-size:14.5px;color:var(--ink);margin:0"><strong>A CMIP engagement typically determines whether a $5,000&#8211;$15,000 expert retainer is warranted — and what documentation the expert needs to see before reviewing the file.</strong> All fees are advanceable as case costs and recoverable at settlement in contingency-fee matters.</p>
     </div>
     <a class="btn btn-primary" href="/intake" style="margin-top:18px;display:inline-flex">Request Full Intelligence Report &#8594;</a>
   </div>
@@ -1599,9 +1680,10 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
       <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">How the partnership works</h3>
 <ul class="deliverable-list">
 <li><span class="dl-num">01</span><div class="dl-text"><h5>Your brand, our physician</h5><p>Deliverables are produced under your firm&#8217;s brand and formatting. Your attorney clients see your name. The physician intelligence comes from Medisprudence.</p></div></li>
-<li><span class="dl-num">02</span><div class="dl-text"><h5>Referral arrangement available</h5><p>For cases where you prefer to refer rather than white-label &#8212; Medisprudence accepts direct referrals with attribution.</p></div></li>
-<li><span class="dl-num">03</span><div class="dl-text"><h5>Wholesale pricing</h5><p>Partner pricing is below retail rates, allowing LNC firms to mark up physician intelligence appropriately while remaining competitive.</p></div></li>
-<li><span class="dl-num">04</span><div class="dl-text"><h5>Conflict management</h5><p>Medisprudence conducts conflict checks at intake and will not serve both sides of the same matter.</p></div></li>
+<li><span class="dl-num">02</span><div class="dl-text"><h5>Monthly capacity retainer</h5><p>High-volume LNC firms can engage on a monthly retainer — a fixed number of physician-review deliverables per month at wholesale rates. One monthly invoice, predictable overhead, no per-case procurement decision. Retainer tiers available from 4 deliverables/month. Contact for pricing.</p></div></li>
+<li><span class="dl-num">03</span><div class="dl-text"><h5>Per-case referral arrangement</h5><p>For firms that prefer flexibility over volume commitment &#8212; Medisprudence accepts per-case referrals and direct referrals with attribution at wholesale rates.</p></div></li>
+<li><span class="dl-num">04</span><div class="dl-text"><h5>Wholesale pricing</h5><p>Partner pricing is below retail rates, allowing LNC firms to mark up physician intelligence appropriately while remaining competitive.</p></div></li>
+<li><span class="dl-num">05</span><div class="dl-text"><h5>Conflict management</h5><p>Medisprudence conducts conflict checks at intake and will not serve both sides of the same matter.</p></div></li>
 </ul></div>
       <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">When your clients need physician-level review</h3>
 <div class="when-grid" style="grid-template-columns:1fr">
@@ -1796,6 +1878,131 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
 </div>
 </div>
 
+<div id="p-packages" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">Case Packages &amp; Bundles</div>
+    <h1 style="margin-top:10px">One decision. One invoice. One case cost line item.</h1>
+    <p class="hero-sub">Bundled below à la carte rates and structured so that the entire engagement advances as a single case cost — no per-service decisions, no multiple approvals, no separate invoices at each stage.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="label" style="margin-bottom:14px">Plaintiff Attorney Packages</div>
+    <div class="pkg-grid">
+
+      <div class="pkg-card pkg-featured">
+        <span class="pkg-badge">Most Popular</span>
+        <div class="pkg-title">Full Case Workup</div>
+        <div class="pkg-sub">Complete pre-expert intelligence from first screening through IME response and defense simulation — in a single engagement.</div>
+        <ul class="pkg-includes">
+          <li><strong>Case Viability Screening (CVA™)</strong> — Does the record support the case theory? 72-hour turnaround.</li>
+          <li><strong>IME Report Deconstruction</strong> — Every unsupported assertion, omitted fact, internal contradiction, and 20+ deposition questions. 3–5 days.</li>
+          <li><strong>Defense Medical Lens™</strong> — Ranked pressure points, causation exposure, documentation action list. 48-hour add-on turnaround.</li>
+        </ul>
+        <div class="pkg-price-row">
+          <div class="pkg-price">From $1,100</div>
+          <div class="pkg-was">$1,250 à la carte</div>
+          <div class="pkg-save">Save $150</div>
+        </div>
+        <div class="pkg-note">Scope-confirmed before records are transmitted. Final fee confirmed at scope based on record volume and IME length.</div>
+        <div class="pkg-case-cost">Advanceable as a single case cost line item · Recoverable at settlement in contingency-fee matters · One invoice</div>
+        <a class="btn btn-teal" href="/intake" style="justify-content:center">Request Full Case Workup &#8594;</a>
+      </div>
+
+      <div class="pkg-card">
+        <span class="pkg-badge-muted">IME + Defense</span>
+        <div class="pkg-title">IME Response Package</div>
+        <div class="pkg-sub">You've received a defense IME. This delivers the full deconstruction and the defense medical picture — what the IME physician got wrong, and what the defense will use at mediation.</div>
+        <ul class="pkg-includes">
+          <li><strong>IME Report Deconstruction</strong> — 10 sections, 20+ physician-authored deposition questions. 3–5 days.</li>
+          <li><strong>Defense Medical Lens™</strong> — Ranked defense pressure points, treatment necessity analysis, documentation action list. 48-hour add-on.</li>
+        </ul>
+        <div class="pkg-price-row">
+          <div class="pkg-price">From $800</div>
+          <div class="pkg-was">$900 à la carte</div>
+          <div class="pkg-save">Save $100</div>
+        </div>
+        <div class="pkg-note">Best for cases where a defense IME has been received and mediation is approaching.</div>
+        <div class="pkg-case-cost">Advanceable as a single case cost line item · Recoverable at settlement in contingency-fee matters · One invoice</div>
+        <a class="btn btn-primary" href="/intake" style="justify-content:center">Request IME Response Package &#8594;</a>
+      </div>
+
+    </div>
+
+    <div class="founder-bar" style="margin-top:36px">
+      <div class="fb-label">Why the case cost framing matters</div>
+      <p>In a contingency-fee practice, Medisprudence fees advance as case costs — the same cost category used for expert consultation, medical record retrieval, and investigation. The entire engagement appears as one line item on the case ledger, one invoice to file, and is recovered from settlement proceeds. <strong>No new budget category. No separate approval for each service. No decision at each stage of the case.</strong></p>
+    </div>
+
+    <div style="margin-top:48px">
+      <div class="label" style="margin-bottom:14px">LNC Firm Partnership — Monthly Retainer</div>
+      <div style="background:var(--bg-alt);border-radius:var(--r-xl);padding:32px 36px;border:1px solid var(--rule-md)">
+        <div class="svc-detail-grid">
+          <div>
+            <h3 style="font-size:clamp(18px,2.5vw,24px);margin-bottom:14px">Monthly Capacity Retainer</h3>
+            <p style="font-size:15.5px;line-height:1.8;color:var(--ink);margin-bottom:16px">For LNC firms with recurring physician-review referral volume, a monthly capacity retainer eliminates the per-case procurement decision entirely. One monthly invoice, a fixed number of physician-authored deliverables per month, wholesale pricing throughout.</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:20px">
+              <li style="font-size:15px;color:var(--ink);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Deliverables produced under your firm&#8217;s brand</li>
+              <li style="font-size:15px;color:var(--ink);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>One monthly invoice — fits your overhead budget structure</li>
+              <li style="font-size:15px;color:var(--ink);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Wholesale rates below retail on every deliverable</li>
+              <li style="font-size:15px;color:var(--ink);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Conflict checks at intake on every matter</li>
+              <li style="font-size:15px;color:var(--ink);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Retainer tiers available from 4 physician-authored deliverables per month</li>
+            </ul>
+            <a class="btn btn-primary" href="/contact">Discuss a Retainer Arrangement &#8594;</a>
+          </div>
+          <div>
+            <h4 style="margin-bottom:14px;color:var(--teal)">Deliverables available under retainer</h4>
+            <div style="display:flex;flex-direction:column;gap:9px">
+              <div style="padding:13px 16px;background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-md)"><h5 style="font-size:14.5px;margin-bottom:3px">IME Report Deconstruction</h5><p style="font-size:14px;color:var(--ink-2)">For attorney clients who have received a defense IME and need physician-level deconstruction with deposition questions.</p></div>
+              <div style="padding:13px 16px;background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-md)"><h5 style="font-size:14.5px;margin-bottom:3px">Case Viability Screening</h5><p style="font-size:14px;color:var(--ink-2)">Pre-expert screening where the attorney needs physician judgment on case viability before case cost commitment.</p></div>
+              <div style="padding:13px 16px;background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-md)"><h5 style="font-size:14.5px;margin-bottom:3px">Defense Medical Lens™</h5><p style="font-size:14px;color:var(--ink-2)">Pre-mediation defense simulation — ranked pressure points, causation exposure, documentation action list.</p></div>
+              <div style="padding:13px 16px;background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-md)"><h5 style="font-size:14.5px;margin-bottom:3px">Full Intelligence Report (CMIP™)</h5><p style="font-size:14px;color:var(--ink-2)">Seven-component complete case intelligence — available under retainer for high-value matters.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px">
+      <div class="label" style="margin-bottom:14px">All Packages vs. À La Carte</div>
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead><tr>
+            <th>Engagement type</th>
+            <th>What&#8217;s included</th>
+            <th class="col-us">Starting fee</th>
+            <th>À la carte equivalent</th>
+            <th>Best for</th>
+          </tr></thead>
+          <tbody>
+            <tr><td><strong>Full Case Workup</strong></td><td>CVA + IME Deconstruction + Defense Medical Lens™</td><td class="col-us"><strong>From $1,100</strong></td><td>$1,250</td><td>Cases with a received IME approaching mediation</td></tr>
+            <tr><td><strong>IME Response Package</strong></td><td>IME Deconstruction + Defense Medical Lens™</td><td class="col-us"><strong>From $800</strong></td><td>$900</td><td>IME received; need deconstruction + defense simulation</td></tr>
+            <tr><td>IME Deconstruction (standalone)</td><td>10 sections, 20+ deposition questions</td><td class="col-us">From $500</td><td>—</td><td>IME received; deposition prep focus</td></tr>
+            <tr><td>Case Viability Screening (standalone)</td><td>Physician viability memo, 72 hrs</td><td class="col-us">From $350</td><td>—</td><td>Pre-expert case evaluation</td></tr>
+            <tr><td>Defense Medical Lens™ (standalone)</td><td>6 components, ranked pressure points</td><td class="col-us">From $950</td><td>—</td><td>Pre-mediation, no prior IME</td></tr>
+            <tr><td>Full Intelligence Report / CMIP™</td><td>7 components, complete workup</td><td class="col-us">From $1,500</td><td>—</td><td>High-value matters needing full pre-expert intelligence</td></tr>
+            <tr><td>LNC Monthly Retainer</td><td>Physician deliverables under your brand</td><td class="col-us">Contact for pricing</td><td>—</td><td>LNC firms with recurring referral volume</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;font-size:14px;color:var(--ink-3);font-style:italic;text-align:center">All fees confirmed at scope before records are transmitted. Package pricing is the starting rate — final fee depends on record volume and IME report length.</div>
+
+  </div>
+</div>
+<div class="cta-bar">
+  <div class="wrap" style="text-align:center">
+    <h2>Start with a no-PHI inquiry.</h2>
+    <p>Describe the case type and the decision you need to make. Medisprudence confirms scope, fee, and fit before any records are involved.</p>
+    <a class="btn btn-teal" href="/intake">Request Case Review</a>
+    <a class="btn btn-ghost" href="/contact" style="margin-left:10px;color:#fff!important;border-color:rgba(255,255,255,.3)">Ask a Question First</a>
+  </div>
+</div>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="footer-grid">
@@ -1804,6 +2011,7 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
         <div class="footer-tagline">Medical case intelligence for litigation.<br>Physician-authored. Payer-informed. Attorney-directed.</div>
       </div>
       <div class="footer-col"><h6>Services</h6><ul>
+        <li><a href="/packages">Case Packages</a></li>
         <li><a href="/ime-deconstruction">IME Deconstruction</a></li>
         <li><a href="/case-viability-screening">Case Viability</a></li>
         <li><a href="/full-intelligence-report">Full Intelligence Report</a></li>
@@ -1846,7 +2054,7 @@ var T={
   contact:'Contact — Medisprudence',intake:'Request Case Review — Medisprudence',
   security:'Data Security — Medisprudence',privacy:'Privacy Policy — Medisprudence',
   terms:'Terms of Use — Medisprudence','ai-use':'AI Use Disclosure — Medisprudence',
-  'svc-ime':'IME Report Deconstruction — Medisprudence',
+  packages:'Case Packages &amp; Bundles — Medisprudence',
   'svc-cva':'Case Viability Screening — Medisprudence',
   'svc-dml':'Defense Medical Lens™ — Medisprudence',
   'svc-cmip':'Full Intelligence Report — Medisprudence',
@@ -1868,7 +2076,7 @@ var ROUTES={
   '/intake':'intake','/security':'security',
   '/privacy':'privacy','/terms':'terms',
   '/ai-use-policy':'ai-use',
-  '/ime-deconstruction':'svc-ime',
+  '/packages':'packages',
   '/case-viability-screening':'svc-cva',
   '/defense-medical-lens':'svc-dml',
   '/full-intelligence-report':'svc-cmip',
