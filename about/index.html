@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medisprudence — Medical Case Intelligence for Litigation</title>
+<meta name="description" content="Physician-led case intelligence for litigation teams. IME deconstruction, case viability, Defense Medical Lens, expert readiness — from a physician who reviewed 3,000+ cases inside a US commercial payer.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://medisprudence.com/about">
+<meta property="og:title" content="About — Medisprudence">
+<meta property="og:description" content="Medisprudence is founded by a physician who reviewed 3,000+ cases as a utilization management physician inside a major US commercial payer. Physician-authored. Payer-informed. Defense-calibrated.">
+<meta property="og:image" content="https://medisprudence.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Medisprudence">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — Medisprudence">
+<meta name="twitter:description" content="Founded by a physician who reviewed 3,000+ cases inside a US commercial payer. Physician-authored. Payer-informed. Defense-calibrated.">
+<meta name="twitter:image" content="https://medisprudence.com/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,200;0,300;0,400;1,300&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--bg-alt:#F5F5F7;--bg-inset:#F2F2F4;
+  --ink:#1D1D1F;--ink-2:#3A3A3C;--ink-3:#6E6E73;
+  --teal:#0A9EA2;--teal-text:#077b7e;--teal-dim:rgba(10,158,162,.08);--teal-glow:rgba(10,158,162,.2);
+  --danger:#D93025;--caution:#B97F1A;
+  --rule:rgba(0,0,0,.08);--rule-md:rgba(0,0,0,.12);--rule-dark:rgba(0,0,0,.2);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.04);
+  --shadow-lg:0 4px 16px rgba(0,0,0,.06),0 24px 80px rgba(0,0,0,.12);
+  --serif:'Fraunces','Georgia',serif;
+  --sans:'Instrument Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --wrap:1160px;--r-sm:8px;--r-md:14px;--r-lg:18px;--r-xl:24px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7;font-size:17px;overflow-x:hidden;padding-top:56px}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;border:0;background:none}
+::selection{background:var(--teal);color:#fff}
+*:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+h1,h2,h3{font-family:var(--serif);font-weight:300;color:var(--ink);line-height:1.06;letter-spacing:-.02em}
+h4,h5,h6{font-family:var(--sans);font-weight:600;color:var(--ink);letter-spacing:-.02em}
+p{color:var(--ink);line-height:1.75;font-size:17px}
+.label{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-text);font-weight:500}
+.label-dim{font-family:var(--mono);font-size:12.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--ink-2)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 40px}
+.sec{padding:clamp(32px,4vw,56px) 0;position:relative}
+.sec-tight{padding:clamp(22px,3vw,40px) 0}
+
+/* FOUNDER BAR */
+.founder-bar{background:var(--teal-dim);border-left:3px solid var(--teal);padding:18px 22px;border-radius:0 var(--r-md) var(--r-md) 0;margin:24px 0}
+.founder-bar .fb-label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-text);margin-bottom:5px}
+.founder-bar p{color:var(--ink);font-size:16.5px;line-height:1.8;margin:0}
+.founder-bar strong{color:var(--teal-text)}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:9000;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(255,255,255,.93);backdrop-filter:blur(24px) saturate(1.8);border-bottom:1px solid transparent;transition:border-color .3s}
+#nav.scrolled{border-bottom-color:var(--rule)}
+.brand{display:flex;align-items:center;gap:8px;flex-shrink:0;text-decoration:none}
+.brand svg{color:var(--teal)}
+.brand-wordmark{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink);letter-spacing:-.02em}
+.nav-center{display:flex;align-items:center;list-style:none}
+.nav-item{position:relative}
+.nav-item>a,.nav-item>button{color:var(--ink-2);font-size:13px;font-weight:500;cursor:pointer;padding:18px 12px;transition:color .18s;white-space:nowrap;letter-spacing:-.01em;display:flex;align-items:center;gap:4px;border:none;background:none;font-family:var(--sans);line-height:1}
+.nav-item>a:hover,.nav-item>button:hover,.nav-item>a.active{color:var(--ink)}
+.chevron{font-size:9px;transition:transform .2s;display:inline-block}
+.nav-item:hover .chevron{transform:rotate(180deg)}
+/* DROPDOWN FIX — no gap, padding inside */
+.dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:260px;background:#fff;border:1px solid var(--rule-md);border-radius:var(--r-md);box-shadow:var(--shadow-lg);padding:6px 0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,visibility .2s;transition-delay:.15s;z-index:9001}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;pointer-events:auto;transition-delay:0s}
+.dropdown a{display:block;padding:9px 16px;font-size:14px;color:var(--ink-2);transition:.15s}
+.dropdown a:hover{background:var(--bg-alt);color:var(--ink)}
+.dd-section-label{padding:8px 16px 3px;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);border-top:1px solid var(--rule);margin-top:3px}
+.dd-section-label:first-child{border-top:none;margin-top:0}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-cta{padding:8px 18px;background:var(--ink);color:#fff!important;font-size:12.5px;font-weight:600;border-radius:999px;cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block}
+.nav-cta:hover{background:#3A3A3C;transform:translateY(-1px)}
+.mobile-toggle{display:none;color:var(--ink-2);font-size:20px;cursor:pointer;padding:4px;line-height:1;border:none;background:none}
+
+/* MOBILE DRAWER */
+.mobile-drawer{display:none;position:fixed;inset:0;z-index:8999;background:rgba(0,0,0,.4);opacity:0;transition:opacity .3s}
+.mobile-drawer.open{opacity:1}
+.mobile-drawer-panel{position:absolute;top:0;right:0;width:300px;max-width:88vw;height:100%;background:#fff;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);border-left:1px solid var(--rule);overflow-y:auto}
+.mobile-drawer.open .mobile-drawer-panel{transform:translateX(0)}
+.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--rule)}
+.drawer-wordmark{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink)}
+.drawer-close{width:32px;height:32px;border-radius:50%;background:var(--bg-alt);border:1px solid var(--rule);color:var(--ink-2);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.drawer-nav-list{display:flex;flex-direction:column;padding:6px 0;flex:1}
+.drawer-section-label{padding:8px 20px 3px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.drawer-nav{text-align:left;width:100%;padding:11px 20px;font-size:14px;font-weight:500;color:var(--ink-2);cursor:pointer;border:none;border-bottom:1px solid var(--rule);background:none;display:block;transition:.2s;font-family:var(--sans);text-decoration:none}
+.drawer-nav:hover{color:var(--teal);background:var(--bg-alt)}
+.drawer-nav.primary{color:var(--ink);font-weight:600}
+.drawer-cta{display:block;margin:14px 20px 20px;background:var(--ink);color:#fff;padding:13px;border-radius:999px;text-align:center;font-weight:600;font-size:14px;text-decoration:none}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;font-size:14px;font-weight:600;border-radius:999px;cursor:pointer;transition:.22s;letter-spacing:-.01em;border:none;text-decoration:none}
+.btn-primary{background:var(--ink);color:#fff!important}
+.btn-primary:hover{background:#3A3A3C;transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.btn-ghost{color:var(--ink)!important;border:1px solid var(--rule-md);background:transparent}
+.btn-ghost:hover{border-color:var(--rule-dark);background:var(--bg-alt)}
+.btn-teal{background:var(--teal);color:#fff!important}
+.btn-teal:hover{background:#0b8a8e;transform:translateY(-1px);box-shadow:0 6px 24px rgba(10,158,162,.3)}
+.btn-back{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);font-size:13px;font-weight:500;padding:0;transition:.2s;background:none;border:none;margin-bottom:20px;cursor:pointer;text-decoration:none}
+.btn-back:hover{color:var(--teal)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap}
+
+/* PAGE HERO */
+.page-hero{padding:clamp(32px,4vw,56px) 0 clamp(22px,3vw,36px);border-bottom:1px solid var(--rule)}
+.page-hero h1{font-size:clamp(28px,4vw,52px);max-width:800px}
+.page-hero .hero-sub{font-size:clamp(16px,1.8vw,19px);color:var(--ink);max-width:600px;margin-top:12px;line-height:1.7}
+
+/* HOME HERO */
+.home-hero{padding:clamp(48px,7vw,88px) 0 clamp(36px,5vw,60px);border-bottom:1px solid var(--rule)}
+.home-hero h1{font-size:clamp(34px,5vw,66px);max-width:840px;line-height:1.04}
+.home-hero h1 em{color:var(--teal);font-style:italic}
+.hero-lede{font-size:clamp(16px,1.7vw,19px);color:var(--ink);max-width:580px;margin:16px 0 28px;line-height:1.75}
+.hero-proof{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap}
+.hp-num{font-family:var(--serif);font-size:26px;font-weight:300;color:var(--ink)}
+.hp-label{font-family:var(--mono);font-size:12px;letter-spacing:.10em;text-transform:uppercase;color:var(--ink-2)}
+
+/* CARDS */
+.card-grid{display:grid;gap:14px}
+.card-grid-2{grid-template-columns:repeat(2,1fr)}
+.card-grid-3{grid-template-columns:repeat(3,1fr)}
+.card-grid-4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-lg);padding:22px;transition:.2s;display:block;text-decoration:none;color:inherit}
+.card:hover{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal),var(--shadow-sm);transform:translateY(-1px)}
+.card-teal{border-left:3px solid var(--teal)}
+.card h4{margin-bottom:6px;font-size:16px}
+.card p{font-size:15.5px;line-height:1.7}
+.card .card-price{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--teal);margin-top:12px;text-transform:uppercase}
+.service-icon{width:36px;height:36px;background:var(--teal-dim);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;margin-bottom:12px;color:var(--teal-text)}
+.service-icon svg{width:20px;height:20px;flex-shrink:0}
+
+/* DIFFERENTIATOR STRIP */
+.diff-strip{background:var(--bg-alt);border-radius:var(--r-xl);padding:32px 40px;margin:28px 0}
+.diff-strip h3{font-size:clamp(19px,2.5vw,28px);margin-bottom:10px}
+.diff-strip .diff-byline{color:var(--teal-text);font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+
+/* COMPARISON TABLE */
+.comp-table-wrap{overflow-x:auto;border-radius:var(--r-md);border:1px solid var(--rule-md)}
+.comp-table{width:100%;border-collapse:collapse;font-size:14px}
+.comp-table th,.comp-table td{padding:11px 14px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+.comp-table th{font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;background:var(--bg-alt);color:var(--ink-2);font-weight:600}
+.comp-table .col-us{background:rgba(10,158,162,.04);border-left:2px solid var(--teal)}
+.comp-table td:first-child{font-weight:600;color:var(--ink);background:var(--bg)}
+.comp-table tr:last-child td{border-bottom:none}
+.chk{color:var(--teal);font-weight:700}
+.cross{color:var(--ink-3)}
+.partial{color:var(--caution)}
+
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:steps}
+.step{position:relative;padding:22px;background:var(--bg-alt);border-radius:var(--r-lg);counter-increment:steps}
+.step::before{content:counter(steps,"0");font-family:var(--serif);font-size:44px;font-weight:200;color:var(--teal-dim);position:absolute;top:12px;right:16px;line-height:1}
+.step h4{margin-bottom:8px;font-size:15.5px}
+.step p{font-size:14.5px}
+
+/* RESULT CARDS */
+.result-card{background:var(--bg-alt);border-radius:var(--r-lg);padding:22px 26px;border-left:3px solid var(--teal)}
+.rc-type{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.rc-headline{font-family:var(--serif);font-size:19px;font-weight:300;color:var(--ink);margin-bottom:6px}
+.rc-outcome{font-size:16px;color:var(--ink);line-height:1.75}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--rule);padding:16px 0}
+.faq-q{font-size:16px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;user-select:none}
+.faq-chevron{font-size:11px;color:var(--ink-3);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-chevron{transform:rotate(180deg);color:var(--teal)}
+.faq-a{display:none;padding-top:12px}
+.faq-item.open .faq-a{display:block}
+.faq-a p{font-size:16.5px;color:var(--ink);line-height:1.85}
+
+/* PRACTICE AREA */
+.pa-service-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.pa-service-item{background:var(--bg-alt);border-radius:var(--r-md);padding:16px 18px;transition:.2s;border:1px solid transparent;display:block;text-decoration:none;color:inherit}
+.pa-service-item:hover{border-color:var(--teal);background:var(--teal-dim)}
+.pa-service-item h5{font-size:15px;margin-bottom:3px}
+.pa-service-item p{font-size:14px;line-height:1.6}
+.pa-challenge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.pa-challenge{padding:18px;background:rgba(217,48,37,.04);border:1px solid rgba(217,48,37,.15);border-radius:var(--r-md)}
+.pa-challenge h5{font-size:14.5px;color:var(--danger);margin-bottom:5px}
+.pa-challenge p{font-size:14px;line-height:1.65}
+.pa-response{padding:18px;background:var(--teal-dim);border:1px solid rgba(10,158,162,.2);border-radius:var(--r-md)}
+.pa-response h5{font-size:14.5px;color:var(--teal);margin-bottom:5px}
+.pa-response p{font-size:14px;line-height:1.65}
+
+/* SERVICE DETAIL */
+.deliverable-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.deliverable-list li{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:var(--bg-alt);border-radius:var(--r-md)}
+.dl-num{font-family:var(--mono);font-size:12px;color:var(--teal);font-weight:500;flex-shrink:0;margin-top:2px}
+.dl-text h5{font-size:15px;margin-bottom:2px}
+.dl-text p{font-size:14.5px;line-height:1.65}
+.when-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.when-item{padding:16px;background:var(--teal-dim);border-radius:var(--r-md);border-left:3px solid var(--teal)}
+.when-item p{font-size:15px;color:var(--ink);line-height:1.65;margin:0}
+.pricing-box{background:var(--bg-alt);border-radius:var(--r-xl);padding:28px 32px;display:flex;gap:32px;flex-wrap:wrap;align-items:flex-start}
+.pi-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+.pi-value{font-family:var(--serif);font-size:24px;font-weight:300;color:var(--ink)}
+.pi-note{font-size:14.5px;color:var(--ink);margin-top:3px}
+.svc-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+
+/* ABOUT */
+.founder-card{background:var(--bg-alt);border-radius:var(--r-xl);padding:32px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
+.founder-avatar{width:72px;height:72px;background:var(--teal-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:24px;font-weight:300;color:var(--teal);flex-shrink:0}
+.credential-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.credential{padding:16px;background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-md)}
+.cr-label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:5px}
+.credential p{font-size:15.5px;color:var(--ink);line-height:1.7;margin:0}
+
+/* INTAKE FORM */
+.intake-form{background:var(--bg-alt);border-radius:var(--r-xl);padding:32px;max-width:640px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--rule-md);border-radius:var(--r-md);font-size:15px;color:var(--ink);background:var(--bg);transition:.2s;outline:none;font-family:var(--sans)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-dim)}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-hint{font-size:14.5px;color:var(--ink);margin-top:4px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* FOOTER */
+footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 24px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:28px}
+.footer-brand-name{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink);margin-bottom:5px}
+.footer-tagline{font-size:15px;color:var(--ink-2);line-height:1.65}
+.footer-col h6{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);margin-bottom:12px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.footer-col ul a{font-size:14.5px;color:var(--ink-2);transition:.15s;text-decoration:none}
+.footer-col ul a:hover{color:var(--teal)}
+.footer-bottom{border-top:1px solid var(--rule);padding-top:18px;display:flex;flex-direction:column;gap:6px}
+.footer-bottom p{font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.footer-legal-links{display:flex;gap:14px;flex-wrap:wrap}
+.footer-legal-links a{font-size:11.5px;color:var(--ink-3);transition:.15s;text-decoration:none}
+.footer-legal-links a:hover{color:var(--teal)}
+
+/* PACKAGE CARDS */
+.pkg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:28px 0}
+.pkg-card{background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-xl);padding:28px 26px;display:flex;flex-direction:column;position:relative;transition:.2s}
+.pkg-card:hover{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal),var(--shadow-sm)}
+.pkg-card.pkg-featured{border:2px solid var(--teal);background:linear-gradient(135deg,rgba(10,158,162,.03) 0%,var(--bg) 100%)}
+.pkg-badge{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--teal);color:#fff;padding:3px 10px;border-radius:999px;margin-bottom:14px;align-self:flex-start}
+.pkg-badge-muted{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--bg-alt);color:var(--ink-2);padding:3px 10px;border-radius:999px;margin-bottom:14px;align-self:flex-start;border:1px solid var(--rule-md)}
+.pkg-title{font-family:var(--serif);font-size:22px;font-weight:300;margin-bottom:6px}
+.pkg-sub{font-size:15px;color:var(--ink);line-height:1.7;margin-bottom:16px}
+.pkg-includes{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
+.pkg-includes li{font-size:14.5px;color:var(--ink);padding-left:20px;position:relative;line-height:1.6}
+.pkg-includes li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700}
+.pkg-price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:5px}
+.pkg-price{font-family:var(--serif);font-size:30px;font-weight:300;color:var(--ink)}
+.pkg-was{font-family:var(--mono);font-size:13px;color:var(--ink-3);text-decoration:line-through}
+.pkg-save{font-family:var(--mono);font-size:12px;color:var(--teal);font-weight:500;letter-spacing:.05em}
+.pkg-note{font-size:13px;color:var(--ink-3);margin-bottom:20px}
+.pkg-case-cost{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--teal-text);background:var(--teal-dim);padding:7px 12px;border-radius:var(--r-sm);margin-bottom:18px;line-height:1.5}
+@media(max-width:700px){.pkg-grid{grid-template-columns:1fr}}
+
+/* CTA BARS */
+.cta-bar{background:var(--ink);padding:40px 0}
+.cta-bar h2{color:#fff;font-size:clamp(22px,3vw,36px);max-width:560px;margin:0 auto 12px}
+.cta-bar p{color:rgba(255,255,255,.6);max-width:440px;margin:0 auto 22px}
+.mini-cta{background:var(--ink);padding:28px 0}
+.mini-cta-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.mini-cta h3{color:#fff;font-size:21px}
+.mini-cta p{color:rgba(255,255,255,.6);font-size:15px;margin:2px 0 0}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .wrap{padding:0 20px}
+  .nav-center{display:none}
+  .mobile-toggle{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:var(--r-sm);background:var(--bg-alt);border:1px solid var(--rule-md)!important}
+  .nav-cta{display:none}
+  .mobile-drawer{display:block}
+  .card-grid-3,.card-grid-4{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .founder-card{grid-template-columns:1fr}
+  .credential-grid{grid-template-columns:1fr 1fr}
+  .pa-service-list,.pa-challenge-grid,.when-grid{grid-template-columns:1fr}
+  .svc-detail-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr}
+  .pricing-box{flex-direction:column;gap:18px}
+  .footer-grid{grid-template-columns:1fr}
+  .credential-grid{grid-template-columns:1fr}
+  .diff-strip{padding:22px 20px}
+  #nav{padding:0 16px}
+}
+
+.page{display:none}.page.active{display:block}</style>
+</head>
+<body>
+<nav id="nav">
+  <a class="brand" href="/"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden="true" style="color:var(--teal)">
+      <line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+      <line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+      <line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+      <circle cx="16" cy="11" r="2.4" fill="currentColor"/>
+      <line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </svg><span class="brand-wordmark">Medisprudence</span></a>
+  <ul class="nav-center">
+    <li class="nav-item">
+      <button>Services <span class="chevron">&#9662;</span></button>
+      <div class="dropdown">
+        <div class="dd-section-label">Core Services</div>
+        <a href="/ime-deconstruction">IME Report Deconstruction</a>
+        <a href="/case-viability-screening">Case Viability Screening</a>
+        <a href="/full-intelligence-report">Full Intelligence Report (CMIP&#8482;)</a>
+        <a href="/defense-medical-lens">Defense Medical Lens&#8482;</a>
+        <div class="dd-section-label">Supporting Services</div>
+        <a href="/defense-vulnerability-analysis">Defense Vulnerability Analysis</a>
+        <a href="/expert-readiness-brief">Expert Readiness Brief</a>
+        <a href="/pre-existing-condition-dossier">Pre-existing Condition Dossier</a>
+        <a href="/treatment-gap-analysis">Treatment Gap Analysis</a>
+        <div class="dd-section-label">Engagement Options</div>
+        <a href="/packages">Case Packages &amp; Bundles</a>
+        <div class="dd-section-label">Partnership</div>
+        <a href="/white-label">White-Label for LNC Firms</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <button>Practice Areas <span class="chevron">&#9662;</span></button>
+      <div class="dropdown">
+        <a href="/personal-injury">Personal Injury &#8212; Auto &amp; Trucking</a>
+        <a href="/medical-malpractice">Medical Malpractice</a>
+        <a href="/bad-faith-insurance">Bad Faith Insurance Litigation</a>
+        <a href="/workers-compensation">Workers Compensation Defense</a>
+        <a href="/mass-tort-mdl">Mass Tort / MDL</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="/why">Why Us</a></li>
+    <li class="nav-item"><a href="/samples">Samples</a></li>
+    <li class="nav-item"><a href="/about">About</a></li>
+    <li class="nav-item"><a href="/faq">FAQ</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-cta" href="/intake">Request Case Review</a>
+    <button class="mobile-toggle" onclick="toggleDrawer()">&#9776;</button>
+  </div>
+</nav>
+<div id="mobile-drawer" class="mobile-drawer" style="display:none" onclick="if(event.target===this)closeDrawer()">
+  <div class="mobile-drawer-panel">
+    <div class="drawer-header"><span class="drawer-wordmark">Medisprudence</span><button class="drawer-close" onclick="closeDrawer()">&#10005;</button></div>
+    <div class="drawer-nav-list">
+      <a class="drawer-nav primary" href="/">Home</a>
+      <div class="drawer-section-label">Services</div>
+      <a class="drawer-nav" href="/ime-deconstruction">IME Report Deconstruction</a>
+      <a class="drawer-nav" href="/case-viability-screening">Case Viability Screening</a>
+      <a class="drawer-nav" href="/full-intelligence-report">Full Intelligence Report</a>
+      <a class="drawer-nav" href="/defense-medical-lens">Defense Medical Lens&#8482;</a>
+      <a class="drawer-nav" href="/defense-vulnerability-analysis">Defense Vulnerability Analysis</a>
+      <a class="drawer-nav" href="/expert-readiness-brief">Expert Readiness Brief</a>
+      <a class="drawer-nav" href="/pre-existing-condition-dossier">Pre-existing Condition Dossier</a>
+      <a class="drawer-nav" href="/treatment-gap-analysis">Treatment Gap Analysis</a>
+      <a class="drawer-nav" href="/packages">Case Packages &amp; Bundles</a>
+      <a class="drawer-nav" href="/white-label">White-Label for LNC Firms</a>
+      <div class="drawer-section-label">Practice Areas</div>
+      <a class="drawer-nav" href="/personal-injury">Personal Injury</a>
+      <a class="drawer-nav" href="/medical-malpractice">Medical Malpractice</a>
+      <a class="drawer-nav" href="/bad-faith-insurance">Bad Faith Litigation</a>
+      <a class="drawer-nav" href="/workers-compensation">Workers Compensation Defense</a>
+      <a class="drawer-nav" href="/mass-tort-mdl">Mass Tort / MDL</a>
+      <div class="drawer-section-label">Firm</div>
+      <a class="drawer-nav" href="/why">Why Us</a>
+      <a class="drawer-nav" href="/samples">Samples</a>
+      <a class="drawer-nav" href="/about">About</a>
+      <a class="drawer-nav" href="/faq">FAQ</a>
+      <a class="drawer-nav" href="/contact">Contact</a>
+    </div>
+    <a class="drawer-cta" href="/intake">Request Case Review</a>
+  </div>
+</div>
+
+<div id="p-home" class="page">
+<div class="home-hero">
+  <div class="wrap">
+    <div class="label">Physician-led case intelligence for litigation</div>
+    <h1 style="margin-top:14px">The clinical story inside the<br>medical record <em>determines the case.</em></h1>
+    <p class="hero-lede">Medisprudence reads it with physician judgment, payer-side experience, and litigation awareness — connecting clinical facts to causation pressure points, treatment vulnerabilities, defense review logic, IME weaknesses, and expert-readiness decisions.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/intake">Request Case Review</a>
+      <a class="btn btn-ghost" href="/samples">View Sample Deliverables</a>
+    </div>
+    <div class="hero-proof">
+      <div><div class="hp-num">3,000+</div><div class="hp-label">Cases reviewed from inside a payer</div></div>
+      <div><div class="hp-num">48 hrs</div><div class="hp-label">Defense Medical Lens turnaround</div></div>
+      <div><div class="hp-num">72 hrs</div><div class="hp-label">Case viability screening</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="diff-strip">
+      <div class="diff-byline">The Medisprudence Difference</div>
+      <h3>Our physician reviewed 3,000+ cases from inside a major US commercial payer. No competitor in this market has that background.</h3>
+      <p style="margin-top:12px;font-size:15px;max-width:700px;color:var(--ink)">Our founding physician served as a utilization management physician for a major US commercial payer — applying InterQual and MCG criteria to real claims, making coverage determinations, and understanding exactly how defense-side medical reviews are constructed and where they are vulnerable. When Medisprudence evaluates an IME report, maps treatment documentation gaps, or projects defense medical pressure points before mediation, that analysis is grounded in operational knowledge of the review methodology — not inference from the outside.</p>
+      <div style="margin-top:18px"><a class="btn btn-ghost" href="/about">Read the Founder&#8217;s Background &#8594;</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-tight" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="label">Services</div>
+    <h2 style="margin:10px 0 24px;font-size:clamp(22px,3vw,36px)">Every service maps to a case decision moment</h2>
+    <div class="card-grid card-grid-4" style="margin-bottom:14px">
+      <a class="card card-teal" href="/ime-deconstruction">
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></div>
+        <h4>IME Report Deconstruction</h4>
+        <p>Every unsupported assertion, omitted fact, internal contradiction, and 20+ physician-authored deposition questions.</p>
+        <div class="card-price">From $500 &middot; 3&#8211;5 days</div>
+      </a>
+      <a class="card" href="/case-viability-screening">
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <h4>Case Viability Screening</h4>
+        <p>Does the record support the case theory? Pre-expert intelligence calibrated to how the other side will challenge it.</p>
+        <div class="card-price">From $350 &middot; 72 hours</div>
+      </a>
+      <a class="card" href="/full-intelligence-report">
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
+        <h4>Full Intelligence Report (CMIP&#8482;)</h4>
+        <p>Seven-component report: chronology, coherence map, pre-existing dossier, gap analysis, defense vulnerability, expert brief.</p>
+        <div class="card-price">From $1,500 &middot; 5&#8211;10 days</div>
+      </a>
+      <a class="card" href="/defense-medical-lens">
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></div>
+        <h4>Defense Medical Lens&#8482;</h4>
+        <p>Pre-mediation reconstruction of how a defense reviewer evaluates the record &#8212; built by someone who performed that role.</p>
+        <div class="card-price">From $400 add-on &middot; 48 hrs</div>
+      </a>
+    </div>
+    <div class="card-grid card-grid-4">
+      <a class="card" href="/defense-vulnerability-analysis"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>Defense Vulnerability Analysis</h4><p>Ranked map of where the record is most exposed to challenge.</p><div class="card-price">Included in CMIP</div></a>
+      <a class="card" href="/expert-readiness-brief"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></div><h4>Expert Readiness Brief</h4><p>Right specialty, right documentation, Daubert readiness &#8212; before you commit the expert budget.</p><div class="card-price">Included in CMIP</div></a>
+      <a class="card" href="/pre-existing-condition-dossier"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><h4>Pre-existing Condition Dossier</h4><p>Documents what the defense will argue about prior pathology &#8212; and what reduces its impact.</p><div class="card-price">Included in CMIP</div></a>
+      <a class="card" href="/white-label"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>White-Label for LNC Firms</h4><p>Physician intelligence delivered under your brand.</p><div class="card-price">Custom pricing</div></a>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="label">Case Packages</div>
+    <h2 style="margin:10px 0 6px;font-size:clamp(22px,3vw,36px)">One decision. One invoice. One case cost line item.</h2>
+    <p style="font-size:17px;color:var(--ink);max-width:640px;margin-bottom:28px">Bundled packages are priced below à la carte rates and designed to advance as a single case cost — no per-service decisions, no multiple invoices.</p>
+    <div class="pkg-grid">
+      <div class="pkg-card pkg-featured">
+        <span class="pkg-badge">Most Popular</span>
+        <div class="pkg-title">Full Case Workup</div>
+        <div class="pkg-sub">Complete pre-expert intelligence in one engagement — from case viability through IME deconstruction and defense simulation.</div>
+        <ul class="pkg-includes">
+          <li>Case Viability Screening (CVA™) — 72 hrs</li>
+          <li>IME Report Deconstruction — 3–5 days</li>
+          <li>Defense Medical Lens™ add-on — 48 hrs</li>
+        </ul>
+        <div class="pkg-price-row"><div class="pkg-price">From $1,100</div><div class="pkg-was">$1,250</div><div class="pkg-save">Save $150</div></div>
+        <div class="pkg-case-cost">Advanceable as a single case cost line item · Recoverable at settlement in contingency-fee matters</div>
+        <a class="btn btn-teal" href="/packages" style="justify-content:center">View Package Details &#8594;</a>
+      </div>
+      <div class="pkg-card">
+        <span class="pkg-badge-muted">IME + Defense</span>
+        <div class="pkg-title">IME Response Package</div>
+        <div class="pkg-sub">You've received a defense IME. This delivers the deconstruction and the full defense medical picture — in one combined engagement.</div>
+        <ul class="pkg-includes">
+          <li>IME Report Deconstruction — 3–5 days</li>
+          <li>Defense Medical Lens™ add-on — 48 hrs</li>
+        </ul>
+        <div class="pkg-price-row"><div class="pkg-price">From $800</div><div class="pkg-was">$900</div><div class="pkg-save">Save $100</div></div>
+        <div class="pkg-case-cost">Advanceable as a single case cost line item · Recoverable at settlement in contingency-fee matters</div>
+        <a class="btn btn-primary" href="/packages" style="justify-content:center">View Package Details &#8594;</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:6px"><a class="btn btn-ghost" href="/packages">All packages and LNC retainer options &#8594;</a></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="label">Practice Areas</div>
+    <h2 style="margin:10px 0 24px;font-size:clamp(22px,3vw,36px)">Built for these types of cases</h2>
+    <div class="card-grid card-grid-3" style="gap:12px">
+      <a class="card" href="/personal-injury"><h4>Personal Injury &#8212; Auto &amp; Trucking</h4><p>Spine, TBI, and soft-tissue cases with contested IMEs and causation disputes.</p></a>
+      <a class="card" href="/medical-malpractice"><h4>Medical Malpractice</h4><p>Standard-of-care documentation analysis and pre-expert case intelligence.</p></a>
+      <a class="card" href="/bad-faith-insurance"><h4>Bad Faith Insurance Litigation</h4><p>When a patient sues the insurer &#8212; our payer reviewer background is directly material.</p></a>
+      <a class="card" href="/workers-compensation"><h4>Workers Compensation Defense</h4><p>Causation disputes and treatment necessity analysis for WC defense teams.</p></a>
+      <a class="card" href="/mass-tort-mdl"><h4>Mass Tort / MDL</h4><p>Bellwether case viability screening before expert and bellwether commitment.</p></a>
+      <div class="card" style="cursor:default;pointer-events:none"><h4 style="color:var(--ink-2)">Both Sides</h4><p>Medisprudence serves plaintiff and defense under conflict-screened, separate engagements.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-tight" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="label">How it works</div>
+    <h2 style="margin:10px 0 24px;font-size:clamp(20px,2.5vw,32px)">Three steps. No PHI required to start.</h2>
+    <div class="steps">
+      <div class="step"><h4>Send only general facts</h4><p>Case type, injury, IME status, approximate record volume, deadline, and the decision you need to make. Do not send PHI by email.</p></div>
+      <div class="step"><h4>Scope and safeguards confirmed</h4><p>Medisprudence confirms fit, deliverable type, fee, turnaround, and conflict status. BAA and engagement terms handled before records are sent.</p></div>
+      <div class="step"><h4>Physician-authored report delivered</h4><p>Source-referenced, component-disclosed, structured for the specific case decision: viability, IME response, expert readiness, or mediation preparation.</p></div>
+    </div>
+    <div style="margin-top:24px;text-align:center"><a class="btn btn-primary" href="/intake">Start with a No-PHI Inquiry &#8594;</a></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="label">Results</div>
+    <h2 style="margin:10px 0 24px;font-size:clamp(20px,2.5vw,32px)">What attorneys receive</h2>
+    <div class="card-grid card-grid-3">
+      <div class="result-card"><div class="rc-type">Personal Injury &middot; Spine &middot; Florida</div><div class="rc-headline">IME Deconstruction &#8212; ACDF Dispute</div><p class="rc-outcome">Defense orthopedic IME documented positive SLR at 40&deg;, diminished reflex, antalgic gait &#8212; then concluded &#8220;primarily subjective.&#8221; Report identified internal contradiction. 22 deposition questions delivered.</p></div>
+      <div class="result-card"><div class="rc-type">Medical Malpractice &middot; Delayed Diagnosis &middot; New York</div><div class="rc-headline">Case Viability Screening &#8212; Colorectal Cancer</div><p class="rc-outcome">14-month diagnostic delay. CVA identified three documentation gaps and mapped which standard-of-care departures were documentable pre-expert. Attorney retained correct specialist on first engagement.</p></div>
+      <div class="result-card"><div class="rc-type">Bad Faith Litigation &middot; Texas</div><div class="rc-headline">Defense Medical Lens&#8482; &#8212; Pre-Mediation</div><p class="rc-outcome">Retained 30 days before mediation. Defense Medical Lens identified two ranked pressure points. Attorney addressed both in supplemental treating physician documentation. Settled above reserve.</p></div>
+    </div>
+    <div style="margin-top:20px;text-align:center"><a class="btn btn-ghost" href="/samples">View All Sample Deliverables &#8594;</a></div>
+  </div>
+</div>
+
+<div class="cta-bar">
+  <div class="wrap" style="text-align:center">
+    <h2>Know the medical vulnerabilities before you commit the expert budget.</h2>
+    <p>Start with a no-PHI inquiry. No records required to get a scope and pricing confirmation.</p>
+    <a class="btn btn-teal" href="/intake">Request Case Review</a>
+  </div>
+</div>
+</div>
+<div id="p-why" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">Why Medisprudence</div>
+    <h1 style="margin-top:10px">The practical differences are rooted in background and method.</h1>
+    <p class="hero-sub">Not a positioning claim &#8212; a factual comparison. Four alternatives. One background that no alternative has.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="diff-strip">
+      <div class="diff-byline">The One Differentiator No Competitor Has</div>
+      <h3>Our physician has sat inside a commercial payer. Not as a consultant &#8212; as the reviewer making denial decisions.</h3>
+      <p style="margin-top:14px;font-size:15px;line-height:1.75;max-width:720px;color:var(--ink)">Our founding physician reviewed 3,000+ cases as a utilization management physician for a major US commercial payer, applying InterQual and MCG criteria under real claims conditions. He was the physician whose opinion determined whether a claim was paid or denied. When he identifies a documentation gap as a &#8220;High-pressure&#8221; vulnerability, he is applying the same criteria he applied 3,000+ times on the other side. Every other physician-legal consulting firm in this market approaches cases from the outside. None of them have sat inside a payer&#8217;s utilization management operation.</p>
+    </div>
+    <h3 style="font-size:clamp(18px,2.5vw,26px);margin:32px 0 16px">18-dimension comparison</h3>
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead><tr>
+          <th style="width:22%">Capability</th>
+          <th class="col-us">Medisprudence</th>
+          <th>Legal Nurse Consultants</th>
+          <th>AI Chronology Platforms</th>
+          <th>Treating Physician</th>
+          <th>Expert Witness Networks</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Core identity</td><td class="col-us">Physician-authored, payer-review-informed case intelligence</td><td>Nurse-level record review and chronology</td><td>AI-powered extraction and organization</td><td>Clinical care documentation</td><td>Expert sourcing and testimony support</td></tr>
+          <tr><td>Payer-side experience</td><td class="col-us"><span class="chk">&#10003;</span> 3,000+ cases as UM reviewer inside a US commercial payer</td><td><span class="cross">&#10007;</span> No payer reviewer background</td><td><span class="cross">&#10007;</span> Not applicable</td><td><span class="cross">&#10007;</span> Clinical practice only</td><td><span class="cross">&#10007;</span> Not typically available</td></tr>
+          <tr><td>MCG / InterQual criteria knowledge</td><td class="col-us"><span class="chk">&#10003;</span> Applied in active payer review role</td><td><span class="partial">&#9651;</span> Awareness, not application experience</td><td><span class="cross">&#10007;</span> Not applicable</td><td><span class="cross">&#10007;</span> Not typically available</td><td><span class="partial">&#9651;</span> Varies by expert background</td></tr>
+          <tr><td>IME report deconstruction</td><td class="col-us"><span class="chk">&#10003;</span> Unsupported assertions, omitted facts, contradictions, deposition questions</td><td><span class="partial">&#9651;</span> Nurse-level review only</td><td><span class="cross">&#10007;</span> Extraction only</td><td><span class="cross">&#10007;</span> Not IME-focused</td><td><span class="partial">&#9651;</span> Via retaining a separate expert</td></tr>
+          <tr><td>Deposition question authorship</td><td class="col-us"><span class="chk">&#10003;</span> 20+ physician-authored per IME deconstruction</td><td><span class="partial">&#9651;</span> Limited nurse-authored questions</td><td><span class="cross">&#10007;</span> Not available</td><td><span class="cross">&#10007;</span> Not their role</td><td><span class="partial">&#9651;</span> Varies</td></tr>
+          <tr><td>Defense vulnerability mapping</td><td class="col-us"><span class="chk">&#10003;</span> Ranked High/Moderate/Low, utilization-review-informed</td><td><span class="cross">&#10007;</span> Not typically available</td><td><span class="cross">&#10007;</span> Not available</td><td><span class="cross">&#10007;</span> Not their role</td><td><span class="partial">&#9651;</span> At full expert cost</td></tr>
+          <tr><td>Expert readiness guidance</td><td class="col-us"><span class="chk">&#10003;</span> Specialty match, Daubert prep, documentation action list</td><td><span class="partial">&#9651;</span> Referral only, no readiness brief</td><td><span class="cross">&#10007;</span> Not available</td><td><span class="cross">&#10007;</span> Not their role</td><td><span class="partial">&#9651;</span> Sourcing-focused</td></tr>
+          <tr><td>Document authorship</td><td class="col-us">MBBS physician &#8212; final review physician-authored</td><td>Registered nurse</td><td>AI model</td><td>Treating physician (limited role)</td><td>Varies by expert</td></tr>
+          <tr><td>No-PHI intake workflow</td><td class="col-us"><span class="chk">&#10003;</span> Scope confirmed without records &#8212; no PHI by email ever</td><td><span class="partial">&#9651;</span> Varies by firm</td><td><span class="partial">&#9651;</span> Platform-dependent</td><td>Not applicable</td><td><span class="partial">&#9651;</span> Varies</td></tr>
+          <tr><td>Turnaround</td><td class="col-us">72 hrs (CVA) &middot; 48 hrs (Lens) &middot; 3&#8211;5 days (IME) &middot; 5&#8211;10 days (CMIP)</td><td>Varies &#8212; days to weeks</td><td>Hours to days</td><td>Not available</td><td>Weeks minimum</td></tr>
+          <tr><td>Pricing entry point</td><td class="col-us">From $350 (CVA) &middot; $400 add-on (Lens) &middot; $500 (IME)</td><td>Varies &#8212; $75&#8211;$150/hr</td><td>Subscription/per-case</td><td>Not applicable</td><td>Expert retainer $2,000&#8211;$15,000+</td></tr>
+          <tr><td>Pre-mediation adversarial simulation</td><td class="col-us"><span class="chk">&#10003;</span> Defense Medical Lens &#8212; built from inside payer review methodology</td><td><span class="cross">&#10007;</span> Not available</td><td><span class="cross">&#10007;</span> Not available</td><td><span class="cross">&#10007;</span> Not their role</td><td><span class="cross">&#10007;</span> Not available as standalone</td></tr>
+          <tr><td>White-label availability</td><td class="col-us"><span class="chk">&#10003;</span> Available for LNC firms under your brand</td><td>Not applicable</td><td>Platform licensing only</td><td>Not applicable</td><td>Not applicable</td></tr>
+          <tr><td>AI use disclosure</td><td class="col-us"><span class="chk">&#10003;</span> Component-level disclosure on every deliverable</td><td>Varies</td><td>Platform-specific</td><td>Not applicable</td><td>Varies</td></tr>
+          <tr><td>Bad faith insurance litigation support</td><td class="col-us"><span class="chk">&#10003;</span> Denial rationale analysis, criteria application assessment &#8212; from inside payer experience</td><td><span class="cross">&#10007;</span> Not available</td><td><span class="cross">&#10007;</span> Not available</td><td><span class="cross">&#10007;</span> Not applicable</td><td><span class="partial">&#9651;</span> At full expert cost</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:28px;text-align:center">
+      <a class="btn btn-primary" href="/intake">Request Case Review &#8594;</a>
+      <a class="btn btn-ghost" href="/about" style="margin-left:10px">Read the Founder&#8217;s Background</a>
+    </div>
+  </div>
+</div>
+</div>
+<div id="p-results" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">Sample Deliverables</div>
+    <h1 style="margin-top:10px">What attorneys receive from Medisprudence</h1>
+    <p class="hero-sub">Full-format specimen deliverables for every service. All samples use fictional clinical data. Methodology is real. No PHI appears in any sample.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="label" style="margin-bottom:14px">Specimen Deliverables &#8212; Full Format</div>
+    <div class="card-grid card-grid-3" style="margin-bottom:12px">
+      <a class="card card-teal" href="specimens/specimen-ime.html" target="_blank"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></div><h4>IME Report Deconstruction</h4><p>10 sections &#8212; unsupported assertions, omitted facts, internal contradictions, and 20+ deposition questions. Orthopedic spine specimen.</p><div class="card-price">View specimen &#8594;</div></a>
+      <a class="card" href="specimens/specimen-cva.html" target="_blank"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h4>Case Viability Screening (CVA&#8482;)</h4><p>Mechanism assessment, pre-existing analysis, treatment gap mapping, defense review projection, and expert specialty guidance.</p><div class="card-price">View specimen &#8594;</div></a>
+      <a class="card" href="specimens/specimen-dml.html" target="_blank"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></div><h4>Defense Medical Lens&#8482;</h4><p>Ranked pressure points, causation exposure, treatment necessity analysis, documentation action list. Pre-mediation specimen.</p><div class="card-price">View specimen &#8594;</div></a>
+    </div>
+    <div class="card-grid card-grid-3" style="margin-bottom:12px">
+      <a class="card" href="specimens/specimen-cmip-pi.html" target="_blank"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div><h4>Full Intelligence Report &#8212; PI Spine</h4><p>Seven-component CMIP for a personal injury spine matter. All components demonstrated with fictional data. Most complete specimen.</p><div class="card-price">View specimen &#8594;</div></a>
+      <a class="card" href="specimens/specimen-cmip-medmal.html" target="_blank"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div><h4>Full Intelligence Report &#8212; Med-Mal</h4><p>Seven-component CMIP for a medical malpractice delayed-diagnosis matter. Standard-of-care analysis demonstrated.</p><div class="card-price">View specimen &#8594;</div></a>
+      <a class="card" href="specimens/specimen-cmip-pi.html" target="_blank" style="border-left:3px solid var(--ink-3)"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>Defense Vulnerability Analysis</h4><p>Component 06 of the CMIP specimen &#8212; ranked High / Moderate / Low pressure mapping across the full record.</p><div class="card-price">View in CMIP specimen &#8594;</div></a>
+    </div>
+    <div class="card-grid card-grid-3" style="margin-bottom:36px">
+      <a class="card" href="specimens/specimen-cmip-pi.html" target="_blank" style="border-left:3px solid var(--ink-3)"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></div><h4>Expert Readiness Brief</h4><p>Component 07 of the CMIP specimen &#8212; specialty match, key record issues, Daubert readiness assessment, and documentation action list.</p><div class="card-price">View in CMIP specimen &#8594;</div></a>
+      <a class="card" href="specimens/specimen-cmip-pi.html" target="_blank" style="border-left:3px solid var(--ink-3)"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><h4>Pre-existing Condition Dossier</h4><p>Component 04 of the CMIP specimen &#8212; prior pathology documentation impact analysis with defense weighting assessment.</p><div class="card-price">View in CMIP specimen &#8594;</div></a>
+      <a class="card" href="specimens/specimen-cmip-pi.html" target="_blank" style="border-left:3px solid var(--ink-3)"><div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Treatment Gap Analysis</h4><p>Component 05 of the CMIP specimen &#8212; every gap mapped with mediation and trial pressure intensity ratings.</p><div class="card-price">View in CMIP specimen &#8594;</div></a>
+    </div>
+    <div style="background:var(--bg-alt);border-radius:var(--r-lg);padding:18px 24px;margin-bottom:40px;border:1px solid var(--rule-md)">
+      <p style="font-size:15.5px;color:var(--ink);margin:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg> <strong style="color:var(--ink)">Defense Vulnerability Analysis, Expert Readiness Brief, Pre-existing Condition Dossier, and Treatment Gap Analysis</strong> are components within the Full Intelligence Report (CMIP&#8482;). They are demonstrated in the CMIP specimens above. Each is also available as a standalone service &#8212; contact for pricing.</p>
+    </div>
+
+    <div class="label" style="margin-bottom:14px">IME Deconstruction Outcomes</div>
+    <div class="card-grid card-grid-3" style="margin-bottom:32px">
+      <div class="result-card"><div class="rc-type">Personal Injury &middot; Lumbar Spine &middot; Florida</div><div class="rc-headline">Defense Orthopedic IME &#8212; Internal Contradiction</div><p class="rc-outcome">IME documented positive SLR at 40&deg;, diminished ankle reflex, antalgic gait (p.7). Concluded &#8220;primarily subjective with limited objective findings&#8221; (p.12). Report identified internal contradiction. 22 deposition questions delivered.</p></div>
+      <div class="result-card"><div class="rc-type">Personal Injury &middot; Cervical Spine &middot; Texas</div><div class="rc-headline">Defense Neurology IME &#8212; Omitted Imaging</div><p class="rc-outcome">IME stated &#8220;no causal relationship.&#8221; Pre-accident MRI showed no herniation at C5-C6. Post-accident MRI showed new herniation with nerve root compression. IME report did not acknowledge or compare the two studies. 8 omitted facts identified.</p></div>
+      <div class="result-card"><div class="rc-type">Med-Mal &middot; Surgical &middot; New York</div><div class="rc-headline">Defense Expert Report &#8212; Methodology Gaps</div><p class="rc-outcome">Defense expert concluded the surgical complication was &#8220;within the acceptable range of outcomes.&#8221; Report identified that the review did not address the operative note documentation of the departure from the standard surgical sequence. Four methodology gaps identified.</p></div>
+    </div>
+
+    <div class="label" style="margin-bottom:14px">Case Viability Screening Outcomes</div>
+    <div class="card-grid card-grid-3" style="margin-bottom:32px">
+      <div class="result-card"><div class="rc-type">MVA &middot; Cervical Radiculopathy &middot; California</div><div class="rc-headline">CVA &#8212; ACDF Surgical Case</div><p class="rc-outcome">44-year-old female, rear-end at 40 mph. CVA identified: conservative care documented and completed (strong); objective imaging present and level-concordant (strong); EMG report not cross-referenced in surgeon&#8217;s note (addressable gap); pre-existing C5-C6 degeneration not addressed (high-pressure vulnerability).</p></div>
+      <div class="result-card"><div class="rc-type">Med-Mal &middot; Delayed Diagnosis &middot; Pennsylvania</div><div class="rc-headline">CVA &#8212; Colorectal Cancer Failure to Diagnose</div><p class="rc-outcome">52-year-old male, 14-month diagnostic delay. CVA identified three documentation gaps. Correct expert: colorectal surgeon, not oncologist. Documentation action list provided before expert engagement.</p></div>
+      <div class="result-card"><div class="rc-type">TBI &middot; Construction &middot; Georgia</div><div class="rc-headline">CVA &#8212; Traumatic Brain Injury</div><p class="rc-outcome">38-year-old construction foreman, pedestrian vs. commercial vehicle. TBI with epidural hematoma, tibial plateau fracture, hearing loss. CVA identified strong causation documentation with two addressable gaps before expert engagement.</p></div>
+    </div>
+
+    <div class="label" style="margin-bottom:14px">Defense Medical Lens&#8482; Outcomes</div>
+    <div class="card-grid card-grid-2">
+      <div class="result-card"><div class="rc-type">Bad Faith &middot; Health Insurance Denial &middot; Texas</div><div class="rc-headline">Defense Medical Lens &#8212; Pre-Mediation Bad Faith Case</div><p class="rc-outcome">Plaintiff attorney retained 30 days before mediation. Defense Medical Lens identified two ranked High-pressure points. Attorney addressed both in supplemental treating physician documentation before mediation. Settled above reserve.</p></div>
+      <div class="result-card"><div class="rc-type">Personal Injury &middot; Soft Tissue &middot; Florida</div><div class="rc-headline">Defense Medical Lens &#8212; High-Bill Soft Tissue Case</div><p class="rc-outcome">Ranked High: functional impairment documentation inconsistent across three treating providers. Ranked Moderate: treatment frequency not supported by documented pain levels. Attorney used documentation action list to obtain updated treating physician records before mediation conference.</p></div>
+    </div>
+    <div style="margin-top:32px;text-align:center"><a class="btn btn-primary" href="/intake">Request Case Review &#8594;</a></div>
+  </div>
+</div>
+</div>
+<div id="p-about" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">About Medisprudence</div>
+    <h1 style="margin-top:10px">Built from the inside out.</h1>
+    <p class="hero-sub">Medisprudence exists because of one specific professional experience that no physician-legal consulting competitor has: a physician who reviewed 3,000+ claims from inside a major US commercial payer before entering the litigation support market.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-card">
+      <div class="founder-avatar">AK</div>
+      <div>
+        <h3 style="font-size:clamp(20px,2.5vw,32px);margin-bottom:5px">Dr. Arun Kasturi, MBBS</h3>
+        <div class="label" style="margin-bottom:14px">Founder &#8212; Medisprudence</div>
+        <p style="font-size:15px;color:var(--ink);line-height:1.75;max-width:680px">Dr. Kasturi is an MBBS physician with a background that spans clinical medicine, utilization management inside a US commercial payer, and legal training (LLB). He founded Medisprudence to bring the documentation-threshold discipline developed inside payer review into the litigation support market &#8212; where that perspective is directly useful to attorneys and exactly what no competitor currently offers.</p>
+      </div>
+    </div>
+    <div class="credential-grid">
+      <div class="credential"><div class="cr-label">Clinical</div><p>MBBS physician with clinical experience across internal medicine and multi-system pathology. Foundation for causation, mechanism, and treatment-record analysis.</p></div>
+      <div class="credential"><div class="cr-label">Payer Review &#8212; The Defining Credential</div><p>Physician reviewer inside a major US commercial payer. Applied InterQual and MCG criteria across 3,000+ cases. This is the background no competitor has.</p></div>
+      <div class="credential"><div class="cr-label">Legal Training</div><p>LLB (in progress). Analysis is framed around litigation decisions &#8212; not patient treatment decisions. Work product is designed for attorney use.</p></div>
+      <div class="credential"><div class="cr-label">Litigation Framework</div><p>Understanding of payer utilization management operations, claims evaluation, and how defense medical theories are constructed from the inside.</p></div>
+      <div class="credential"><div class="cr-label">Disclosure-First Operation</div><p>India-based operation disclosed before records are accepted. Cross-border processing disclosed before PHI is transmitted. AI use disclosed at the component level on every deliverable.</p></div>
+      <div class="credential"><div class="cr-label">Role Boundary</div><p>Medisprudence provides medical consulting under attorney direction. No legal advice, no patient care, no independent expert testimony, no court appearances unless separately contracted.</p></div>
+    </div>
+    <div style="margin-top:40px;background:var(--bg-alt);border-radius:var(--r-xl);padding:32px 40px">
+      <div class="label">The Background That Defines Medisprudence</div>
+      <h3 style="font-size:clamp(18px,2.5vw,26px);margin:10px 0 16px">What 3,000+ payer reviews teach you about litigation</h3>
+      <p style="font-size:15px;color:var(--ink);line-height:1.8;max-width:740px">Inside a commercial payer, physician reviewers evaluate thousands of claims against specific criteria &#8212; InterQual levels of care, MCG surgical appropriateness guidelines, and payer-specific medical necessity thresholds. The question in every review is the same question a defense IME physician asks: does this record document the clinical necessity for the treatment claimed?</p>
+      <p style="font-size:15px;color:var(--ink);line-height:1.8;max-width:740px;margin-top:14px">After 3,000+ of those reviews, the documentation patterns that make a claim defensible and the gaps that make it vulnerable become precise and specific knowledge &#8212; not clinical opinion. You know exactly which absence of conservative care documentation will trigger a surgery denial. You know which imaging findings without EMG cross-reference leave a radiculopathy claim exposed. You know which treatment gap lengths require clinical explanation and which ones do not.</p>
+      <p style="font-size:15.5px;color:var(--ink);margin-top:16px;font-style:italic">Medisprudence does not use confidential, proprietary, or plan-specific information from any current or prior employer. All analysis is based on publicly available clinical guidelines and general utilization review methodology.</p>
+    </div>
+    <div class="svc-detail-grid" style="margin-top:28px">
+      <div style="background:var(--bg-alt);border-radius:var(--r-lg);padding:24px">
+        <h4 style="margin-bottom:14px;color:var(--teal)">Cases Medisprudence reviews</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:9px">
+          <li style="font-size:15.5px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>PI and med-mal matters with disputed causation, injury severity, or treatment necessity</li>
+          <li style="font-size:15.5px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Cases where a defense IME has been received</li>
+          <li style="font-size:15.5px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Pre-existing condition arguments, treatment gaps, surgery disputes, TBI/spine/ortho</li>
+          <li style="font-size:15.5px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Matters where counsel is deciding whether to retain an expert</li>
+          <li style="font-size:15.5px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Cases approaching mediation where defense medical theory is unknown</li>
+          <li style="font-size:15.5px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Bad faith insurance denial litigation where criteria application is disputed</li>
+        </ul>
+      </div>
+      <div style="background:rgba(217,48,37,.04);border-radius:var(--r-lg);padding:24px">
+        <h4 style="margin-bottom:14px;color:var(--danger)">Work Medisprudence declines</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:9px">
+          <li style="font-size:15.5px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--danger)">&#10007;</span>Same-day deadlines where careful physician review is not possible</li>
+          <li style="font-size:15.5px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--danger)">&#10007;</span>Requests for legal strategy, damages valuation, or court filings</li>
+          <li style="font-size:15.5px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--danger)">&#10007;</span>Patient care, treating advice, or independent medical examinations</li>
+          <li style="font-size:15.5px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--danger)">&#10007;</span>Undisclosed expert testimony or expert affidavits</li>
+          <li style="font-size:15.5px;color:var(--ink);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--danger)">&#10007;</span>Pure chronology-only projects with no analytical layer needed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="p-faq" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">Frequently Asked Questions</div>
+    <h1 style="margin-top:10px">Questions attorneys ask before engaging</h1>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap" style="max-width:760px">
+    <div class="label" style="margin-bottom:14px">About the Service</div><div class="faq-item"><div class="faq-q">What exactly does Medisprudence deliver &#8212; and what does it not deliver? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Medisprudence delivers physician-authored medical case intelligence: IME report deconstruction, case viability screening, defense vulnerability analysis, Defense Medical Lens pre-mediation reports, expert readiness briefs, and related intelligence documents. It does not deliver legal advice, legal strategy, damages valuation, expert testimony, expert affidavits, certificates of merit, court appearances, patient care, or independent medical examinations. All work is delivered under attorney direction.</p></div></div><div class="faq-item"><div class="faq-q">How is Medisprudence different from a legal nurse consultant? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Legal nurse consultants are registered nurses who review medical records and produce chronologies and summaries. That is valuable for extraction and organization. Medisprudence adds the physician interpretation layer &#8212; what the organized record means for causation, for the IME response, for the expert, and for the demand. More specifically, Medisprudence&#8217;s founding physician has reviewed 3,000+ cases as a utilization management physician inside a US commercial payer &#8212; a background no LNC firm has. Our analysis is calibrated to how defense reviewers actually evaluate records, not just what the clinical picture shows.</p></div></div><div class="faq-item"><div class="faq-q">How is Medisprudence different from retaining a medical expert witness? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>A medical expert witness is a testifying expert &#8212; retained for opinion, deposition, and trial. Medisprudence is a non-testifying consulting physician &#8212; retained for pre-expert case intelligence before the expert engagement. The two are complementary, not competing: Medisprudence helps you decide whether to retain an expert, which specialty you need, and what documentation must be in place before the expert reviews the file. The cost of Medisprudence is a fraction of most expert retainer entry costs.</p></div></div><div class="faq-item"><div class="faq-q">What is the Defense Medical Lens&#8482; and why can&#8217;t I get this elsewhere? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>The Defense Medical Lens is a physician-authored simulation of how a defense-side medical reviewer would evaluate the record &#8212; built from the perspective of someone who performed that exact review function. Our founding physician reviewed 3,000+ claims inside a US commercial payer, applying InterQual and MCG criteria under real claims conditions. It is a reconstruction of the actual methodology used by defense reviewers &#8212; because the founding physician applied that methodology himself. No other physician-legal consulting firm in the market has this background.</p></div></div><div class="faq-item"><div class="faq-q">Can Medisprudence serve both plaintiff and defense? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Yes. Medisprudence serves both plaintiff and defense clients under conflict-screened, separate engagements. We do not serve both sides of the same matter. Conflict checks are conducted at intake. Defense and TPA engagements are available for reserve-setting medical exposure analysis, pre-mediation medical review, and WC causation assessment.</p></div></div><div class="label" style="margin-bottom:14px;margin-top:28px">About Privacy and Process</div><div class="faq-item"><div class="faq-q">Do I have to send records to start? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>No. The first step is deliberately low-friction. You send only general case facts &#8212; case type, injury, IME status, approximate record volume, deadline, and the decision you need to make. Do not send PHI by email. Medisprudence confirms scope, pricing, turnaround, and conflict status. BAA and engagement terms are confirmed before any records are transmitted.</p></div></div><div class="faq-item"><div class="faq-q">Medisprudence is operated from India. Does that create any issues? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Cross-border processing is disclosed before any records are accepted and before engagement is formed. This is a deliberate transparency policy. The BAA executed before engagement governs PHI handling under the cross-border framework. All AI-assisted extraction uses systems covered by appropriate contractual safeguards. PHI is not entered into public consumer AI tools. Records are not used for model training.</p></div></div><div class="faq-item"><div class="faq-q">How does Medisprudence handle AI in its work product? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>AI-assisted extraction is used in Stage 1 of the workflow &#8212; capturing dates, providers, diagnoses, procedures, and page references from medical records. This produces structured data, not intelligence. Stage 2 is physician-authored: the founding physician reviews extracted data against original records and applies all clinical intelligence layers. Every deliverable identifies AI-assisted versus physician-authored components at the component level.</p></div></div><div class="faq-item"><div class="faq-q">Does Medisprudence provide expert testimony? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>No. Medisprudence does not provide independent expert testimony, expert affidavits, certificates of merit, or court-facing causation opinions. This is by design. The non-testifying consulting role is structurally distinct from the expert witness role &#8212; it eliminates conflicts, allows more candid analysis, and keeps pricing accessible.</p></div></div><div class="faq-item"><div class="faq-q">What is the typical turnaround? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Case Viability Screening (CVA): 72 hours standard. IME Report Deconstruction: 3&#8211;5 business days. Defense Medical Lens add-on: 48 hours. Defense Medical Lens standalone: 3&#8211;4 days. Full Intelligence Report (CMIP): 5&#8211;10 business days depending on record volume. Rush options are available and confirmed at scope.</p></div></div><div class="faq-item"><div class="faq-q">What does it cost? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Case Viability Screening starts at $350. IME Report Deconstruction starts at $500. Defense Medical Lens starts at $400 as an add-on, $950 standalone. Full Intelligence Report (CMIP) starts at $1,500. All fees are confirmed at scope. No contingent-fee arrangements are available. <a href="/packages" style="color:var(--teal)">Bundled packages are available from $800</a> — below à la carte rates, structured as a single case cost advance.</p></div></div>
+    <div class="faq-item"><div class="faq-q">Can fees be advanced as case costs and recovered at settlement? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>Yes &#8212; and this is how most plaintiff attorneys structure Medisprudence fees. In a contingency-fee practice, Medisprudence fees are advanced as case costs against the matter and recovered from settlement proceeds, the same way you would advance expert consultation, medical record retrieval, or investigation costs. Medisprudence is paid at invoice &#8212; the case cost recovery is your firm&#8217;s internal accounting decision, not a Medisprudence payment arrangement. This means there is no new budget category required: Medisprudence fees fit the case cost line item that already exists in every plaintiff practice.</p></div></div>
+    <div class="faq-item"><div class="faq-q">Is deferred billing available for established clients? <span class="faq-chevron">&#9662;</span></div><div class="faq-a"><p>For established attorney clients on confirmed retainer arrangements, deferred billing &#8212; where the engagement fee is invoiced at case resolution rather than upon delivery &#8212; can be discussed at scope confirmation. This is not available for first-time engagements. Contact Medisprudence to discuss whether your firm&#8217;s case volume and practice area make a deferred billing arrangement appropriate.</p></div></div>
+    <div style="margin-top:36px;background:var(--bg-alt);border-radius:var(--r-xl);padding:28px 32px;text-align:center">
+      <h3 style="font-size:20px;margin-bottom:10px">Still have questions?</h3>
+      <p style="margin-bottom:16px">Start with a no-PHI inquiry &#8212; describe the case type and the decision you need to make.</p>
+      <a class="btn btn-primary" href="/intake">Request Case Review</a>
+      <a class="btn btn-ghost" href="/contact" style="margin-left:10px">Send a Message</a>
+    </div>
+  </div>
+</div>
+</div>
+<div id="p-contact" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">Contact</div>
+    <h1 style="margin-top:10px">Get in touch</h1>
+    <p class="hero-sub">For general inquiries, partnership discussions, or questions before submitting a case review request.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="svc-detail-grid">
+      <div>
+        <h3 style="font-size:20px;margin-bottom:18px">Direct contact</h3>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="padding:18px;background:var(--bg-alt);border-radius:var(--r-md)"><div class="label-dim" style="margin-bottom:5px">Email</div><a href="mailto:contact@medisprudence.com" style="font-size:15px;color:var(--teal)">contact@medisprudence.com</a><p style="font-size:13px;margin-top:5px">For general inquiries. Do not send PHI by email.</p></div>
+          <div style="padding:18px;background:var(--bg-alt);border-radius:var(--r-md)"><div class="label-dim" style="margin-bottom:5px">Case Review Requests</div><p style="font-size:14px;color:var(--ink)">Use the <a href="/intake" style="color:var(--teal)">Request Case Review form</a> &#8212; it structures the information Medisprudence needs to confirm scope without PHI.</p></div>
+          <div style="padding:18px;background:var(--bg-alt);border-radius:var(--r-md)"><div class="label-dim" style="margin-bottom:5px">Partnership &amp; White-Label</div><p style="font-size:14px;color:var(--ink)">LNC firms interested in white-label arrangements: email with subject line &#8220;Partnership Inquiry.&#8221;</p></div>
+          <div style="padding:18px;background:var(--bg-alt);border-radius:var(--r-md)"><div class="label-dim" style="margin-bottom:5px">Response Time</div><p style="font-size:14px;color:var(--ink)">General inquiries: within 1 business day. Case review requests via the intake form: same business day scope confirmation.</p></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:20px;margin-bottom:18px">Before you write</h3>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="when-item"><p><strong>For case review:</strong> Use the Request Case Review form &#8212; it gathers the right information without requiring PHI upfront.</p></div>
+          <div class="when-item"><p><strong>For scope questions:</strong> Describe the case type, the injury, the decision you need to make, and your deadline.</p></div>
+          <div class="when-item"><p><strong>For white-label inquiry:</strong> Describe your firm, your attorney client volume, and the services where you currently refer out physician-level analysis requests.</p></div>
+          <div class="when-item"><p><strong>For bad faith cases:</strong> Mention the denial type, the criteria system referenced in the denial letter, and whether you have the peer-to-peer review documentation.</p></div>
+        </div>
+        <a class="btn btn-primary" href="/intake" style="width:100%;margin-top:20px;justify-content:center">Request Case Review &#8594;</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="p-intake" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">No-PHI Intake &#8212; Step 1 of 3</div>
+    <h1 style="margin-top:10px">Request Case Review</h1>
+    <p class="hero-sub">Do not send PHI by email or through this form. Describe the case type, injury, and the decision you need to make. Medisprudence will confirm scope, pricing, and conflict status before any records are requested.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="svc-detail-grid">
+      <div>
+        <div class="intake-form" style="max-width:100%">
+
+          <!-- SUCCESS STATE -->
+          <div id="intake-success" style="display:none;padding:40px 0;text-align:center">
+            <div style="width:52px;height:52px;background:var(--teal-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:22px">&#10003;</div>
+            <h3 style="font-size:22px;margin-bottom:10px">Received</h3>
+            <p style="font-size:16px;color:var(--ink);max-width:400px;margin:0 auto">Medisprudence will respond within one business day with scope confirmation, fee range, turnaround, and conflict status.</p>
+            <p style="font-size:13px;color:var(--ink-3);margin-top:14px">Do not send PHI by email before a BAA is in place.</p>
+            <button type="button" onclick="(function(){document.getElementById('intake-form-el').reset();document.getElementById('intake-form-el').style.display='block';document.getElementById('intake-success').style.display='none';window._intakeSubmitting=false;updateIntakeForm();})()" style="margin-top:20px;background:none;border:1px solid var(--rule-md);border-radius:999px;padding:9px 22px;font-size:13px;font-weight:500;color:var(--ink-2);cursor:pointer;font-family:var(--sans);transition:.2s" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal)'" onmouseout="this.style.borderColor='var(--rule-md)';this.style.color='var(--ink-2)'">Submit another inquiry</button>
+          </div>
+
+          <!-- FORM -->
+          <form id="intake-form-el" onsubmit="submitIntakeForm(event)">
+
+            <!-- BLOCK 1 — Always shown -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f_name">Your Name <span style="color:var(--danger)">*</span></label>
+                <input type="text" id="f_name" name="name" required placeholder="First and last name">
+              </div>
+              <div class="form-group">
+                <label for="f_email">Work Email <span style="color:var(--danger)">*</span></label>
+                <input type="email" id="f_email" name="email" required placeholder="you@lawfirm.com">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f_firm">Firm or Company Name <span style="color:var(--danger)">*</span></label>
+                <input type="text" id="f_firm" name="firm" required placeholder="Law firm or organisation">
+              </div>
+              <div class="form-group">
+                <label for="f_role">Your Role <span style="color:var(--danger)">*</span></label>
+                <select id="f_role" name="role" required>
+                  <option value="">— Select —</option>
+                  <option>Plaintiff Attorney</option>
+                  <option>Defense Attorney</option>
+                  <option>Paralegal or Case Manager</option>
+                  <option>Legal Nurse Consultant</option>
+                  <option>TPA or Claims Manager</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="f_service">Service Requested <span style="color:var(--danger)">*</span></label>
+              <select id="f_service" name="service_requested" required onchange="updateIntakeForm()">
+                <option value="">— Select a service —</option>
+                <optgroup label="Packages">
+                <option value="pkg-full">Full Case Workup Package (CVA + IME + Defense Medical Lens)</option>
+                <option value="pkg-ime">IME Response Package (IME Deconstruction + Defense Medical Lens)</option>
+                </optgroup>
+                <optgroup label="Individual Services">
+                <option value="ime">IME Report Deconstruction</option>
+                <option value="cva">Case Viability Screening (CVA&#8482;)</option>
+                <option value="dml">Defense Medical Lens&#8482;</option>
+                <option value="cmip">Full Intelligence Report (CMIP&#8482;)</option>
+                <option value="dva">Defense Vulnerability Analysis</option>
+                <option value="erb">Expert Readiness Brief</option>
+                <option value="pec">Pre-existing Condition Dossier</option>
+                <option value="tga">Treatment Gap Analysis</option>
+                </optgroup>
+                <optgroup label="Partnership">
+                <option value="white-label">White-Label Partnership</option>
+                </optgroup>
+                <option value="not-sure">Not sure &#8212; help me decide</option>
+              </select>
+            </div>
+
+            <!-- BLOCK 2 — Case context — hidden for White-Label Partnership -->
+            <div id="ib-case-context">
+              <div style="height:1px;background:var(--rule);margin:20px 0"></div>
+              <div class="label-dim" style="margin-bottom:14px">Case Details</div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f_casetype">Case Type</label>
+                  <select id="f_casetype" name="case_type">
+                    <option value="">— Select —</option>
+                    <option>PI &#8212; Auto / Trucking</option>
+                    <option>Medical Malpractice</option>
+                    <option>Bad Faith Insurance</option>
+                    <option>Workers Compensation Defense</option>
+                    <option>Mass Tort / MDL</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="f_volume">Approximate Record Volume</label>
+                  <select id="f_volume" name="record_volume">
+                    <option value="">— Select —</option>
+                    <option>Under 200 pages</option>
+                    <option>200 &#8211; 500 pages</option>
+                    <option>500 &#8211; 1,000 pages</option>
+                    <option>1,000 &#8211; 3,000 pages</option>
+                    <option>Over 3,000 pages</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="f_injury">Injury or Medical Issue</label>
+                <input type="text" id="f_injury" name="injury_or_medical_issue" placeholder="e.g. Lumbar herniation, ACDF, TBI, failure to diagnose cancer, surgical complication">
+              </div>
+            </div>
+
+            <!-- BLOCK 3 — IME Report Deconstruction only -->
+            <div id="ib-ime" style="display:none">
+              <div style="height:1px;background:var(--rule);margin:20px 0"></div>
+              <div class="label-dim" style="margin-bottom:14px">IME Details</div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f_ime_specialty">IME Physician Specialty</label>
+                  <select id="f_ime_specialty" name="ime_physician_specialty">
+                    <option value="">— Select —</option>
+                    <option>Orthopedic Surgery</option>
+                    <option>Neurology</option>
+                    <option>Neurosurgery</option>
+                    <option>Psychiatry</option>
+                    <option>Physical Medicine &amp; Rehabilitation</option>
+                    <option>Occupational Medicine</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="f_ime_depo">Deposition Scheduled?</label>
+                  <select id="f_ime_depo" name="deposition_scheduled">
+                    <option value="">— Select —</option>
+                    <option>Yes &#8212; date confirmed</option>
+                    <option>Yes &#8212; date TBD</option>
+                    <option>No</option>
+                    <option>Not yet decided</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="f_ime_conclusion">IME Conclusion (one sentence)</label>
+                <input type="text" id="f_ime_conclusion" name="ime_conclusion" placeholder='e.g. "No causal relationship between the accident and the claimed spinal pathology"'>
+              </div>
+
+              <div class="form-group">
+                <label for="f_ime_records">Do you have treating records to send alongside the IME?</label>
+                <select id="f_ime_records" name="treating_records_available">
+                  <option value="">— Select —</option>
+                  <option>Yes, complete</option>
+                  <option>Yes, partial</option>
+                  <option>No &#8212; IME report only</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- BLOCK 4 — Defense Medical Lens only -->
+            <div id="ib-dml" style="display:none">
+              <div style="height:1px;background:var(--rule);margin:20px 0"></div>
+              <div class="label-dim" style="margin-bottom:14px">Mediation Details</div>
+
+              <div class="form-group">
+                <label for="f_dml_mediation">Do you have a mediation or settlement conference date?</label>
+                <select id="f_dml_mediation" name="mediation_date_status" onchange="updateIntakeForm()">
+                  <option value="">— Select —</option>
+                  <option>Yes &#8212; date confirmed</option>
+                  <option>Scheduled but not confirmed</option>
+                  <option>No &#8212; pre-mediation planning</option>
+                </select>
+              </div>
+
+              <div id="ib-dml-date" style="display:none">
+                <div class="form-group">
+                  <label for="f_dml_date">Mediation Date (approximate)</label>
+                  <input type="text" id="f_dml_date" name="mediation_date_approximate" placeholder="e.g. June 2026 or 15 June 2026">
+                </div>
+              </div>
+            </div>
+
+            <!-- BLOCK 5 — Case Viability Screening only -->
+            <div id="ib-cva" style="display:none">
+              <div style="height:1px;background:var(--rule);margin:20px 0"></div>
+              <div class="label-dim" style="margin-bottom:14px">Viability Screening Details</div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f_cva_demand">Has any prior demand been made on this case?</label>
+                  <select id="f_cva_demand" name="prior_demand_made">
+                    <option value="">— Select —</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                    <option>Unknown</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="f_cva_expert">Anticipated expert need?</label>
+                  <select id="f_cva_expert" name="anticipated_expert_need">
+                    <option value="">— Select —</option>
+                    <option>Yes &#8212; expert already identified</option>
+                    <option>Yes &#8212; expert needed, not yet retained</option>
+                    <option>No</option>
+                    <option>Unknown</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- BLOCK 6 — Full Intelligence Report (CMIP) only -->
+            <div id="ib-cmip" style="display:none">
+              <div style="height:1px;background:var(--rule);margin:20px 0"></div>
+              <div class="label-dim" style="margin-bottom:14px">Report Details</div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f_cmip_deadline">Deadline or Case-Decision Milestone</label>
+                  <input type="text" id="f_cmip_deadline" name="deadline_or_milestone" placeholder="e.g. Mediation in August, expert deadline 30 June">
+                </div>
+                <div class="form-group">
+                  <label for="f_cmip_expert">Is an expert already retained?</label>
+                  <select id="f_cmip_expert" name="expert_retained">
+                    <option value="">— Select —</option>
+                    <option>Yes</option>
+                    <option>No &#8212; this report will inform expert selection</option>
+                    <option>Not yet decided</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- BLOCK 7 — White-Label Partnership only -->
+            <div id="ib-wl" style="display:none">
+              <div style="height:1px;background:var(--rule);margin:20px 0"></div>
+              <div class="label-dim" style="margin-bottom:14px">Partnership Details</div>
+
+              <div class="form-group">
+                <label for="f_wl_practice">Describe your firm&#8217;s practice <span style="color:var(--danger)">*</span></label>
+                <textarea id="f_wl_practice" name="firm_practice_description" rows="4" maxlength="2000" placeholder="Describe your firm type, the services you currently refer out for physician-level analysis, and what white-label arrangement you are exploring"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="f_wl_volume">Approximate monthly case volume</label>
+                <select id="f_wl_volume" name="monthly_case_volume">
+                  <option value="">— Select —</option>
+                  <option>Under 10</option>
+                  <option>10 &#8211; 25</option>
+                  <option>25 &#8211; 50</option>
+                  <option>Over 50</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- BLOCK 8 — Not sure only -->
+            <div id="ib-notsure" style="display:none">
+              <div style="height:1px;background:var(--rule);margin:20px 0"></div>
+              <div class="form-group">
+                <label for="f_notsure">Describe the decision you need to make</label>
+                <textarea id="f_notsure" name="decision_description" rows="4" maxlength="2000" placeholder="Describe what you are trying to decide — Medisprudence will identify the right service and scope for you"></textarea>
+              </div>
+            </div>
+
+            <!-- ALWAYS SHOWN — bottom -->
+            <div style="height:1px;background:var(--rule);margin:20px 0"></div>
+
+            <div class="form-group">
+              <label for="f_notes">Anything else Medisprudence should know? <span style="color:var(--ink-3);font-weight:400">(optional)</span></label>
+              <textarea id="f_notes" name="additional_notes" rows="3" maxlength="1000" placeholder="Deadline, rush requirement, prior review history, or any other context"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="f_source">How did you hear about Medisprudence? <span style="color:var(--ink-3);font-weight:400">(optional)</span></label>
+              <select id="f_source" name="referral_source">
+                <option value="">— Select —</option>
+                <option>Attorney referral</option>
+                <option>Legal publication or newsletter</option>
+                <option>LinkedIn</option>
+                <option>Search engine</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div style="background:rgba(217,48,37,.04);border:1px solid rgba(217,48,37,.12);border-radius:var(--r-md);padding:12px 16px;margin-bottom:20px">
+              <p style="font-size:12.5px;color:var(--ink-2);margin:0"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;color:var(--caution)" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> <strong style="color:var(--ink)">Do not include PHI in this form.</strong> No patient names, dates of birth, SSNs, MRNs, or other protected health information. PHI is transmitted only through the secure channel established after BAA execution.</p>
+            </div>
+
+            <button type="submit" id="intake-submit-btn" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px 24px;font-size:15px">
+              Submit Case Review Request &#8594;
+            </button>
+            <p id="intake-error" style="display:none;color:var(--danger);font-size:13px;margin-top:10px;text-align:center"></p>
+
+          </form>
+        </div>
+
+        <script>
+        function updateIntakeForm(){
+          var svc = document.getElementById('f_service').value;
+          var med = document.getElementById('f_dml_mediation') ? document.getElementById('f_dml_mediation').value : '';
+
+          // Block 2 — hide for White-Label Partnership only
+          iv('ib-case-context', svc !== 'white-label');
+
+          // Block 3 — IME only (including IME response package)
+          iv('ib-ime', svc === 'ime' || svc === 'pkg-ime');
+
+          // Block 4 — DML only
+          iv('ib-dml', svc === 'dml');
+          iv('ib-dml-date', svc === 'dml' && med !== '' && med !== 'No \u2014 pre-mediation planning');
+
+          // Block 5 — CVA only (including full package)
+          iv('ib-cva', svc === 'cva' || svc === 'pkg-full');
+
+          // Block 6 — CMIP only
+          iv('ib-cmip', svc === 'cmip');
+
+          // Block 7 — White-Label only
+          iv('ib-wl', svc === 'white-label');
+
+          // Block 8 — Not sure only
+          iv('ib-notsure', svc === 'not-sure');
+        }
+
+        function iv(id, show){
+          var el = document.getElementById(id);
+          if(el) el.style.display = show ? 'block' : 'none';
+        }
+
+        function submitIntakeForm(e){
+          e.preventDefault();
+          if(window._intakeSubmitting) return;
+          window._intakeSubmitting = true;
+          var btn = document.getElementById('intake-submit-btn');
+          var err = document.getElementById('intake-error');
+          btn.disabled = true;
+          btn.textContent = 'Sending\u2026';
+          err.style.display = 'none';
+
+          var form = document.getElementById('intake-form-el');
+          var data = new FormData(form);
+
+          fetch('https://formspree.io/f/xnjwkapj', {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          })
+          .then(function(r){
+            if(r.ok){
+              form.style.display = 'none';
+              document.getElementById('intake-success').style.display = 'block';
+            } else {
+              r.json().then(function(d){
+                err.textContent = (d.errors && d.errors.map(function(x){return x.message}).join(', ')) || 'Submission failed. Please email contact@medisprudence.com directly.';
+                err.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Submit Case Review Request \u2192';
+                window._intakeSubmitting = false;
+              });
+            }
+          })
+          .catch(function(){
+            err.textContent = 'Network error. Please email contact@medisprudence.com directly.';
+            err.style.display = 'block';
+            btn.disabled = false;
+            btn.textContent = 'Submit Case Review Request \u2192';
+            window._intakeSubmitting = false;
+          });
+        }
+
+        // Initialise on page load
+        document.addEventListener('DOMContentLoaded', updateIntakeForm);
+        </script>
+      </div>
+      <div>
+        <h3 style="font-size:20px;margin-bottom:18px">What happens next</h3>
+        <div class="steps" style="grid-template-columns:1fr">
+          <div class="step"><h4>Step 1 &#8212; Scope confirmation</h4><p>Medisprudence reviews your submission and responds within one business day with: deliverable type, fee range, turnaround time, conflict status, and whether records are needed.</p></div>
+          <div class="step"><h4>Step 2 &#8212; BAA and engagement terms</h4><p>If records are needed, a BAA and engagement letter are executed before any records are transmitted. Cross-border processing is disclosed at this stage.</p></div>
+          <div class="step"><h4>Step 3 &#8212; Report delivered</h4><p>After secure record intake, the physician review is completed and the source-referenced deliverable is transmitted through the agreed secure channel.</p></div>
+        </div>
+        <div style="margin-top:18px;padding:18px;background:rgba(217,48,37,.04);border-radius:var(--r-md);border:1px solid rgba(217,48,37,.12)">
+          <h4 style="font-size:13px;color:var(--danger);margin-bottom:6px">Do not send PHI</h4>
+          <p style="font-size:14.5px;color:var(--ink)">Do not include patient names, dates of birth, social security numbers, medical record numbers, or other protected health information in this form or in any email to Medisprudence. PHI is transmitted only through the secure channel established after BAA execution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="p-security" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">Data Security &amp; Privacy</div>
+    <h1 style="margin-top:10px">How PHI is handled. How work product is protected.</h1>
+    
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap" style="max-width:720px">
+    <div style="display:flex;flex-direction:column;gap:22px"><div style="background:var(--teal-dim);border:1px solid rgba(10,158,162,.2);border-radius:var(--r-lg);padding:20px 24px;margin-bottom:8px"><h4 style="margin-bottom:8px">The short version</h4><p style="font-size:14px;color:var(--ink)">No PHI by email &#8212; ever. BAA executed before records are transmitted. Cross-border processing disclosed before engagement. PHI not entered into public AI tools. Records not used for model training. AI-assisted and physician-authored components disclosed at the component level on every deliverable.</p></div><div><h4 style="margin-bottom:8px">No-PHI intake path</h4><p style="font-size:14.5px">The intake process begins without records. You send only general case facts. Scope, pricing, and conflict status are confirmed before any records are transmitted or any PHI is involved.</p></div><div><h4 style="margin-bottom:8px">Business Associate Agreement</h4><p style="font-size:14.5px">A BAA is executed before PHI-containing records are accepted. The BAA governs retention, deletion, and use of PHI in accordance with HIPAA requirements. Cross-border processing under the BAA framework is disclosed before records are transmitted.</p></div><div><h4 style="margin-bottom:8px">Cross-border processing disclosure</h4><p style="font-size:14.5px">Physician review is performed outside the United States. This is disclosed before engagement is formed and before records are transmitted. The disclosure is a deliberate transparency policy, not an inadvertent one.</p></div><div><h4 style="margin-bottom:8px">AI use in PHI-containing records</h4><p style="font-size:14.5px">Where AI-assisted extraction is used for PHI-containing records, it is used only through systems covered by appropriate contractual safeguards including BAAs. PHI is not entered into public consumer AI tools. Records are not used for model training.</p></div><div><h4 style="margin-bottom:8px">Data retention</h4><p style="font-size:14.5px">Retention and deletion is governed by the executed BAA. Default practice is to retain only what is needed for the defined scope and to delete upon instruction or engagement close.</p></div></div>
+  </div>
+</div>
+</div>
+<div id="p-privacy" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">Privacy Policy</div>
+    <h1 style="margin-top:10px">Privacy Policy</h1>
+    <p class="hero-sub">Last updated: 2026. This policy applies to medisprudence.com and all Medisprudence services.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap" style="max-width:720px">
+    <div style="display:flex;flex-direction:column;gap:22px"><div><h4 style="margin-bottom:8px">1. Scope</h4><p style="font-size:14.5px">This policy governs information collected through the Medisprudence website and through service engagements. It does not apply to information governed by an executed Business Associate Agreement (BAA), which controls PHI handling separately.</p></div><div><h4 style="margin-bottom:8px">2. Information collected</h4><p style="font-size:14.5px">Through inquiry forms: Name, email, firm name, role, case type, approximate record volume, and general case description. These forms exclude PHI by design. Through engagements: Once a BAA is executed, Medisprudence receives medical records containing PHI. PHI handling is governed by the executed BAA.</p></div><div><h4 style="margin-bottom:8px">3. Cross-border processing</h4><p style="font-size:14.5px">Physician review is performed outside the United States. Cross-border processing is disclosed before records are accepted and proceeds only after BAA execution.</p></div><div><h4 style="margin-bottom:8px">4. AI-assisted processing</h4><p style="font-size:14.5px">Where AI-assisted extraction is used for PHI-containing records, it is used only through systems covered by appropriate contractual safeguards. PHI is not entered into public consumer AI tools. Records are not used for model training.</p></div><div><h4 style="margin-bottom:8px">5. Data retention</h4><p style="font-size:14.5px">Retention and deletion is governed by the executed BAA. Default practice is to retain only what is needed for the defined scope and to delete upon instruction or engagement close.</p></div><div><h4 style="margin-bottom:8px">6. Contact</h4><p style="font-size:14.5px"><a href="mailto:contact@medisprudence.com" style="color:var(--teal)">contact@medisprudence.com</a></p></div></div>
+  </div>
+</div>
+</div>
+<div id="p-terms" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">Terms of Use</div>
+    <h1 style="margin-top:10px">Terms of Use</h1>
+    
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap" style="max-width:720px">
+    <div style="display:flex;flex-direction:column;gap:22px"><div><h4 style="margin-bottom:8px">1. Services provided</h4><p style="font-size:14.5px">Medisprudence provides physician-directed medical case intelligence under attorney supervision. All deliverables are for attorney use only, under attorney direction, and do not constitute legal advice, legal representation, independent expert testimony, expert affidavits, certificates of merit, patient care, or independent medical examinations.</p></div><div><h4 style="margin-bottom:8px">2. No relationships created</h4><p style="font-size:14.5px">Use of this website or services does not create an attorney-client relationship, physician-patient relationship, or fiduciary relationship of any kind.</p></div><div><h4 style="margin-bottom:8px">3. No expert testimony</h4><p style="font-size:14.5px">Medisprudence does not provide independent expert testimony, expert affidavits, certificates of merit, or court-facing causation opinions unless separately contracted under a different explicitly defined scope.</p></div><div><h4 style="margin-bottom:8px">4. No guarantee</h4><p style="font-size:14.5px">Medisprudence makes no guarantee of case outcome, settlement value, admissibility of any analysis, or expert qualifications for any jurisdiction.</p></div><div><h4 style="margin-bottom:8px">5. Attorney responsibility</h4><p style="font-size:14.5px">The retaining attorney is responsible for all legal strategy, case theory, and expert engagement decisions. Medisprudence deliverables are provided to support, not replace, attorney judgment.</p></div><div><h4 style="margin-bottom:8px">6. Compensation</h4><p style="font-size:14.5px">Medisprudence is compensated via flat fees or hourly rates disclosed at scope. No contingent-fee arrangements are available.</p></div><div><h4 style="margin-bottom:8px">7. Conflict of interest</h4><p style="font-size:14.5px">Medisprudence serves both plaintiff and defense clients and may decline engagements where a conflict exists. Conflict checks are conducted at intake. Medisprudence does not serve both sides of the same matter.</p></div><div><h4 style="margin-bottom:8px">8. Engagement formation</h4><p style="font-size:14.5px">No engagement is formed until Medisprudence has confirmed scope, pricing, and BAA in writing.</p></div></div>
+  </div>
+</div>
+</div>
+<div id="p-ai-use" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">AI Use Disclosure</div>
+    <h1 style="margin-top:10px">AI Use Disclosure</h1>
+    
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap" style="max-width:720px">
+    <div style="display:flex;flex-direction:column;gap:22px"><div><h4 style="margin-bottom:8px">1. How AI is used</h4><p style="font-size:14.5px">AI-assisted extraction is used in Stage 1 of the Medisprudence workflow &#8212; capturing dates, providers, diagnoses, procedures, and page references from medical records. This stage produces structured data, not intelligence. Stage 2 is physician-authored: the founding physician reviews extracted data against original records and applies all clinical intelligence layers. Final judgments and conclusions are physician-authored, not AI-generated.</p></div><div><h4 style="margin-bottom:8px">2. PHI and AI systems</h4><p style="font-size:14.5px">Where AI-assisted extraction is used for PHI-containing records, it is used only through systems covered by appropriate contractual safeguards. PHI is not entered into public consumer AI tools. Records are not used for model training.</p></div><div><h4 style="margin-bottom:8px">3. Component-level disclosure</h4><p style="font-size:14.5px">Every deliverable identifies AI-assisted versus physician-authored components at the component level. This supports counsel&#8217;s supervisory obligations under ABA Formal Opinion 512 and similar guidance.</p></div><div><h4 style="margin-bottom:8px">4. What AI does not do</h4><p style="font-size:14.5px">AI does not generate clinical opinions, causation conclusions, deposition questions, vulnerability rankings, or any substantive analytical content in Medisprudence deliverables. All analytical and interpretive content is physician-authored.</p></div><div><h4 style="margin-bottom:8px">5. Why we disclose this</h4><p style="font-size:14.5px">This disclosure is intended to support informed attorney supervision and responsible use of AI-assisted medical record review in litigation contexts.</p></div></div>
+  </div>
+</div>
+</div>
+<div id="p-svc-ime" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; All Services</a>
+    <div class="label">Flagship Service</div>
+    <h1 style="margin-top:10px">IME Report Deconstruction</h1>
+    <p class="hero-sub">Every unsupported assertion. Every omitted medical fact. Every internal contradiction. Twenty or more physician-authored deposition questions — built from the weaknesses in the report itself.</p>
+    <div class="label-dim" style="margin-top:12px">From $500 &middot; 3&#8211;5 business days &middot; 10 sections delivered</div>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>Our founding physician has reviewed the same category of reports that defense IME physicians generate &#8212; from inside a major US commercial payer across 3,000+ cases.</strong> He knows not just what IME reports say, but what they are <em>constructed to accomplish</em> &#8212; the specific language designed to make a report Daubert-resistant, the boilerplate phrasing borrowed from payer-review templates, and exactly where those reports structurally fail under clinical scrutiny. This is not outside analysis. It is the same methodology read from the inside.</p></div>
+    <div class="svc-detail-grid" style="margin-top:32px">
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">Ten sections delivered</h3>
+<ul class="deliverable-list">
+<li><span class="dl-num">01</span><div class="dl-text"><h5>IME Conclusion Summary</h5><p>Plain-English summary of what the IME physician concluded and the reasoning structure used.</p></div></li>
+<li><span class="dl-num">02</span><div class="dl-text"><h5>Unsupported Assertions</h5><p>Every conclusion not supported by the examining physician&#8217;s own documented findings or the treating record.</p></div></li>
+<li><span class="dl-num">03</span><div class="dl-text"><h5>Omitted Medical Facts</h5><p>Material facts present in the treating record that the IME report does not acknowledge.</p></div></li>
+<li><span class="dl-num">04</span><div class="dl-text"><h5>Internal Contradictions</h5><p>Where the IME physician&#8217;s own examination findings contradict their conclusions.</p></div></li>
+<li><span class="dl-num">05</span><div class="dl-text"><h5>Record-Based Counterpoints</h5><p>Specific treating record entries that directly contradict IME positions, with page references.</p></div></li>
+<li><span class="dl-num">06</span><div class="dl-text"><h5>Treatment Necessity Analysis</h5><p>Assessment of whether the contested treatment meets the documentation threshold typically applied by defense reviewers.</p></div></li>
+<li><span class="dl-num">07</span><div class="dl-text"><h5>Pre-existing Condition Assessment</h5><p>How the IME physician handled prior pathology &#8212; and whether that handling is clinically defensible.</p></div></li>
+<li><span class="dl-num">08</span><div class="dl-text"><h5>IME Methodology Assessment</h5><p>Whether the examination duration, tests performed, and records reviewed are consistent with stated conclusions.</p></div></li>
+<li><span class="dl-num">09</span><div class="dl-text"><h5>Questions for Treating Physician</h5><p>Targeted questions to strengthen the treating physician&#8217;s documentation before expert engagement.</p></div></li>
+<li><span class="dl-num">10</span><div class="dl-text"><h5>Deposition Prep Questions (20+)</h5><p>Physician-authored questions for deposing the IME physician &#8212; each tied to a specific identified vulnerability.</p></div></li>
+</ul></div>
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">When to use this</h3>
+<div class="when-grid" style="grid-template-columns:1fr">
+<div class="when-item"><p>You have received a defense IME and need to understand where it is vulnerable before your expert responds to it.</p></div>
+<div class="when-item"><p>You are preparing to depose the IME physician and need questions built from the record &#8212; not generic deposition templates.</p></div>
+<div class="when-item"><p>The IME report uses payer-review language to justify a &#8220;no causal relationship&#8221; conclusion and you need a physician to identify where that language is unsupported.</p></div>
+<div class="when-item"><p>You are approaching mediation and need to understand the defense medical position before you walk into the room.</p></div>
+</div>
+<div class="pricing-box" style="margin-top:24px">
+<div><div class="pi-label">Starting Fee</div><div class="pi-value">$500</div><div class="pi-note">Scope-dependent</div></div>
+<div><div class="pi-label">Turnaround</div><div class="pi-value">3&#8211;5 days</div><div class="pi-note">Rush available</div></div>
+<div><div class="pi-label">Output</div><div class="pi-value">10 sections</div><div class="pi-note">Source-referenced</div></div>
+</div>
+<div style="margin-top:12px;padding:12px 16px;background:var(--teal-dim);border-radius:var(--r-md);border-left:3px solid var(--teal)">
+<p style="font-size:14px;color:var(--ink);margin:0">Advanceable as a case cost and recoverable at settlement in contingency-fee matters. <a href="/packages" style="color:var(--teal-text);font-weight:600">Bundle with the Defense Medical Lens™ from $800 &#8594;</a></p>
+</div>
+<a class="btn btn-primary" href="/intake" style="width:100%;margin-top:18px;justify-content:center">Request IME Deconstruction &#8594;</a></div>
+    </div>
+  </div>
+</div>
+<div class="sec-tight" style="background:var(--teal-dim);border-top:1px solid rgba(10,158,162,.15)">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px">
+      <div>
+        <div class="label" style="margin-bottom:6px">Specimen Deliverable</div>
+        <h4 style="font-size:17px;margin-bottom:5px">See a full IME Deconstruction report</h4>
+        <p style="font-size:16px;margin:0;color:var(--ink)">10 sections demonstrated with fictional clinical data. Orthopedic spine case. Real methodology, no PHI.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-teal" href="specimens/specimen-ime.html" target="_blank">View Sample &#8594;</a>
+        <a class="btn btn-ghost" href="/samples">All Samples</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mini-cta"><div class="wrap mini-cta-inner">
+  <div><h3>Ready to deconstruct an IME?</h3><p>No records required to start &#8212; send only general case facts first.</p></div>
+  <a class="btn btn-teal" href="/intake">Request Case Review</a>
+</div></div>
+</div>
+<div id="p-svc-cva" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; All Services</a>
+    <div class="label">Case Viability Assessment &#8212; CVA&#8482;</div>
+    <h1 style="margin-top:10px">Know if the case holds before you commit the expert.</h1>
+    <p class="hero-sub">A physician-authored case screening memo calibrated to how the defense will challenge the record — not just whether the treatment was clinically appropriate.</p>
+    <div class="label-dim" style="margin-top:12px">Starting at $350 &middot; 72 hours &middot; 3&#8211;5 pages</div>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>Most case screening asks: &#8220;Was the treatment clinically appropriate?&#8221; We ask a second question that most physician consultants cannot answer: &#8220;How will a defense medical reviewer evaluate this record?&#8221;</strong> Because our founding physician applied InterQual and MCG criteria inside a commercial payer, the CVA is calibrated to the documentation-threshold logic that defense reviewers and IME physicians actually use. You learn not just whether the case has merit, but exactly which pressure points need to be addressed before expert engagement.</p></div>
+    <div class="svc-detail-grid" style="margin-top:32px">
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">What the CVA answers</h3>
+<div class="when-grid" style="grid-template-columns:1fr">
+<div class="when-item"><p><strong>Mechanism support:</strong> Does the documented injury mechanism align with the claimed pathology at the claimed severity?</p></div>
+<div class="when-item"><p><strong>Pre-existing conditions:</strong> What prior pathology exists, and what is the likely documentation impact on causation?</p></div>
+<div class="when-item"><p><strong>Treatment gaps &amp; inconsistencies:</strong> Where are the documentation vulnerabilities a defense reviewer will exploit?</p></div>
+<div class="when-item"><p><strong>Expert specialty:</strong> What type of expert does this case require &#8212; and what documentation must be in place before engagement?</p></div>
+<div class="when-item"><p><strong>Defense review projection:</strong> How is a medical reviewer likely to evaluate this claim under standard utilization criteria?</p></div>
+</div></div>
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">Best used when</h3>
+<ul class="deliverable-list">
+<li><span class="dl-num">&#8594;</span><div class="dl-text"><h5>Pre-expert decision</h5><p>You are deciding whether to retain an expert. The CVA is priced below most expert retainer entry costs.</p></div></li>
+<li><span class="dl-num">&#8594;</span><div class="dl-text"><h5>Case intake triage</h5><p>High-volume PI firms receiving dozens of cases monthly. Physician screening separates strong records from vulnerable ones.</p></div></li>
+<li><span class="dl-num">&#8594;</span><div class="dl-text"><h5>Disputed liability</h5><p>Cases where the defense has signaled it will challenge causation aggressively.</p></div></li>
+<li><span class="dl-num">&#8594;</span><div class="dl-text"><h5>Complex pre-existing history</h5><p>Cases with significant prior spinal degeneration, previous injury, or comorbid conditions.</p></div></li>
+</ul>
+<div class="pricing-box" style="margin-top:24px">
+<div><div class="pi-label">Starting Fee</div><div class="pi-value">$350</div><div class="pi-note">Scope-dependent</div></div>
+<div><div class="pi-label">Turnaround</div><div class="pi-value">72 hours</div><div class="pi-note">Standard</div></div>
+<div><div class="pi-label">Output</div><div class="pi-value">3&#8211;5 pages</div><div class="pi-note">Physician-authored memo</div></div>
+</div>
+<div style="margin-top:12px;padding:12px 16px;background:var(--teal-dim);border-radius:var(--r-md);border-left:3px solid var(--teal)">
+<p style="font-size:14px;color:var(--ink);margin:0">Advanceable as a case cost and recoverable at settlement in contingency-fee matters. <a href="/packages" style="color:var(--teal-text);font-weight:600">Bundle with IME Deconstruction + Defense Medical Lens™ from $1,100 &#8594;</a></p>
+</div>
+<a class="btn btn-primary" href="/intake" style="width:100%;margin-top:18px;justify-content:center">Request Case Screening &#8594;</a></div>
+    </div>
+  </div>
+</div>
+<div class="sec-tight" style="background:var(--teal-dim);border-top:1px solid rgba(10,158,162,.15)">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px">
+      <div>
+        <div class="label" style="margin-bottom:6px">Specimen Deliverable</div>
+        <h4 style="font-size:17px;margin-bottom:5px">See a full Case Viability Screening report</h4>
+        <p style="font-size:16px;margin:0;color:var(--ink)">Mechanism assessment, pre-existing analysis, treatment gap mapping, and expert guidance. Fictional clinical data.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-teal" href="specimens/specimen-cva.html" target="_blank">View Sample &#8594;</a>
+        <a class="btn btn-ghost" href="/samples">All Samples</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mini-cta"><div class="wrap mini-cta-inner">
+  <div><h3>Screen before you commit the expert budget.</h3><p>No PHI required to start.</p></div>
+  <a class="btn btn-teal" href="/intake">Request Case Review</a>
+</div></div>
+</div>
+<div id="p-svc-dml" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; All Services</a>
+    <div class="label">Premium Add-On &middot; Standalone Available</div>
+    <h1 style="margin-top:10px">Defense Medical Lens&#8482;</h1>
+    <p class="hero-sub">Before mediation, the defense will have a medical theory of the case. This shows you what it is — built by a physician who performed that exact review function from inside a major US commercial payer. Defense firms, TPAs, and carriers use the same analysis from the other direction: physician-grounded medical exposure to set accurate reserves and support defensible settlement authority before the mediation date.</p>
+    <div class="label-dim" style="margin-top:12px">From $400 add-on &middot; $950 standalone &middot; 48 hrs add-on &middot; 3&#8211;4 days standalone</div>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>The Defense Medical Lens is not a hypothetical simulation. It is a reconstruction of the actual review methodology used by payers and defense medical consultants</strong> &#8212; because our founding physician performed this exact review function across 3,000+ cases inside a major US commercial payer, applying InterQual and MCG criteria under real claims conditions. When we map &#8220;likely defense medical pressure points ranked High to Low,&#8221; we are applying the same analytical framework that was used on the other side.</p></div>
+    <div class="svc-detail-grid" style="margin-top:32px">
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">Six components delivered</h3>
+<ul class="deliverable-list">
+<li><span class="dl-num">01</span><div class="dl-text"><h5>Ranked Medical Pressure Points</h5><p>Likely defense medical arguments ordered High, Moderate, Low-Moderate, Low. You know exactly which vulnerabilities the defense will lead with.</p></div></li>
+<li><span class="dl-num">02</span><div class="dl-text"><h5>Causation Vulnerability Assessment</h5><p>Where the causal connection is strong in the record, and where it is most exposed to challenge.</p></div></li>
+<li><span class="dl-num">03</span><div class="dl-text"><h5>Treatment Necessity Analysis</h5><p>Payer-style medical necessity evaluation of each major treatment category &#8212; exactly how a defense reviewer would evaluate each procedure.</p></div></li>
+<li><span class="dl-num">04</span><div class="dl-text"><h5>Pre-existing Condition Exposure</h5><p>The weight the defense medical position is likely to place on prior disease &#8212; and what documentation could reduce it.</p></div></li>
+<li><span class="dl-num">05</span><div class="dl-text"><h5>Functional Impairment Documentation Review</h5><p>Whether the record supports the disability picture across providers &#8212; where documentation is consistent and where it creates exploitable gaps.</p></div></li>
+<li><span class="dl-num">06</span><div class="dl-text"><h5>Documentation Action List</h5><p>Physician-authored list of documentation that may reduce the strength of likely defense medical arguments before mediation.</p></div></li>
+</ul></div>
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">Best for</h3>
+<div class="when-grid" style="grid-template-columns:1fr">
+<div class="when-item"><p>Cases approaching mediation, settlement conference, or demand preparation &#8212; ideally 30 days before the mediation date.</p></div>
+<div class="when-item"><p>High-bill soft-tissue and surgical recommendation cases where the defense will challenge treatment necessity aggressively.</p></div>
+<div class="when-item"><p>Cases with significant pre-existing condition exposure where the defense is expected to attribute pathology to baseline degeneration.</p></div>
+<div class="when-item"><p><strong>Defense firms, TPAs, and carriers</strong> setting pre-mediation reserves or confirming settlement authority &#8212; physician-authored medical exposure analysis creates a documented, defensible basis for reserve decisions that a claims adjuster cannot produce from medical records alone.</p></div>
+</div>
+<div class="pricing-box" style="margin-top:24px">
+<div><div class="pi-label">Add-On</div><div class="pi-value">$400</div><div class="pi-note">Added to any engagement</div></div>
+<div><div class="pi-label">Standalone</div><div class="pi-value">$950</div><div class="pi-note">3&#8211;4 business days</div></div>
+<div><div class="pi-label">Add-On Speed</div><div class="pi-value">48 hrs</div><div class="pi-note">Mediation date required</div></div>
+</div>
+<div style="margin-top:12px;padding:12px 16px;background:var(--teal-dim);border-radius:var(--r-md);border-left:3px solid var(--teal)">
+<p style="font-size:14px;color:var(--ink);margin:0">Advanceable as a case cost and recoverable at settlement in contingency-fee matters. <a href="/packages" style="color:var(--teal-text);font-weight:600">Bundle with IME Deconstruction from $800 &#8594;</a></p>
+</div>
+<a class="btn btn-primary" href="/intake" style="width:100%;margin-top:18px;justify-content:center">Request Defense Medical Lens &#8594;</a></div>
+    </div>
+  </div>
+</div>
+<div class="sec-tight" style="background:var(--teal-dim);border-top:1px solid rgba(10,158,162,.15)">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px">
+      <div>
+        <div class="label" style="margin-bottom:6px">Specimen Deliverable</div>
+        <h4 style="font-size:17px;margin-bottom:5px">See a full Defense Medical Lens&#8482; report</h4>
+        <p style="font-size:16px;margin:0;color:var(--ink)">Ranked pressure points, causation exposure, documentation action list. Pre-mediation specimen. Fictional data.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-teal" href="specimens/specimen-dml.html" target="_blank">View Sample &#8594;</a>
+        <a class="btn btn-ghost" href="/samples">All Samples</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mini-cta"><div class="wrap mini-cta-inner">
+  <div><h3>Know the defense medical theory before mediation.</h3><p>Built from inside knowledge of how payer reviewers actually think.</p></div>
+  <a class="btn btn-teal" href="/intake">Request Case Review</a>
+</div></div>
+</div>
+<div id="p-svc-cmip" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; All Services</a>
+    <div class="label">Case Medical Intelligence Packet &#8212; CMIP&#8482;</div>
+    <h1 style="margin-top:10px">Full Medical Case Intelligence Report</h1>
+    <p class="hero-sub">Seven components. Every intelligence layer in a single deliverable &#8212; from executive snapshot through expert readiness brief.</p>
+    <div class="label-dim" style="margin-top:12px">From $1,500 &middot; 5&#8211;10 business days &middot; 7 components</div>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>Every component of the CMIP is informed by documentation-threshold discipline developed inside a commercial payer&#8217;s utilization management operation.</strong> When we identify a pre-existing condition that may affect causation or flag a treatment gap as a vulnerability, we are applying the same analytical framework that a defense reviewer would apply &#8212; because that is where this methodology originates. The result is a case intelligence report that maps how the record will be challenged, and what needs to be addressed before the next case-decision moment.</p></div>
+    <h3 style="font-size:clamp(18px,2.5vw,26px);margin:28px 0 18px">Seven components</h3>
+    <ul class="deliverable-list">
+      <li><span class="dl-num">01</span><div class="dl-text"><h5>Executive Medical Snapshot</h5><p>5-minute case understanding for the attorney. Injury mechanism, medical picture, and the clinical question at the center of the dispute.</p></div></li>
+      <li><span class="dl-num">02</span><div class="dl-text"><h5>Source-Linked Chronology</h5><p>Bates-numbered timeline of clinically significant events, providers, diagnoses, and treatment decisions. AI-assisted extraction verified by physician review.</p></div></li>
+      <li><span class="dl-num">03</span><div class="dl-text"><h5>Injury&#8211;Treatment Coherence Map</h5><p>Does the documented treatment tell a coherent story given the mechanism and pathology? Identifies where the narrative holds and where it creates exploitable inconsistency.</p></div></li>
+      <li><span class="dl-num">04</span><div class="dl-text"><h5>Pre-existing Condition Dossier</h5><p>Complete documentation impact analysis of prior pathology. What the record shows and how the defense is likely to weight it.</p></div></li>
+      <li><span class="dl-num">05</span><div class="dl-text"><h5>Treatment-Gap &amp; Documentation Analysis</h5><p>Every gap in treatment, provider transition issue, and documentation inconsistency &#8212; mapped with the pressure it is likely to create at mediation or trial.</p></div></li>
+      <li><span class="dl-num">06</span><div class="dl-text"><h5>Defense Vulnerability Analysis</h5><p>Utilization-review-informed mapping of where the record is most exposed. Ranked by pressure intensity.</p></div></li>
+      <li><span class="dl-num">07</span><div class="dl-text"><h5>Expert Readiness Brief</h5><p>Specialty match, key record issues the expert will face, Daubert preparedness assessment, and documentation that should be in place before expert engagement.</p></div></li>
+    </ul>
+    <div class="pricing-box" style="margin-top:28px">
+      <div><div class="pi-label">Starting Fee</div><div class="pi-value">$1,500</div><div class="pi-note">Scope-dependent on record volume</div></div>
+      <div><div class="pi-label">Turnaround</div><div class="pi-value">5&#8211;10 days</div><div class="pi-note">Confirmed at scope</div></div>
+      <div><div class="pi-label">Components</div><div class="pi-value">7</div><div class="pi-note">Source-referenced throughout</div></div>
+    </div>
+    <div style="margin-top:14px;padding:14px 18px;background:var(--teal-dim);border-radius:var(--r-md);border-left:3px solid var(--teal)">
+      <p style="font-size:14.5px;color:var(--ink);margin:0"><strong>A CMIP engagement typically determines whether a $5,000&#8211;$15,000 expert retainer is warranted — and what documentation the expert needs to see before reviewing the file.</strong> All fees are advanceable as case costs and recoverable at settlement in contingency-fee matters.</p>
+    </div>
+    <a class="btn btn-primary" href="/intake" style="margin-top:18px;display:inline-flex">Request Full Intelligence Report &#8594;</a>
+  </div>
+</div>
+<div class="sec-tight" style="background:var(--teal-dim);border-top:1px solid rgba(10,158,162,.15)">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px">
+      <div>
+        <div class="label" style="margin-bottom:6px">Specimen Deliverables &#8212; Two Cases</div>
+        <h4 style="font-size:17px;margin-bottom:5px">See a full 7-component CMIP report</h4>
+        <p style="font-size:16px;margin:0;color:var(--ink)">PI spine specimen and medical malpractice specimen both available. All seven components demonstrated.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-teal" href="specimens/specimen-cmip-pi.html" target="_blank">PI Spine &#8594;</a>
+        <a class="btn btn-ghost" href="specimens/specimen-cmip-medmal.html" target="_blank">Med-Mal &#8594;</a>
+        <a class="btn btn-ghost" href="/samples">All Samples</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mini-cta"><div class="wrap mini-cta-inner">
+  <div><h3>Complete medical intelligence before you commit.</h3><p>Seven components. Every layer. One deliverable.</p></div>
+  <a class="btn btn-teal" href="/intake">Request Case Review</a>
+</div></div>
+</div>
+<div id="p-svc-dva" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; All Services</a>
+    <div class="label">Supporting Service &#8212; Included in CMIP &middot; Available Standalone</div>
+    <h1 style="margin-top:10px">Defense Vulnerability Analysis</h1>
+    <p class="hero-sub">A ranked map of where the record is most exposed to defense medical challenge — built from insider knowledge of how defense reviewers are trained to evaluate claims.</p>
+    <div class="label-dim" style="margin-top:12px">Included in CMIP &middot; Available standalone &#8212; contact for pricing</div>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>Having written and reviewed clinical necessity determinations from inside a commercial payer, our founding physician understands the exact documentation gaps that defense reviewers exploit.</strong> The vulnerability map we produce is not a general clinical assessment. It is built from insider knowledge of how utilization reviewers and defense medical consultants are specifically trained to challenge PI and med-mal records &#8212; the same documentation patterns that trigger denials and defense challenges across thousands of cases.</p></div>
+    <div class="svc-detail-grid" style="margin-top:32px">
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">What the analysis maps</h3>
+<div class="when-grid" style="grid-template-columns:1fr">
+<div class="when-item"><p><strong>High pressure:</strong> Documentation gaps that will anchor the defense medical theory. Treatment without objective correlation. Surgery without completed conservative care documentation.</p></div>
+<div class="when-item"><p><strong>Moderate pressure:</strong> Pre-existing conditions with inadequate differentiation from acute injury. Inconsistent functional reporting across providers.</p></div>
+<div class="when-item"><p><strong>Low-moderate pressure:</strong> Treatment gaps with no documented explanation. Unsupported impairment ratings. Missing imaging cross-references.</p></div>
+<div class="when-item"><p><strong>Low pressure:</strong> Minor inconsistencies unlikely to anchor defense arguments but may appear in cross-examination.</p></div>
+</div></div>
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">Best used when</h3>
+<ul class="deliverable-list">
+<li><span class="dl-num">&#8594;</span><div class="dl-text"><h5>Pre-demand preparation</h5><p>Understanding the defense medical exposure before the demand letter determines the settlement anchor.</p></div></li>
+<li><span class="dl-num">&#8594;</span><div class="dl-text"><h5>Defense and TPA reserve-setting</h5><p>Medical exposure analysis to inform reserve decisions and settlement authority.</p></div></li>
+<li><span class="dl-num">&#8594;</span><div class="dl-text"><h5>Pre-mediation</h5><p>Used alongside or as input to the Defense Medical Lens &#8212; knowing the vulnerabilities before entering mediation.</p></div></li>
+</ul>
+<a class="btn btn-primary" href="/intake" style="width:100%;margin-top:24px;justify-content:center">Request This Service &#8594;</a></div>
+    </div>
+  </div>
+</div>
+<div class="sec-tight" style="background:var(--teal-dim);border-top:1px solid rgba(10,158,162,.15)">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px">
+      <div>
+        <div class="label" style="margin-bottom:6px">Specimen Deliverable &#8212; Component 06 of CMIP</div>
+        <h4 style="font-size:17px;margin-bottom:5px">See Defense Vulnerability Analysis in a full report</h4>
+        <p style="font-size:16px;margin:0;color:var(--ink)">Demonstrated as Component 06 in the Full Intelligence Report specimen. Ranked High / Moderate / Low pressure mapping.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-teal" href="specimens/specimen-cmip-pi.html" target="_blank">View in CMIP Specimen &#8594;</a>
+        <a class="btn btn-ghost" href="/samples">All Samples</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mini-cta"><div class="wrap mini-cta-inner">
+  <div><h3>Map the vulnerabilities before the defense does.</h3><p>Ranked High to Low. Built from inside payer review methodology.</p></div>
+  <a class="btn btn-teal" href="/intake">Request Case Review</a>
+</div></div>
+</div>
+<div id="p-svc-erb" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; All Services</a>
+    <div class="label">Supporting Service &#8212; Included in CMIP &middot; Available Standalone</div>
+    <h1 style="margin-top:10px">Expert Readiness Brief</h1>
+    <p class="hero-sub">Right specialty, right documentation, Daubert readiness — before you commit the expert budget. Prevents the most expensive mistake in medical-legal litigation: retaining the wrong expert.</p>
+    <div class="label-dim" style="margin-top:12px">Included in CMIP &middot; Available standalone</div>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>Before committing expert budget, you need to know what the defense will argue medically &#8212; not just what the treating physician believes clinically.</strong> Our founding physician&#8217;s payer reviewer background means he can identify which medical theory the defense is likely to advance, which documentation gaps will be targeted in cross-examination, and whether the record currently supports the causation theory the expert will need to defend. This is a targeted assessment of whether the record is ready for expert engagement &#8212; calibrated to actual defense review methodology.</p></div>
+    <div class="svc-detail-grid" style="margin-top:32px">
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">What the brief covers</h3>
+<ul class="deliverable-list">
+<li><span class="dl-num">01</span><div class="dl-text"><h5>Specialty Match</h5><p>The correct expert specialty for the specific medical issues &#8212; orthopedic surgeon vs. neurosurgeon, neurologist vs. physiatrist &#8212; based on what the record actually requires.</p></div></li>
+<li><span class="dl-num">02</span><div class="dl-text"><h5>Key Record Issues</h5><p>The specific medical issues the expert will need to address &#8212; and what the record currently supports vs. what needs to be strengthened.</p></div></li>
+<li><span class="dl-num">03</span><div class="dl-text"><h5>Daubert Preparedness Assessment</h5><p>Whether the causation theory has adequate record support to survive a Daubert challenge.</p></div></li>
+<li><span class="dl-num">04</span><div class="dl-text"><h5>Documentation Action List</h5><p>Specific documentation that the treating physician can provide or strengthen before the expert reviews the file.</p></div></li>
+</ul></div>
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">The cost of skipping this</h3>
+<div class="when-grid" style="grid-template-columns:1fr">
+<div class="when-item"><p>You retain an orthopedic surgeon for a case that actually requires a neurosurgeon. The expert&#8217;s opinion is immediately limited in scope &#8212; and the defense knows it.</p></div>
+<div class="when-item"><p>You retain an expert before the record is ready. The expert identifies the same documentation gaps the defense will attack &#8212; and now the expert has seen them on the record.</p></div>
+<div class="when-item"><p>Your causation theory requires imaging documentation that was never cross-referenced by the treating physician. The expert&#8217;s opinion is unsupported on Daubert challenge.</p></div>
+</div>
+<a class="btn btn-primary" href="/intake" style="width:100%;margin-top:24px;justify-content:center">Request Expert Readiness Brief &#8594;</a></div>
+    </div>
+  </div>
+</div>
+<div class="sec-tight" style="background:var(--teal-dim);border-top:1px solid rgba(10,158,162,.15)">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px">
+      <div>
+        <div class="label" style="margin-bottom:6px">Specimen Deliverable &#8212; Component 07 of CMIP</div>
+        <h4 style="font-size:17px;margin-bottom:5px">See an Expert Readiness Brief in a full report</h4>
+        <p style="font-size:16px;margin:0;color:var(--ink)">Demonstrated as Component 07 in the Full Intelligence Report specimen. Specialty match, record issues, Daubert readiness, documentation action list.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-teal" href="specimens/specimen-cmip-pi.html" target="_blank">View in CMIP Specimen &#8594;</a>
+        <a class="btn btn-ghost" href="/samples">All Samples</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mini-cta"><div class="wrap mini-cta-inner">
+  <div><h3>Get the record expert-ready before you retain.</h3><p>Correct specialty. Documentation action list. Daubert preparedness.</p></div>
+  <a class="btn btn-teal" href="/intake">Request Case Review</a>
+</div></div>
+</div>
+<div id="p-svc-pec" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; All Services</a>
+    <div class="label">Supporting Service &#8212; Included in CMIP &middot; Available Standalone</div>
+    <h1 style="margin-top:10px">Pre-existing Condition Dossier</h1>
+    <p class="hero-sub">Complete documentation of what the defense will argue about prior pathology — built by someone who applied that same argument from inside a payer for 3,000+ cases.</p>
+    <div class="label-dim" style="margin-top:12px">Included in CMIP &middot; Available standalone</div>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>Payer reviewers and defense IME physicians apply the same playbook when pre-existing conditions appear in a record: attribute as much as possible to baseline degeneration, prior injury, or constitutional predisposition.</strong> Our founding physician has applied this methodology himself &#8212; across thousands of cases where pre-existing spondylosis, prior lumbar surgery, or degenerative joint disease was the central dispute. The dossier documents exactly what that argument looks like when applied to your client&#8217;s record, and what documentation exists or can be obtained to reduce its weight.</p></div>
+    <div class="svc-detail-grid" style="margin-top:32px">
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">What the dossier documents</h3>
+<ul class="deliverable-list">
+<li><span class="dl-num">01</span><div class="dl-text"><h5>Complete Prior History Inventory</h5><p>Every prior condition, injury, treatment, and surgery in the record &#8212; organized chronologically with clinical significance noted.</p></div></li>
+<li><span class="dl-num">02</span><div class="dl-text"><h5>Defense Attribution Analysis</h5><p>For each prior condition: what the defense is likely to argue, how strong that argument is, and what documentation supports or undermines it.</p></div></li>
+<li><span class="dl-num">03</span><div class="dl-text"><h5>Aggravation vs. New Injury Assessment</h5><p>Whether the documented clinical picture is consistent with aggravation, a new injury on a predisposed structure, or a new injury entirely.</p></div></li>
+<li><span class="dl-num">04</span><div class="dl-text"><h5>Documentation Impact Score</h5><p>How much weight the pre-existing conditions are likely to carry in a defense medical review &#8212; rated by pressure intensity.</p></div></li>
+</ul></div>
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">When this matters most</h3>
+<div class="when-grid" style="grid-template-columns:1fr">
+<div class="when-item"><p>Cases involving spine surgery where the client has pre-existing degenerative disc disease &#8212; the most contested medical issue in high-value PI litigation.</p></div>
+<div class="when-item"><p>Cases where imaging shows degeneration that predates the accident &#8212; the defense will argue the accident did not cause the pathology the treatment addressed.</p></div>
+<div class="when-item"><p>Older clients with constitutional degeneration &#8212; documentation must distinguish accident-related pathology from age-related baseline.</p></div>
+<div class="when-item"><p>Cases with prior injuries at the same anatomical level &#8212; requires precise documentation differentiation.</p></div>
+</div>
+<a class="btn btn-primary" href="/intake" style="width:100%;margin-top:24px;justify-content:center">Request This Service &#8594;</a></div>
+    </div>
+  </div>
+</div>
+<div class="sec-tight" style="background:var(--teal-dim);border-top:1px solid rgba(10,158,162,.15)">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px">
+      <div>
+        <div class="label" style="margin-bottom:6px">Specimen Deliverable &#8212; Component 04 of CMIP</div>
+        <h4 style="font-size:17px;margin-bottom:5px">See a Pre-existing Condition Dossier in a full report</h4>
+        <p style="font-size:16px;margin:0;color:var(--ink)">Demonstrated as Component 04 in the Full Intelligence Report specimen. Prior pathology analysis with defense weighting assessment.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-teal" href="specimens/specimen-cmip-pi.html" target="_blank">View in CMIP Specimen &#8594;</a>
+        <a class="btn btn-ghost" href="/samples">All Samples</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mini-cta"><div class="wrap mini-cta-inner">
+  <div><h3>Know the pre-existing argument before the defense makes it.</h3><p>Built from inside knowledge of payer attribution methodology.</p></div>
+  <a class="btn btn-teal" href="/intake">Request Case Review</a>
+</div></div>
+</div>
+<div id="p-svc-tga" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; All Services</a>
+    <div class="label">Supporting Service &#8212; Included in CMIP &middot; Available Standalone</div>
+    <h1 style="margin-top:10px">Treatment Gap Analysis</h1>
+    <p class="hero-sub">Insurance carriers track treatment gaps as a primary metric for reducing claim value. We map them before the defense exploits them — using the same analytical framework that payers use to challenge medical necessity.</p>
+    <div class="label-dim" style="margin-top:12px">Included in CMIP &middot; Available standalone</div>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>Insurance carriers do not simply observe treatment gaps &#8212; they evaluate them using specific criteria that determine whether a gap undermines medical necessity claims.</strong> Our founding physician has applied those criteria from inside a commercial payer. The treatment gap analysis we produce maps every gap in your client&#8217;s treatment record using the same framework that payers and defense reviewers use to challenge claims &#8212; giving you a precise picture of which gaps are genuinely problematic, which can be explained, and what documentation can address them.</p></div>
+    <div class="svc-detail-grid" style="margin-top:32px">
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">What the analysis covers</h3>
+<ul class="deliverable-list">
+<li><span class="dl-num">01</span><div class="dl-text"><h5>Gap Inventory</h5><p>Every gap in treatment &#8212; by anatomical region, provider type, and timeline &#8212; mapped against the documented treatment plan and clinical expectations.</p></div></li>
+<li><span class="dl-num">02</span><div class="dl-text"><h5>Causation Impact Assessment</h5><p>Which gaps the defense is likely to use to argue that the injury was not as severe as claimed &#8212; and how strong that argument is.</p></div></li>
+<li><span class="dl-num">03</span><div class="dl-text"><h5>Explainability Assessment</h5><p>Which gaps have documented clinical explanations and which are unexplained vulnerabilities.</p></div></li>
+<li><span class="dl-num">04</span><div class="dl-text"><h5>Documentation Action List</h5><p>What the treating physician can document to address unexplained gaps before mediation or expert engagement.</p></div></li>
+</ul></div>
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">How the defense uses gaps</h3>
+<div class="when-grid" style="grid-template-columns:1fr">
+<div class="when-item"><p>A 30-day gap in physical therapy is standard grounds for a defense medical reviewer to question whether the injury required the subsequent treatment claimed.</p></div>
+<div class="when-item"><p>A gap between the accident and the first medical visit is used to argue that the symptoms were not caused by the accident.</p></div>
+<div class="when-item"><p>A gap before surgical recommendation is used to argue that surgery was elective rather than medically necessary.</p></div>
+</div>
+<a class="btn btn-primary" href="/intake" style="width:100%;margin-top:24px;justify-content:center">Request Treatment Gap Analysis &#8594;</a></div>
+    </div>
+  </div>
+</div>
+<div class="sec-tight" style="background:var(--teal-dim);border-top:1px solid rgba(10,158,162,.15)">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px">
+      <div>
+        <div class="label" style="margin-bottom:6px">Specimen Deliverable &#8212; Component 05 of CMIP</div>
+        <h4 style="font-size:17px;margin-bottom:5px">See a Treatment Gap Analysis in a full report</h4>
+        <p style="font-size:16px;margin:0;color:var(--ink)">Demonstrated as Component 05 in the Full Intelligence Report specimen. Gap inventory, causation impact, explainability assessment, documentation action list.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-teal" href="specimens/specimen-cmip-pi.html" target="_blank">View in CMIP Specimen &#8594;</a>
+        <a class="btn btn-ghost" href="/samples">All Samples</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mini-cta"><div class="wrap mini-cta-inner">
+  <div><h3>Map the gaps before the defense weaponizes them.</h3><p>Explainability assessment + documentation action list included.</p></div>
+  <a class="btn btn-teal" href="/intake">Request Case Review</a>
+</div></div>
+</div>
+<div id="p-svc-wl" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; All Services</a>
+    <div class="label">Partnership Program</div>
+    <h1 style="margin-top:10px">White-Label Physician Intelligence for LNC Firms</h1>
+    <p class="hero-sub">Physician-authored case intelligence delivered under your brand — for the cases where nurse review reaches its ceiling and your attorney clients need MBBS-level interpretation.</p>
+    <div class="label-dim" style="margin-top:12px">Custom pricing &middot; Contact for details</div>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>LNC firms that white-label Medisprudence give their attorney clients physician intelligence that comes from inside knowledge of how payer reviewers and defense medical consultants think &#8212; not just from clinical training alone.</strong> The differentiation is precise: nurses provide excellent record review and chronology. Medisprudence provides the physician interpretation layer &#8212; what the organized record means for causation, for the IME, for the expert, and for the demand. Your brand. Our physician. No conflict.</p></div>
+    <div class="svc-detail-grid" style="margin-top:32px">
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">How the partnership works</h3>
+<ul class="deliverable-list">
+<li><span class="dl-num">01</span><div class="dl-text"><h5>Your brand, our physician</h5><p>Deliverables are produced under your firm&#8217;s brand and formatting. Your attorney clients see your name. The physician intelligence comes from Medisprudence.</p></div></li>
+<li><span class="dl-num">02</span><div class="dl-text"><h5>Monthly capacity retainer</h5><p>High-volume LNC firms can engage on a monthly retainer — a fixed number of physician-review deliverables per month at wholesale rates. One monthly invoice, predictable overhead, no per-case procurement decision. Retainer tiers available from 4 deliverables/month. Contact for pricing.</p></div></li>
+<li><span class="dl-num">03</span><div class="dl-text"><h5>Per-case referral arrangement</h5><p>For firms that prefer flexibility over volume commitment &#8212; Medisprudence accepts per-case referrals and direct referrals with attribution at wholesale rates.</p></div></li>
+<li><span class="dl-num">04</span><div class="dl-text"><h5>Wholesale pricing</h5><p>Partner pricing is below retail rates, allowing LNC firms to mark up physician intelligence appropriately while remaining competitive.</p></div></li>
+<li><span class="dl-num">05</span><div class="dl-text"><h5>Conflict management</h5><p>Medisprudence conducts conflict checks at intake and will not serve both sides of the same matter.</p></div></li>
+</ul></div>
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:18px">When your clients need physician-level review</h3>
+<div class="when-grid" style="grid-template-columns:1fr">
+<div class="when-item"><p>Cases where causation requires physician-level assessment of mechanism vs. pathology &#8212; beyond what nurse review can authoritatively address.</p></div>
+<div class="when-item"><p>IME reports that require a physician to identify clinical weaknesses and generate precise deposition questions.</p></div>
+<div class="when-item"><p>Pre-expert screening where the attorney needs physician judgment on case viability &#8212; not nurse-level summary.</p></div>
+<div class="when-item"><p>Defense Medical Lens requests where a physician must reconstruct the defense medical theory from inside knowledge of payer review methodology.</p></div>
+</div>
+<a class="btn btn-primary" href="/contact" style="width:100%;margin-top:24px;justify-content:center">Discuss Partnership &#8594;</a></div>
+    </div>
+  </div>
+</div>
+<div class="sec-tight" style="background:var(--bg-alt);border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px">
+      <div>
+        <div class="label" style="margin-bottom:6px">Physician Intelligence Deliverables</div>
+        <h4 style="font-size:17px;margin-bottom:5px">See the deliverables your clients would receive</h4>
+        <p style="font-size:16px;margin:0;color:var(--ink)">Full specimens for IME Deconstruction, Case Viability Screening, Defense Medical Lens, and Full Intelligence Report &#8212; the products available under white-label.</p>
+      </div>
+      <a class="btn btn-primary" href="/samples">View All Samples &#8594;</a>
+    </div>
+  </div>
+</div>
+<div class="mini-cta"><div class="wrap mini-cta-inner">
+  <div><h3>Add physician intelligence to your LNC practice.</h3><p>Your brand. Wholesale pricing. No conflicts.</p></div>
+  <a class="btn btn-teal" href="/intake">Request Case Review</a>
+</div></div>
+</div>
+<div id="p-pa-pi" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Practice Areas</a>
+    <div class="label">Practice Area</div>
+    <h1 style="margin-top:10px">Personal Injury &#8212; Auto, Trucking &amp; Catastrophic</h1>
+    <p class="hero-sub">Spine, TBI, and soft-tissue cases with contested IMEs and causation disputes are where Medisprudence delivers the highest per-case value.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>The most common defense challenge in PI cases is that the treating record does not support the claimed mechanism or surgical necessity.</strong> Our founding physician has evaluated exactly these arguments from inside a commercial payer &#8212; reviewing auto accident, trucking, and catastrophic injury claims using the same InterQual criteria that defense IME physicians apply. He knows which documentation patterns make a PI record defensible under that scrutiny, and which ones create exploitable gaps. When Medisprudence reviews a spine case, it is reading it as the defense reviewer will.</p></div>
+    
+<h3 style="font-size:clamp(18px,2.5vw,26px);margin:28px 0 16px">The defense challenges we address</h3>
+<div class="pa-challenge-grid">
+<div class="pa-challenge"><h5>Causation dispute</h5><p>&#8220;No causal relationship between the accident and the claimed pathology.&#8221; The most common IME conclusion in PI litigation &#8212; and the most analyzable.</p></div>
+<div class="pa-challenge"><h5>Surgical necessity</h5><p>&#8220;The surgery was not medically necessary given the documented conservative care.&#8221; Defense reviewers apply specific criteria for conservative care completion.</p></div>
+<div class="pa-challenge"><h5>Pre-existing attribution</h5><p>&#8220;The pathology reflects baseline degeneration unrelated to the accident.&#8221; Used most aggressively in older clients and prior injury at same level.</p></div>
+<div class="pa-challenge"><h5>Treatment gaps</h5><p>&#8220;The gaps in treatment are inconsistent with the claimed severity.&#8221; A 30-day gap in physical therapy is standard grounds for challenging medical necessity.</p></div>
+</div>
+    <h3 style="font-size:clamp(18px,2.5vw,26px);margin:28px 0 16px">Services for this practice area</h3>
+    <div class="pa-service-list">
+<a class="pa-service-item" href="/ime-deconstruction"><h5>IME Report Deconstruction &#8594;</h5><p>Defense orthopedic, spine, and neurology IMEs deconstructed with 20+ deposition questions.</p></a>
+<a class="pa-service-item" href="/defense-medical-lens"><h5>Defense Medical Lens&#8482; &#8594;</h5><p>Pre-mediation analysis of how a defense reviewer evaluates the record.</p></a>
+<a class="pa-service-item" href="/case-viability-screening"><h5>Case Viability Screening &#8594;</h5><p>Pre-expert assessment of whether the record supports the case theory.</p></a>
+<a class="pa-service-item" href="/pre-existing-condition-dossier"><h5>Pre-existing Condition Dossier &#8594;</h5><p>For spine cases with prior degeneration &#8212; maps the defense argument and what documentation addresses it.</p></a>
+<a class="pa-service-item" href="/treatment-gap-analysis"><h5>Treatment Gap Analysis &#8594;</h5><p>Maps every gap using the same framework payers use to challenge medical necessity.</p></a>
+<a class="pa-service-item" href="/full-intelligence-report"><h5>Full Intelligence Report (CMIP) &#8594;</h5><p>All seven components for high-value cases where comprehensive pre-expert analysis justifies the investment.</p></a></div>
+    <div style="margin-top:28px;text-align:center">
+      <a class="btn btn-primary" href="/intake">Request Case Review &#8594;</a>
+    </div>
+  </div>
+</div>
+</div>
+<div id="p-pa-mm" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Practice Areas</a>
+    <div class="label">Practice Area</div>
+    <h1 style="margin-top:10px">Medical Malpractice</h1>
+    <p class="hero-sub">Standard-of-care documentation analysis and pre-expert case intelligence for plaintiff and defense med-mal teams. The most expensive mistake in med-mal litigation is engaging the wrong expert before the record is ready.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>Standard of care documentation is the core of every med-mal case. Our founding physician&#8217;s background in utilization management &#8212; where clinical necessity is evaluated against documented care standards &#8212; gives him a precise lens for identifying where the documentation record will be challenged by defense experts.</strong> In med-mal cases, the question is not just whether the standard of care was met, but whether the record adequately documents the clinical reasoning, the alternatives considered, and the departure from expected practice.</p></div>
+    
+<h3 style="font-size:clamp(18px,2.5vw,26px);margin:28px 0 16px">Case types we analyze</h3>
+<div class="pa-challenge-grid">
+<div class="pa-response"><h5>Surgical errors</h5><p>Wrong-level surgery, nerve injury, retained instrument &#8212; documentation of surgical plan, informed consent, and post-operative management.</p></div>
+<div class="pa-response"><h5>Failure to diagnose</h5><p>Cancer, PE, MI, aortic dissection &#8212; documentation of differential diagnosis, workup ordered, and risk factor assessment.</p></div>
+<div class="pa-response"><h5>Anesthesia events</h5><p>Epidural complications, awareness under anesthesia, airway management failures &#8212; the most documentation-intensive med-mal cases.</p></div>
+<div class="pa-response"><h5>OB / birth injury</h5><p>Cerebral palsy, Erb&#8217;s palsy, shoulder dystocia &#8212; fetal monitoring strip interpretation and departure from protocol documentation.</p></div>
+<div class="pa-response"><h5>Medication errors</h5><p>Dosing errors, drug interactions, contraindication failures &#8212; pharmacy records, ordering documentation, and provider communication.</p></div>
+<div class="pa-response"><h5>Nursing home neglect</h5><p>Pressure ulcer development, fall documentation, medication administration records &#8212; regulatory standard documentation.</p></div>
+</div>
+    <h3 style="font-size:clamp(18px,2.5vw,26px);margin:28px 0 16px">Services for this practice area</h3>
+    <div class="pa-service-list">
+<a class="pa-service-item" href="/case-viability-screening"><h5>Case Viability Screening &#8594;</h5><p>Does the record support a departure from the standard of care? Pre-expert screening before committing to the most expensive stage.</p></a>
+<a class="pa-service-item" href="/expert-readiness-brief"><h5>Expert Readiness Brief &#8594;</h5><p>Right specialty for the specific departure alleged. Documentation the expert will need in place. Daubert preparedness assessment.</p></a>
+<a class="pa-service-item" href="/ime-deconstruction"><h5>IME Report Deconstruction &#8594;</h5><p>Defense medical expert reports deconstructed &#8212; applicable in med-mal cases where a defense expert has produced a preliminary report.</p></a>
+<a class="pa-service-item" href="/full-intelligence-report"><h5>Full Intelligence Report &#8594;</h5><p>Comprehensive documentation analysis across all seven components for high-value med-mal matters.</p></a></div>
+    <div style="margin-top:28px;text-align:center">
+      <a class="btn btn-primary" href="/intake">Request Case Review &#8594;</a>
+    </div>
+  </div>
+</div>
+</div>
+<div id="p-pa-bf" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Practice Areas</a>
+    <div class="label">Practice Area &middot; Medisprudence&#8217;s Most Distinctive Capability</div>
+    <h1 style="margin-top:10px">Bad Faith Insurance Litigation</h1>
+    <p class="hero-sub">When a patient or provider sues an insurer over a wrongful denial, the central legal question is whether the insurer's physician reviewer applied criteria correctly. Our lead physician performed that exact review function.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>In bad faith insurance litigation, the question is not what the treating physician believed &#8212; it is whether the insurer&#8217;s physician reviewer applied InterQual, MCG, or proprietary criteria correctly when making the denial decision.</strong> Our founding physician performed this exact review function inside a major US commercial payer across 3,000+ cases. He knows how those reviews are documented, what the internal thresholds are, where reviewers cut corners, and what a defensible denial looks like versus a pretextual one. In bad faith litigation, this insider knowledge is not background context &#8212; it is directly material to the case.</p></div>
+    
+<h3 style="font-size:clamp(18px,2.5vw,26px);margin:28px 0 16px">What the bad faith dispute typically turns on</h3>
+<div class="pa-challenge-grid">
+<div class="pa-challenge"><h5>Criteria application</h5><p>Did the insurer&#8217;s reviewer correctly apply the stated medical necessity criteria, or did the denial use criteria that do not support the stated rationale?</p></div>
+<div class="pa-challenge"><h5>Review process integrity</h5><p>Was the review conducted by a qualified physician in the relevant specialty? Was the treating record actually reviewed?</p></div>
+<div class="pa-challenge"><h5>Documentation of rationale</h5><p>Is the denial letter&#8217;s stated medical rationale supported by the clinical evidence, or is it boilerplate language that does not address the specific clinical presentation?</p></div>
+<div class="pa-challenge"><h5>Peer-to-peer failure</h5><p>Did the insurer&#8217;s reviewer engage in the required peer-to-peer review with the treating physician before denial?</p></div>
+</div>
+<div style="margin-top:24px;background:var(--bg-alt);border-radius:var(--r-lg);padding:22px 28px">
+  <div class="label" style="margin-bottom:10px">Conflict of Interest Disclosure</div>
+  <p style="font-size:14px;color:var(--ink)">Medisprudence does not use confidential, proprietary, or plan-specific information from any current or prior employer. All analysis is based on publicly available clinical guidelines and general utilization review methodology. Conflict checks are conducted at intake.</p>
+</div>
+    <h3 style="font-size:clamp(18px,2.5vw,26px);margin:28px 0 16px">Services for this practice area</h3>
+    <div class="pa-service-list">
+<a class="pa-service-item" href="/ime-deconstruction"><h5>Denial Rationale Analysis &#8594;</h5><p>Via the IME deconstruction framework applied to the denial letter &#8212; criteria application assessment, record vs. denial comparison.</p></a>
+<a class="pa-service-item" href="/defense-vulnerability-analysis"><h5>Defense Vulnerability Analysis &#8594;</h5><p>Pre-litigation medical exposure mapping for insurers and defense counsel.</p></a>
+<a class="pa-service-item" href="/case-viability-screening"><h5>Case Viability Screening &#8594;</h5><p>Does the record support the claim the denial addressed? Pre-expert screening for bad faith plaintiff teams.</p></a>
+<a class="pa-service-item" href="/full-intelligence-report"><h5>Full Intelligence Report &#8594;</h5><p>Comprehensive seven-component analysis for high-value bad faith matters.</p></a></div>
+    <div style="margin-top:28px;text-align:center">
+      <a class="btn btn-primary" href="/intake">Request Case Review &#8594;</a>
+    </div>
+  </div>
+</div>
+</div>
+<div id="p-pa-wc" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Practice Areas</a>
+    <div class="label">Practice Area</div>
+    <h1 style="margin-top:10px">Workers Compensation Defense</h1>
+    <p class="hero-sub">Causation disputes and treatment necessity analysis for defense firms, TPAs, and carriers — using the same documentation-threshold framework that payers apply in utilization management.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>WC causation disputes turn on the same documentation-threshold analysis used in payer utilization management.</strong> The questions &#8212; does the claimed injury arise from the documented work activity? Does the treatment record support the claimed severity? Is the proposed surgery consistent with the completed conservative care? &#8212; are the same questions our founding physician evaluated inside a commercial payer for 3,000+ cases. WC defense analysis at Medisprudence is grounded in actual payer practice, not generic clinical opinion alone.</p></div>
+    
+    <h3 style="font-size:clamp(18px,2.5vw,26px);margin:28px 0 16px">Services for this practice area</h3>
+    <div class="pa-service-list">
+<a class="pa-service-item" href="/defense-vulnerability-analysis"><h5>Defense Vulnerability Analysis &#8594;</h5><p>Medical exposure assessment for reserve-setting and settlement authority.</p></a>
+<a class="pa-service-item" href="/defense-medical-lens"><h5>Defense Medical Lens&#8482; &#8594;</h5><p>Pre-mediation or pre-hearing analysis of the medical exposure.</p></a>
+<a class="pa-service-item" href="/ime-deconstruction"><h5>IME Report Support &#8594;</h5><p>Analysis of IME reports commissioned for WC cases.</p></a>
+<a class="pa-service-item" href="/treatment-gap-analysis"><h5>Treatment Gap Analysis &#8594;</h5><p>Mapping treatment gaps against the utilization management framework used to challenge medical necessity.</p></a>
+<a class="pa-service-item" href="/pre-existing-condition-dossier"><h5>Pre-existing Condition Dossier &#8594;</h5><p>For occupational injury cases with prior musculoskeletal conditions &#8212; maps the apportionment argument.</p></a>
+<a class="pa-service-item" href="/case-viability-screening"><h5>Case Viability Screening &#8594;</h5><p>For TPAs and carriers making initial reserve decisions.</p></a></div>
+    <div style="margin-top:28px;text-align:center">
+      <a class="btn btn-primary" href="/intake">Request Case Review &#8594;</a>
+    </div>
+  </div>
+</div>
+</div>
+<div id="p-pa-mt" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Practice Areas</a>
+    <div class="label">Practice Area</div>
+    <h1 style="margin-top:10px">Mass Tort / MDL</h1>
+    <p class="hero-sub">Bellwether case viability screening and medical record analysis at scale &#8212; before the expert and bellwether commitment that determines the value of an entire MDL plaintiff pool.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="founder-bar"><div class="fb-label">Founder&#8217;s Advantage</div><p><strong>Bellwether case selection in mass tort depends on identifying which plaintiff records will withstand the defense medical scrutiny that applies in federal MDL proceedings.</strong> That scrutiny is calibrated to the same documentation-threshold analysis used in payer utilization management &#8212; because defense medical experts in MDL proceedings often have the same background as payer reviewers. Medisprudence&#8217;s physician, having applied that framework from the inside, can identify which plaintiff records are documentarily strong for bellwether selection and which carry medical exposure that will undermine the litigation position of the entire pool.</p></div>
+    <div class="svc-detail-grid" style="margin-top:28px">
+      <div><h3 style="font-size:clamp(18px,2.5vw,26px);margin:28px 0 16px">Common mass tort case types</h3>
+<div class="when-grid" style="grid-template-columns:1fr">
+<div class="when-item"><p><strong>Pharmaceutical:</strong> Drug side effects with dose-response documentation requirements and pre-existing condition attribution challenges.</p></div>
+<div class="when-item"><p><strong>Medical device:</strong> Orthopedic implant failures, surgical mesh, and similar cases requiring device-specific medical record analysis.</p></div>
+<div class="when-item"><p><strong>Toxic exposure:</strong> Occupational and environmental cases with latency documentation and causation chain requirements.</p></div>
+<div class="when-item"><p><strong>Camp Lejeune / VA:</strong> Service-connected disability and exposure documentation analysis.</p></div>
+</div></div>
+      <div>
+        <h3 style="font-size:clamp(18px,2.5vw,26px);margin-bottom:16px">Services for mass tort</h3>
+        <div class="pa-service-list">
+<a class="pa-service-item" href="/case-viability-screening"><h5>Bellwether Case Viability Screening &#8594;</h5><p>Which plaintiff records will hold under defense medical scrutiny at Daubert and trial.</p></a>
+<a class="pa-service-item" href="/expert-readiness-brief"><h5>Expert Readiness Brief for Bellwether &#8594;</h5><p>Documentation gaps to address before expert engagement and Daubert preparedness assessment.</p></a>
+<a class="pa-service-item" href="/defense-vulnerability-analysis"><h5>Defense Vulnerability Analysis &#8594;</h5><p>Pre-PSC medical exposure mapping across the plaintiff pool.</p></a>
+<a class="pa-service-item" href="/contact"><h5>Discuss Mass Tort Engagement &#8594;</h5><p>Volume arrangements available for MDL plaintiff pools. Contact for custom scope.</p></a></div>
+      </div>
+    </div>
+    <div style="margin-top:28px;text-align:center"><a class="btn btn-primary" href="/intake">Request Case Review &#8594;</a></div>
+  </div>
+</div>
+</div>
+
+<div id="p-packages" class="page">
+<div class="page-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">&#8592; Home</a>
+    <div class="label">Case Packages &amp; Bundles</div>
+    <h1 style="margin-top:10px">One decision. One invoice. One case cost line item.</h1>
+    <p class="hero-sub">Bundled below à la carte rates and structured so that the entire engagement advances as a single case cost — no per-service decisions, no multiple approvals, no separate invoices at each stage.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="wrap">
+    <div class="label" style="margin-bottom:14px">Plaintiff Attorney Packages</div>
+    <div class="pkg-grid">
+
+      <div class="pkg-card pkg-featured">
+        <span class="pkg-badge">Most Popular</span>
+        <div class="pkg-title">Full Case Workup</div>
+        <div class="pkg-sub">Complete pre-expert intelligence from first screening through IME response and defense simulation — in a single engagement.</div>
+        <ul class="pkg-includes">
+          <li><strong>Case Viability Screening (CVA™)</strong> — Does the record support the case theory? 72-hour turnaround.</li>
+          <li><strong>IME Report Deconstruction</strong> — Every unsupported assertion, omitted fact, internal contradiction, and 20+ deposition questions. 3–5 days.</li>
+          <li><strong>Defense Medical Lens™</strong> — Ranked pressure points, causation exposure, documentation action list. 48-hour add-on turnaround.</li>
+        </ul>
+        <div class="pkg-price-row">
+          <div class="pkg-price">From $1,100</div>
+          <div class="pkg-was">$1,250 à la carte</div>
+          <div class="pkg-save">Save $150</div>
+        </div>
+        <div class="pkg-note">Scope-confirmed before records are transmitted. Final fee confirmed at scope based on record volume and IME length.</div>
+        <div class="pkg-case-cost">Advanceable as a single case cost line item · Recoverable at settlement in contingency-fee matters · One invoice</div>
+        <a class="btn btn-teal" href="/intake" style="justify-content:center">Request Full Case Workup &#8594;</a>
+      </div>
+
+      <div class="pkg-card">
+        <span class="pkg-badge-muted">IME + Defense</span>
+        <div class="pkg-title">IME Response Package</div>
+        <div class="pkg-sub">You've received a defense IME. This delivers the full deconstruction and the defense medical picture — what the IME physician got wrong, and what the defense will use at mediation.</div>
+        <ul class="pkg-includes">
+          <li><strong>IME Report Deconstruction</strong> — 10 sections, 20+ physician-authored deposition questions. 3–5 days.</li>
+          <li><strong>Defense Medical Lens™</strong> — Ranked defense pressure points, treatment necessity analysis, documentation action list. 48-hour add-on.</li>
+        </ul>
+        <div class="pkg-price-row">
+          <div class="pkg-price">From $800</div>
+          <div class="pkg-was">$900 à la carte</div>
+          <div class="pkg-save">Save $100</div>
+        </div>
+        <div class="pkg-note">Best for cases where a defense IME has been received and mediation is approaching.</div>
+        <div class="pkg-case-cost">Advanceable as a single case cost line item · Recoverable at settlement in contingency-fee matters · One invoice</div>
+        <a class="btn btn-primary" href="/intake" style="justify-content:center">Request IME Response Package &#8594;</a>
+      </div>
+
+    </div>
+
+    <div class="founder-bar" style="margin-top:36px">
+      <div class="fb-label">Why the case cost framing matters</div>
+      <p>In a contingency-fee practice, Medisprudence fees advance as case costs — the same cost category used for expert consultation, medical record retrieval, and investigation. The entire engagement appears as one line item on the case ledger, one invoice to file, and is recovered from settlement proceeds. <strong>No new budget category. No separate approval for each service. No decision at each stage of the case.</strong></p>
+    </div>
+
+    <div style="margin-top:48px">
+      <div class="label" style="margin-bottom:14px">LNC Firm Partnership — Monthly Retainer</div>
+      <div style="background:var(--bg-alt);border-radius:var(--r-xl);padding:32px 36px;border:1px solid var(--rule-md)">
+        <div class="svc-detail-grid">
+          <div>
+            <h3 style="font-size:clamp(18px,2.5vw,24px);margin-bottom:14px">Monthly Capacity Retainer</h3>
+            <p style="font-size:15.5px;line-height:1.8;color:var(--ink);margin-bottom:16px">For LNC firms with recurring physician-review referral volume, a monthly capacity retainer eliminates the per-case procurement decision entirely. One monthly invoice, a fixed number of physician-authored deliverables per month, wholesale pricing throughout.</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:20px">
+              <li style="font-size:15px;color:var(--ink);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Deliverables produced under your firm&#8217;s brand</li>
+              <li style="font-size:15px;color:var(--ink);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>One monthly invoice — fits your overhead budget structure</li>
+              <li style="font-size:15px;color:var(--ink);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Wholesale rates below retail on every deliverable</li>
+              <li style="font-size:15px;color:var(--ink);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Conflict checks at intake on every matter</li>
+              <li style="font-size:15px;color:var(--ink);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--teal)">&#10003;</span>Retainer tiers available from 4 physician-authored deliverables per month</li>
+            </ul>
+            <a class="btn btn-primary" href="/contact">Discuss a Retainer Arrangement &#8594;</a>
+          </div>
+          <div>
+            <h4 style="margin-bottom:14px;color:var(--teal)">Deliverables available under retainer</h4>
+            <div style="display:flex;flex-direction:column;gap:9px">
+              <div style="padding:13px 16px;background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-md)"><h5 style="font-size:14.5px;margin-bottom:3px">IME Report Deconstruction</h5><p style="font-size:14px;color:var(--ink-2)">For attorney clients who have received a defense IME and need physician-level deconstruction with deposition questions.</p></div>
+              <div style="padding:13px 16px;background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-md)"><h5 style="font-size:14.5px;margin-bottom:3px">Case Viability Screening</h5><p style="font-size:14px;color:var(--ink-2)">Pre-expert screening where the attorney needs physician judgment on case viability before case cost commitment.</p></div>
+              <div style="padding:13px 16px;background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-md)"><h5 style="font-size:14.5px;margin-bottom:3px">Defense Medical Lens™</h5><p style="font-size:14px;color:var(--ink-2)">Pre-mediation defense simulation — ranked pressure points, causation exposure, documentation action list.</p></div>
+              <div style="padding:13px 16px;background:var(--bg);border:1px solid var(--rule-md);border-radius:var(--r-md)"><h5 style="font-size:14.5px;margin-bottom:3px">Full Intelligence Report (CMIP™)</h5><p style="font-size:14px;color:var(--ink-2)">Seven-component complete case intelligence — available under retainer for high-value matters.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px">
+      <div class="label" style="margin-bottom:14px">All Packages vs. À La Carte</div>
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead><tr>
+            <th>Engagement type</th>
+            <th>What&#8217;s included</th>
+            <th class="col-us">Starting fee</th>
+            <th>À la carte equivalent</th>
+            <th>Best for</th>
+          </tr></thead>
+          <tbody>
+            <tr><td><strong>Full Case Workup</strong></td><td>CVA + IME Deconstruction + Defense Medical Lens™</td><td class="col-us"><strong>From $1,100</strong></td><td>$1,250</td><td>Cases with a received IME approaching mediation</td></tr>
+            <tr><td><strong>IME Response Package</strong></td><td>IME Deconstruction + Defense Medical Lens™</td><td class="col-us"><strong>From $800</strong></td><td>$900</td><td>IME received; need deconstruction + defense simulation</td></tr>
+            <tr><td>IME Deconstruction (standalone)</td><td>10 sections, 20+ deposition questions</td><td class="col-us">From $500</td><td>—</td><td>IME received; deposition prep focus</td></tr>
+            <tr><td>Case Viability Screening (standalone)</td><td>Physician viability memo, 72 hrs</td><td class="col-us">From $350</td><td>—</td><td>Pre-expert case evaluation</td></tr>
+            <tr><td>Defense Medical Lens™ (standalone)</td><td>6 components, ranked pressure points</td><td class="col-us">From $950</td><td>—</td><td>Pre-mediation, no prior IME</td></tr>
+            <tr><td>Full Intelligence Report / CMIP™</td><td>7 components, complete workup</td><td class="col-us">From $1,500</td><td>—</td><td>High-value matters needing full pre-expert intelligence</td></tr>
+            <tr><td>LNC Monthly Retainer</td><td>Physician deliverables under your brand</td><td class="col-us">Contact for pricing</td><td>—</td><td>LNC firms with recurring referral volume</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;font-size:14px;color:var(--ink-3);font-style:italic;text-align:center">All fees confirmed at scope before records are transmitted. Package pricing is the starting rate — final fee depends on record volume and IME report length.</div>
+
+  </div>
+</div>
+<div class="cta-bar">
+  <div class="wrap" style="text-align:center">
+    <h2>Start with a no-PHI inquiry.</h2>
+    <p>Describe the case type and the decision you need to make. Medisprudence confirms scope, fee, and fit before any records are involved.</p>
+    <a class="btn btn-teal" href="/intake">Request Case Review</a>
+    <a class="btn btn-ghost" href="/contact" style="margin-left:10px;color:#fff!important;border-color:rgba(255,255,255,.3)">Ask a Question First</a>
+  </div>
+</div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Medisprudence</div>
+        <div class="footer-tagline">Medical case intelligence for litigation.<br>Physician-authored. Payer-informed. Attorney-directed.</div>
+      </div>
+      <div class="footer-col"><h6>Services</h6><ul>
+        <li><a href="/packages">Case Packages</a></li>
+        <li><a href="/ime-deconstruction">IME Deconstruction</a></li>
+        <li><a href="/case-viability-screening">Case Viability</a></li>
+        <li><a href="/full-intelligence-report">Full Intelligence Report</a></li>
+        <li><a href="/defense-medical-lens">Defense Medical Lens&#8482;</a></li>
+        <li><a href="/white-label">White-Label</a></li>
+      </ul></div>
+      <div class="footer-col"><h6>Practice Areas</h6><ul>
+        <li><a href="/personal-injury">Personal Injury</a></li>
+        <li><a href="/medical-malpractice">Medical Malpractice</a></li>
+        <li><a href="/bad-faith-insurance">Bad Faith</a></li>
+        <li><a href="/workers-compensation">Workers Compensation</a></li>
+        <li><a href="/mass-tort-mdl">Mass Tort / MDL</a></li>
+      </ul></div>
+      <div class="footer-col"><h6>Firm</h6><ul>
+        <li><a href="/why">Why Us</a></li>
+        <li><a href="/samples">Samples</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/security">Data Security</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/ai-use-policy">AI Use Disclosure</a>
+      </div>
+      <p>&copy; 2026 Medisprudence&#8482; &middot; <a href="mailto:contact@medisprudence.com" style="color:inherit">contact@medisprudence.com</a> &middot; Operated from India &middot; Cross-border processing disclosed before records are accepted &middot; Do not send PHI by email</p>
+      <p>Medisprudence provides physician-directed medical case intelligence under attorney supervision. Not a patient-facing medical service. We do not provide legal advice, legal representation, or independent expert testimony.</p>
+    </div>
+  </div>
+</footer>
+<script>
+var T={
+  home:'Medisprudence — Medical Case Intelligence for Litigation',
+  why:'Why Medisprudence — The Payer Reviewer Advantage',
+  results:'Sample Deliverables — Medisprudence',
+  about:'About — Medisprudence',faq:'FAQ — Medisprudence',
+  contact:'Contact — Medisprudence',intake:'Request Case Review — Medisprudence',
+  security:'Data Security — Medisprudence',privacy:'Privacy Policy — Medisprudence',
+  terms:'Terms of Use — Medisprudence','ai-use':'AI Use Disclosure — Medisprudence',
+  packages:'Case Packages &amp; Bundles — Medisprudence',
+  'svc-cva':'Case Viability Screening — Medisprudence',
+  'svc-dml':'Defense Medical Lens™ — Medisprudence',
+  'svc-cmip':'Full Intelligence Report — Medisprudence',
+  'svc-dva':'Defense Vulnerability Analysis — Medisprudence',
+  'svc-erb':'Expert Readiness Brief — Medisprudence',
+  'svc-pec':'Pre-existing Condition Dossier — Medisprudence',
+  'svc-tga':'Treatment Gap Analysis — Medisprudence',
+  'svc-wl':'White-Label for LNC Firms — Medisprudence',
+  'pa-pi':'Personal Injury — Medisprudence',
+  'pa-mm':'Medical Malpractice — Medisprudence',
+  'pa-bf':'Bad Faith Insurance Litigation — Medisprudence',
+  'pa-wc':'Workers Compensation Defense — Medisprudence',
+  'pa-mt':'Mass Tort / MDL — Medisprudence'
+};
+/* ── PUSHSTATE ROUTER ── */
+var ROUTES={
+  '/':'home','/why':'why','/samples':'results',
+  '/about':'about','/faq':'faq','/contact':'contact',
+  '/intake':'intake','/security':'security',
+  '/privacy':'privacy','/terms':'terms',
+  '/ai-use-policy':'ai-use',
+  '/packages':'packages',
+  '/case-viability-screening':'svc-cva',
+  '/defense-medical-lens':'svc-dml',
+  '/full-intelligence-report':'svc-cmip',
+  '/defense-vulnerability-analysis':'svc-dva',
+  '/expert-readiness-brief':'svc-erb',
+  '/pre-existing-condition-dossier':'svc-pec',
+  '/treatment-gap-analysis':'svc-tga',
+  '/white-label':'svc-wl',
+  '/personal-injury':'pa-pi',
+  '/medical-malpractice':'pa-mm',
+  '/bad-faith-insurance':'pa-bf',
+  '/workers-compensation':'pa-wc',
+  '/mass-tort-mdl':'pa-mt'
+};
+function showPage(id){
+  if(!id)id='home';
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+  var el=document.getElementById('p-'+id);
+  if(!el){el=document.getElementById('p-home');}
+  el.classList.add('active');
+  window.scrollTo(0,0);
+  document.title=T[id]||'Medisprudence';
+  var ogUrl=document.querySelector('meta[property="og:url"]');
+  if(ogUrl)ogUrl.setAttribute('content','https://medisprudence.com'+window.location.pathname);
+}
+function route(){
+  var path=window.location.pathname;
+  showPage(ROUTES[path]||'home');
+}
+/* Intercept all internal link clicks — no page reload */
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a[href]');
+  if(!a)return;
+  var href=a.getAttribute('href');
+  if(!href||!href.startsWith('/')||href.startsWith('//')
+     ||a.getAttribute('target')==='_blank')return;
+  e.preventDefault();
+  if(href!==window.location.pathname){history.pushState({},'',href);}
+  route();
+});
+window.addEventListener('popstate',route);
+document.addEventListener('DOMContentLoaded',route);
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10);
+});
+function openDrawer(){
+  var d=document.getElementById('mobile-drawer');
+  d.style.display='block';
+  requestAnimationFrame(function(){d.classList.add('open');});
+  window._drawerScrollY = window.scrollY;
+  document.body.style.overflow='hidden';
+  document.body.style.position='fixed';
+  document.body.style.width='100%';
+  document.body.style.top='-'+window._drawerScrollY+'px';
+}
+function closeDrawer(){
+  var d=document.getElementById('mobile-drawer');
+  if(!d)return;
+  d.classList.remove('open');
+  document.body.style.overflow='';
+  document.body.style.position='';
+  document.body.style.width='';
+  document.body.style.top='';
+  window.scrollTo(0, window._drawerScrollY||0);
+  setTimeout(function(){d.style.display='none';},350);
+}
+function toggleDrawer(){
+  var d=document.getElementById('mobile-drawer');
+  if(d.classList.contains('open')){closeDrawer();}else{openDrawer();}
+}
+/* Close drawer when any drawer nav link is tapped */
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.drawer-nav,.drawer-cta').forEach(function(el){
+    el.addEventListener('click',function(){setTimeout(closeDrawer,80);});
+  });
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer();});
+document.addEventListener('click',function(e){
+  var q=e.target.closest('.faq-q');
+  if(!q)return;
+  var item=q.closest('.faq-item');
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(x){x.classList.remove('open');});
+  if(!wasOpen)item.classList.add('open');
+});
+</script>
+</body>
+</html>
