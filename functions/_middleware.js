@@ -19,9 +19,14 @@ const DEFAULT = {
 
 export async function onRequest(context) {
   const url = new URL(context.request.url)
-  const meta = META[url.pathname] || DEFAULT
+  const meta = META[url.pathname]
 
-  const response = await context.next()
+  if (!meta) {
+    return context.next()
+  }
+
+  const indexUrl = new URL('/', url)
+  const response = await fetch(indexUrl.toString())
   const html = await response.text()
 
   const injected = html
@@ -33,6 +38,7 @@ export async function onRequest(context) {
     .replace(/twitter:description" content=".*?"/, `twitter:description" content="${meta.description}"`)
 
   return new Response(injected, {
-    headers: response.headers
+    status: 200,
+    headers: { 'Content-Type': 'text/html;charset=UTF-8' }
   })
 }
