@@ -3,459 +3,302 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Defense Medical Lens&#8482; &#8212; Sample Report | Medisprudence</title>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:15px;-webkit-font-smoothing:antialiased}
-body{font-family:Georgia,'Times New Roman',serif;background:#fff;color:#1a1a2e;line-height:1.72}
-a{color:inherit;text-decoration:none}
-
-/* ─── DOC HEADER ─── */
-.doc-header{background:#FFFFFF;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-bottom:1px solid #E5E5E7}
-.brand{font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;color:#1D1D1F;letter-spacing:-.02em;font-weight:500;display:flex;align-items:center}
-.brand span{color:inherit}
-.product-label{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#0A9EA2;margin-top:3px}
-.header-meta{text-align:right;display:flex;flex-direction:column;gap:3px}
-.meta-row{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#AEAEB2}
-.meta-row span{color:#1D1D1F;margin-left:8px}
-
-/* ─── FICTIONAL BANNER ─── */
-.sample-banner{background:#FEF9C3;border-bottom:1px solid #D4A843;padding:10px 40px;display:flex;align-items:center;gap:10px}
-.sample-banner p{font-family:'Courier New',monospace;font-size:11px;color:#713F12;letter-spacing:.04em;line-height:1.5}
-
-/* ─── BODY ─── */
-.body{max-width:920px;margin:0 auto;padding:36px 40px 64px}
-
-/* ─── CASE BOX ─── */
-.case-box{background:#F8F9FB;border:1px solid #DDE3EE;border-left:4px solid #0B1222;border-radius:4px;padding:22px 26px;margin-bottom:36px}
-.case-box-label{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7B8BA3;margin-bottom:12px}
-.case-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
-.ci-label{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:#9CA3AF;margin-bottom:3px}
-.ci-val{font-size:14px;color:#1B2A4A;font-weight:700;font-family:'Courier New',monospace}
-.case-summary{font-size:14px;color:#4B5563;line-height:1.75;border-top:1px solid #DDE3EE;padding-top:14px;margin-top:6px}
-
-/* ─── SECTION ─── */
-.section{margin-bottom:40px}
-.sec-num{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#0EA5A9;margin-bottom:5px}
-.sec-title{font-size:19px;font-weight:700;color:#0B1222;font-family:Georgia,serif;margin-bottom:6px;padding-bottom:10px;border-bottom:2px solid #EEF0F5}
-.sec-sub{font-size:13px;color:#6B7A95;margin-bottom:18px;font-style:italic;line-height:1.65}
-.body-text{font-size:14.5px;color:#374151;line-height:1.78;margin-bottom:14px}
-.body-text strong{color:#0B1222}
-
-/* ─── PRESSURE TABLE ─── */
-.pt-wrap{overflow-x:auto;margin:16px 0}
-.pressure-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
-.pressure-table thead tr{background:#0B1222}
-.pressure-table thead th{padding:11px 14px;text-align:left;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.10em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.75)}
-.pressure-table tbody tr{border-bottom:1px solid #EEF0F5;transition:.15s}
-.pressure-table tbody tr:hover{background:#F8F9FB}
-.pressure-table tbody tr:last-child{border-bottom:none}
-.pressure-table td{padding:14px;vertical-align:top;color:#374151;line-height:1.65}
-.rank-cell{font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:#0B1222;width:34px;text-align:center}
-.pressure-cell{width:108px;text-align:center}
-.arg-title{font-size:14px;font-weight:700;color:#0B1222;display:block;margin-bottom:5px;font-family:Georgia,serif}
-.basis-cell{font-size:12px;color:#6B7A95;width:190px}
-.basis-cell strong{color:#374151;font-size:12px}
-
-/* Badges */
-.badge{display:inline-block;padding:4px 9px;border-radius:3px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
-.b-high{background:#FEE2E2;color:#991B1B}
-.b-moderate{background:#FEF3C7;color:#92400E}
-.b-lowmod{background:#EDE9FE;color:#5B21B6}
-.b-low{background:#D1FAE5;color:#065F46}
-
-/* ─── CALLOUT BOXES ─── */
-.callout{border-left:3px solid #0EA5A9;background:#F0FDFE;padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0}
-.callout.danger{border-left-color:#DC2626;background:#FFF5F5}
-.callout.warn{border-left-color:#D97706;background:#FFFBEB}
-.callout.neutral{border-left-color:#6B7A95;background:#F8F9FB}
-.callout-label{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;color:#0EA5A9}
-.callout.danger .callout-label{color:#DC2626}
-.callout.warn .callout-label{color:#D97706}
-.callout.neutral .callout-label{color:#6B7A95}
-.callout p{font-size:14px;color:#374151;line-height:1.7}
-.callout p strong{color:#0B1222}
-
-/* ─── TREATMENT TABLE ─── */
-.tt-wrap{overflow-x:auto;margin:16px 0}
-.treat-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:700px}
-.treat-table thead tr{background:#111B2E}
-.treat-table thead th{padding:11px 14px;text-align:left;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.10em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.75)}
-.treat-table tbody tr{border-bottom:1px solid #EEF0F5}
-.treat-table tbody tr:nth-child(even){background:#FAFBFD}
-.treat-table tbody tr:hover{background:#F0F4FF}
-.treat-table td{padding:14px;vertical-align:top;color:#374151;line-height:1.65}
-.treat-name{font-size:14px;font-weight:700;color:#0B1222;display:block;margin-bottom:4px;font-family:Georgia,serif}
-.treat-sub{font-size:11px;color:#9CA3AF;font-family:'Courier New',monospace;text-transform:uppercase;letter-spacing:.06em}
-.expose-cell{width:110px;text-align:center}
-.gap-cell{font-size:12px;color:#6B7A95;width:195px}
-.gap-cell strong{color:#DC2626;font-size:12px}
-
-/* ─── PRE-EXISTING GRID ─── */
-.pe-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
-.pe-card{border:1px solid #DDE3EE;border-radius:4px;padding:16px 18px}
-.pe-card.primary{border-color:rgba(220,38,38,.3);background:#FFF5F5}
-.pe-card.positive{border-color:rgba(14,165,169,.3);background:#F0FDFE}
-.pe-label{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7B8BA3;margin-bottom:6px}
-.pe-card.primary .pe-label{color:#DC2626}
-.pe-card.positive .pe-label{color:#0EA5A9}
-.pe-card h4{font-size:14.5px;color:#0B1222;margin-bottom:7px;font-family:Georgia,serif}
-.pe-card p{font-size:13px;color:#6B7A95;line-height:1.65}
-
-/* ─── FUNCTIONAL TABLE ─── */
-.func-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0}
-.func-table thead tr{background:#1A2640}
-.func-table thead th{padding:10px 14px;text-align:left;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:600}
-.func-table tbody tr{border-bottom:1px solid #EEF0F5}
-.func-table td{padding:13px 14px;vertical-align:top;color:#374151;font-size:13.5px;line-height:1.65}
-.func-table .elem-cell{font-weight:700;color:#0B1222;width:200px;font-family:Georgia,serif}
-.func-table .status-cell{width:110px;text-align:center}
-.func-table .finding-cell{font-size:13px;color:#374151}
-.func-table .risk-cell{font-size:12px;color:#6B7A95;width:180px}
-
-/* Functional status pills */
-.pill{display:inline-block;padding:3px 10px;border-radius:12px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
-.pill-red{background:#FEE2E2;color:#991B1B}
-.pill-amber{background:#FEF3C7;color:#92400E}
-.pill-green{background:#D1FAE5;color:#065F46}
-
-/* ─── ACTION LIST ─── */
-.action-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:16px}
-.action-item{display:flex;gap:14px;align-items:flex-start;border:1px solid #DDE3EE;border-radius:4px;padding:16px 18px;background:#FAFBFD}
-.action-item.priority{border-color:rgba(14,165,169,.35);background:#F0FDFE}
-.action-num{font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:#0EA5A9;flex-shrink:0;min-width:26px;margin-top:1px}
-.action-body strong{font-size:14.5px;color:#0B1222;display:block;margin-bottom:5px;font-family:Georgia,serif}
-.action-body p{font-size:13.5px;color:#4B5563;line-height:1.7}
-.action-body .priority-note{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:#0EA5A9;margin-bottom:4px}
-
-/* ─── BOUNDARY BOX ─── */
-.boundary-box{background:#F8F9FB;border:1px solid #DDE3EE;border-radius:4px;padding:20px 24px;margin-top:36px}
-.boundary-label{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7B8BA3;margin-bottom:8px}
-.boundary-box p{font-size:13px;color:#6B7A95;line-height:1.72;font-style:italic}
-
-/* ─── FOOTER ─── */
-.doc-footer{background:#0B1222;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-top:1px solid rgba(255,255,255,.08)}
-.doc-footer p{font-size:11px;color:rgba(255,255,255,.35);font-family:'Courier New',monospace;letter-spacing:.04em}
-
-/* ─── RESPONSIVE ─── */
-@media(max-width:680px){
-  .body{padding:24px 18px 48px}
-  .doc-header{padding:16px 18px}
-  .sample-banner{padding:10px 18px}
-  .doc-footer{padding:14px 18px}
-  .case-grid{grid-template-columns:1fr 1fr}
-  .pe-grid{grid-template-columns:1fr}
-}
-</style>
+<title>Medisprudence — Specimen: Defense Medical Lens&trade;</title>
+<meta name="description" content="Specimen Defense Medical Lens deliverable — pre-mediation cervical/lumbar PI case. Fictional clinical data. No PHI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="specimen.css">
 </head>
 <body>
-<div style="background:#1D1D1F;padding:12px 48px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:999"><a href="../results.html" style="color:rgba(255,255,255,.7);font-family:monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none">← Back to Results</a><span style="color:rgba(255,255,255,.3);font-size:11px;font-family:monospace">SPECIMEN — Fictional clinical data only. No PHI.</span></div>
 
-<!-- ═══ DOCUMENT HEADER ═══ -->
+<div class="top-bar">
+  <a class="back" href="../Medisprudence.html">&larr; Back to Medisprudence</a>
+  <span class="specimen-tag"><strong>Specimen</strong> &nbsp;·&nbsp; Fictional clinical data &nbsp;·&nbsp; No PHI</span>
+</div>
+
 <div class="doc-header">
-  <div>
-    <div class="brand"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-right:8px;vertical-align:middle"><line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="16" cy="11" r="2.4" fill="currentColor"/><line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/><line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>Medisprudence</div>
-    <div class="product-label">Defense Medical Lens&#8482; &mdash; Pre-Mediation Intelligence Report</div>
+  <div class="doc-header-top">
+    <div class="doc-brand">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <circle cx="16" cy="11" r="2.4" fill="currentColor"/>
+        <line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      Medisprudence
+    </div>
+    <div class="doc-stamp">
+      <div class="doc-stamp-label">Document type</div>
+      <div class="doc-stamp-val">Defense Medical Lens&trade; &mdash; Pre-Mediation</div>
+    </div>
   </div>
-  <div class="header-meta">
-    <div class="meta-row">Product <span>Premium Add-On &mdash; Product 04</span></div>
-    <div class="meta-row">Record Volume <span>Approx. 847 pages / 9 providers</span></div>
-    <div class="meta-row">Mediation <span>28 days from report date</span></div>
-    <div class="meta-row">IME Received <span>Yes &mdash; Defense Orthopedic</span></div>
-  </div>
+  <div class="doc-title">Defense Medical Lens&trade; &mdash; <em>Pre-Mediation Intelligence</em></div>
+  <div class="doc-subtitle">Specimen &middot; Fictional clinical data &middot; No PHI &middot; Approx. 847 pages / 9 providers &middot; Mediation in 28 days</div>
 </div>
 
-<!-- ═══ FICTIONAL DATA BANNER ═══ -->
-<div class="sample-banner">
-  <div style="font-size:15px">&#9888;</div>
-  <p><strong>SAMPLE ONLY &mdash; FICTIONAL CLINICAL DATA THROUGHOUT.</strong> All names, dates, diagnoses, imaging findings, providers, clinical details, and case facts are entirely fabricated for demonstration purposes. This document does not represent a real case, real patient, or real provider. Not legal or medical advice. For demonstration only.</p>
-</div>
+<div class="doc">
 
-<!-- ═══ DOCUMENT BODY ═══ -->
-<div class="body">
-
-  <!-- ▸ CASE MEDICAL OVERVIEW ▸ -->
+  <!-- CASE BOX -->
   <div class="case-box">
     <div class="case-box-label">Case Medical Overview</div>
     <div class="case-grid">
-      <div><div class="ci-label">Case Type</div><div class="ci-val">PI &mdash; MVA</div></div>
+      <div><div class="ci-label">Case type</div><div class="ci-val">PI &mdash; MVA</div></div>
       <div><div class="ci-label">Mechanism</div><div class="ci-val">T-bone, ~40 mph</div></div>
-      <div><div class="ci-label">Impact Direction</div><div class="ci-val">Driver&rsquo;s side, right-lateral</div></div>
-      <div><div class="ci-label">Primary Claims</div><div class="ci-val">Left C6 radiculopathy; L4&ndash;L5 herniation + radiculopathy; ALIF recommendation</div></div>
+      <div><div class="ci-label">Impact direction</div><div class="ci-val">Driver&rsquo;s side, right-lateral</div></div>
+      <div><div class="ci-label">Primary claims</div><div class="ci-val">Left C6 radiculopathy; L4&ndash;L5 herniation + radiculopathy; ALIF recommendation</div></div>
       <div><div class="ci-label">Claimant</div><div class="ci-val">48 M, logistics manager</div></div>
-      <div><div class="ci-label">Pre-Existing Flagged</div><div class="ci-val">L4&ndash;L5 DDD (2022 MRI)</div></div>
+      <div><div class="ci-label">Pre-existing flagged</div><div class="ci-val">L4&ndash;L5 DDD (2022 MRI)</div></div>
     </div>
     <div class="case-summary">
-      A 48-year-old male logistics manager was involved in a T-bone collision at an uncontrolled intersection. The claimant's sedan sustained a right-lateral impact from a commercial vehicle estimated at approximately 40 mph. Initial emergency department presentation occurred three weeks post-accident with chief complaints of left-sided neck and low back pain with radiating symptoms. Over the following 15 weeks, the treatment course included a six-week course of combined cervical and lumbar physical therapy (discharged with documented &ldquo;functional improvement&rdquo;), two cervical epidural steroid injections, one lumbar epidural steroid injection administered at Week 14, and a lumbar surgical consultation the following week recommending anterior lumbar interbody fusion (ALIF) at L4&ndash;L5. A defense orthopedic IME has been received concluding no causal relationship between the accident mechanism and the lumbar surgical recommendation, and recommending against surgical intervention. Mediation is scheduled in 28 days. The record reveals a 2022 lumbar MRI &mdash; obtained during workup for a prior unrelated lumbar complaint &mdash; documenting L4&ndash;L5 broad-based disc bulge with early annular fissuring at the operative level.
+      A 48-year-old male logistics manager was involved in a T-bone collision at an uncontrolled intersection. The claimant&rsquo;s sedan sustained a right-lateral impact from a commercial vehicle estimated at approximately 40 mph. Initial emergency department presentation occurred three weeks post-accident with chief complaints of left-sided neck and low back pain with radiating symptoms. Over the following 15 weeks, the treatment course included a six-week course of combined cervical and lumbar physical therapy (discharged with documented &ldquo;functional improvement&rdquo;), two cervical epidural steroid injections, one lumbar epidural steroid injection administered at Week 14, and a lumbar surgical consultation the following week recommending anterior lumbar interbody fusion (ALIF) at L4&ndash;L5. A defense orthopedic IME has been received concluding no causal relationship between the accident mechanism and the lumbar surgical recommendation. Mediation is scheduled in 28 days. The record reveals a 2022 lumbar MRI &mdash; obtained during workup for a prior unrelated lumbar complaint &mdash; documenting L4&ndash;L5 broad-based disc bulge with early annular fissuring at the operative level.
     </div>
   </div>
 
-  <!-- ═══ SECTION 01: RANKED PRESSURE POINTS ═══ -->
+  <!-- SECTION 1: RANKED PRESSURE POINTS -->
   <div class="section">
     <div class="sec-num">Section 01 &mdash; The Heart of the Analysis</div>
     <div class="sec-title">Likely Defense Medical Pressure Points &mdash; Ranked</div>
-    <div class="sec-sub">A physician-authored assessment of the medical arguments a defense-side reviewer is likely to press hardest at mediation, ordered by expected pressure intensity. This is a simulation of likely medical reasoning based on payer-side utilization management experience and the clinical record &mdash; not a prediction of the defense consultant&rsquo;s actual opinion, which is unknown to Medisprudence.</div>
+    <p class="sec-sub">A physician-authored assessment of the medical arguments a defense-side reviewer is likely to press hardest at mediation, ordered by expected pressure intensity. This is a simulation of likely medical reasoning based on payer-side utilization management experience and the clinical record &mdash; not a prediction of the defense consultant&rsquo;s actual opinion, which is unknown to Medisprudence.</p>
 
-    <div class="pt-wrap">
-    <table class="pressure-table">
+    <div class="table-wrap">
+    <table>
       <thead>
         <tr>
           <th style="width:36px">#</th>
-          <th style="width:108px">Pressure Level</th>
-          <th>Likely Defense Medical Argument &mdash; Basis &amp; Physician Assessment</th>
-          <th style="width:190px">Record Basis</th>
+          <th style="width:108px">Pressure level</th>
+          <th>Likely defense medical argument &mdash; basis &amp; physician assessment</th>
+          <th style="width:200px">Record basis</th>
         </tr>
       </thead>
       <tbody>
-
         <tr>
-          <td class="rank-cell">1</td>
-          <td class="pressure-cell"><span class="badge b-high">High</span></td>
+          <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">1</td>
+          <td style="text-align:center"><span class="badge b-high">High</span></td>
           <td>
-            <span class="arg-title">Pre-existing L4&ndash;L5 degenerative disc disease at the operative level undermines lumbar causation and the surgical recommendation</span>
+            <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">Pre-existing L4&ndash;L5 degenerative disc disease at the operative level undermines lumbar causation and the surgical recommendation</strong>
             A 2022 lumbar MRI &mdash; obtained during workup for a prior lumbar complaint unrelated to this accident &mdash; documents L4&ndash;L5 broad-based disc bulge with early annular fissuring. The current post-accident MRI documents herniation at the identical level and spinal segment. A defense medical reviewer will argue that the herniation represents progression or exacerbation of a documented pre-existing degenerative process, not a new traumatic lesion caused by this accident &mdash; and that the surgical recommendation is directed at treating a pre-existing condition. This argument is further strengthened by the treating surgeon&rsquo;s note failing to acknowledge or address the 2022 imaging. That omission, from a defense reviewer&rsquo;s perspective, is not an oversight &mdash; it is the most important single gap in the entire record.
           </td>
-          <td class="basis-cell"><strong>2022 Lumbar MRI:</strong> L4&ndash;L5 broad-based disc bulge, early annular fissuring.<br><br><strong>2026 Post-accident MRI:</strong> L4&ndash;L5 herniation with left-sided nerve root compression &mdash; same level, progressive pathology pattern.<br><br><strong>Surgical note:</strong> No reference to 2022 imaging.</td>
+          <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">2022 lumbar MRI:</strong> L4&ndash;L5 broad-based disc bulge, early annular fissuring.<br><br><strong style="color:var(--ink-2);font-size:12.5px">2026 post-accident MRI:</strong> L4&ndash;L5 herniation with left-sided nerve root compression &mdash; same level, progressive pathology pattern.<br><br><strong style="color:var(--ink-2);font-size:12.5px">Surgical note:</strong> No reference to 2022 imaging.</td>
         </tr>
-
         <tr>
-          <td class="rank-cell">2</td>
-          <td class="pressure-cell"><span class="badge b-high">High</span></td>
+          <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">2</td>
+          <td style="text-align:center"><span class="badge b-high">High</span></td>
           <td>
-            <span class="arg-title">Nine-week treatment gap between PT discharge and surgical consultation is medically inconsistent with claimed severity of ongoing radiculopathy</span>
+            <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">Nine-week treatment gap between PT discharge and surgical consultation is medically inconsistent with claimed severity of ongoing radiculopathy</strong>
             Physical therapy was discharged at Week 6 with a treating provider note documenting &ldquo;functional improvement&rdquo; and &ldquo;tolerating ADLs with reduced symptoms.&rdquo; The surgical consultation occurs at Week 15. The nine-week interval contains no documented medical contact, no treating provider visits, no escalation of conservative care, and no documented pain-severity event that would explain the transition from &ldquo;improving&rdquo; to surgical candidacy. A defense medical reviewer will characterize this gap as evidence that symptoms had substantially resolved following PT &mdash; consistent with the PT discharge note &mdash; and that the subsequent surgical consultation represents a new or unrelated clinical decision, not an accident-driven progression. From a payer-side medical necessity standpoint, a claimant with acute progressive radiculopathy requiring ALIF fusion surgery would be expected to maintain continuous medical contact. The absence of that contact for nine weeks is among the strongest timeline arguments in the defense medical position.
           </td>
-          <td class="basis-cell"><strong>PT discharge note (Week 6):</strong> &ldquo;Functional improvement.&rdquo; &ldquo;Tolerating ADLs.&rdquo;<br><br><strong>Gap:</strong> Weeks 7&ndash;14 &mdash; no medical records from any provider.<br><br><strong>Surgical consult (Week 15):</strong> &ldquo;Significant functional limitation affecting ADLs.&rdquo; No explanation for interval.</td>
+          <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">PT discharge (Week 6):</strong> &ldquo;Functional improvement.&rdquo; &ldquo;Tolerating ADLs.&rdquo;<br><br><strong style="color:var(--ink-2);font-size:12.5px">Gap:</strong> Weeks 7&ndash;14 &mdash; no medical records from any provider.<br><br><strong style="color:var(--ink-2);font-size:12.5px">Surgical consult (Week 15):</strong> &ldquo;Significant functional limitation affecting ADLs.&rdquo; No explanation for interval.</td>
         </tr>
-
         <tr>
-          <td class="rank-cell">3</td>
-          <td class="pressure-cell"><span class="badge b-high">High</span></td>
+          <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">3</td>
+          <td style="text-align:center"><span class="badge b-high">High</span></td>
           <td>
-            <span class="arg-title">Lumbar surgical recommendation (ALIF L4&ndash;L5) is not supported by documented failure of adequate conservative care under standard medical necessity criteria</span>
+            <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">Lumbar surgical recommendation (ALIF L4&ndash;L5) is not supported by documented failure of adequate conservative care under standard medical necessity criteria</strong>
             The record documents a single lumbar epidural steroid injection administered at Week 14, one week before the surgical consultation was conducted. No functional assessment was documented following this injection. No second injection was attempted. No documentation of inadequate injection response exists in the record prior to the surgical referral. Standard medical necessity criteria for lumbar arthrodesis &mdash; including the MCG and InterQual frameworks applied in payer utilization review &mdash; typically require documented failure of conservative care including an adequate trial of epidural steroid injection. A single injection with no documented outcome assessment, administered seven days before the surgical consultation, does not meet the documentation threshold for &ldquo;failure of conservative care&rdquo; under these criteria. A defense medical reviewer will characterize the surgical escalation as premature and inadequately supported, and the IME report will likely center this documentation gap as the primary treatment-necessity denial argument for the lumbar surgical recommendation.
           </td>
-          <td class="basis-cell"><strong>Lumbar ESI:</strong> Single injection, Week 14.<br><br><strong>Post-injection assessment:</strong> None documented.<br><br><strong>Surgical consultation:</strong> Week 15. No failed-conservative-care language. No reference to injection outcome.</td>
+          <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">Lumbar ESI:</strong> Single injection, Week 14.<br><br><strong style="color:var(--ink-2);font-size:12.5px">Post-injection assessment:</strong> None documented.<br><br><strong style="color:var(--ink-2);font-size:12.5px">Surgical consultation:</strong> Week 15. No failed-conservative-care language. No reference to injection outcome.</td>
         </tr>
-
         <tr>
-          <td class="rank-cell">4</td>
-          <td class="pressure-cell"><span class="badge b-moderate">Moderate</span></td>
+          <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">4</td>
+          <td style="text-align:center"><span class="badge b-moderate">Moderate</span></td>
           <td>
-            <span class="arg-title">EMG/NCS findings classify as mild L4 distribution changes &mdash; inconsistent with the &ldquo;significant radiculopathy&rdquo; characterization supporting the surgical recommendation</span>
+            <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">EMG/NCS findings classify as mild L4 distribution changes &mdash; inconsistent with the &ldquo;significant radiculopathy&rdquo; characterization supporting the surgical recommendation</strong>
             The electrodiagnostic study documents mild L4 distribution denervation changes. The operative surgical consultation note characterizes the clinical presentation as &ldquo;significant radiculopathy with functional deficit necessitating surgical intervention&rdquo; without reconciling this characterization with the EMG severity classification. A defense medical reviewer may argue that mild electrodiagnostic findings are inconsistent with the severity of neurological deficit typically required to support a lumbar fusion recommendation, and that the treating surgeon&rsquo;s characterization is not supported by the objective electrodiagnostic data in the record. This is a supporting rather than standalone argument, deployed alongside the conservative-care and pre-existing-condition arguments to create a compounding documentation-vulnerability narrative.
           </td>
-          <td class="basis-cell"><strong>EMG/NCS report:</strong> Mild L4 distribution changes. Severity classification: mild.<br><br><strong>Surgical note:</strong> &ldquo;Significant radiculopathy with functional deficit.&rdquo; No EMG cross-reference or severity reconciliation.</td>
+          <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">EMG/NCS:</strong> Mild L4 distribution changes. Severity: mild.<br><br><strong style="color:var(--ink-2);font-size:12.5px">Surgical note:</strong> &ldquo;Significant radiculopathy with functional deficit.&rdquo; No EMG cross-reference or severity reconciliation.</td>
         </tr>
-
         <tr>
-          <td class="rank-cell">5</td>
-          <td class="pressure-cell"><span class="badge b-moderate">Moderate</span></td>
+          <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">5</td>
+          <td style="text-align:center"><span class="badge b-moderate">Moderate</span></td>
           <td>
-            <span class="arg-title">Three-week delay to initial post-accident medical treatment weakens the temporal mechanism-injury connection</span>
-            The first documented medical contact following the accident is an emergency department visit at Week 3. No records document any medical evaluation, treatment, prescription, or complaint in the 21-day interval between the accident and the ER visit. A defense medical reviewer will note that a claimant who sustained the acute cervical and lumbar radiculopathy described in the complaint &mdash; severe enough to ultimately require cervical epidural injections and lumbar fusion surgery &mdash; would be expected to seek medical evaluation promptly. The 21-day gap is not fatal to causation, but it provides a credible argument for the defense that the acute injury phase was clinically mild, and that the subsequent escalating treatment course reflects factors other than acute traumatic injury.
+            <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">Three-week delay to initial post-accident medical treatment weakens the temporal mechanism-injury connection</strong>
+            The first documented medical contact following the accident is an emergency department visit at Week 3. No records document any medical evaluation, treatment, prescription, or complaint in the 21-day interval between the accident and the ER visit. A defense medical reviewer will note that a claimant who sustained the acute cervical and lumbar radiculopathy described in the complaint &mdash; severe enough to ultimately require cervical epidural injections and lumbar fusion surgery &mdash; would be expected to seek medical evaluation promptly. The 21-day gap is not fatal to causation, but it provides a credible argument for the defense that the acute injury phase was clinically mild.
           </td>
-          <td class="basis-cell"><strong>Accident date:</strong> Day 0.<br><br><strong>First medical contact:</strong> ER, Week 3 (Day 21).<br><br><strong>No records:</strong> Days 1&ndash;20.</td>
+          <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">Accident date:</strong> Day 0.<br><br><strong style="color:var(--ink-2);font-size:12.5px">First medical contact:</strong> ER, Week 3 (Day 21).<br><br><strong style="color:var(--ink-2);font-size:12.5px">No records:</strong> Days 1&ndash;20.</td>
         </tr>
-
         <tr>
-          <td class="rank-cell">6</td>
-          <td class="pressure-cell"><span class="badge b-lowmod">Low&ndash;Moderate</span></td>
+          <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">6</td>
+          <td style="text-align:center"><span class="badge b-lowmod">Low&ndash;Mod</span></td>
           <td>
-            <span class="arg-title">Left-sided radiculopathy symptoms may be noted as inconsistent with the right-lateral primary force vector, though this is unlikely to be a primary denial argument</span>
+            <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">Left-sided radiculopathy symptoms may be noted as inconsistent with the right-lateral primary force vector, though this is unlikely to be a primary denial argument</strong>
             The accident reconstruction documents a right-lateral T-bone impact pattern. The primary radiculopathy symptoms are left-sided throughout the record (C6 distribution cervical, L4 distribution lumbar). Left-sided radiculopathy following right-lateral loading is biomechanically plausible through contrecoup and rotational spinal loading mechanisms, and this inconsistency is not expected to function as a standalone causation-denial position. It is noted here because the defense IME physician may raise it during any cross-examination or deposition, and counsel should be prepared to address the biomechanical explanation if this argument surfaces. The treating physician has not addressed the laterality question in the record.
           </td>
-          <td class="basis-cell"><strong>Accident reconstruction:</strong> Right-lateral primary force vector (driver&rsquo;s side impact).<br><br><strong>Symptom laterality:</strong> Left-sided throughout &mdash; cervical and lumbar.<br><br><strong>Treating physician:</strong> Laterality not addressed in any note.</td>
+          <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">Reconstruction:</strong> Right-lateral primary force vector (driver&rsquo;s side impact).<br><br><strong style="color:var(--ink-2);font-size:12.5px">Symptom laterality:</strong> Left-sided throughout &mdash; cervical and lumbar.<br><br><strong style="color:var(--ink-2);font-size:12.5px">Treating physician:</strong> Laterality not addressed in any note.</td>
         </tr>
-
       </tbody>
     </table>
     </div>
   </div>
 
-  <!-- ═══ SECTION 02: CAUSATION VULNERABILITY ═══ -->
+  <!-- SECTION 2: CAUSATION VULNERABILITY -->
   <div class="section">
     <div class="sec-num">Section 02</div>
     <div class="sec-title">Causation Vulnerability Assessment</div>
-    <div class="sec-sub">How a defense-side medical reviewer is likely to evaluate the causal connection between the claimed injury mechanism and the diagnosed conditions. Written physician assessment &mdash; not a numerical score. Scores create false precision; this written assessment is more defensible and more useful in preparation.</div>
+    <p class="sec-sub">How a defense-side medical reviewer is likely to evaluate the causal connection between the claimed injury mechanism and the diagnosed conditions. Written physician assessment &mdash; not a numerical score. Scores create false precision; this written assessment is more defensible and more useful in preparation.</p>
 
     <div class="callout">
-      <div class="callout-label">Cervical Claim &mdash; Causation Strength: Relatively Solid</div>
+      <div class="callout-label">Cervical claim &mdash; causation strength: relatively solid</div>
       <p>The cervical causation picture presents the most defensible element of this record. Emergency department documentation, while delayed by three weeks, includes neck pain complaints with a directional mechanism (lateral impact) consistent with cervical loading. The post-accident cervical MRI documents a C5&ndash;C6 disc herniation with left-sided neural foraminal narrowing and nerve root abutment. <strong>Critically, no prior cervical imaging exists in the record.</strong> The defense has no imaging baseline at the cervical level to argue pre-existing pathology at the symptomatic segment &mdash; a significant limitation on the defense cervical argument. The two cervical epidural steroid injections were sequenced appropriately following documented failure of physical therapy. A defense medical reviewer examining the cervical claim in isolation would find substantially less causation-denial footing relative to the lumbar claim. The primary cervical vulnerability is the three-week treatment delay; all other causation elements are relatively well-supported by the documentation.</p>
     </div>
 
-    <div class="callout danger" style="margin-top:14px">
-      <div class="callout-label">Lumbar Claim &mdash; Causation Strength: Significantly Exposed &mdash; High Priority</div>
+    <div class="callout danger">
+      <div class="callout-label">Lumbar claim &mdash; causation strength: significantly exposed &mdash; high priority</div>
       <p><strong>The lumbar causation argument carries the highest risk exposure in this record, and that exposure is concentrated in a single document the treating surgeon has not addressed.</strong></p>
-      <p style="margin-top:10px">The 2022 lumbar MRI &mdash; obtained during workup for a prior unrelated lumbar complaint &mdash; documents L4&ndash;L5 broad-based disc bulge with early annular fissuring at the precise spinal level now targeted for surgical intervention. The current post-accident MRI documents herniation at the same level. The treating surgeon&rsquo;s operative note does not reference the 2022 study, does not characterize the radiological difference between the 2022 and 2026 findings, and does not provide a physician-authored explanation of why the current herniation represents a traumatic injury rather than continued degeneration of a documented pre-existing process. From a defense medical reviewer&rsquo;s perspective, this is not a clinical omission &mdash; it is the single most important evidentiary gap in the record. The defense will center its lumbar causation argument on this document and the treating surgeon&rsquo;s failure to address it. Until a treating physician explicitly addresses the 2022 imaging and distinguishes the current pathology, the lumbar causation argument is significantly exposed.</p>
+      <p>The 2022 lumbar MRI &mdash; obtained during workup for a prior unrelated lumbar complaint &mdash; documents L4&ndash;L5 broad-based disc bulge with early annular fissuring at the precise spinal level now targeted for surgical intervention. The current post-accident MRI documents herniation at the same level. The treating surgeon&rsquo;s operative note does not reference the 2022 study, does not characterize the radiological difference between the 2022 and 2026 findings, and does not provide a physician-authored explanation of why the current herniation represents a traumatic injury rather than continued degeneration of a documented pre-existing process. From a defense medical reviewer&rsquo;s perspective, this is not a clinical omission &mdash; it is the single most important evidentiary gap in the record. The defense will center its lumbar causation argument on this document and the treating surgeon&rsquo;s failure to address it. Until a treating physician explicitly addresses the 2022 imaging and distinguishes the current pathology, the lumbar causation argument is significantly exposed.</p>
     </div>
 
-    <div class="callout warn" style="margin-top:14px">
-      <div class="callout-label">Mechanism-Severity Consistency &mdash; Partial Exposure</div>
+    <div class="callout warn">
+      <div class="callout-label">Mechanism-severity consistency &mdash; partial exposure</div>
       <p>The claimed mechanism (T-bone at approximately 40 mph, right-lateral loading) is generally consistent with the severity of cervical injury documented. For the lumbar surgical recommendation specifically, a defense medical reviewer may question whether the documented mechanism-severity relationship supports surgical-grade lumbar pathology in a claimant who did not seek medical attention for three weeks post-accident. This is a secondary argument expected to be deployed as reinforcement for the primary pre-existing condition and conservative-care-failure exposure, rather than as a standalone causation-denial position.</p>
     </div>
   </div>
 
-  <!-- ═══ SECTION 03: TREATMENT NECESSITY ═══ -->
+  <!-- SECTION 3: TREATMENT NECESSITY -->
   <div class="section">
     <div class="sec-num">Section 03</div>
     <div class="sec-title">Treatment Necessity Analysis</div>
-    <div class="sec-sub">How a defense-side medical reviewer &mdash; applying payer-style medical necessity reasoning &mdash; is likely to evaluate each major treatment category. Each treatment element is assessed independently based on documentation in the record, not on the clinical outcome.</div>
+    <p class="sec-sub">How a defense-side medical reviewer &mdash; applying payer-style medical necessity reasoning &mdash; is likely to evaluate each major treatment category. Each treatment element is assessed independently based on documentation in the record, not on the clinical outcome.</p>
 
-    <div class="tt-wrap">
-    <table class="treat-table">
+    <div class="table-wrap">
+    <table>
       <thead>
         <tr>
-          <th style="width:185px">Treatment Element</th>
-          <th style="width:110px">Exposure Level</th>
-          <th>Medical Necessity Assessment</th>
-          <th style="width:195px">Documentation Gap</th>
+          <th style="width:185px">Treatment element</th>
+          <th style="width:120px">Exposure level</th>
+          <th>Medical necessity assessment</th>
+          <th style="width:200px">Documentation gap</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>
-            <span class="treat-name">Physical Therapy</span>
-            <span class="treat-sub">Cervical &amp; Lumbar &middot; 6 Weeks</span>
-          </td>
-          <td class="expose-cell"><span class="badge b-lowmod">Low&ndash;Mod</span></td>
-          <td style="font-size:13.5px;color:#374151">
-            The PT scope and duration are defensible. Combined cervical and lumbar PT following a multi-level injury mechanism represents an appropriate initial conservative care pathway. The primary exposure is the three-week post-accident delay to treatment initiation, which a defense reviewer will use to question the severity of the acute presentation. The PT discharge note documenting &ldquo;functional improvement&rdquo; at Week 6 is a double-edged finding: it supports PT clinical effectiveness but becomes a primary vulnerability when the surgical consultation nine weeks later characterizes the claimant as having &ldquo;significant functional limitation affecting all ADLs.&rdquo; The reviewer will press on what changed between Week 6 and Week 15 to account for this reversal, with no intermediate documentation available to answer that question.
-          </td>
-          <td class="gap-cell">No objective outcome measures throughout PT course (e.g., numeric pain scale, functional outcome tool). &ldquo;Functional improvement&rdquo; at discharge not quantified. <strong>Three-week delay to initiation.</strong></td>
+          <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">Physical Therapy</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Cervical &amp; lumbar &middot; 6 weeks</span></td>
+          <td style="text-align:center"><span class="badge b-lowmod">Low&ndash;Mod</span></td>
+          <td style="font-size:13.5px;color:var(--ink-2)">The PT scope and duration are defensible. Combined cervical and lumbar PT following a multi-level injury mechanism represents an appropriate initial conservative care pathway. The primary exposure is the three-week post-accident delay to treatment initiation, which a defense reviewer will use to question the severity of the acute presentation. The PT discharge note documenting &ldquo;functional improvement&rdquo; at Week 6 is a double-edged finding: it supports PT clinical effectiveness but becomes a primary vulnerability when the surgical consultation nine weeks later characterizes the claimant as having &ldquo;significant functional limitation affecting all ADLs.&rdquo;</td>
+          <td style="font-size:12.5px;color:var(--ink-3)">No objective outcome measures throughout PT course (e.g., numeric pain scale, functional outcome tool). &ldquo;Functional improvement&rdquo; at discharge not quantified. <strong style="color:var(--danger);font-size:12.5px">Three-week delay to initiation.</strong></td>
         </tr>
         <tr>
-          <td>
-            <span class="treat-name">Cervical ESI &times; 2</span>
-            <span class="treat-sub">Cervical &middot; Weeks 8 &amp; 11</span>
-          </td>
-          <td class="expose-cell"><span class="badge b-low">Low</span></td>
-          <td style="font-size:13.5px;color:#374151">
-            The cervical injection sequence is the most defensible treatment element in this record. The escalation pathway &mdash; failed PT documented at discharge followed by cervical ESI &mdash; represents an appropriate, sequenced, conservative care progression for cervical radiculopathy with imaging correlation. The two-injection course with documented interval evaluation is consistent with standard medical necessity criteria for cervical epidural steroid injection. A defense medical reviewer is unlikely to press the cervical injection necessity as a primary argument. This treatment element is not expected to be the basis of significant adversarial medical resistance at mediation.
-          </td>
-          <td class="gap-cell">Post-ESI&#160;#2 functional assessment not clearly documented before lumbar treatment decisions were initiated. Minor gap only.</td>
+          <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">Cervical ESI &times; 2</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Cervical &middot; Weeks 8 &amp; 11</span></td>
+          <td style="text-align:center"><span class="badge b-low">Low</span></td>
+          <td style="font-size:13.5px;color:var(--ink-2)">The cervical injection sequence is the most defensible treatment element in this record. The escalation pathway &mdash; failed PT documented at discharge followed by cervical ESI &mdash; represents an appropriate, sequenced, conservative care progression for cervical radiculopathy with imaging correlation. The two-injection course with documented interval evaluation is consistent with standard medical necessity criteria for cervical epidural steroid injection. A defense medical reviewer is unlikely to press the cervical injection necessity as a primary argument.</td>
+          <td style="font-size:12.5px;color:var(--ink-3)">Post-ESI&nbsp;#2 functional assessment not clearly documented before lumbar treatment decisions were initiated. Minor gap only.</td>
         </tr>
         <tr>
-          <td>
-            <span class="treat-name">Lumbar ESI &times; 1</span>
-            <span class="treat-sub">Lumbar &middot; Week 14</span>
-          </td>
-          <td class="expose-cell"><span class="badge b-high">High</span></td>
-          <td style="font-size:13.5px;color:#374151">
-            <strong>This is the single most medically exposed treatment element in the record.</strong> A single lumbar epidural steroid injection administered at Week 14 &mdash; one week before the surgical consultation &mdash; with no documented post-injection assessment and no second injection attempted, does not constitute a documented adequate trial of conservative care under standard medical necessity criteria for lumbar fusion. The temporal proximity of the injection (Week 14) and the surgical consultation (Week 15) &mdash; seven days &mdash; creates a specific medical credibility question: no physician can document injection failure within seven days of administration using standard clinical evaluation. The record is silent on why a second injection was not pursued. The defense reviewer will characterize this as inadequate conservative care exhaustion, and the IME will almost certainly deploy this argument as the primary treatment-necessity denial basis.
-          </td>
-          <td class="gap-cell"><strong>No post-injection functional assessment.</strong> No documentation of injection response. No explanation for why second injection was not attempted. No &ldquo;failed conservative care&rdquo; statement before surgical referral.</td>
+          <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">Lumbar ESI &times; 1</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Lumbar &middot; Week 14</span></td>
+          <td style="text-align:center"><span class="badge b-high">High</span></td>
+          <td style="font-size:13.5px;color:var(--ink-2)"><strong>This is the single most medically exposed treatment element in the record.</strong> A single lumbar epidural steroid injection administered at Week 14 &mdash; one week before the surgical consultation &mdash; with no documented post-injection assessment and no second injection attempted, does not constitute a documented adequate trial of conservative care under standard medical necessity criteria for lumbar fusion. The temporal proximity of the injection (Week 14) and the surgical consultation (Week 15) &mdash; seven days &mdash; creates a specific medical credibility question: no physician can document injection failure within seven days of administration using standard clinical evaluation. The record is silent on why a second injection was not pursued.</td>
+          <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--danger);font-size:12.5px">No post-injection functional assessment.</strong> No documentation of injection response. No explanation for why second injection was not attempted. No &ldquo;failed conservative care&rdquo; statement before surgical referral.</td>
         </tr>
         <tr>
-          <td>
-            <span class="treat-name">ALIF L4&ndash;L5</span>
-            <span class="treat-sub">Recommended &middot; Week 15</span>
-          </td>
-          <td class="expose-cell"><span class="badge b-high">High</span></td>
-          <td style="font-size:13.5px;color:#374151">
-            The surgical recommendation faces compounding and independent documentation vulnerabilities that a defense medical reviewer will enumerate: <strong>(1)</strong> Pre-existing degenerative disease at the operative level &mdash; 2022 MRI not addressed in surgical note; <strong>(2)</strong> Single lumbar ESI with no documented failure &mdash; conservative care exhaustion not established; <strong>(3)</strong> Mild EMG findings &mdash; inconsistent with the &ldquo;significant radiculopathy&rdquo; characterization in the surgical note; <strong>(4)</strong> PT discharge documenting functional improvement nine weeks before surgical consultation &mdash; functional regression not explained. Any one of these vulnerabilities independently creates medical necessity exposure. Their compounding effect provides the defense medical reviewer multiple independent grounds to characterize the surgical recommendation as not supported by the documentation record. This is the highest-risk element of the treatment narrative.
-          </td>
-          <td class="gap-cell"><strong>Surgical note does not address:</strong> 2022 prior imaging; EMG severity; failed conservative care; functional regression from Week 6 to Week 15. All four gaps are independently exposed.</td>
+          <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">ALIF L4&ndash;L5</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Recommended &middot; Week 15</span></td>
+          <td style="text-align:center"><span class="badge b-high">High</span></td>
+          <td style="font-size:13.5px;color:var(--ink-2)">The surgical recommendation faces compounding and independent documentation vulnerabilities that a defense medical reviewer will enumerate: <strong>(1)</strong> Pre-existing degenerative disease at the operative level &mdash; 2022 MRI not addressed in surgical note; <strong>(2)</strong> Single lumbar ESI with no documented failure &mdash; conservative care exhaustion not established; <strong>(3)</strong> Mild EMG findings &mdash; inconsistent with the &ldquo;significant radiculopathy&rdquo; characterization in the surgical note; <strong>(4)</strong> PT discharge documenting functional improvement nine weeks before surgical consultation &mdash; functional regression not explained. Any one of these vulnerabilities independently creates medical necessity exposure.</td>
+          <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--danger);font-size:12.5px">Surgical note does not address:</strong> 2022 prior imaging; EMG severity; failed conservative care; functional regression from Week 6 to Week 15. All four gaps are independently exposed.</td>
         </tr>
       </tbody>
     </table>
     </div>
   </div>
 
-  <!-- ═══ SECTION 04: PRE-EXISTING CONDITION EXPOSURE ═══ -->
+  <!-- SECTION 4: PRE-EXISTING CONDITION -->
   <div class="section">
     <div class="sec-num">Section 04</div>
     <div class="sec-title">Pre-Existing Condition Exposure</div>
-    <div class="sec-sub">How heavily a defense-side reviewer is likely to use pre-existing condition evidence, and what arguments the record supports. Pre-existing condition arguments are the single most common defense medical resistance point at mediation. This section maps each pre-existing element in the record to its expected adversarial weight.</div>
+    <p class="sec-sub">How heavily a defense-side reviewer is likely to use pre-existing condition evidence, and what arguments the record supports. Pre-existing condition arguments are the single most common defense medical resistance point at mediation. This section maps each pre-existing element in the record to its expected adversarial weight.</p>
 
     <div class="pe-grid">
       <div class="pe-card primary">
-        <div class="pe-label">Primary Exposure &mdash; High Weight</div>
+        <div class="pe-label">Primary exposure &mdash; high weight</div>
         <h4>L4&ndash;L5 Degenerative Disc Disease (2022 MRI)</h4>
         <p>The 2022 lumbar MRI is the most important single document in the defense&rsquo;s pre-existing condition argument and the highest-weight adversarial medical evidence in this entire record. It establishes documented degenerative pathology &mdash; broad-based disc bulge with early annular fissuring &mdash; at the operative level, prior to the accident, with no treating physician statement in the current record that distinguishes the post-accident herniation from continued degeneration of this pre-existing process. The defense medical reviewer is expected to open and close the lumbar causation argument with this document. Its adversarial weight will only be reduced by a treating surgeon&rsquo;s supplemental note that directly addresses and explains the radiological distinction.</p>
       </div>
       <div class="pe-card">
-        <div class="pe-label">Secondary Exposure &mdash; Moderate Weight</div>
+        <div class="pe-label">Secondary exposure &mdash; moderate weight</div>
         <h4>Obesity (BMI 34 &mdash; Class I)</h4>
         <p>BMI 34 places the claimant in Class I obesity. A defense medical reviewer may characterize obesity as an independent and significant contributor to lumbar degenerative disc disease progression, disc herniation development, and ongoing symptom persistence &mdash; arguing that the attributable causation fraction from the accident mechanism is reduced by this independent risk factor. This is a supporting argument, not a primary one. Its primary deployment is expected to reinforce the pre-existing degenerative disease narrative rather than serve as a standalone causation-denial basis. However, it may appear prominently in the IME report&rsquo;s background section.</p>
       </div>
       <div class="pe-card">
-        <div class="pe-label">Minor Exposure &mdash; Low Weight</div>
+        <div class="pe-label">Minor exposure &mdash; low weight</div>
         <h4>Hypertension (Controlled)</h4>
         <p>Hypertension is documented in the background medical history and is not directly causation-relevant to the musculoskeletal claims. A defense medical reviewer is unlikely to press hypertension as a medical argument of meaningful adversarial weight. It will appear in the IME&rsquo;s pre-existing condition listing but is not expected to carry substantive weight in the defense medical position on causation or treatment necessity.</p>
       </div>
       <div class="pe-card positive">
-        <div class="pe-label">Absent Exposure &mdash; Relative Strength</div>
+        <div class="pe-label">Absent exposure &mdash; relative strength</div>
         <h4>No Prior Cervical Imaging &mdash; Cervical Causation Protected</h4>
         <p>The absence of prior cervical imaging in the record is a meaningful relative strength for the cervical causation argument. With no pre-existing cervical baseline to argue, the defense pre-existing condition exposure is limited to the lumbar claim. Counsel should be aware that if prior cervical imaging exists but has not been produced, this relative strength could reverse. The record should be confirmed as complete with respect to all prior imaging studies before relying on this absence as a strength at mediation.</p>
       </div>
     </div>
   </div>
 
-  <!-- ═══ SECTION 05: FUNCTIONAL IMPAIRMENT ═══ -->
+  <!-- SECTION 5: FUNCTIONAL IMPAIRMENT -->
   <div class="section">
     <div class="sec-num">Section 05</div>
     <div class="sec-title">Functional Impairment Documentation Review</div>
-    <div class="sec-sub">Whether the record adequately documents functional limitations &mdash; the element that connects medical findings to damages. Defense medical reviewers specifically look for the absence of documented functional impairment as a basis to argue that claimed disability is not medically supported.</div>
+    <p class="sec-sub">Whether the record adequately documents functional limitations &mdash; the element that connects medical findings to damages. Defense medical reviewers specifically look for the absence of documented functional impairment as a basis to argue that claimed disability is not medically supported.</p>
 
-    <table class="func-table">
+    <div class="table-wrap">
+    <table>
       <thead>
         <tr>
-          <th style="width:200px">Documentation Element</th>
-          <th style="width:110px">Status</th>
-          <th>Record Finding</th>
-          <th style="width:180px">Defense Reviewer Risk</th>
+          <th style="width:210px">Documentation element</th>
+          <th style="width:120px">Status</th>
+          <th>Record finding</th>
+          <th style="width:180px">Defense reviewer risk</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="elem-cell">Work Restriction Documentation</td>
-          <td class="status-cell"><span class="pill pill-red">Insufficient</span></td>
-          <td class="finding-cell">Treating physician note at Week 12 documents &ldquo;modified duty&rdquo; without specifying restriction type, weight limits, standing or sitting tolerance, driving limitations, or expected duration. For a logistics manager with occupation-specific physical demands, undifferentiated &ldquo;modified duty&rdquo; provides limited medically supportable basis for a wage-loss or work-capacity claim.</td>
-          <td class="risk-cell"><strong>High.</strong> Defense reviewer will note absence of specific restrictions and characterize &ldquo;modified duty&rdquo; as clinically unsupported.</td>
+          <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Work Restriction Documentation</td>
+          <td style="text-align:center"><span class="pill pill-red">Insufficient</span></td>
+          <td style="font-size:13.5px;color:var(--ink-2)">Treating physician note at Week 12 documents &ldquo;modified duty&rdquo; without specifying restriction type, weight limits, standing or sitting tolerance, driving limitations, or expected duration. For a logistics manager with occupation-specific physical demands, undifferentiated &ldquo;modified duty&rdquo; provides limited medically supportable basis for a wage-loss or work-capacity claim.</td>
+          <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--danger);font-size:12.5px">High.</strong> Defense reviewer will note absence of specific restrictions and characterize &ldquo;modified duty&rdquo; as clinically unsupported.</td>
         </tr>
         <tr>
-          <td class="elem-cell">Activities of Daily Living</td>
-          <td class="status-cell"><span class="pill pill-amber">Partial</span></td>
-          <td class="finding-cell">ADL limitations referenced in a single PT note at Week 8 documenting difficulty with overhead activities. No systematic ADL documentation across treating providers. The surgical consultation note documents &ldquo;significant functional limitation affecting all activities of daily living&rdquo; without specifying which ADLs, the nature of the limitation, or the degree of impairment.</td>
-          <td class="risk-cell"><strong>Moderate.</strong> Single-source, single-point ADL documentation is insufficient to support the severity characterization in the surgical note.</td>
+          <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Activities of Daily Living</td>
+          <td style="text-align:center"><span class="pill pill-amber">Partial</span></td>
+          <td style="font-size:13.5px;color:var(--ink-2)">ADL limitations referenced in a single PT note at Week 8 documenting difficulty with overhead activities. No systematic ADL documentation across treating providers. The surgical consultation note documents &ldquo;significant functional limitation affecting all activities of daily living&rdquo; without specifying which ADLs, the nature of the limitation, or the degree of impairment.</td>
+          <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--caution);font-size:12.5px">Moderate.</strong> Single-source, single-point ADL documentation is insufficient to support the severity characterization in the surgical note.</td>
         </tr>
         <tr>
-          <td class="elem-cell">Functional Improvement&ndash;to&ndash;Deterioration Arc</td>
-          <td class="status-cell"><span class="pill pill-red">Exposed</span></td>
-          <td class="finding-cell">PT discharge note (Week 6): &ldquo;Functional improvement,&rdquo; &ldquo;tolerating ADLs with reduced symptoms.&rdquo; Surgical consultation (Week 15): &ldquo;Significant functional limitation affecting all ADLs.&rdquo; Nine-week gap between these two characterizations with no intermediate provider documentation. The improvement-to-severe-limitation arc without documentation of the intervening clinical course is a functional narrative inconsistency the defense reviewer will identify and press on specifically.</td>
-          <td class="risk-cell"><strong>High.</strong> Unexplained functional regression over nine weeks of no documented contact is a primary functional documentation vulnerability.</td>
+          <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Functional Improvement&ndash;to&ndash;Deterioration Arc</td>
+          <td style="text-align:center"><span class="pill pill-red">Exposed</span></td>
+          <td style="font-size:13.5px;color:var(--ink-2)">PT discharge note (Week 6): &ldquo;Functional improvement,&rdquo; &ldquo;tolerating ADLs with reduced symptoms.&rdquo; Surgical consultation (Week 15): &ldquo;Significant functional limitation affecting all ADLs.&rdquo; Nine-week gap between these two characterizations with no intermediate provider documentation. The improvement-to-severe-limitation arc without documentation of the intervening clinical course is a functional narrative inconsistency the defense reviewer will identify and press on specifically.</td>
+          <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--danger);font-size:12.5px">High.</strong> Unexplained functional regression over nine weeks of no documented contact is a primary functional documentation vulnerability.</td>
         </tr>
         <tr>
-          <td class="elem-cell">Formal Functional Capacity Evaluation</td>
-          <td class="status-cell"><span class="pill pill-red">Absent</span></td>
-          <td class="finding-cell">No formal functional capacity evaluation in the record. No standardized functional outcome measurement tool used at any point in the treatment course.</td>
-          <td class="risk-cell"><strong>Moderate.</strong> For occupational capacity claims, absence of FCE limits the evidentiary weight of functional limitation assertions.</td>
+          <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Formal Functional Capacity Evaluation</td>
+          <td style="text-align:center"><span class="pill pill-red">Absent</span></td>
+          <td style="font-size:13.5px;color:var(--ink-2)">No formal functional capacity evaluation in the record. No standardized functional outcome measurement tool used at any point in the treatment course.</td>
+          <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--caution);font-size:12.5px">Moderate.</strong> For occupational capacity claims, absence of FCE limits the evidentiary weight of functional limitation assertions.</td>
         </tr>
         <tr>
-          <td class="elem-cell">Provider-to-Provider Functional Consistency</td>
-          <td class="status-cell"><span class="pill pill-amber">Inconsistent</span></td>
-          <td class="finding-cell">PT notes document progressive functional improvement through Week 6. Surgical consultation note at Week 15 documents severe functional limitation. The two characterizations are in direct conflict, separated by nine weeks of no documented clinical contact. No provider note bridges or explains this clinical discordance.</td>
-          <td class="risk-cell"><strong>High.</strong> Defense reviewer will argue the inconsistency undermines the credibility of the severe-limitation characterization in the surgical note.</td>
+          <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Provider-to-Provider Functional Consistency</td>
+          <td style="text-align:center"><span class="pill pill-amber">Inconsistent</span></td>
+          <td style="font-size:13.5px;color:var(--ink-2)">PT notes document progressive functional improvement through Week 6. Surgical consultation note at Week 15 documents severe functional limitation. The two characterizations are in direct conflict, separated by nine weeks of no documented clinical contact. No provider note bridges or explains this clinical discordance.</td>
+          <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--danger);font-size:12.5px">High.</strong> Defense reviewer will argue the inconsistency undermines the credibility of the severe-limitation characterization in the surgical note.</td>
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 
-  <!-- ═══ SECTION 06: DOCUMENTATION ACTION LIST ═══ -->
+  <!-- SECTION 6: ACTION LIST -->
   <div class="section">
     <div class="sec-num">Section 06 &mdash; The Action Deliverable</div>
     <div class="sec-title">Documentation That May Reduce Medical Vulnerability</div>
-    <div class="sec-sub">A physician-authored list of documentation that may materially reduce the strength of the likely defense medical arguments identified above. This does not state what will move a settlement number &mdash; Medisprudence does not make that assessment. It identifies what documentation may reduce the medical vulnerabilities the defense is likely to press, allowing counsel to pursue supplemental documentation before mediation if the case timeline permits.</div>
+    <p class="sec-sub">A physician-authored list of documentation that may materially reduce the strength of the likely defense medical arguments identified above. This does not state what will move a settlement number &mdash; Medisprudence does not make that assessment. It identifies what documentation may reduce the medical vulnerabilities the defense is likely to press, allowing counsel to pursue supplemental documentation before mediation if the case timeline permits.</p>
 
     <ul class="action-list">
-
       <li class="action-item priority">
         <div class="action-num">01</div>
         <div class="action-body">
           <div class="priority-note">Highest priority &mdash; addresses Pressure Point #1</div>
           <strong>Treating surgeon supplemental note explicitly addressing the 2022 L4&ndash;L5 imaging</strong>
-          <p>The single most important documentation gap in this record. A supplemental surgical note that: (a) explicitly acknowledges the 2022 MRI findings and documents that the surgeon reviewed them; (b) identifies the specific radiological differences between the 2022 disc bulge with annular fissuring and the current post-accident herniation; and (c) provides a physician-authored clinical explanation of why the current pathology represents a traumatic injury (or significant traumatic acceleration of a pre-existing degenerative process) rather than natural disease progression &mdash; addresses the primary and highest-pressure defense argument directly. Without this documentation, the defense operates with an uncontested pre-existing condition narrative at the operative level. This note cannot be retrospectively fabricated, but if the treating surgeon&rsquo;s clinical opinion genuinely distinguishes the findings, that opinion should be documented before mediation.</p>
+          <p>The single most important documentation gap in this record. A supplemental surgical note that: (a) explicitly acknowledges the 2022 MRI findings and documents that the surgeon reviewed them; (b) identifies the specific radiological differences between the 2022 disc bulge with annular fissuring and the current post-accident herniation; and (c) provides a physician-authored clinical explanation of why the current pathology represents a traumatic injury (or significant traumatic acceleration of a pre-existing degenerative process) rather than natural disease progression &mdash; addresses the primary and highest-pressure defense argument directly. Without this documentation, the defense operates with an uncontested pre-existing condition narrative at the operative level.</p>
         </div>
       </li>
 
@@ -473,7 +316,7 @@ a{color:inherit;text-decoration:none}
         <div class="action-body">
           <div class="priority-note">Highest priority &mdash; addresses Pressure Point #3</div>
           <strong>Post-lumbar ESI functional assessment and failed conservative care documentation</strong>
-          <p>A treating physician note documenting the claimant&rsquo;s response to the lumbar epidural steroid injection &mdash; specifically, that the injection provided inadequate or insufficient relief, the degree and duration of any temporary response, and the clinical determination that conservative care has been exhausted &mdash; bridges the most significant treatment-necessity documentation gap in the record. Without this documentation, the single-injection-to-surgery sequence cannot be medically defended against a standard conservative-care-failure challenge. If the surgical consultation has already occurred, a supplemental note from the treating spine physician documenting their failed-conservative-care assessment remains valuable for the mediation record even after the fact.</p>
+          <p>A treating physician note documenting the claimant&rsquo;s response to the lumbar epidural steroid injection &mdash; specifically, that the injection provided inadequate or insufficient relief, the degree and duration of any temporary response, and the clinical determination that conservative care has been exhausted &mdash; bridges the most significant treatment-necessity documentation gap in the record. Without this documentation, the single-injection-to-surgery sequence cannot be medically defended against a standard conservative-care-failure challenge.</p>
         </div>
       </li>
 
@@ -481,7 +324,7 @@ a{color:inherit;text-decoration:none}
         <div class="action-num">04</div>
         <div class="action-body">
           <strong>Pre-accident vs. post-accident functional comparison from treating provider</strong>
-          <p>A treating physician note documenting the claimant&rsquo;s pre-accident functional baseline &mdash; occupational demands as a logistics manager, physical activity level, prior lumbar symptom status &mdash; and explicitly comparing it to the post-accident functional status creates a before-and-after clinical framework. If the claimant was asymptomatic and fully functional at the L4&ndash;L5 level before this accident despite the 2022 degenerative findings, a treating physician statement to that effect directly addresses the defense pre-existing symptomatic disease argument. The 2022 MRI, without any history of prior lumbar symptoms or functional limitation, is substantially less adversarial than the same imaging in a claimant with a documented prior symptomatic lumbar history.</p>
+          <p>A treating physician note documenting the claimant&rsquo;s pre-accident functional baseline &mdash; occupational demands as a logistics manager, physical activity level, prior lumbar symptom status &mdash; and explicitly comparing it to the post-accident functional status creates a before-and-after clinical framework. If the claimant was asymptomatic and fully functional at the L4&ndash;L5 level before this accident despite the 2022 degenerative findings, a treating physician statement to that effect directly addresses the defense pre-existing symptomatic disease argument.</p>
         </div>
       </li>
 
@@ -489,7 +332,7 @@ a{color:inherit;text-decoration:none}
         <div class="action-num">05</div>
         <div class="action-body">
           <strong>Neurologist interpretation of EMG/NCS findings in context of clinical radiculopathy presentation</strong>
-          <p>A treating neurologist note that addresses the mild EMG severity classification and explains its clinical significance in context &mdash; or lack of significance as a severity measure for fusion indication &mdash; reduces the defense reviewer&rsquo;s argument that mild electrodiagnostic findings are inconsistent with the surgical recommendation. EMG classification severity does not map one-to-one to clinical severity; radiculopathy with mild electrodiagnostic changes and significant functional impairment is a recognized clinical presentation. A physician-authored explanation of this disconnect, grounded in the clinical findings, is more durable at mediation than the unaddressed EMG report standing alone against the surgical note&rsquo;s characterization.</p>
+          <p>A treating neurologist note that addresses the mild EMG severity classification and explains its clinical significance in context &mdash; or lack of significance as a severity measure for fusion indication &mdash; reduces the defense reviewer&rsquo;s argument that mild electrodiagnostic findings are inconsistent with the surgical recommendation. EMG classification severity does not map one-to-one to clinical severity; radiculopathy with mild electrodiagnostic changes and significant functional impairment is a recognized clinical presentation.</p>
         </div>
       </li>
 
@@ -497,25 +340,23 @@ a{color:inherit;text-decoration:none}
         <div class="action-num">06</div>
         <div class="action-body">
           <strong>Formal functional capacity evaluation or specific work restriction letter</strong>
-          <p>A formal functional capacity evaluation &mdash; or, if timing precludes a full FCE, a treating physician note with specific, itemized occupational restrictions (maximum lifting capacity in pounds, continuous standing and sitting tolerance in hours, driving limitations, overhead work restrictions, travel restrictions) &mdash; replaces the undifferentiated &ldquo;modified duty&rdquo; documentation with medically supportable, occupation-specific functional impairment evidence. For a logistics manager whose work involves material handling, loading coordination, and extended standing, the specificity of restrictions matters for the damages analysis and for the treating physician&rsquo;s ability to defend the functional limitation characterization in the surgical note at mediation.</p>
+          <p>A formal functional capacity evaluation &mdash; or, if timing precludes a full FCE, a treating physician note with specific, itemized occupational restrictions (maximum lifting capacity in pounds, continuous standing and sitting tolerance in hours, driving limitations, overhead work restrictions, travel restrictions) &mdash; replaces the undifferentiated &ldquo;modified duty&rdquo; documentation with medically supportable, occupation-specific functional impairment evidence.</p>
         </div>
       </li>
-
     </ul>
   </div>
 
-  <!-- ═══ BOUNDARY STATEMENT ═══ -->
-  <div class="boundary-box">
-    <div class="boundary-label">Scope and Boundary Statement &mdash; Included in Every Defense Medical Lens Deliverable</div>
-    <p>Medisprudence does not claim access to the defense file, the defense medical consultant&rsquo;s evaluation, insurer reserve, settlement authority, or actual mediation strategy. The arguments described above as &ldquo;likely&rdquo; reflect a physician-authored simulation of defense-side medical review reasoning based on payer-side utilization management experience and general medical necessity reasoning applied to the documentation in this record &mdash; they are not a representation of what the defense consultant has written, said, or concluded. Medisprudence does not provide legal advice, damages valuation, settlement valuation, billing-code review, UCR analysis, or expert testimony. This report is provided to support attorney preparation under attorney supervision, not to replace attorney judgment. All clinical assessments are physician-authored. AI may assist with record extraction and organization only; physician-authored conclusions are clearly identified throughout.</p>
+  <!-- BOUNDARY -->
+  <div class="disclaimer">
+    <strong>Scope and Boundary Statement &mdash; Included in Every Defense Medical Lens Deliverable</strong>
+    Medisprudence does not claim access to the defense file, the defense medical consultant&rsquo;s evaluation, insurer reserve, settlement authority, or actual mediation strategy. The arguments described above as &ldquo;likely&rdquo; reflect a physician-authored simulation of defense-side medical review reasoning based on payer-side utilization management experience and general medical necessity reasoning applied to the documentation in this record &mdash; they are not a representation of what the defense consultant has written, said, or concluded. Medisprudence does not provide legal advice, damages valuation, settlement valuation, billing-code review, UCR analysis, or expert testimony. This report is provided to support attorney preparation under attorney supervision, not to replace attorney judgment. All clinical assessments are physician-authored. AI may assist with record extraction and organization only; physician-authored conclusions are clearly identified throughout.
   </div>
 
-</div><!-- end body -->
+  <div class="doc-footer">
+    <span>Medisprudence&trade; &middot; Defense Medical Lens&trade; &middot; Physician-authored pre-mediation intelligence</span>
+    <span>Sample only &middot; Fictional clinical data</span>
+  </div>
 
-<!-- ═══ DOCUMENT FOOTER ═══ -->
-<div class="doc-footer">
-  <p>Medisprudence&#8482; &nbsp;&middot;&nbsp; Defense Medical Lens&#8482; &nbsp;&middot;&nbsp; Physician-authored pre-mediation intelligence &nbsp;&middot;&nbsp; contact@medisprudence.com</p>
-  <p>SAMPLE ONLY &mdash; FICTIONAL CLINICAL DATA &mdash; NOT LEGAL OR MEDICAL ADVICE</p>
 </div>
 
 </body>
