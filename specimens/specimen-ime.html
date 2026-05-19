@@ -1,457 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Medisprudence — Specimen IME Report Analysis</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{--slate:#1C2536;--teal:#0C8E96;--ink:#14171F;--ink2:#3A3F4D;--muted:#6B7185;--rule:#D4D8E1;--bg:#F7F8FA;--paper:#fff;--red:#9B2C2C;--amber:#C7842A;--teal-light:#E6F5F6;--red-light:#FDF0F0;--amber-light:#FDF5E9;--red-dark:#7B1D1D}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);line-height:1.75;font-size:15px;background:var(--paper)}
-.doc{max-width:870px;margin:0 auto;padding:40px 48px}
-h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;line-height:1.2;font-weight:600;color:var(--slate);letter-spacing:-.02em}
-.mono{font-family:'IBM Plex Mono',monospace}
-
-/* HEADER */
-.doc-header{background:#FFFFFF;color:#1D1D1F;padding:28px 48px;border-bottom:1px solid #E5E5E7}
-.doc-header-top{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:16px;border-bottom:1px solid #E5E5E7;margin-bottom:16px}
-.doc-brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:#1D1D1F;display:flex;align-items:center;letter-spacing:-.02em}
-.doc-brand span{color:inherit}
-.doc-stamp{text-align:right}
-.doc-stamp-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#6E6E73}
-.doc-stamp-val{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#0A9EA2;font-weight:600;margin-top:2px}
-.doc-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:#1D1D1F;margin-bottom:6px;letter-spacing:-.02em}
-.doc-subtitle{font-size:13px;color:#6E6E73}
-
-/* NAV */
-.doc-nav{background:var(--bg);border-bottom:1px solid var(--rule);padding:12px 48px;display:flex;gap:6px;flex-wrap:wrap}
-.doc-nav a{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:6px 12px;border:1px solid var(--rule);border-radius:3px;transition:.2s;white-space:nowrap}
-.doc-nav a:hover{color:var(--teal);border-color:var(--teal);background:var(--teal-light)}
-
-/* CAPTION */
-.caption{background:var(--bg);border:1px solid var(--rule);padding:20px 24px;margin-bottom:28px}
-.caption-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:14px}.caption-row:last-child{border-bottom:none}
-.caption-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.caption-val{font-weight:600;color:var(--slate)}
-
-/* SCORECARD */
-.scorecard{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--rule);margin-bottom:32px}
-.sc{padding:16px;text-align:center;border-right:1px solid var(--rule)}.sc:last-child{border-right:none}
-.sc-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
-.sc-val{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--slate)}
-.sc-val.red{color:var(--red)}.sc-val.amber{color:var(--amber)}.sc-val.green{color:var(--teal)}
-
-/* COMPONENTS */
-.component{margin-bottom:36px;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
-.comp-head{background:var(--slate);padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
-.comp-head.alert{background:var(--red-dark)}
-.comp-num{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
-.comp-head.alert .comp-num{color:rgba(255,255,255,.6)}
-.comp-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;font-weight:600}
-.comp-badge{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-.comp-body{padding:24px}.comp-body p{color:var(--ink2);margin-bottom:10px;font-size:14.5px}.comp-body h3{font-size:17px;margin:16px 0 8px}
-
-/* FINDINGS */
-.finding{border-left:3px solid var(--teal);padding:12px 16px;margin:12px 0;background:var(--teal-light)}
-.finding.warn{border-left-color:var(--red);background:var(--red-light)}
-.finding.caution{border-left-color:var(--amber);background:var(--amber-light)}
-.finding-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:3px}
-.finding .finding-label{color:var(--teal)}.finding.warn .finding-label{color:var(--red)}.finding.caution .finding-label{color:var(--amber)}
-.finding p{font-size:13.5px;color:var(--ink);margin-bottom:0}
-
-/* IME QUOTE BOX */
-.ime-quote{border:2px solid var(--rule);background:var(--bg);padding:16px 20px;margin:14px 0;position:relative;border-radius:4px}
-.ime-quote:before{content:"IME REPORT STATES";font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;color:var(--muted);position:absolute;top:-8px;left:16px;background:var(--bg);padding:0 6px}
-.ime-quote p{font-size:14px;color:var(--ink);font-style:italic;margin:0}
-
-/* REBUTTAL BOX */
-.rebuttal{background:linear-gradient(135deg,#1C2536 0%,#283348 100%);color:#fff;padding:18px 22px;margin:14px 0;border-radius:4px}
-.rebuttal .finding-label{color:var(--teal)}
-.rebuttal p{color:rgba(255,255,255,.85);font-size:13.5px}
-
-/* TABLE */
-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
-th,td{padding:9px 11px;border:1px solid var(--rule);vertical-align:top;text-align:left}
-thead th{background:var(--slate);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.06em}
-td:first-child{font-weight:600;color:var(--slate)}
-tr:nth-child(even) td{background:var(--bg)}
-.ref{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--teal);font-weight:700}
-
-/* DEPO QUESTIONS */
-.depo-q{counter-reset:depo}
-.depo-q li{list-style:none;padding:10px 14px;border-bottom:1px solid var(--rule);font-size:14px;color:var(--ink);counter-increment:depo;position:relative;padding-left:44px}
-.depo-q li:before{content:"Q" counter(depo);position:absolute;left:12px;top:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);font-weight:700}
-.depo-q li:last-child{border-bottom:none}
-.depo-q li em{font-style:italic;color:var(--muted);display:block;margin-top:4px;font-size:12px}
-
-/* VERDICT */
-.verdict{border:2px solid var(--teal);background:var(--teal-light);padding:22px 24px;margin:20px 0;border-radius:6px}
-.verdict-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;font-weight:700}
-.verdict h3{font-size:20px;margin-bottom:8px}
-
-/* FOOTER */
-.doc-footer{border-top:2px solid var(--slate);padding-top:16px;margin-top:40px;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-
-@media(max-width:700px){.doc{padding:20px 16px}.doc-header,.doc-nav{padding-left:16px;padding-right:16px}.scorecard{grid-template-columns:1fr 1fr}.caption-row{grid-template-columns:1fr}.comp-head{flex-direction:column;gap:4px;align-items:flex-start}}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medisprudence — Specimen: IME Report Analysis</title>
+<meta name="description" content="Specimen IME Deconstruction deliverable — lumbar spine case. Fictional clinical data. No PHI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="specimen.css">
 </head>
 <body>
-<div style="background:#1D1D1F;padding:12px 48px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:999"><a href="../results.html" style="color:rgba(255,255,255,.7);font-family:monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none">← Back to Results</a><span style="color:rgba(255,255,255,.3);font-size:11px;font-family:monospace">SPECIMEN — Fictional clinical data only. No PHI.</span></div>
 
+<!-- ── TOP BAR ── -->
+<div class="top-bar">
+  <a class="back" href="../Medisprudence.html">&larr; Back to Medisprudence</a>
+  <span class="specimen-tag"><strong>Specimen</strong> &nbsp;·&nbsp; Fictional clinical data &nbsp;·&nbsp; No PHI</span>
+</div>
+
+<!-- ── DOC HEADER ── -->
 <div class="doc-header">
-<div class="doc-header-top">
-<div class="doc-brand"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-right:8px;vertical-align:middle"><line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="16" cy="11" r="2.4" fill="currentColor"/><line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/><line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>Medisprudence</div>
-<div class="doc-stamp"><div class="doc-stamp-label">Document type</div><div class="doc-stamp-val">IME Report Analysis & Rebuttal Preparation Support</div></div>
-</div>
-<div class="doc-title">IME Report Analysis — Lumbar Spine (Defense Orthopedic IME)</div>
-<div class="doc-subtitle">Specimen · Fictional data · No PHI · 10-section deliverable demonstrated</div>
+  <div class="doc-header-top">
+    <div class="doc-brand">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <circle cx="16" cy="11" r="2.4" fill="currentColor"/>
+        <line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      Medisprudence
+    </div>
+    <div class="doc-stamp">
+      <div class="doc-stamp-label">Document type</div>
+      <div class="doc-stamp-val">IME Report Analysis &amp; Rebuttal Prep</div>
+    </div>
+  </div>
+  <div class="doc-title">IME Report Analysis &mdash; Lumbar Spine <em>(Defense Orthopedic IME)</em></div>
+  <div class="doc-subtitle">Specimen &middot; Fictional data &middot; No PHI &middot; 10-section deliverable demonstrated</div>
 </div>
 
+<!-- ── DOC NAV ── -->
 <div class="doc-nav">
-<a href="#s1">01 IME Summary</a>
-<a href="#s2">02 Unsupported Assertions</a>
-<a href="#s3">03 Omitted Facts</a>
-<a href="#s4">04 Internal Contradictions</a>
-<a href="#s5">05 Record Counterpoints</a>
-<a href="#s6">06 Treatment Necessity</a>
-<a href="#s7">07 Pre-Existing Analysis</a>
-<a href="#s8">08 Methodology Assessment</a>
-<a href="#s9">09 Treating Physician Questions</a>
-<a href="#s10">10 Deposition Questions</a>
+  <a href="#s1">01 IME Summary</a>
+  <a href="#s2">02 Unsupported Assertions</a>
+  <a href="#s3">03 Omitted Facts</a>
+  <a href="#s4">04 Internal Contradictions</a>
+  <a href="#s5">05 Record Counterpoints</a>
+  <a href="#s6">06 Treatment Necessity</a>
+  <a href="#s7">07 Pre-Existing Analysis</a>
+  <a href="#s8">08 Methodology Assessment</a>
+  <a href="#s9">09 Treating Physician Questions</a>
+  <a href="#s10">10 Deposition Questions</a>
 </div>
 
 <div class="doc">
 
-<!-- CAPTION -->
-<div class="caption">
-<div class="caption-row"><div><div class="caption-label">Claimant</div><div class="caption-val">Sarah M. Doe, 47 y/o female, registered nurse</div></div><div><div class="caption-label">Date of incident</div><div class="caption-val">April 22, 2025</div></div></div>
-<div class="caption-row"><div><div class="caption-label">Case type</div><div class="caption-val">Motor vehicle accident — T-bone collision at intersection</div></div><div><div class="caption-label">Jurisdiction</div><div class="caption-val">Superior Court, Fulton County, Georgia</div></div></div>
-<div class="caption-row"><div><div class="caption-label">IME physician</div><div class="caption-val">Dr. [Redacted], Board-Certified Orthopedic Surgery</div></div><div><div class="caption-label">IME date</div><div class="caption-val">February 3, 2026</div></div></div>
-<div class="caption-row"><div><div class="caption-label">IME report length</div><div class="caption-val">14 pages</div></div><div><div class="caption-label">Examination duration</div><div class="caption-val">18 minutes (per claimant's contemporaneous notes)</div></div></div>
-<div class="caption-row"><div><div class="caption-label">Treatment records reviewed</div><div class="caption-val">2,340 pages across 7 providers</div></div><div><div class="caption-label">Medisprudence reviewed by</div><div class="caption-val">Dr. A. Kasturi, MBBS · Medisprudence</div></div></div>
+  <!-- CAPTION -->
+  <div class="caption">
+    <div class="caption-row">
+      <div><div class="caption-label">Claimant</div><div class="caption-val">Sarah M. Doe &mdash; 47 y/o female, registered nurse</div></div>
+      <div><div class="caption-label">Date of incident</div><div class="caption-val">April 22, 2025</div></div>
+    </div>
+    <div class="caption-row">
+      <div><div class="caption-label">Case type</div><div class="caption-val">Motor vehicle accident &mdash; T-bone collision at intersection</div></div>
+      <div><div class="caption-label">Jurisdiction</div><div class="caption-val">Superior Court, Fulton County, Georgia</div></div>
+    </div>
+    <div class="caption-row">
+      <div><div class="caption-label">IME physician</div><div class="caption-val">Dr. [Redacted] &mdash; Board-Certified Orthopedic Surgery</div></div>
+      <div><div class="caption-label">IME date</div><div class="caption-val">February 3, 2026</div></div>
+    </div>
+    <div class="caption-row">
+      <div><div class="caption-label">IME report length</div><div class="caption-val">14 pages</div></div>
+      <div><div class="caption-label">Examination duration</div><div class="caption-val">18 minutes (per claimant&rsquo;s contemporaneous notes)</div></div>
+    </div>
+    <div class="caption-row">
+      <div><div class="caption-label">Treatment records reviewed</div><div class="caption-val">2,340 pages across 7 providers</div></div>
+      <div><div class="caption-label">Reviewed by</div><div class="caption-val">Dr. A. Kasturi, MBBS &middot; Medisprudence</div></div>
+    </div>
+  </div>
+
+  <!-- SCORECARD -->
+  <div class="kpi-strip cols-5">
+    <div class="kpi"><div class="kpi-label">Unsupported assertions</div><div class="kpi-val red">6 Found</div></div>
+    <div class="kpi"><div class="kpi-label">Omitted medical facts</div><div class="kpi-val red">8 Found</div></div>
+    <div class="kpi"><div class="kpi-label">Internal contradictions</div><div class="kpi-val amber">3 Found</div></div>
+    <div class="kpi"><div class="kpi-label">Methodology concerns</div><div class="kpi-val red">4 Found</div></div>
+    <div class="kpi"><div class="kpi-label">Deposition questions</div><div class="kpi-val teal">22 Prepared</div></div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="component" id="s1">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 01 of 10</div>
+        <div class="comp-title">IME Conclusion Summary</div>
+      </div>
+      <div class="comp-badge">What the IME physician is claiming</div>
+    </div>
+    <div class="comp-body">
+      <p>The defense IME orthopedist reached six primary conclusions. Each is quoted below and analyzed in subsequent sections.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:40px">#</th><th>IME Conclusion</th><th style="width:140px">Medisprudence Assessment</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>&ldquo;The L4&ndash;L5 disc herniation is degenerative in nature and not causally related to the April 2025 motor vehicle accident.&rdquo;</strong></td><td><span class="pill pill-red">Unsupported</span></td></tr>
+          <tr><td>2</td><td><strong>&ldquo;The claimant&rsquo;s treatment, including 28 physical therapy sessions and two lumbar epidural steroid injections, was excessive and not medically necessary beyond the first 8 weeks.&rdquo;</strong></td><td><span class="pill pill-red">Unsupported</span></td></tr>
+          <tr><td>3</td><td><strong>&ldquo;The claimant has reached maximum medical improvement. No further treatment is medically necessary.&rdquo;</strong></td><td><span class="pill pill-amber">Contradicted by record</span></td></tr>
+          <tr><td>4</td><td><strong>&ldquo;The surgical recommendation (microdiscectomy) is not indicated. Conservative care has not been exhausted.&rdquo;</strong></td><td><span class="pill pill-amber">Partially unsupported</span></td></tr>
+          <tr><td>5</td><td><strong>&ldquo;Pre-existing degenerative disc disease at L4&ndash;L5 and L5&ndash;S1 is the primary etiology of the claimant&rsquo;s current symptoms.&rdquo;</strong></td><td><span class="pill pill-red">Overweighted</span></td></tr>
+          <tr><td>6</td><td><strong>&ldquo;The claimant can return to full-duty nursing work without restrictions.&rdquo;</strong></td><td><span class="pill pill-red">Contradicted</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="finding">
+        <div class="finding-label">Overview assessment</div>
+        <p>The IME report contains systematic omissions of supporting treatment records, unsupported causation assertions, and internal contradictions between the IME physician&rsquo;s own examination findings and conclusions. The analysis below identifies each specific weakness for attorney-directed rebuttal preparation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="component" id="s2">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 02 of 10</div>
+        <div class="comp-title">Unsupported Assertions</div>
+      </div>
+      <div class="comp-badge">6 identified</div>
+    </div>
+    <div class="comp-body">
+      <p>The following IME conclusions are stated without adequate supporting evidence from the medical record or the IME physician&rsquo;s own examination.</p>
+
+      <div class="ime-quote"><p>&ldquo;The L4&ndash;L5 disc herniation is degenerative in nature and not causally related to the April 2025 motor vehicle accident.&rdquo;</p></div>
+      <div class="finding warn">
+        <div class="finding-label">Unsupported assertion #1</div>
+        <p><strong>Why this is unsupported:</strong> The IME physician provides no radiological basis for distinguishing between a degenerative herniation and a traumatic herniation at L4&ndash;L5. The report cites the presence of &ldquo;multilevel disc desiccation&rdquo; as evidence of degeneration but does not address the fact that the L4&ndash;L5 herniation was not present on a prior 2021 lumbar MRI <span class="ref">(RAD-003, p.2)</span>, which showed desiccation but no herniation at that level. The post-accident MRI <span class="ref">(RAD-008, p.4)</span> shows a new left posterolateral herniation at L4&ndash;L5 with S1 nerve root compression. The IME report does not acknowledge this comparison or explain how a new herniation at a previously intact level is degenerative rather than traumatic.</p>
+      </div>
+
+      <div class="ime-quote"><p>&ldquo;Treatment was excessive and not medically necessary beyond the first 8 weeks.&rdquo;</p></div>
+      <div class="finding warn">
+        <div class="finding-label">Unsupported assertion #2</div>
+        <p><strong>Why this is unsupported:</strong> The IME physician provides no clinical criteria for the 8-week threshold. Established clinical guidelines (ACR Appropriateness Criteria, NASS guidelines) do not define a fixed 8-week limit for conservative care in lumbar disc herniation with radiculopathy. The claimant&rsquo;s PT was prescribed in response to progressive symptoms documented by the treating physician at each follow-up visit <span class="ref">(ORT-005 p.8, 12, 18)</span>. The IME report does not cite any guideline, payer policy, or published evidence supporting 8 weeks as the ceiling for medically necessary treatment.</p>
+      </div>
+
+      <div class="ime-quote"><p>&ldquo;Pre-existing degenerative disc disease at L4&ndash;L5 and L5&ndash;S1 is the primary etiology of the claimant&rsquo;s current symptoms.&rdquo;</p></div>
+      <div class="finding warn">
+        <div class="finding-label">Unsupported assertion #3</div>
+        <p><strong>Why this is unsupported:</strong> The 2021 MRI <span class="ref">(RAD-003)</span> showed multilevel disc desiccation and a small L5&ndash;S1 annular bulge &mdash; but the claimant had no lumbar symptoms, no lumbar treatment, no work restrictions, and no functional limitations between the 2021 MRI and the April 2025 accident. An asymptomatic degenerative finding cannot be &ldquo;the primary etiology&rdquo; of symptoms that began immediately after a documented trauma. The IME report fails to address the claimant&rsquo;s complete absence of lumbar complaints during the 4-year interval between the 2021 MRI and the accident.</p>
+      </div>
+
+      <div class="ime-quote"><p>&ldquo;Symptoms are primarily subjective with limited objective findings.&rdquo;</p></div>
+      <div class="finding warn">
+        <div class="finding-label">Unsupported assertion #4</div>
+        <p><strong>Why this is unsupported:</strong> The treatment record contains extensive objective findings that the IME report either ignores or minimizes: positive straight leg raise <span class="ref">(ORT-005 p.6)</span>, left S1 dermatomal sensory deficit on examination <span class="ref">(ORT-005 p.8)</span>, MRI-confirmed S1 nerve root compression <span class="ref">(RAD-008 p.4)</span>, abnormal left ankle reflex <span class="ref">(NEU-011 p.3)</span>, and positive EMG/NCS showing left S1 radiculopathy <span class="ref">(NEU-011 p.6)</span>. The IME physician&rsquo;s own examination documented positive left SLR at 40&deg; and diminished left ankle jerk &mdash; findings the IME physician then contradicts in the conclusions section.</p>
+      </div>
+
+      <div class="ime-quote"><p>&ldquo;The claimant can return to full-duty nursing work without restrictions.&rdquo;</p></div>
+      <div class="finding warn">
+        <div class="finding-label">Unsupported assertion #5</div>
+        <p><strong>Why this is unsupported:</strong> The IME physician&rsquo;s own physical examination documented: limited lumbar flexion (40&deg; vs. normal 60&deg;), positive left SLR at 40&deg;, diminished left ankle reflex, and antalgic gait. Full-duty nursing requires lifting up to 50 lbs, prolonged standing (8&ndash;12 hour shifts), and frequent bending. The IME report provides no functional capacity analysis, no assessment of the claimant&rsquo;s job demands, and no explanation of how a patient with limited flexion, radicular findings, and antalgic gait can safely perform full-duty nursing.</p>
+      </div>
+
+      <div class="ime-quote"><p>&ldquo;No further diagnostic testing is warranted.&rdquo;</p></div>
+      <div class="finding warn">
+        <div class="finding-label">Unsupported assertion #6</div>
+        <p><strong>Why this is unsupported:</strong> The claimant has progressive radicular symptoms, EMG-confirmed S1 radiculopathy, and documented failure of two epidural injections. Current clinical guidelines (NASS 2024 Lumbar Disc Herniation guideline) support repeat imaging if symptoms progress or if surgical planning is being considered. The IME dismissal of further diagnostics is inconsistent with the clinical trajectory documented in the treatment records.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="component" id="s3">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 03 of 10</div>
+        <div class="comp-title">Omitted Medical Facts</div>
+      </div>
+      <div class="comp-badge">8 identified</div>
+    </div>
+    <div class="comp-body">
+      <p>The following documented medical facts appear in the treatment records but are not referenced, discussed, or acknowledged anywhere in the 14-page IME report.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:40px">#</th><th>Omitted Fact</th><th>Why It Matters</th><th style="width:100px">Source</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pill pill-red">1</span></td><td>2021 lumbar MRI (pre-accident) showing no herniation at L4&ndash;L5</td><td>This is the single most important comparison imaging. It proves the L4&ndash;L5 herniation is new. Its absence from the IME report is the most significant omission in this analysis.</td><td><span class="ref">RAD-003 p.2</span></td></tr>
+          <tr><td><span class="pill pill-red">2</span></td><td>EMG/NCS study confirming left S1 radiculopathy (electrodiagnostic objective evidence)</td><td>Directly contradicts the IME conclusion that symptoms are &ldquo;primarily subjective with limited objective findings.&rdquo;</td><td><span class="ref">NEU-011 p.6</span></td></tr>
+          <tr><td><span class="pill pill-red">3</span></td><td>Neurology consultation documenting left S1 dermatomal sensory deficit and abnormal left ankle reflex</td><td>Additional objective findings that the IME report ignores while characterizing symptoms as subjective.</td><td><span class="ref">NEU-011 p.3</span></td></tr>
+          <tr><td><span class="pill pill-amber">4</span></td><td>Treating orthopedist&rsquo;s documentation of progressive symptom worsening at each follow-up visit</td><td>Contradicts the IME conclusion that treatment beyond 8 weeks was unnecessary &mdash; the treating physician documented clinical reasons for continued care at each decision point.</td><td><span class="ref">ORT-005 p.8, 12, 18</span></td></tr>
+          <tr><td><span class="pill pill-amber">5</span></td><td>PT progress notes showing functional improvement followed by plateau and regression</td><td>The IME states PT was excessive but does not acknowledge that the treating PT documented initial improvement that later plateaued, which is a standard clinical indication for escalation to injections.</td><td><span class="ref">PT-007 p.18&ndash;24</span></td></tr>
+          <tr><td><span class="pill pill-amber">6</span></td><td>Claimant&rsquo;s documented pre-accident work history: 12 years as ER nurse with no work restrictions and no lumbar complaints</td><td>Undermines the &ldquo;pre-existing degeneration is the primary etiology&rdquo; argument. A 12-year physically demanding career without limitation contradicts the assertion that degenerative findings caused the current disability.</td><td><span class="ref">PCP-001 p.4&ndash;6</span></td></tr>
+          <tr><td><span class="pill pill-amber">7</span></td><td>Second epidural injection provided only 3 weeks of partial relief before symptom recurrence</td><td>This is the clinical basis for escalation to surgical consultation. Injection failure is documented but not discussed in the IME&rsquo;s dismissal of surgical recommendation.</td><td><span class="ref">PM-009 p.8</span></td></tr>
+          <tr><td><span class="pill pill-amber">8</span></td><td>Treating surgeon&rsquo;s operative rationale documenting specific indications for microdiscectomy</td><td>The IME states surgery is &ldquo;not indicated&rdquo; without addressing the treating surgeon&rsquo;s documented reasoning.</td><td><span class="ref">ORT-005 p.22</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="rebuttal">
+        <div class="finding-label">Payer-perspective insight</div>
+        <p>In utilization review, an IME or peer review that fails to address the treating physician&rsquo;s documented clinical reasoning is considered a deficient review. Payer medical directors are trained to address the treating physician&rsquo;s specific documented rationale before overriding a treatment recommendation. An IME that simply states &ldquo;surgery is not indicated&rdquo; without engaging with the treating surgeon&rsquo;s operative indications would be returned for supplementation in a UM review context. The same analytical weakness applies here &mdash; the defense IME physician has substituted his conclusion for the treating physician&rsquo;s reasoning without addressing the specific clinical evidence underlying the surgical recommendation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="component" id="s4">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 04 of 10</div>
+        <div class="comp-title">Internal Contradictions</div>
+      </div>
+      <div class="comp-badge">3 identified</div>
+    </div>
+    <div class="comp-body">
+      <p>The following contradictions exist within the IME report itself &mdash; between the IME physician&rsquo;s own examination findings and the conclusions.</p>
+
+      <div class="finding warn">
+        <div class="finding-label">Contradiction #1 &mdash; Examination vs. Conclusion: Objective findings</div>
+        <p><strong>IME Examination section (p.7):</strong> &ldquo;Lumbar flexion limited to approximately 40 degrees with pain. Straight leg raise positive on the left at 40 degrees. Left ankle deep tendon reflex diminished (1+) compared to right (2+). Gait: mild antalgic pattern with shortened stride on left.&rdquo;</p>
+        <p><strong>IME Conclusion section (p.12):</strong> &ldquo;Symptoms are primarily subjective with limited objective findings.&rdquo;</p>
+        <p><strong>The contradiction:</strong> The IME physician&rsquo;s own examination produced four objective findings (limited ROM, positive SLR, diminished reflex, antalgic gait), then characterized the presentation as &ldquo;primarily subjective.&rdquo; These findings are textbook objective indicators of lumbar radiculopathy. The IME physician&rsquo;s conclusions are inconsistent with his own documented examination.</p>
+      </div>
+
+      <div class="finding warn">
+        <div class="finding-label">Contradiction #2 &mdash; Examination vs. Conclusion: Work capacity</div>
+        <p><strong>IME Examination section (p.7):</strong> Documents limited flexion, positive SLR, and antalgic gait.</p>
+        <p><strong>IME Conclusion section (p.13):</strong> &ldquo;The claimant can return to full-duty nursing work without restrictions.&rdquo;</p>
+        <p><strong>The contradiction:</strong> Full-duty nursing requires frequent bending, lifting (up to 50 lbs), prolonged standing, and rapid physical response capability. The IME physician&rsquo;s own examination findings are incompatible with full-duty clearance. No functional capacity rationale is provided to bridge this gap. The conclusion appears to have been written without reference to the examination findings that precede it in the same report.</p>
+      </div>
+
+      <div class="finding caution">
+        <div class="finding-label">Contradiction #3 &mdash; Record review vs. Causation opinion</div>
+        <p><strong>IME Record Review section (p.3):</strong> &ldquo;Records reviewed include MRI lumbar spine dated October 2025 showing L4&ndash;L5 left posterolateral disc herniation with S1 nerve root compression.&rdquo;</p>
+        <p><strong>IME Conclusion section (p.12):</strong> &ldquo;The L4&ndash;L5 disc herniation is degenerative in nature.&rdquo;</p>
+        <p><strong>The contradiction:</strong> The IME physician acknowledged the MRI findings (herniation with nerve root compression) but provided no radiological criteria for distinguishing traumatic from degenerative herniation. The report contains no discussion of disc morphology, signal characteristics, or annular tear pattern &mdash; standard criteria that spine radiologists use to differentiate acute from chronic herniations. The degenerative characterization is stated as a conclusion without supporting methodology.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="component" id="s5">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 05 of 10</div>
+        <div class="comp-title">Record-Based Counterpoints</div>
+      </div>
+      <div class="comp-badge">For attorney-directed response</div>
+    </div>
+    <div class="comp-body">
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>IME Claim</th><th>Record-Based Counterpoint</th><th style="width:130px">Source</th></tr></thead>
+        <tbody>
+          <tr><td>&ldquo;Herniation is degenerative&rdquo;</td><td>Pre-accident 2021 MRI shows no herniation at L4&ndash;L5. Post-accident 2025 MRI shows new herniation at L4&ndash;L5 with neural compression. The herniation is new and temporally correlated with the accident.</td><td><span class="ref">RAD-003 p.2 vs. RAD-008 p.4</span></td></tr>
+          <tr><td>&ldquo;Symptoms are subjective&rdquo;</td><td>EMG/NCS objectively confirms left S1 radiculopathy. Neurology exam documents dermatomal sensory deficit and reflex asymmetry. IME physician&rsquo;s own exam shows positive SLR and diminished reflex.</td><td><span class="ref">NEU-011 p.3,6; IME p.7</span></td></tr>
+          <tr><td>&ldquo;Treatment excessive after 8 weeks&rdquo;</td><td>PT records show initial improvement (weeks 1&ndash;6) followed by plateau (weeks 7&ndash;10) and regression (weeks 11&ndash;14). Treating physician documented progressive clinical reasoning for escalation at each visit.</td><td><span class="ref">PT-007 p.12&ndash;24; ORT-005 p.8,12,18</span></td></tr>
+          <tr><td>&ldquo;MMI reached&rdquo;</td><td>Most recent treating physician note documents ongoing radicular symptoms with progressive neurological deficit (worsening left ankle reflex). The clinical trajectory is not consistent with a stable, resolved condition.</td><td><span class="ref">ORT-005 p.24</span></td></tr>
+          <tr><td>&ldquo;Surgery not indicated&rdquo;</td><td>Two epidural injections failed to provide sustained relief (&gt;50% improvement for &gt;6 weeks). Treating surgeon documented specific indications: MRI-confirmed neural compression at a level correlating with clinical findings, failure of 8+ months conservative care, and progressive neurological deficit.</td><td><span class="ref">PM-009 p.5,8; ORT-005 p.22</span></td></tr>
+          <tr><td>&ldquo;Full-duty return&rdquo;</td><td>No FCE has been performed. IME physician&rsquo;s own exam shows limited flexion, positive SLR, antalgic gait, and reflex deficit. Nursing duties (DOT code 29-1141) require medium-to-heavy physical demand level. No analysis of job requirements vs. functional capacity is provided in the IME report.</td><td><span class="ref">IME p.7; DOT reference</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="component" id="s6">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 06 of 10</div>
+        <div class="comp-title">Treatment Necessity Analysis</div>
+      </div>
+    </div>
+    <div class="comp-body">
+      <p>The IME physician characterizes the following treatments as excessive or unnecessary. Medisprudence&rsquo;s analysis evaluates each against the documented clinical record and applicable guidelines.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:200px">Treatment</th><th>IME Position</th><th>Record-Based Analysis</th></tr></thead>
+        <tbody>
+          <tr><td>Physical therapy (28 sessions)</td><td>&ldquo;Excessive &mdash; should have been limited to 8 weeks&rdquo;</td><td><strong style="color:var(--teal-text)">Supported by record.</strong> PT notes document functional improvement in weeks 1&ndash;6, plateau in weeks 7&ndash;10 (appropriate reassessment point), and then continuation was clinically indicated because the treating physician documented progressive symptoms that required ongoing supervised exercise. The transition to injection therapy occurred after PT plateau was documented &mdash; this is appropriate escalation, not excessive care.</td></tr>
+          <tr><td>Epidural injections (&times;2)</td><td>&ldquo;Second injection was not medically necessary given limited response to first&rdquo;</td><td><strong style="color:var(--teal-text)">Not supported.</strong> The first injection provided 40% improvement for 6 weeks <span class="ref">(PM-009, p.5)</span>. Clinical guidelines (ASIPP 2023) support a second injection when the first provides partial but incomplete relief. The second injection is a standard step in conservative treatment escalation before surgical consideration.</td></tr>
+          <tr><td>Surgical recommendation</td><td>&ldquo;Not indicated &mdash; conservative care not exhausted&rdquo;</td><td><strong style="color:var(--caution)">Partially unsupported.</strong> The claimant completed 28 PT sessions, two injections (both with temporary/partial relief), and 8+ months of conservative care with progressive neurological deficit. The treating surgeon&rsquo;s documented indications <span class="ref">(ORT-005, p.22)</span> meet established surgical criteria. The IME does not specify what additional conservative measures should be pursued.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="rebuttal">
+        <div class="finding-label">Payer-perspective insight</div>
+        <p>In utilization review, the standard for overriding a treating surgeon&rsquo;s operative recommendation requires the reviewer to identify specific additional conservative measures that have not been tried and that have clinical evidence supporting their use for the patient&rsquo;s specific condition. Simply stating &ldquo;conservative care not exhausted&rdquo; without naming the specific untried treatment is insufficient under MCG and InterQual review criteria. The IME report has the same analytical deficiency &mdash; it says surgery is premature without identifying what else the claimant should do instead.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="component" id="s7">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 07 of 10</div>
+        <div class="comp-title">Pre-Existing Condition Analysis</div>
+      </div>
+      <div class="comp-badge">Was degeneration overweighted?</div>
+    </div>
+    <div class="comp-body">
+      <p>The IME report attributes the claimant&rsquo;s current symptoms primarily to pre-existing degenerative disc disease. This section evaluates whether that attribution is supported by the medical record.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:170px">Factor</th><th>Record Evidence</th><th style="width:220px">Assessment</th></tr></thead>
+        <tbody>
+          <tr><td>2021 MRI findings</td><td>Multilevel disc desiccation (L3&ndash;L4, L4&ndash;L5, L5&ndash;S1). Small annular bulge L5&ndash;S1 without neural compromise. No herniation at L4&ndash;L5. No neural compression at any level.</td><td>Degenerative changes were present but <strong>asymptomatic</strong> &mdash; no herniation, no neural compression, no clinical consequences</td></tr>
+          <tr><td>Clinical history 2021&ndash;2025</td><td>Zero lumbar complaints. Zero lumbar treatments. Zero work restrictions. Twelve years of full-duty ER nursing with no functional limitations documented in any medical record.</td><td>The 4-year asymptomatic interval <strong>negates</strong> pre-existing degeneration as a clinically meaningful cause of current symptoms</td></tr>
+          <tr><td>Post-accident findings</td><td>New L4&ndash;L5 left posterolateral herniation with S1 nerve root compression on October 2025 MRI. Finding was not present on 2021 MRI.</td><td>The herniation is <strong>new</strong>. Temporally correlated with the April 2025 accident. Anatomically consistent with axial loading mechanism from T-bone collision.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="finding warn">
+        <div class="finding-label">Assessment: Pre-existing condition overweighted</div>
+        <p>The IME report treats asymptomatic degenerative disc desiccation as equivalent to active, symptomatic disc disease. It is not. Disc desiccation is a ubiquitous finding in adults over 40 &mdash; prevalence studies show degenerative disc changes on MRI in 50&ndash;80% of asymptomatic adults. The relevant clinical question is not whether degeneration was present but whether it was causing symptoms. The 4-year asymptomatic interval, the absence of any lumbar treatment, and the full-duty nursing career conclusively establish that the degenerative findings were clinically silent before the accident. The pre-existing degeneration may have made the disc more vulnerable to traumatic herniation &mdash; but vulnerability is not causation. This is an eggshell plaintiff argument, not a causation defense.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="component" id="s8">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 08 of 10 &mdash; Expert MD Exclusive</div>
+        <div class="comp-title">IME Methodology Assessment</div>
+      </div>
+      <div class="comp-badge">Was the examination adequate?</div>
+    </div>
+    <div class="comp-body">
+      <p style="font-style:italic;color:var(--ink-3);font-size:13.5px;margin-bottom:14px">This section evaluates whether the IME physician&rsquo;s examination methodology was adequate to support the conclusions drawn. Informed by the reviewing physician&rsquo;s experience with payer-side utilization review examination standards.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:170px">Methodology Issue</th><th>Details</th><th style="width:240px">Impact on Conclusions</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pill pill-red">Exam duration</span><br>18 minutes</td><td>18 minutes total (per claimant&rsquo;s contemporaneous notes). This includes history-taking, physical examination, and review discussion. The claimant&rsquo;s condition involves lumbar radiculopathy with multiple prior treatments, pre-existing imaging, and a surgical recommendation.</td><td><strong>Insufficient.</strong> An adequate examination for a complex lumbar spine case with surgical recommendation and pre-existing imaging requires, at minimum, a thorough history (10&ndash;15 min), comprehensive neurological and musculoskeletal examination (15&ndash;20 min), and discussion of findings (5&ndash;10 min). An 18-minute total is inconsistent with the thoroughness required to support the conclusions rendered.</td></tr>
+          <tr><td><span class="pill pill-red">MRI comparison</span><br>None performed</td><td>The IME physician acknowledged reviewing the 2025 MRI but did not discuss or even acknowledge the existence of the 2021 pre-accident MRI. The &ldquo;records reviewed&rdquo; section lists records from 5 of 7 providers &mdash; the 2021 radiology report (RAD-003) is not listed.</td><td><strong>Critical gap.</strong> If the IME physician did not have the 2021 MRI, his opinion on degenerative vs. traumatic causation has no comparative imaging basis. If he had it and did not discuss it, the omission suggests selective record review. Either scenario undermines the causation conclusion.</td></tr>
+          <tr><td><span class="pill pill-amber">EMG acknowledgment</span><br>Absent</td><td>The EMG/NCS study (NEU-011) confirming left S1 radiculopathy is not referenced in the &ldquo;records reviewed&rdquo; section or discussed anywhere in the report.</td><td><strong>Significant.</strong> Electrodiagnostic evidence of radiculopathy is an objective finding that directly contradicts the &ldquo;primarily subjective&rdquo; characterization. Its absence from the IME review raises the question of whether it was provided to the IME physician or deliberately excluded.</td></tr>
+          <tr><td><span class="pill pill-amber">Functional capacity</span><br>No analysis</td><td>The IME physician clears the claimant for full-duty nursing without performing or referencing any functional capacity evaluation, without reviewing the DOT requirements for the nursing occupation, and without explaining how the documented physical limitations permit full-duty work.</td><td><strong>Significant.</strong> A full-duty clearance without functional capacity analysis is a conclusion without supporting methodology. The claimant&rsquo;s occupation has specific physical demands that are not addressed.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="rebuttal">
+        <div class="finding-label">Payer-perspective insight on examination adequacy</div>
+        <p>In utilization management, a peer reviewer who overrides a treating physician&rsquo;s recommendation must document that they reviewed all relevant medical records, considered the treating physician&rsquo;s rationale, and applied evidence-based criteria. A review that omits key diagnostic evidence (EMG, comparison MRI) and does not engage with the treating physician&rsquo;s documented reasoning would be considered deficient and returned for supplementation. The same analytical standard should apply to an IME. An 18-minute examination producing 14 pages of conclusions &mdash; many of which contradict the reviewer&rsquo;s own examination findings &mdash; raises legitimate questions about whether the examination was performed to support a predetermined conclusion rather than to evaluate the claimant&rsquo;s condition.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="component" id="s9">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 09 of 10</div>
+        <div class="comp-title">Questions for Treating Physician / Expert</div>
+      </div>
+      <div class="comp-badge">For rebuttal preparation</div>
+    </div>
+    <div class="comp-body">
+      <p>The following questions are designed to guide a rebuttal letter or testimony from the treating physician or the plaintiff&rsquo;s retained expert. Each question maps to a specific IME weakness identified in this analysis.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:40px">#</th><th>Question for Treating Physician</th><th style="width:240px">Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Please compare the 2021 pre-accident lumbar MRI with the October 2025 post-accident MRI, specifically at L4&ndash;L5, and explain whether the herniation is a new finding.</td><td>Establishes the herniation is new and not present on prior imaging &mdash; the foundational causation rebuttal</td></tr>
+          <tr><td>2</td><td>Based on the MRI comparison, in your medical opinion, is the L4&ndash;L5 herniation more consistent with a traumatic etiology or natural degenerative progression?</td><td>Directly rebuts the IME&rsquo;s degenerative causation conclusion</td></tr>
+          <tr><td>3</td><td>Please explain the clinical reasoning for continuing physical therapy beyond 8 weeks, with reference to the functional progress and regression documented in the PT records.</td><td>Provides the documented clinical basis the IME ignored</td></tr>
+          <tr><td>4</td><td>The IME states that conservative care has not been exhausted. What additional conservative measures, if any, remain clinically appropriate for this patient?</td><td>Forces a concrete answer to the IME&rsquo;s vague &ldquo;not exhausted&rdquo; assertion &mdash; likely answer: none remain</td></tr>
+          <tr><td>5</td><td>Do the EMG/NCS findings confirming left S1 radiculopathy represent objective or subjective evidence of nerve injury?</td><td>Directly rebuts the &ldquo;primarily subjective&rdquo; characterization</td></tr>
+          <tr><td>6</td><td>Based on the documented physical findings (limited ROM, positive SLR, diminished reflex, antalgic gait), is full-duty nursing work without restrictions medically appropriate?</td><td>Directly rebuts the full-duty clearance using the IME physician&rsquo;s own examination findings</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="component" id="s10">
+    <div class="comp-head exclusive">
+      <div>
+        <div class="comp-num">Section 10 of 10 &mdash; Expert MD Exclusive</div>
+        <div class="comp-title">Deposition Preparation Questions for IME Physician</div>
+      </div>
+      <div class="comp-badge">22 questions &middot; Organized by attack line</div>
+    </div>
+    <div class="comp-body">
+      <p style="font-style:italic;color:var(--ink-3);font-size:13.5px;margin-bottom:18px">These questions are designed to test the IME physician&rsquo;s reasoning under oath. They are organized by weakness category and sequenced to build toward the most damaging contradictions. Attorney should adapt phrasing to deposition style.</p>
+
+      <h3>Examination adequacy (Q1&ndash;Q5)</h3>
+      <ol class="depo-q">
+        <li>How long did you spend with the claimant during the February 3 examination, from the moment you entered the room to the moment you completed your physical examination?<em>Purpose: Establish the 18-minute duration on the record</em></li>
+        <li>How many pages of medical records were you provided for review in this case?<em>Purpose: Establish whether the full record set was provided or selectively curated</em></li>
+        <li>Did you review a lumbar MRI from 2021 &mdash; prior to the accident &mdash; as part of your record review?<em>Purpose: If no, establishes the causation opinion lacks comparative imaging basis. If yes, sets up the next question.</em></li>
+        <li>If you reviewed the 2021 MRI, can you point to where in your report you discuss the comparison between the 2021 and 2025 MRI findings at L4&ndash;L5?<em>Purpose: Establishes the omission &mdash; either it wasn&rsquo;t reviewed or it was reviewed and not discussed</em></li>
+        <li>Did you review the EMG and nerve conduction study performed by Dr. [Neurologist] confirming left S1 radiculopathy?<em>Purpose: Same logic &mdash; establishes whether objective evidence was reviewed and omitted</em></li>
+      </ol>
+
+      <h3 style="margin-top:24px">Causation methodology (Q6&ndash;Q10)</h3>
+      <ol class="depo-q" style="counter-reset:depo 5">
+        <li>What radiological criteria did you use to distinguish between a degenerative disc herniation and a traumatic disc herniation on the 2025 MRI?<em>Purpose: Exposes the absence of methodology &mdash; the report provides no criteria</em></li>
+        <li>If the 2021 MRI showed no herniation at L4&ndash;L5 and the 2025 MRI shows a herniation at L4&ndash;L5, how do you explain the new finding without reference to the intervening trauma?<em>Purpose: Directly confronts the causation gap</em></li>
+        <li>Did the claimant have any lumbar symptoms, lumbar treatment, or work restrictions related to her lumbar spine between the 2021 MRI and the April 2025 accident?<em>Purpose: Establishes the 4-year asymptomatic interval that negates degenerative symptom causation</em></li>
+        <li>Is disc desiccation the same finding as disc herniation?<em>Purpose: Forces acknowledgment that the pre-existing desiccation and the current herniation are different findings</em></li>
+        <li>Are you aware of published studies showing the prevalence of asymptomatic degenerative disc findings on MRI in adults over 40?<em>Purpose: Contextualizes the pre-existing desiccation as a ubiquitous, clinically insignificant finding</em></li>
+      </ol>
+
+      <h3 style="margin-top:24px">Internal contradictions (Q11&ndash;Q16)</h3>
+      <ol class="depo-q" style="counter-reset:depo 10">
+        <li>During your examination, did you find the claimant&rsquo;s straight leg raise to be positive on the left?<em>Purpose: Confirms his own objective finding before challenging his &ldquo;subjective&rdquo; conclusion</em></li>
+        <li>Is a positive straight leg raise an objective or subjective finding?<em>Purpose: Establishes the contradiction &mdash; his own exam produced an objective finding he later dismissed</em></li>
+        <li>During your examination, you documented the left ankle reflex as diminished compared to the right. Is reflex asymmetry an objective or subjective finding?<em>Purpose: Second objective finding from his own exam that contradicts the &ldquo;subjective&rdquo; characterization</em></li>
+        <li>You documented antalgic gait in your examination findings. Can you explain how a patient with antalgic gait, positive SLR, and diminished reflexes can safely return to full-duty nursing without restrictions?<em>Purpose: Directly confronts the examination-vs-conclusion contradiction</em></li>
+        <li>Did you review the Department of Labor&rsquo;s Dictionary of Occupational Titles entry for registered nurses, or any other source, to determine the physical demands of the claimant&rsquo;s occupation before clearing her for full duty?<em>Purpose: Exposes the absence of job-demand analysis underlying the full-duty clearance</em></li>
+        <li>Did you perform or order a functional capacity evaluation before concluding the claimant can return to full-duty work?<em>Purpose: Establishes the clearance has no functional testing basis</em></li>
+      </ol>
+
+      <h3 style="margin-top:24px">Treatment necessity and bias (Q17&ndash;Q22)</h3>
+      <ol class="depo-q" style="counter-reset:depo 16">
+        <li>You stated that treatment was not medically necessary beyond 8 weeks. What clinical guideline or published evidence supports 8 weeks as the appropriate duration limit for physical therapy in lumbar disc herniation with radiculopathy?<em>Purpose: Exposes the absence of any cited authority for the 8-week threshold</em></li>
+        <li>You stated that conservative care has not been exhausted and surgery is not indicated. Can you identify the specific conservative treatment that the claimant has not yet tried that you believe should be attempted before surgery?<em>Purpose: Forces a concrete answer &mdash; &ldquo;not exhausted&rdquo; is vague without a specific recommendation</em></li>
+        <li>Approximately how many independent medical examinations have you performed in the past 12 months?<em>Purpose: Establishes volume of IME work &mdash; pattern of insurance-company-facing practice</em></li>
+        <li>What percentage of your professional income in the past 12 months was derived from independent medical examinations and related litigation consulting?<em>Purpose: Establishes financial interest in continued IME referrals from defense counsel and insurers</em></li>
+        <li>In the IMEs you performed in the past 12 months, approximately what percentage resulted in a finding that the claimant&rsquo;s treatment was medically necessary and the injuries were causally related to the incident?<em>Purpose: Establishes systematic pattern &mdash; if the answer is a very low percentage, it suggests bias</em></li>
+        <li>Were you provided with any communication from defense counsel or the insurance carrier regarding the specific questions they wanted you to address, or any preferred outcome for this examination?<em>Purpose: Explores whether the IME was directed toward a predetermined conclusion</em></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- VERDICT -->
+  <div class="verdict">
+    <div class="verdict-label">Analysis summary</div>
+    <h3>This IME report contains significant analytical weaknesses that are exploitable at deposition and through treating physician rebuttal.</h3>
+    <p>The three most damaging weaknesses are: <strong>(1)</strong> the failure to compare or even acknowledge the pre-accident 2021 MRI showing no herniation at L4&ndash;L5, which undermines the entire degenerative causation thesis; <strong>(2)</strong> the internal contradiction between the IME physician&rsquo;s own examination findings (positive SLR, diminished reflex, antalgic gait) and his conclusion that symptoms are &ldquo;primarily subjective&rdquo; with full-duty work clearance; and <strong>(3)</strong> the omission of EMG/NCS objective evidence confirming radiculopathy. The treating orthopedist&rsquo;s rebuttal letter should directly address the MRI comparison and the clinical basis for surgical recommendation. The deposition should focus on examination duration, missing records, and the examination-vs-conclusion contradictions.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>Medisprudence &middot; Physician-Directed Medical Case Intelligence</span>
+    <span>Specimen &middot; Fictional Data &middot; April 2026</span>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Disclaimer</strong>
+    This document is a specimen prepared with fictional clinical data. It does not constitute an expert rebuttal opinion, independent medical examination, legal advice, or standard-of-care conclusion. Medisprudence provides physician-reviewed IME report analysis for attorney-directed litigation support. The attorney and their retained testifying expert use this analysis to direct deposition strategy and rebuttal testimony. All legal decisions remain with the retaining attorney.
+  </div>
+
 </div>
 
-<!-- SCORECARD -->
-<div class="scorecard">
-<div class="sc"><div class="sc-label">Unsupported assertions</div><div class="sc-val red">6 Found</div></div>
-<div class="sc"><div class="sc-label">Omitted medical facts</div><div class="sc-val red">8 Found</div></div>
-<div class="sc"><div class="sc-label">Internal contradictions</div><div class="sc-val amber">3 Found</div></div>
-<div class="sc"><div class="sc-label">Methodology concerns</div><div class="sc-val red">4 Found</div></div>
-<div class="sc"><div class="sc-label">Deposition questions</div><div class="sc-val green">22 Prepared</div></div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SECTION 1: IME CONCLUSION SUMMARY -->
-<!-- ============================================================ -->
-<div class="component" id="s1">
-<div class="comp-head"><div><div class="comp-num">Section 01 of 10</div><div class="comp-title">IME Conclusion Summary</div></div><div class="comp-badge">What the IME physician is claiming</div></div>
-<div class="comp-body">
-<p>The defense IME orthopedist reached six primary conclusions. Each is quoted below and analyzed in subsequent sections.</p>
-
-<table>
-<thead><tr><th style="width:40px">#</th><th>IME Conclusion</th><th style="width:120px">Medisprudence Assessment</th></tr></thead>
-<tbody>
-<tr><td>1</td><td><strong>"The L4–L5 disc herniation is degenerative in nature and not causally related to the April 2025 motor vehicle accident."</strong></td><td style="color:var(--red);font-weight:700">Unsupported</td></tr>
-<tr><td>2</td><td><strong>"The claimant's treatment, including 28 physical therapy sessions and two lumbar epidural steroid injections, was excessive and not medically necessary beyond the first 8 weeks."</strong></td><td style="color:var(--red);font-weight:700">Unsupported</td></tr>
-<tr><td>3</td><td><strong>"The claimant has reached maximum medical improvement. No further treatment is medically necessary."</strong></td><td style="color:var(--amber);font-weight:700">Contradicted by record</td></tr>
-<tr><td>4</td><td><strong>"The surgical recommendation (microdiscectomy) is not indicated. Conservative care has not been exhausted."</strong></td><td style="color:var(--amber);font-weight:700">Partially unsupported</td></tr>
-<tr><td>5</td><td><strong>"Pre-existing degenerative disc disease at L4–L5 and L5–S1 is the primary etiology of the claimant's current symptoms."</strong></td><td style="color:var(--red);font-weight:700">Overweighted</td></tr>
-<tr><td>6</td><td><strong>"The claimant can return to full-duty nursing work without restrictions."</strong></td><td style="color:var(--red);font-weight:700">Contradicted by examination</td></tr>
-</tbody>
-</table>
-
-<div class="finding">
-<div class="finding-label">Overview assessment</div>
-<p>The IME report contains systematic omissions of supporting treatment records, unsupported causation assertions, and internal contradictions between the IME physician's own examination findings and conclusions. The analysis below identifies each specific weakness for attorney-directed rebuttal preparation.</p>
-</div>
-</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SECTION 2: UNSUPPORTED ASSERTIONS -->
-<!-- ============================================================ -->
-<div class="component" id="s2">
-<div class="comp-head alert"><div><div class="comp-num">Section 02 of 10</div><div class="comp-title">Unsupported Assertions</div></div><div class="comp-badge">6 identified</div></div>
-<div class="comp-body">
-<p>The following IME conclusions are stated without adequate supporting evidence from the medical record or the IME physician's own examination.</p>
-
-<div class="ime-quote"><p>"The L4–L5 disc herniation is degenerative in nature and not causally related to the April 2025 motor vehicle accident."</p></div>
-<div class="finding warn">
-<div class="finding-label">Unsupported assertion #1</div>
-<p><strong>Why this is unsupported:</strong> The IME physician provides no radiological basis for distinguishing between a degenerative herniation and a traumatic herniation at L4–L5. The report cites the presence of "multilevel disc desiccation" as evidence of degeneration but does not address the fact that the L4–L5 herniation was not present on a prior 2021 lumbar MRI (RAD-003, p.2), which showed desiccation but no herniation at that level. The post-accident MRI (RAD-008, p.4) shows a new left posterolateral herniation at L4–L5 with S1 nerve root compression. The IME report does not acknowledge this comparison or explain how a new herniation at a previously intact level is degenerative rather than traumatic.</p>
-</div>
-
-<div class="ime-quote"><p>"Treatment was excessive and not medically necessary beyond the first 8 weeks."</p></div>
-<div class="finding warn">
-<div class="finding-label">Unsupported assertion #2</div>
-<p><strong>Why this is unsupported:</strong> The IME physician provides no clinical criteria for the 8-week threshold. Established clinical guidelines (ACR Appropriateness Criteria, NASS guidelines) do not define a fixed 8-week limit for conservative care in lumbar disc herniation with radiculopathy. The claimant's PT was prescribed in response to progressive symptoms documented by the treating physician at each follow-up visit (ORT-005 p.8, 12, 18). The IME report does not cite any guideline, payer policy, or published evidence supporting 8 weeks as the ceiling for medically necessary treatment.</p>
-</div>
-
-<div class="ime-quote"><p>"Pre-existing degenerative disc disease at L4–L5 and L5–S1 is the primary etiology of the claimant's current symptoms."</p></div>
-<div class="finding warn">
-<div class="finding-label">Unsupported assertion #3</div>
-<p><strong>Why this is unsupported:</strong> The 2021 MRI (RAD-003) showed multilevel disc desiccation and a small L5–S1 annular bulge — but the claimant had no lumbar symptoms, no lumbar treatment, no work restrictions, and no functional limitations between the 2021 MRI and the April 2025 accident. An asymptomatic degenerative finding cannot be "the primary etiology" of symptoms that began immediately after a documented trauma. The IME report fails to address the claimant's complete absence of lumbar complaints during the 4-year interval between the 2021 MRI and the accident.</p>
-</div>
-
-<div class="ime-quote"><p>"Symptoms are primarily subjective with limited objective findings."</p></div>
-<div class="finding warn">
-<div class="finding-label">Unsupported assertion #4</div>
-<p><strong>Why this is unsupported:</strong> The treatment record contains extensive objective findings that the IME report either ignores or minimizes: positive straight leg raise (ORT-005 p.6), left S1 dermatomal sensory deficit on examination (ORT-005 p.8), MRI-confirmed S1 nerve root compression (RAD-008 p.4), abnormal left ankle reflex (NEU-011 p.3), and positive EMG/NCS showing left S1 radiculopathy (NEU-011 p.6). The IME physician's own examination documented positive left SLR at 40° and diminished left ankle jerk — findings the IME physician then contradicts in the conclusions section.</p>
-</div>
-
-<div class="ime-quote"><p>"The claimant can return to full-duty nursing work without restrictions."</p></div>
-<div class="finding warn">
-<div class="finding-label">Unsupported assertion #5</div>
-<p><strong>Why this is unsupported:</strong> The IME physician's own physical examination documented: limited lumbar flexion (40° vs. normal 60°), positive left SLR at 40°, diminished left ankle reflex, and antalgic gait. Full-duty nursing requires lifting up to 50 lbs, prolonged standing (8–12 hour shifts), and frequent bending. The IME report provides no functional capacity analysis, no assessment of the claimant's job demands, and no explanation of how a patient with limited flexion, radicular findings, and antalgic gait can safely perform full-duty nursing.</p>
-</div>
-
-<div class="ime-quote"><p>"No further diagnostic testing is warranted."</p></div>
-<div class="finding warn">
-<div class="finding-label">Unsupported assertion #6</div>
-<p><strong>Why this is unsupported:</strong> The claimant has progressive radicular symptoms, EMG-confirmed S1 radiculopathy, and documented failure of two epidural injections. Current clinical guidelines (NASS 2024 Lumbar Disc Herniation guideline) support repeat imaging if symptoms progress or if surgical planning is being considered. The IME dismissal of further diagnostics is inconsistent with the clinical trajectory documented in the treatment records.</p>
-</div>
-</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SECTION 3: OMITTED MEDICAL FACTS -->
-<!-- ============================================================ -->
-<div class="component" id="s3">
-<div class="comp-head alert"><div><div class="comp-num">Section 03 of 10</div><div class="comp-title">Omitted Medical Facts</div></div><div class="comp-badge">8 identified</div></div>
-<div class="comp-body">
-<p>The following documented medical facts appear in the treatment records but are not referenced, discussed, or acknowledged anywhere in the 14-page IME report.</p>
-
-<table>
-<thead><tr><th style="width:40px">#</th><th>Omitted Fact</th><th>Why It Matters</th><th style="width:90px">Source</th></tr></thead>
-<tbody>
-<tr><td style="color:var(--red);font-weight:700">1</td><td>2021 lumbar MRI (pre-accident) showing no herniation at L4–L5</td><td>This is the single most important comparison imaging. It proves the L4–L5 herniation is new. Its absence from the IME report is the most significant omission in this analysis.</td><td><span class="ref">RAD-003 p.2</span></td></tr>
-<tr><td style="color:var(--red);font-weight:700">2</td><td>EMG/NCS study confirming left S1 radiculopathy (electrodiagnostic objective evidence)</td><td>Directly contradicts the IME conclusion that symptoms are "primarily subjective with limited objective findings."</td><td><span class="ref">NEU-011 p.6</span></td></tr>
-<tr><td style="color:var(--red);font-weight:700">3</td><td>Neurology consultation documenting left S1 dermatomal sensory deficit and abnormal left ankle reflex</td><td>Additional objective findings that the IME report ignores while characterizing symptoms as subjective.</td><td><span class="ref">NEU-011 p.3</span></td></tr>
-<tr><td style="color:var(--amber);font-weight:700">4</td><td>Treating orthopedist's documentation of progressive symptom worsening at each follow-up visit</td><td>Contradicts the IME conclusion that treatment beyond 8 weeks was unnecessary — the treating physician documented clinical reasons for continued care at each decision point.</td><td><span class="ref">ORT-005 p.8, 12, 18</span></td></tr>
-<tr><td style="color:var(--amber);font-weight:700">5</td><td>PT progress notes showing functional improvement followed by plateau and regression</td><td>The IME states PT was excessive but does not acknowledge that the treating PT documented initial improvement that later plateaued, which is a standard clinical indication for escalation to injections.</td><td><span class="ref">PT-007 p.18–24</span></td></tr>
-<tr><td style="color:var(--amber);font-weight:700">6</td><td>Claimant's documented pre-accident work history: 12 years as ER nurse with no work restrictions and no lumbar complaints</td><td>Undermines the "pre-existing degeneration is the primary etiology" argument. A 12-year physically demanding career without limitation contradicts the assertion that degenerative findings caused the current disability.</td><td><span class="ref">PCP-001 p.4–6</span></td></tr>
-<tr><td style="color:var(--amber);font-weight:700">7</td><td>Second epidural injection provided only 3 weeks of partial relief before symptom recurrence</td><td>This is the clinical basis for escalation to surgical consultation. Injection failure is documented but not discussed in the IME's dismissal of surgical recommendation.</td><td><span class="ref">PM-009 p.8</span></td></tr>
-<tr><td style="color:var(--amber);font-weight:700">8</td><td>Treating surgeon's operative rationale documenting specific indications for microdiscectomy</td><td>The IME states surgery is "not indicated" without addressing the treating surgeon's documented reasoning.</td><td><span class="ref">ORT-005 p.22</span></td></tr>
-</tbody>
-</table>
-
-<div class="rebuttal">
-<div class="finding-label">Payer-perspective insight</div>
-<p>In utilization review, an IME or peer review that fails to address the treating physician's documented clinical reasoning is considered a deficient review. Payer medical directors are trained to address the treating physician's specific documented rationale before overriding a treatment recommendation. An IME that simply states "surgery is not indicated" without engaging with the treating surgeon's operative indications would be returned for supplementation in a UM review context. The same analytical weakness applies here — the defense IME physician has substituted his conclusion for the treating physician's reasoning without addressing the specific clinical evidence underlying the surgical recommendation.</p>
-</div>
-</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SECTION 4: INTERNAL CONTRADICTIONS -->
-<!-- ============================================================ -->
-<div class="component" id="s4">
-<div class="comp-head"><div><div class="comp-num">Section 04 of 10</div><div class="comp-title">Internal Contradictions</div></div><div class="comp-badge">3 identified</div></div>
-<div class="comp-body">
-<p>The following contradictions exist within the IME report itself — between the IME physician's own examination findings and the conclusions.</p>
-
-<div class="finding warn">
-<div class="finding-label">Contradiction #1 — Examination vs. Conclusion: Objective findings</div>
-<p><strong>IME Examination section (p.7):</strong> "Lumbar flexion limited to approximately 40 degrees with pain. Straight leg raise positive on the left at 40 degrees. Left ankle deep tendon reflex diminished (1+) compared to right (2+). Gait: mild antalgic pattern with shortened stride on left."</p>
-<p style="margin-top:8px"><strong>IME Conclusion section (p.12):</strong> "Symptoms are primarily subjective with limited objective findings."</p>
-<p style="margin-top:8px"><strong>The contradiction:</strong> The IME physician's own examination produced four objective findings (limited ROM, positive SLR, diminished reflex, antalgic gait), then characterized the presentation as "primarily subjective." These findings are textbook objective indicators of lumbar radiculopathy. The IME physician's conclusions are inconsistent with his own documented examination.</p>
-</div>
-
-<div class="finding warn">
-<div class="finding-label">Contradiction #2 — Examination vs. Conclusion: Work capacity</div>
-<p><strong>IME Examination section (p.7):</strong> Documents limited flexion, positive SLR, and antalgic gait.</p>
-<p style="margin-top:8px"><strong>IME Conclusion section (p.13):</strong> "The claimant can return to full-duty nursing work without restrictions."</p>
-<p style="margin-top:8px"><strong>The contradiction:</strong> Full-duty nursing requires frequent bending, lifting (up to 50 lbs), prolonged standing, and rapid physical response capability. The IME physician's own examination findings are incompatible with full-duty clearance. No functional capacity rationale is provided to bridge this gap. The conclusion appears to have been written without reference to the examination findings that precede it in the same report.</p>
-</div>
-
-<div class="finding caution">
-<div class="finding-label">Contradiction #3 — Record review vs. Causation opinion</div>
-<p><strong>IME Record Review section (p.3):</strong> "Records reviewed include MRI lumbar spine dated October 2025 showing L4–L5 left posterolateral disc herniation with S1 nerve root compression."</p>
-<p style="margin-top:8px"><strong>IME Conclusion section (p.12):</strong> "The L4–L5 disc herniation is degenerative in nature."</p>
-<p style="margin-top:8px"><strong>The contradiction:</strong> The IME physician acknowledged the MRI findings (herniation with nerve root compression) but provided no radiological criteria for distinguishing traumatic from degenerative herniation. The report contains no discussion of disc morphology, signal characteristics, or annular tear pattern — standard criteria that spine radiologists use to differentiate acute from chronic herniations. The degenerative characterization is stated as a conclusion without supporting methodology.</p>
-</div>
-</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SECTION 5: RECORD-BASED COUNTERPOINTS -->
-<!-- ============================================================ -->
-<div class="component" id="s5">
-<div class="comp-head"><div><div class="comp-num">Section 05 of 10</div><div class="comp-title">Record-Based Counterpoints</div></div><div class="comp-badge">For attorney-directed response</div></div>
-<div class="comp-body">
-<table>
-<thead><tr><th>IME Claim</th><th>Record-Based Counterpoint</th><th>Source</th></tr></thead>
-<tbody>
-<tr><td>"Herniation is degenerative"</td><td>Pre-accident 2021 MRI shows no herniation at L4–L5. Post-accident 2025 MRI shows new herniation at L4–L5 with neural compression. The herniation is new and temporally correlated with the accident.</td><td><span class="ref">RAD-003 p.2 vs. RAD-008 p.4</span></td></tr>
-<tr><td>"Symptoms are subjective"</td><td>EMG/NCS objectively confirms left S1 radiculopathy. Neurology exam documents dermatomal sensory deficit and reflex asymmetry. IME physician's own exam shows positive SLR and diminished reflex.</td><td><span class="ref">NEU-011 p.3,6; IME p.7</span></td></tr>
-<tr><td>"Treatment excessive after 8 weeks"</td><td>PT records show initial improvement (weeks 1–6) followed by plateau (weeks 7–10) and regression (weeks 11–14). Treating physician documented progressive clinical reasoning for escalation at each visit.</td><td><span class="ref">PT-007 p.12–24; ORT-005 p.8,12,18</span></td></tr>
-<tr><td>"MMI reached"</td><td>Most recent treating physician note documents ongoing radicular symptoms with progressive neurological deficit (worsening left ankle reflex). The clinical trajectory is not consistent with a stable, resolved condition.</td><td><span class="ref">ORT-005 p.24</span></td></tr>
-<tr><td>"Surgery not indicated"</td><td>Two epidural injections failed to provide sustained relief (>50% improvement for >6 weeks). Treating surgeon documented specific indications: MRI-confirmed neural compression at a level correlating with clinical findings, failure of 8+ months conservative care, and progressive neurological deficit.</td><td><span class="ref">PM-009 p.5,8; ORT-005 p.22</span></td></tr>
-<tr><td>"Full-duty return"</td><td>No FCE has been performed. IME physician's own exam shows limited flexion, positive SLR, antalgic gait, and reflex deficit. Nursing duties (DOT code 29-1141) require medium-to-heavy physical demand level. No analysis of job requirements vs. functional capacity is provided in the IME report.</td><td><span class="ref">IME p.7; DOT reference</span></td></tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SECTION 6: TREATMENT NECESSITY -->
-<!-- ============================================================ -->
-<div class="component" id="s6">
-<div class="comp-head"><div><div class="comp-num">Section 06 of 10</div><div class="comp-title">Treatment Necessity Analysis</div></div></div>
-<div class="comp-body">
-<p>The IME physician characterizes the following treatments as excessive or unnecessary. Medisprudence's analysis evaluates each against the documented clinical record and applicable guidelines.</p>
-
-<table>
-<thead><tr><th>Treatment</th><th>IME Position</th><th>Record-Based Analysis</th></tr></thead>
-<tbody>
-<tr><td>Physical therapy (28 sessions)</td><td>"Excessive — should have been limited to 8 weeks"</td><td><strong style="color:var(--teal)">Supported by record.</strong> PT notes document functional improvement in weeks 1–6, plateau in weeks 7–10 (appropriate reassessment point), and then continuation was clinically indicated because the treating physician documented progressive symptoms that required ongoing supervised exercise. The transition to injection therapy occurred after PT plateau was documented — this is appropriate escalation, not excessive care.</td></tr>
-<tr><td>Epidural injections (×2)</td><td>"Second injection was not medically necessary given limited response to first"</td><td><strong style="color:var(--teal)">Not supported.</strong> The first injection provided 40% improvement for 6 weeks (PM-009, p.5). Clinical guidelines (ASIPP 2023) support a second injection when the first provides partial but incomplete relief. The second injection is a standard step in conservative treatment escalation before surgical consideration.</td></tr>
-<tr><td>Surgical recommendation</td><td>"Not indicated — conservative care not exhausted"</td><td><strong style="color:var(--amber)">Partially unsupported.</strong> The claimant completed 28 PT sessions, two injections (both with temporary/partial relief), and 8+ months of conservative care with progressive neurological deficit. The treating surgeon's documented indications (ORT-005, p.22) meet established surgical criteria. The IME does not specify what additional conservative measures should be pursued.</td></tr>
-</tbody>
-</table>
-
-<div class="rebuttal">
-<div class="finding-label">Payer-perspective insight</div>
-<p>In utilization review, the standard for overriding a treating surgeon's operative recommendation requires the reviewer to identify specific additional conservative measures that have not been tried and that have clinical evidence supporting their use for the patient's specific condition. Simply stating "conservative care not exhausted" without naming the specific untried treatment is insufficient under MCG and InterQual review criteria. The IME report has the same analytical deficiency — it says surgery is premature without identifying what else the claimant should do instead.</p>
-</div>
-</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SECTION 7: PRE-EXISTING CONDITION -->
-<!-- ============================================================ -->
-<div class="component" id="s7">
-<div class="comp-head"><div><div class="comp-num">Section 07 of 10</div><div class="comp-title">Pre-Existing Condition Analysis</div></div><div class="comp-badge">Was degeneration overweighted?</div></div>
-<div class="comp-body">
-<p>The IME report attributes the claimant's current symptoms primarily to pre-existing degenerative disc disease. This section evaluates whether that attribution is supported by the medical record.</p>
-
-<table>
-<thead><tr><th>Factor</th><th>Record Evidence</th><th>Assessment</th></tr></thead>
-<tbody>
-<tr><td>2021 MRI findings</td><td>Multilevel disc desiccation (L3–L4, L4–L5, L5–S1). Small annular bulge L5–S1 without neural compromise. No herniation at L4–L5. No neural compression at any level.</td><td>Degenerative changes were present but <strong>asymptomatic</strong> — no herniation, no neural compression, no clinical consequences</td></tr>
-<tr><td>Clinical history 2021–2025</td><td>Zero lumbar complaints. Zero lumbar treatments. Zero work restrictions. Twelve years of full-duty ER nursing with no functional limitations documented in any medical record.</td><td>The 4-year asymptomatic interval <strong>negates</strong> pre-existing degeneration as a clinically meaningful cause of current symptoms</td></tr>
-<tr><td>Post-accident findings</td><td>New L4–L5 left posterolateral herniation with S1 nerve root compression on October 2025 MRI. Finding was not present on 2021 MRI.</td><td>The herniation is <strong>new</strong>. Temporally correlated with the April 2025 accident. Anatomically consistent with axial loading mechanism from T-bone collision.</td></tr>
-</tbody>
-</table>
-
-<div class="finding warn">
-<div class="finding-label">Assessment: Pre-existing condition overweighted</div>
-<p>The IME report treats asymptomatic degenerative disc desiccation as equivalent to active, symptomatic disc disease. It is not. Disc desiccation is a ubiquitous finding in adults over 40 — prevalence studies show degenerative disc changes on MRI in 50–80% of asymptomatic adults. The relevant clinical question is not whether degeneration was present but whether it was causing symptoms. The 4-year asymptomatic interval, the absence of any lumbar treatment, and the full-duty nursing career conclusively establish that the degenerative findings were clinically silent before the accident. The pre-existing degeneration may have made the disc more vulnerable to traumatic herniation — but vulnerability is not causation. This is an eggshell plaintiff argument, not a causation defense.</p>
-</div>
-</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SECTION 8: METHODOLOGY ASSESSMENT -->
-<!-- ============================================================ -->
-<div class="component" id="s8">
-<div class="comp-head alert"><div><div class="comp-num">Section 08 of 10 — EXPERT MD EXCLUSIVE</div><div class="comp-title">IME Methodology Assessment</div></div><div class="comp-badge">Was the examination adequate?</div></div>
-<div class="comp-body" style="background:var(--bg)">
-<p style="font-style:italic;color:var(--muted);font-size:13px;margin-bottom:14px">This section evaluates whether the IME physician's examination methodology was adequate to support the conclusions drawn. Informed by the reviewing physician's experience with payer-side utilization review examination standards.</p>
-
-<table>
-<thead><tr><th>Methodology Issue</th><th>Details</th><th>Impact on Conclusions</th></tr></thead>
-<tbody>
-<tr><td style="color:var(--red)">Examination duration</td><td>18 minutes total (per claimant's contemporaneous notes). This includes history-taking, physical examination, and review discussion. The claimant's condition involves lumbar radiculopathy with multiple prior treatments, pre-existing imaging, and a surgical recommendation.</td><td><strong>Insufficient.</strong> An adequate examination for a complex lumbar spine case with surgical recommendation and pre-existing imaging requires, at minimum, a thorough history (10–15 min), comprehensive neurological and musculoskeletal examination (15–20 min), and discussion of findings (5–10 min). An 18-minute total is inconsistent with the thoroughness required to support the conclusions rendered.</td></tr>
-<tr><td style="color:var(--red)">No MRI comparison</td><td>The IME physician acknowledged reviewing the 2025 MRI but did not discuss or even acknowledge the existence of the 2021 pre-accident MRI. The "records reviewed" section lists records from 5 of 7 providers — the 2021 radiology report (RAD-003) is not listed.</td><td><strong>Critical gap.</strong> If the IME physician did not have the 2021 MRI, his opinion on degenerative vs. traumatic causation has no comparative imaging basis. If he had it and did not discuss it, the omission suggests selective record review. Either scenario undermines the causation conclusion.</td></tr>
-<tr><td style="color:var(--amber)">No EMG acknowledgment</td><td>The EMG/NCS study (NEU-011) confirming left S1 radiculopathy is not referenced in the "records reviewed" section or discussed anywhere in the report.</td><td><strong>Significant.</strong> Electrodiagnostic evidence of radiculopathy is an objective finding that directly contradicts the "primarily subjective" characterization. Its absence from the IME review raises the question of whether it was provided to the IME physician or deliberately excluded.</td></tr>
-<tr><td style="color:var(--amber)">No functional capacity analysis</td><td>The IME physician clears the claimant for full-duty nursing without performing or referencing any functional capacity evaluation, without reviewing the DOT requirements for the nursing occupation, and without explaining how the documented physical limitations permit full-duty work.</td><td><strong>Significant.</strong> A full-duty clearance without functional capacity analysis is a conclusion without supporting methodology. The claimant's occupation has specific physical demands that are not addressed.</td></tr>
-</tbody>
-</table>
-
-<div class="rebuttal">
-<div class="finding-label">Payer-perspective insight on examination adequacy</div>
-<p>In utilization management, a peer reviewer who overrides a treating physician's recommendation must document that they reviewed all relevant medical records, considered the treating physician's rationale, and applied evidence-based criteria. A review that omits key diagnostic evidence (EMG, comparison MRI) and does not engage with the treating physician's documented reasoning would be considered deficient and returned for supplementation. The same analytical standard should apply to an IME. An 18-minute examination producing 14 pages of conclusions — many of which contradict the reviewer's own examination findings — raises legitimate questions about whether the examination was performed to support a predetermined conclusion rather than to evaluate the claimant's condition.</p>
-</div>
-</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SECTION 9: TREATING PHYSICIAN QUESTIONS -->
-<!-- ============================================================ -->
-<div class="component" id="s9">
-<div class="comp-head"><div><div class="comp-num">Section 09 of 10</div><div class="comp-title">Questions for Treating Physician / Expert</div></div><div class="comp-badge">For rebuttal preparation</div></div>
-<div class="comp-body">
-<p>The following questions are designed to guide a rebuttal letter or testimony from the treating physician or the plaintiff's retained expert. Each question maps to a specific IME weakness identified in this analysis.</p>
-
-<table>
-<thead><tr><th style="width:40px">#</th><th>Question for Treating Physician</th><th>Purpose</th></tr></thead>
-<tbody>
-<tr><td>1</td><td>Please compare the 2021 pre-accident lumbar MRI with the October 2025 post-accident MRI, specifically at L4–L5, and explain whether the herniation is a new finding.</td><td>Establishes the herniation is new and not present on prior imaging — the foundational causation rebuttal</td></tr>
-<tr><td>2</td><td>Based on the MRI comparison, in your medical opinion, is the L4–L5 herniation more consistent with a traumatic etiology or natural degenerative progression?</td><td>Directly rebuts the IME's degenerative causation conclusion</td></tr>
-<tr><td>3</td><td>Please explain the clinical reasoning for continuing physical therapy beyond 8 weeks, with reference to the functional progress and regression documented in the PT records.</td><td>Provides the documented clinical basis the IME ignored</td></tr>
-<tr><td>4</td><td>The IME states that conservative care has not been exhausted. What additional conservative measures, if any, remain clinically appropriate for this patient?</td><td>Forces a concrete answer to the IME's vague "not exhausted" assertion — likely answer: none remain</td></tr>
-<tr><td>5</td><td>Do the EMG/NCS findings confirming left S1 radiculopathy represent objective or subjective evidence of nerve injury?</td><td>Directly rebuts the "primarily subjective" characterization</td></tr>
-<tr><td>6</td><td>Based on the documented physical findings (limited ROM, positive SLR, diminished reflex, antalgic gait), is full-duty nursing work without restrictions medically appropriate?</td><td>Directly rebuts the full-duty clearance using the IME physician's own examination findings</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SECTION 10: DEPOSITION QUESTIONS -->
-<!-- ============================================================ -->
-<div class="component" id="s10">
-<div class="comp-head" style="background:linear-gradient(135deg,#1C2536,#0C8E96)"><div><div class="comp-num" style="color:#fff">Section 10 of 10 — EXPERT MD EXCLUSIVE</div><div class="comp-title">Deposition Preparation Questions for IME Physician</div></div><div class="comp-badge">22 questions · Organized by attack line</div></div>
-<div class="comp-body" style="background:var(--bg)">
-<p style="font-style:italic;color:var(--muted);font-size:13px;margin-bottom:16px">These questions are designed to test the IME physician's reasoning under oath. They are organized by weakness category and sequenced to build toward the most damaging contradictions. Attorney should adapt phrasing to deposition style.</p>
-
-<h3>Examination adequacy (Q1–Q5)</h3>
-<ol class="depo-q">
-<li>How long did you spend with the claimant during the February 3 examination, from the moment you entered the room to the moment you completed your physical examination?<em>Purpose: Establish the 18-minute duration on the record</em></li>
-<li>How many pages of medical records were you provided for review in this case?<em>Purpose: Establish whether the full record set was provided or selectively curated</em></li>
-<li>Did you review a lumbar MRI from 2021 — prior to the accident — as part of your record review?<em>Purpose: If no: establishes the causation opinion lacks comparative imaging basis. If yes: sets up the next question.</em></li>
-<li>If you reviewed the 2021 MRI, can you point to where in your report you discuss the comparison between the 2021 and 2025 MRI findings at L4–L5?<em>Purpose: Establishes the omission — either it wasn't reviewed or it was reviewed and not discussed</em></li>
-<li>Did you review the EMG and nerve conduction study performed by Dr. [Neurologist] confirming left S1 radiculopathy?<em>Purpose: Same logic — establishes whether objective evidence was reviewed and omitted</em></li>
-</ol>
-
-<h3>Causation methodology (Q6–Q10)</h3>
-<ol class="depo-q" style="counter-reset:depo 5">
-<li>What radiological criteria did you use to distinguish between a degenerative disc herniation and a traumatic disc herniation on the 2025 MRI?<em>Purpose: Exposes the absence of methodology — the report provides no criteria</em></li>
-<li>If the 2021 MRI showed no herniation at L4–L5 and the 2025 MRI shows a herniation at L4–L5, how do you explain the new finding without reference to the intervening trauma?<em>Purpose: Directly confronts the causation gap</em></li>
-<li>Did the claimant have any lumbar symptoms, lumbar treatment, or work restrictions related to her lumbar spine between the 2021 MRI and the April 2025 accident?<em>Purpose: Establishes the 4-year asymptomatic interval that negates degenerative symptom causation</em></li>
-<li>Is disc desiccation the same finding as disc herniation?<em>Purpose: Forces acknowledgment that the pre-existing desiccation and the current herniation are different findings</em></li>
-<li>Are you aware of published studies showing the prevalence of asymptomatic degenerative disc findings on MRI in adults over 40?<em>Purpose: Contextualizes the pre-existing desiccation as a ubiquitous, clinically insignificant finding</em></li>
-</ol>
-
-<h3>Internal contradictions (Q11–Q16)</h3>
-<ol class="depo-q" style="counter-reset:depo 10">
-<li>During your examination, did you find the claimant's straight leg raise to be positive on the left?<em>Purpose: Confirms his own objective finding before challenging his "subjective" conclusion</em></li>
-<li>Is a positive straight leg raise an objective or subjective finding?<em>Purpose: Establishes the contradiction — his own exam produced an objective finding he later dismissed</em></li>
-<li>During your examination, you documented the left ankle reflex as diminished compared to the right. Is reflex asymmetry an objective or subjective finding?<em>Purpose: Second objective finding from his own exam that contradicts the "subjective" characterization</em></li>
-<li>You documented antalgic gait in your examination findings. Can you explain how a patient with antalgic gait, positive SLR, and diminished reflexes can safely return to full-duty nursing without restrictions?<em>Purpose: Directly confronts the examination-vs-conclusion contradiction</em></li>
-<li>Did you review the Department of Labor's Dictionary of Occupational Titles entry for registered nurses, or any other source, to determine the physical demands of the claimant's occupation before clearing her for full duty?<em>Purpose: Exposes the absence of job-demand analysis underlying the full-duty clearance</em></li>
-<li>Did you perform or order a functional capacity evaluation before concluding the claimant can return to full-duty work?<em>Purpose: Establishes the clearance has no functional testing basis</em></li>
-</ol>
-
-<h3>Treatment necessity and bias (Q17–Q22)</h3>
-<ol class="depo-q" style="counter-reset:depo 16">
-<li>You stated that treatment was not medically necessary beyond 8 weeks. What clinical guideline or published evidence supports 8 weeks as the appropriate duration limit for physical therapy in lumbar disc herniation with radiculopathy?<em>Purpose: Exposes the absence of any cited authority for the 8-week threshold</em></li>
-<li>You stated that conservative care has not been exhausted and surgery is not indicated. Can you identify the specific conservative treatment that the claimant has not yet tried that you believe should be attempted before surgery?<em>Purpose: Forces a concrete answer — "not exhausted" is vague without a specific recommendation</em></li>
-<li>Approximately how many independent medical examinations have you performed in the past 12 months?<em>Purpose: Establishes volume of IME work — pattern of insurance-company-facing practice</em></li>
-<li>What percentage of your professional income in the past 12 months was derived from independent medical examinations and related litigation consulting?<em>Purpose: Establishes financial interest in continued IME referrals from defense counsel and insurers</em></li>
-<li>In the IMEs you performed in the past 12 months, approximately what percentage resulted in a finding that the claimant's treatment was medically necessary and the injuries were causally related to the incident?<em>Purpose: Establishes systematic pattern — if the answer is a very low percentage, it suggests bias</em></li>
-<li>Were you provided with any communication from defense counsel or the insurance carrier regarding the specific questions they wanted you to address, or any preferred outcome for this examination?<em>Purpose: Explores whether the IME was directed toward a predetermined conclusion</em></li>
-</ol>
-</div>
-</div>
-
-<!-- VERDICT -->
-<div class="verdict">
-<div class="verdict-label">Analysis summary</div>
-<h3>This IME report contains significant analytical weaknesses that are exploitable at deposition and through treating physician rebuttal.</h3>
-<p style="color:var(--ink2);font-size:14px;margin-top:8px">The three most damaging weaknesses are: (1) the failure to compare or even acknowledge the pre-accident 2021 MRI showing no herniation at L4–L5, which undermines the entire degenerative causation thesis; (2) the internal contradiction between the IME physician's own examination findings (positive SLR, diminished reflex, antalgic gait) and his conclusion that symptoms are "primarily subjective" with full-duty work clearance; and (3) the omission of EMG/NCS objective evidence confirming radiculopathy. The treating orthopedist's rebuttal letter should directly address the MRI comparison and the clinical basis for surgical recommendation. The deposition should focus on examination duration, missing records, and the examination-vs-conclusion contradictions.</p>
-</div>
-
-<!-- FOOTER -->
-<div class="doc-footer">
-<span>Medisprudence · Physician-Directed Medical Case Intelligence</span>
-<span>Specimen · Fictional Data · April 2026</span>
-</div>
-
-<div style="margin-top:20px;padding:14px 16px;background:var(--bg);border-left:3px solid var(--slate);font-size:12px;color:var(--muted);line-height:1.7">
-<strong>Disclaimer:</strong> This document is a specimen prepared with fictional clinical data. It does not constitute an expert rebuttal opinion, independent medical examination, legal advice, or standard-of-care conclusion. Medisprudence provides physician-reviewed IME report analysis for attorney-directed litigation support. The attorney and their retained testifying expert use this analysis to direct deposition strategy and rebuttal testimony. All legal decisions remain with the retaining attorney.
-</div>
-</div>
 </body>
 </html>
