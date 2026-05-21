@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medisprudence — Specimen: Medical Reserve Analysis (MRA™)</title>
+<meta name="description" content="Specimen MRA deliverable — auto liability rear-end MVA with ACDF recommendation, rotator cuff, and pre-existing lumbar disc. TPA/carrier format. Fictional clinical data. No PHI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────
+   MEDISPRUDENCE — SPECIMEN STYLES
+   Shared CSS for all specimen deliverables.
+   Matches editorial/case-file aesthetic of medisprudence.com
+   ─────────────────────────────────────────────────────────── */
+
+:root{
+  --bg:#FAF7F1;
+  --bg-alt:#F1ECE0;
+  --bg-inset:#EDE6D6;
+  --paper:#FFFCF5;
+  --ink:#1A1612;
+  --ink-2:#3D352D;
+  --ink-3:#76695B;
+  --teal:#7A1F2B;
+  --teal-text:#6B1A24;
+  --teal-dim:rgba(122,31,43,.07);
+  --teal-tint:rgba(122,31,43,.04);
+  --teal-glow:rgba(122,31,43,.18);
+  --danger:#8B2418;
+  --danger-dim:rgba(139,36,24,.08);
+  --danger-glow:rgba(139,36,24,.20);
+  --caution:#8C6A1F;
+  --caution-dim:rgba(140,106,31,.09);
+  --caution-glow:rgba(140,106,31,.22);
+  --rule:rgba(26,22,18,.10);
+  --rule-md:rgba(26,22,18,.16);
+  --rule-dark:rgba(26,22,18,.28);
+  --serif:'Spectral','Georgia',serif;
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',ui-monospace,monospace;
+  --r-sm:2px;
+  --r-md:3px;
+  --r-lg:4px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:15px;
+  background:var(--bg);
+  padding-top:44px;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--teal);color:#fff}
+*:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
+h1,h2,h3,h4{
+  font-family:var(--serif);
+  line-height:1.15;
+  font-weight:400;
+  color:var(--ink);
+  letter-spacing:-.015em;
+}
+.mono{font-family:var(--mono)}
+
+/* ── TOP BAR (specimen disclaimer / back nav) ── */
+.top-bar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:44px;background:rgba(250,247,241,.94);
+  backdrop-filter:blur(20px) saturate(1.6);
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:24px;
+  padding:0 32px;
+}
+.top-bar a.back{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);
+  display:inline-flex;align-items:center;gap:6px;
+  transition:color .18s;
+}
+.top-bar a.back:hover{color:var(--teal)}
+.top-bar .specimen-tag{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);padding-left:20px;
+  border-left:1px solid var(--rule);
+}
+.top-bar .specimen-tag strong{color:var(--teal-text);font-weight:500}
+
+/* ── DOC HEADER ── */
+.doc-header{
+  background:var(--bg);
+  padding:28px 48px 22px;
+  border-bottom:1px solid var(--rule);
+}
+.doc-header-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:18px;
+  gap:24px;flex-wrap:wrap;
+}
+.doc-brand{
+  font-family:var(--serif);font-size:20px;font-weight:400;
+  color:var(--ink);letter-spacing:-.02em;
+  display:flex;align-items:center;gap:8px;
+}
+.doc-brand svg{color:var(--teal);flex-shrink:0}
+.doc-stamp{text-align:right}
+.doc-stamp-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.doc-stamp-val{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;margin-top:3px;
+}
+.doc-title{
+  font-family:var(--serif);font-size:clamp(24px,3vw,32px);
+  font-weight:400;color:var(--ink);letter-spacing:-.02em;
+  margin-bottom:8px;line-height:1.15;
+}
+.doc-title em{font-style:italic;color:var(--teal);font-weight:400}
+.doc-subtitle{
+  font-size:13.5px;color:var(--ink-3);
+  font-family:var(--sans);
+  letter-spacing:.005em;
+}
+
+/* ── DOC NAV (anchor pills) ── */
+.doc-nav{
+  background:var(--bg-alt);
+  border-bottom:1px solid var(--rule);
+  padding:12px 48px;
+  display:flex;gap:6px;flex-wrap:wrap;
+}
+.doc-nav a{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);text-decoration:none;
+  padding:6px 12px;
+  border:1px solid var(--rule);
+  border-radius:var(--r-sm);
+  background:var(--bg);
+  transition:.18s;white-space:nowrap;
+}
+.doc-nav a:hover{
+  color:var(--teal-text);
+  border-color:var(--teal);
+  background:var(--teal-dim);
+}
+
+/* ── BODY WRAP ── */
+.doc{
+  max-width:920px;
+  margin:0 auto;
+  padding:36px 48px 56px;
+}
+
+/* ── CASE CAPTION (file metadata) ── */
+.caption{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:6px 24px;
+  margin-bottom:28px;
+}
+.caption-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  padding:14px 0;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+}
+.caption-row:last-child{border-bottom:none}
+.caption-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:2px;
+}
+.caption-val{
+  font-weight:500;color:var(--ink);font-size:14.5px;
+  line-height:1.5;
+}
+
+/* ── KPI / SCORECARD STRIP ── */
+.kpi-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  margin-bottom:32px;
+  background:var(--bg);
+  overflow:hidden;
+}
+.kpi-strip.cols-5{grid-template-columns:repeat(5,1fr)}
+.kpi{
+  padding:18px 14px;text-align:center;
+  border-right:1px solid var(--rule);
+  background:var(--bg);
+}
+.kpi:last-child{border-right:none}
+.kpi-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;
+}
+.kpi-val{
+  font-family:var(--serif);font-size:24px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.1;
+}
+.kpi-val.red{color:var(--danger)}
+.kpi-val.amber{color:var(--caution)}
+.kpi-val.green,
+.kpi-val.teal{color:var(--teal)}
+
+/* ── COMPONENT (numbered section block) ── */
+.component{
+  margin-bottom:36px;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  overflow:hidden;
+  background:var(--bg);
+}
+.comp-head{
+  background:var(--bg-alt);
+  padding:16px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.comp-head::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:var(--teal);
+}
+.comp-head.alert::before{background:var(--danger)}
+.comp-head.exclusive{
+  background:var(--ink);color:#fff;
+  border-bottom:1px solid var(--ink);
+}
+.comp-head.exclusive::before{background:var(--teal);width:3px}
+.comp-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:3px;
+}
+.comp-head.exclusive .comp-num{color:rgba(217,205,182,.85)}
+.comp-title{
+  font-family:var(--serif);font-size:21px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.2;
+}
+.comp-head.exclusive .comp-title{color:#fff}
+.comp-badge{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.comp-head.exclusive .comp-badge{color:rgba(217,205,182,.55)}
+.comp-body{padding:24px 26px}
+.comp-body p{
+  color:var(--ink-2);margin-bottom:11px;
+  font-size:14.5px;line-height:1.75;
+}
+.comp-body p strong{color:var(--ink);font-weight:500}
+.comp-body h3{
+  font-family:var(--serif);font-size:18px;
+  font-weight:400;color:var(--ink);
+  margin:18px 0 8px;letter-spacing:-.01em;
+}
+
+/* ── FINDINGS (callouts) ── */
+.finding{
+  border-left:3px solid var(--teal);
+  padding:14px 18px;margin:14px 0;
+  background:var(--teal-dim);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+}
+.finding.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.finding.caution{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.finding-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:6px;
+  color:var(--teal-text);
+}
+.finding.warn .finding-label{color:var(--danger)}
+.finding.caution .finding-label{color:var(--caution)}
+.finding p{
+  font-size:14px;color:var(--ink);
+  margin-bottom:0;line-height:1.7;
+}
+.finding p + p{margin-top:8px}
+.finding p strong{color:var(--ink);font-weight:600}
+
+/* ── EXCLUSIVE / REBUTTAL (dark inset) ── */
+.exclusive,
+.rebuttal{
+  background:var(--ink);
+  color:#fff;
+  padding:20px 24px;
+  margin:16px 0;
+  border-radius:var(--r-sm);
+  border-left:3px solid var(--teal);
+}
+.exclusive .finding-label,
+.rebuttal .finding-label{
+  color:#D8A89F;letter-spacing:.16em;
+  font-weight:500;margin-bottom:8px;
+}
+.exclusive p,
+.rebuttal p{
+  color:rgba(255,255,255,.82);
+  font-size:14px;line-height:1.75;
+}
+.exclusive p strong,
+.rebuttal p strong{color:#fff;font-weight:600}
+.exclusive p + p,
+.rebuttal p + p{margin-top:10px}
+
+/* ── TABLES ── */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:14px 0;
+  font-size:13.5px;
+  background:var(--bg);
+}
+th,td{
+  padding:11px 13px;
+  border:1px solid var(--rule);
+  vertical-align:top;
+  text-align:left;
+  line-height:1.6;
+}
+thead th{
+  background:var(--bg-inset);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:600;
+  border-color:var(--rule-md);
+}
+tbody td:first-child{
+  font-weight:500;color:var(--ink);
+  background:var(--bg-alt);
+}
+tbody tr:nth-child(even) td{background:var(--bg-alt)}
+tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
+.ref{
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.02em;
+}
+
+/* ── TIMELINE (CMIP medmal) ── */
+.timeline{
+  border-left:2px solid var(--rule-md);
+  margin:20px 0;
+  padding-left:24px;
+}
+.timeline-event{
+  position:relative;
+  padding-bottom:22px;
+}
+.timeline-event:last-child{padding-bottom:0}
+.timeline-event::before{
+  content:"";position:absolute;
+  left:-30px;top:5px;
+  width:11px;height:11px;
+  border-radius:50%;
+  background:var(--bg);
+  border:2px solid var(--rule-dark);
+}
+.timeline-event.critical::before{
+  background:var(--danger);border-color:var(--danger);
+}
+.timeline-event.flag::before{
+  background:var(--caution);border-color:var(--caution);
+}
+.timeline-event.good::before{
+  background:var(--teal);border-color:var(--teal);
+}
+.timeline-date{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.06em;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:4px;text-transform:uppercase;
+}
+.timeline-event.critical .timeline-date{color:var(--danger)}
+.timeline-event.flag .timeline-date{color:var(--caution)}
+.timeline-event p{
+  font-size:14px;color:var(--ink-2);
+  margin:0;line-height:1.7;
+}
+.timeline-event strong{color:var(--ink);font-weight:600}
+
+/* ── IME QUOTE BOX ── */
+.ime-quote{
+  border:1px solid var(--rule-md);
+  background:var(--paper);
+  padding:16px 20px 14px;
+  margin:14px 0;
+  position:relative;
+  border-radius:var(--r-sm);
+}
+.ime-quote::before{
+  content:"IME report states";
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);
+  position:absolute;top:-7px;left:14px;
+  background:var(--bg);padding:0 8px;
+}
+.ime-quote p{
+  font-family:var(--serif);font-size:15px;
+  color:var(--ink);font-style:italic;
+  margin:0;line-height:1.55;letter-spacing:.005em;
+}
+
+/* ── DEPOSITION QUESTIONS ── */
+.depo-q{counter-reset:depo;list-style:none}
+.depo-q li{
+  list-style:none;
+  padding:14px 16px 14px 50px;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+  color:var(--ink);
+  counter-increment:depo;
+  position:relative;
+  line-height:1.65;
+}
+.depo-q li::before{
+  content:"Q" counter(depo);
+  position:absolute;left:14px;top:13px;
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.05em;
+}
+.depo-q li:last-child{border-bottom:none}
+.depo-q li em{
+  font-style:italic;color:var(--ink-3);
+  display:block;margin-top:5px;font-size:12.5px;
+  font-family:var(--sans);
+}
+
+/* ── PRE-EXISTING GRID (DML) ── */
+.pe-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;margin:16px 0;
+}
+.pe-card{
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.pe-card.primary{
+  border-color:var(--danger-glow);
+  background:var(--danger-dim);
+}
+.pe-card.positive{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+}
+.pe-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;font-weight:500;
+}
+.pe-card.primary .pe-label{color:var(--danger)}
+.pe-card.positive .pe-label{color:var(--teal-text)}
+.pe-card h4{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  margin-bottom:8px;letter-spacing:-.01em;
+}
+.pe-card p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.7;
+}
+
+/* ── ACTION LIST (DML) ── */
+.action-list{
+  list-style:none;
+  display:flex;flex-direction:column;
+  gap:12px;margin-top:18px;
+}
+.action-item{
+  display:grid;
+  grid-template-columns:36px 1fr;
+  gap:14px;align-items:flex-start;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.action-item.priority{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+  border-left:3px solid var(--teal);
+}
+.action-num{
+  font-family:var(--mono);font-size:14px;
+  font-weight:500;color:var(--teal-text);
+  margin-top:1px;
+}
+.action-body strong{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  display:block;margin-bottom:6px;
+  line-height:1.3;letter-spacing:-.01em;
+}
+.action-body p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.75;margin:0;
+}
+.action-body .priority-note{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:6px;
+}
+
+/* ── BADGES / PILLS ── */
+.badge{
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:var(--r-sm);
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  font-weight:500;line-height:1.4;
+  border:1px solid currentColor;
+}
+.b-high{color:var(--danger);background:var(--danger-dim)}
+.b-moderate{color:var(--caution);background:var(--caution-dim)}
+.b-lowmod{color:var(--ink-2);background:var(--bg-inset)}
+.b-low{color:var(--teal-text);background:var(--teal-dim)}
+
+.pill{
+  display:inline-block;
+  padding:3px 10px;
+  border-radius:999px;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;
+  font-weight:500;
+}
+.pill-red{background:var(--danger-dim);color:var(--danger)}
+.pill-amber{background:var(--caution-dim);color:var(--caution)}
+.pill-green{background:var(--teal-dim);color:var(--teal-text)}
+
+/* ── CASE BOX (DML) ── */
+.case-box{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--ink);
+  border-radius:var(--r-sm);
+  padding:22px 26px;
+  margin-bottom:30px;
+}
+.case-box-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:14px;font-weight:500;
+}
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px 22px;
+  margin-bottom:14px;
+}
+.ci-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px;
+}
+.ci-val{
+  font-family:var(--mono);font-size:13px;
+  color:var(--ink);font-weight:500;
+  line-height:1.5;letter-spacing:.01em;
+}
+.case-summary{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;
+  border-top:1px solid var(--rule);
+  padding-top:14px;margin-top:8px;
+}
+
+/* ── SECTION (CVA + DML alternative section style) ── */
+.section{margin-bottom:34px}
+.sec-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:8px;font-weight:500;
+}
+.sec-title{
+  font-family:var(--serif);font-size:23px;
+  font-weight:400;color:var(--ink);letter-spacing:-.015em;
+  margin-bottom:6px;padding-bottom:10px;
+  border-bottom:1px solid var(--ink);
+}
+.sec-sub{
+  font-size:13.5px;color:var(--ink-3);
+  margin-bottom:18px;font-style:italic;line-height:1.7;
+  max-width:760px;
+}
+.body-text{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.78;margin-bottom:14px;
+}
+.body-text strong{color:var(--ink);font-weight:500}
+
+/* ── CALLOUT (DML, alternate style) ── */
+.callout{
+  border-left:3px solid var(--teal);
+  background:var(--teal-dim);
+  padding:16px 20px;
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  margin:14px 0;
+}
+.callout.danger{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.callout.warn{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.callout.neutral{
+  border-left-color:var(--ink-3);
+  background:var(--bg-alt);
+}
+.callout-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:8px;
+  color:var(--teal-text);
+}
+.callout.danger .callout-label{color:var(--danger)}
+.callout.warn .callout-label{color:var(--caution)}
+.callout.neutral .callout-label{color:var(--ink-2)}
+.callout p{
+  font-size:14px;color:var(--ink);
+  line-height:1.75;
+}
+.callout p + p{margin-top:8px}
+
+/* ── VERDICT BOX ── */
+.verdict{
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--teal);
+  background:var(--bg-alt);
+  padding:24px 28px;
+  margin:24px 0 8px;
+  border-radius:var(--r-sm);
+}
+.verdict.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+  border-color:var(--danger-glow);
+}
+.verdict-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:10px;font-weight:500;
+}
+.verdict.warn .verdict-label{color:var(--danger)}
+.verdict h3{
+  font-family:var(--serif);font-size:22px;
+  font-weight:400;color:var(--ink);
+  margin-bottom:10px;letter-spacing:-.015em;line-height:1.25;
+  max-width:760px;
+}
+.verdict.warn h3{color:var(--ink)}
+.verdict p{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;margin-top:8px;
+}
+
+/* ── DOC FOOTER + DISCLAIMER ── */
+.doc-footer{
+  border-top:1px solid var(--ink);
+  padding-top:18px;margin-top:44px;
+  display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);gap:14px;flex-wrap:wrap;
+}
+.doc-footer span:first-child{color:var(--ink-2)}
+
+.disclaimer{
+  margin-top:18px;
+  padding:18px 22px;
+  background:var(--bg-alt);
+  border-left:3px solid var(--ink);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-size:12.5px;
+  color:var(--ink-3);
+  line-height:1.75;
+  font-style:italic;
+}
+.disclaimer strong{
+  color:var(--ink-2);font-style:normal;font-weight:600;
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  display:block;margin-bottom:6px;
+}
+
+/* ── TABLE-OVERFLOW WRAPPER ── */
+.table-wrap{
+  overflow-x:auto;margin:14px 0;
+  border-radius:var(--r-sm);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:780px){
+  .doc{padding:24px 20px 40px}
+  .doc-header{padding:22px 20px 18px}
+  .doc-nav{padding:10px 20px}
+  .top-bar{padding:0 16px;gap:14px}
+  .top-bar .specimen-tag{padding-left:14px}
+  .kpi-strip,.kpi-strip.cols-5{grid-template-columns:1fr 1fr}
+  .caption-row{grid-template-columns:1fr;gap:10px}
+  .comp-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .case-grid{grid-template-columns:1fr 1fr}
+  .pe-grid{grid-template-columns:1fr}
+  .doc-header-top{flex-direction:column;align-items:flex-start;gap:14px}
+  .doc-stamp{text-align:left}
+}
+@media(max-width:520px){
+  .case-grid{grid-template-columns:1fr}
+  .doc-footer{flex-direction:column;gap:8px}
+}
+
+/* ── PRINT ── */
+@media print{
+  .top-bar,.doc-nav{display:none}
+  body{padding-top:0;background:#fff;font-size:11pt}
+  .component,.caption,.kpi-strip,.case-box{break-inside:avoid;page-break-inside:avoid}
+  .doc{padding:0;max-width:100%}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<div class="top-bar">
+  <a class="back" href="../">&larr; Back to Medisprudence</a>
+  <span class="specimen-tag"><strong>Specimen</strong> &nbsp;·&nbsp; Fictional clinical data &nbsp;·&nbsp; No PHI</span>
+</div>
+
+<!-- ── DOC HEADER ── -->
+<div class="doc-header">
+  <div class="doc-header-top">
+    <div class="doc-brand">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <circle cx="16" cy="11" r="2.4" fill="currentColor"/>
+        <line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      Medisprudence
+    </div>
+    <div class="doc-stamp">
+      <div class="doc-stamp-label">Document type</div>
+      <div class="doc-stamp-val">Medical Reserve Analysis (MRA&trade;) &mdash; Carrier Format</div>
+    </div>
+  </div>
+  <div class="doc-title">Medical Reserve Analysis &mdash; <em>Auto Liability / Cervical-Lumbar-Shoulder</em></div>
+  <div class="doc-subtitle">Specimen &middot; Fictional clinical data &middot; No PHI &middot; Approx. 986 pages / 8 providers &middot; Prepared for carrier claims unit</div>
+</div>
+
+<!-- ── DOC NAV ── -->
+<div class="doc-nav">
+  <a href="#c1">01 Claim Summary</a>
+  <a href="#c2">02 Reserve Scorecard</a>
+  <a href="#c3">03 Injury Acceptance</a>
+  <a href="#c4">04 Treatment Lines</a>
+  <a href="#c5">05 Surgical Necessity</a>
+  <a href="#c6">06 Pre-Existing Apportionment</a>
+  <a href="#c7">07 Three-Scenario Exposure</a>
+  <a href="#c8">08 Future Medical</a>
+  <a href="#c9">09 Permanency &amp; Disability</a>
+  <a href="#c10">10 Reserve Framework</a>
+</div>
+
+<div class="doc">
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 01 — CLAIM MEDICAL SUMMARY
+       ══════════════════════════════════════════════════════════ -->
+  <div class="case-box" id="c1">
+    <div class="case-box-label">Claim Medical Summary</div>
+    <div class="case-grid">
+      <div><div class="ci-label">Claim type</div><div class="ci-val">Auto Liability &mdash; Rear-End MVA</div></div>
+      <div><div class="ci-label">Mechanism</div><div class="ci-val">Rear-end collision, ~25 mph, claimant as lead-vehicle driver</div></div>
+      <div><div class="ci-label">Date of loss</div><div class="ci-val">September 8, 2025</div></div>
+      <div><div class="ci-label">Claimant</div><div class="ci-val">42 M, warehouse supervisor</div></div>
+      <div><div class="ci-label">Claimed injuries</div><div class="ci-val">C5&ndash;C6 disc herniation &rarr; 2 ESIs &rarr; ACDF recommended; L4&ndash;L5 disc herniation &rarr; 1 ESI; right rotator cuff tear &rarr; arthroscopic repair recommended; chronic pain (ongoing)</div></div>
+      <div><div class="ci-label">Pre-existing flagged</div><div class="ci-val">2022 lumbar MRI: L4&ndash;L5 disc protrusion; 2023 right shoulder PT (rotator cuff tendinopathy); BMI 31; HTN (controlled)</div></div>
+      <div><div class="ci-label">Insured</div><div class="ci-val">At-fault rear-vehicle driver &mdash; 100/300 BI policy</div></div>
+      <div><div class="ci-label">Claim number</div><div class="ci-val">[Redacted &mdash; Specimen]</div></div>
+      <div><div class="ci-label">Records reviewed</div><div class="ci-val">986 pages / 8 providers (ER, ortho spine, ortho shoulder, pain mgmt, PT, PCP, radiology, neurology)</div></div>
+      <div><div class="ci-label">Reviewed by</div><div class="ci-val">Dr. A. Kasturi, MBBS &middot; Medisprudence</div></div>
+    </div>
+    <div class="case-summary">
+      A 42-year-old male warehouse supervisor was the restrained driver of a sedan struck from behind at approximately 25 mph while stopped at a traffic signal on September 8, 2025. The claimant presented to the emergency department on the date of loss with complaints of neck pain, low back pain, and right shoulder pain. ER workup included cervical and lumbar X-rays (no fracture, no acute osseous abnormality) and right shoulder X-ray (no fracture). The claimant was discharged with a diagnosis of cervical strain, lumbar strain, and right shoulder contusion. Physical therapy was initiated at Week 2 (cervical, lumbar, and right shoulder) and continued through Week 10. A cervical MRI at Week 4 revealed a C5&ndash;C6 right paracentral disc herniation with mild cord abutment and right-sided foraminal narrowing. A lumbar MRI at Week 4 revealed an L4&ndash;L5 disc herniation with left-sided neural foraminal narrowing. A right shoulder MRI at Week 6 revealed a partial-thickness articular-sided supraspinatus tear with associated superior labral fraying. Two cervical epidural steroid injections were administered at Weeks 8 and 11, with the treating pain management physician documenting &ldquo;partial, temporary relief&rdquo; following each injection. One lumbar ESI was administered at Week 10 with documented &ldquo;moderate improvement.&rdquo; An orthopedic spine surgeon recommended anterior cervical discectomy and fusion (ACDF) at C5&ndash;C6 at Week 14, citing persistent radiculopathy refractory to conservative care. A shoulder orthopedic surgeon recommended arthroscopic rotator cuff repair at Week 12. Pre-existing records include a 2022 lumbar MRI obtained during a prior episode of low back pain documenting an L4&ndash;L5 broad-based disc protrusion without herniation, and a 2023 right shoulder PT course (6 weeks) for &ldquo;right rotator cuff tendinopathy, chronic shoulder pain.&rdquo; The claimant has been out of work since the date of loss. Wage loss claim is active.
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 02 — RESERVE IMPACT SCORECARD
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c2">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 02</div>
+        <div class="comp-title">Reserve Impact Scorecard</div>
+      </div>
+      <div class="comp-badge">Quick-reference for claims</div>
+    </div>
+  </div>
+
+  <div class="kpi-strip cols-5">
+    <div class="kpi"><div class="kpi-label">Cervical Claim</div><div class="kpi-val amber">Partial Accept</div></div>
+    <div class="kpi"><div class="kpi-label">Lumbar Claim</div><div class="kpi-val green">Challengeable</div></div>
+    <div class="kpi"><div class="kpi-label">Shoulder Claim</div><div class="kpi-val amber">Partial Accept</div></div>
+    <div class="kpi"><div class="kpi-label">ACDF Surgery</div><div class="kpi-val red">Reserve Required</div></div>
+    <div class="kpi"><div class="kpi-label">Pre-Existing Impact</div><div class="kpi-val teal">Significant</div></div>
+  </div>
+
+  <div class="callout" style="margin-top:0;margin-bottom:36px">
+    <div class="callout-label">Physician&rsquo;s Reserve Guidance Summary</div>
+    <p><strong>This is a mixed-exposure claim requiring differentiated reserve treatment across three anatomical sites.</strong> The cervical claim is the primary cost driver: the ACDF recommendation is supported by imaging, sequenced conservative care, and documented treatment failure, but faces a partial causation challenge on mechanism-severity proportionality. The lumbar claim carries significant pre-existing exposure via the 2022 MRI, and the current herniation likely represents aggravation of documented prior disease &mdash; reserve should reflect apportionment, not full acceptance. The right shoulder claim is the most medically vulnerable: the partial-thickness articular-sided tear morphology and the documented 2023 treatment for identical shoulder symptoms at the same anatomical structure strongly support a degenerative classification. The three-scenario exposure framework in Section 07 provides the structured basis for reserve positioning. The most likely medical outcome &mdash; Scenario B &mdash; contemplates ACDF with apportionment, lumbar conservative care only, and shoulder repair with significant apportionment or challenge.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 03 — INJURY-BY-INJURY ACCEPTANCE ASSESSMENT
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c3">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 03 &mdash; Core Reserve Driver</div>
+        <div class="comp-title">Injury-by-Injury Causation &amp; Acceptance Assessment</div>
+      </div>
+      <div class="comp-badge">4 Injuries assessed</div>
+    </div>
+    <div class="comp-body">
+      <p>Each claimed injury is evaluated independently for causal relationship to the incident and classified into a reserve-relevant acceptance tier. This is the medical foundation upon which the reserve framework is built. Classifications reflect the physician reviewer&rsquo;s assessment of the medical evidence in the record &mdash; not legal strategy or settlement positioning.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:170px">Claimed injury</th>
+            <th style="width:125px">Acceptance tier</th>
+            <th>Physician causation assessment</th>
+            <th style="width:185px">Reserve impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">C5&ndash;C6 Disc Herniation</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Cervical</span></td>
+            <td style="text-align:center"><span class="badge b-moderate">Partial Accept</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">
+              <strong>Causal relationship: Probable &mdash; with mechanism-severity proportionality question.</strong> The cervical MRI documents a right paracentral disc herniation at C5&ndash;C6 with cord abutment and foraminal narrowing. No prior cervical imaging exists in the record. The absence of a cervical baseline works against the defense. However, a 25 mph rear-end collision with no airbag deployment, no loss of consciousness, and no ER neurological deficit raises a proportionality question: is a disc herniation with cord abutment proportionate to the documented mechanism? The ER exam documents full cervical ROM and intact neurological screening. The ER-to-MRI interval (4 weeks) is within the accepted diagnostic window. <strong>Net assessment:</strong> the cervical herniation is more likely than not causally related to the MVA, but the mild mechanism and normal ER neurological exam provide a basis for apportionment argument if the claim progresses to litigation. For reserve purposes, this injury should be accepted with a mechanism-proportionality notation.
+            </td>
+            <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--ink-2)">Reserve at partial-to-full acceptance.</strong> The absence of prior cervical imaging limits the pre-existing defense. ACDF surgical cost must be reserved (see Section 05). Apportionment argument available but not strong enough to justify reserve exclusion.</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">L4&ndash;L5 Disc Herniation</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Lumbar</span></td>
+            <td style="text-align:center"><span class="badge b-low">Aggravation Only</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">
+              <strong>Causal relationship: Aggravation of documented pre-existing condition.</strong> The 2022 lumbar MRI documents an L4&ndash;L5 broad-based disc protrusion at the identical level as the current herniation. The claimant had a prior episode of low back pain that prompted the 2022 MRI. The current MRI documents progression from protrusion to herniation with new foraminal narrowing at the same level. This is a textbook aggravation-of-pre-existing scenario. The MVA likely aggravated a documented pre-existing disc pathology at L4&ndash;L5 &mdash; it did not create a new injury at a previously healthy level. <strong>Net assessment:</strong> accept as aggravation of pre-existing disc disease. Reserve should reflect the incremental medical cost attributable to the aggravation (symptom flare, conservative care, possible additional ESI), not the full cost of treating the underlying disc disease. The treating spine surgeon has not referenced the 2022 MRI in any note.
+            </td>
+            <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--ink-2)">Reserve at aggravation level only.</strong> Conservative care costs attributable to MVA. Do NOT reserve for lumbar surgery &mdash; no surgical recommendation in the record and the underlying disc disease is pre-existing. If lumbar surgical recommendation emerges, re-evaluate with apportionment.</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">Right Rotator Cuff Tear</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Shoulder &middot; Partial thickness</span></td>
+            <td style="text-align:center"><span class="badge b-moderate">Challenge &mdash; Degenerative</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">
+              <strong>Causal relationship: Questionable &mdash; strong degenerative indicators.</strong> The MRI describes a partial-thickness articular-sided supraspinatus tear with superior labral fraying. In shoulder radiology, <strong>partial-thickness articular-sided tears are the morphological signature of degenerative rotator cuff disease</strong>. Traumatic rotator cuff tears typically present as full-thickness tears or bursal-sided partial tears with associated findings (bone bruise, acute effusion, labral tear). The superior labral fraying is an additional degenerative marker. Critically, the 2023 PT records document six weeks of treatment for &ldquo;right rotator cuff tendinopathy, chronic shoulder pain&rdquo; at the identical structure &mdash; establishing documented symptomatic pre-existing disease at the same anatomical site, 22 months before the MVA. A 25 mph rear-end collision is not a recognized primary mechanism for isolated rotator cuff injury; the force vector (posterior-to-anterior deceleration) does not produce the shoulder abduction or external rotation loading pattern associated with traumatic cuff tears. <strong>Net assessment:</strong> this tear is more likely degenerative than traumatic. The 2023 prior treatment at the same structure and the partial-thickness articular-sided morphology both support a degenerative classification. The MVA may have rendered a pre-existing degenerative process symptomatic, but did not create the tear.
+            </td>
+            <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--danger)">Challenge recommended.</strong> If challenged successfully, shoulder surgical cost is excluded from reserve. If challenge fails, reserve at aggravation-of-degenerative level, not full surgical acceptance. Shoulder surgery should NOT be reserved at full acceptance without IME confirmation.</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">Chronic Pain Syndrome</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Pain management &middot; ongoing</span></td>
+            <td style="text-align:center"><span class="badge b-moderate">Partial Accept</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">
+              <strong>Causal relationship: Partially attributable &mdash; multi-source pain.</strong> The pain management physician documents &ldquo;chronic pain syndrome&rdquo; at Week 12, characterizing the claimant as having persistent multi-site pain (cervical, lumbar, right shoulder) that is &ldquo;significantly affecting quality of life and work capacity.&rdquo; The chronic pain diagnosis is a clinical characterization of ongoing symptoms from the three anatomical injury sites. Its reserve treatment should follow the acceptance classification of the underlying injuries: cervical pain (partial accept), lumbar pain (aggravation only, pre-existing), shoulder pain (challenge as degenerative). The chronic pain diagnosis does not independently create additional reserve exposure beyond the underlying injury treatment costs, unless the pain management physician recommends interventional procedures (SCS, intrathecal pump) beyond what the underlying injuries justify.
+            </td>
+            <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--ink-2)">Reserve mirrors underlying injury tiers.</strong> Monitor for interventional pain escalation (SCS referral, pump evaluation). If escalation occurs, request Medisprudence re-review before reserve adjustment.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 04 — TREATMENT LINE ANALYSIS
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c4">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 04</div>
+        <div class="comp-title">Treatment Line Analysis &mdash; Accept / Challenge / Deny</div>
+      </div>
+      <div class="comp-badge">Line-by-line assessment</div>
+    </div>
+    <div class="comp-body">
+      <p>Each billed or recommended treatment line is classified into an acceptance category based on medical necessity and causal relatedness. This is the treatment-level detail that supports the reserve model in Section 07 and the claims adjuster&rsquo;s line-item evaluation.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:190px">Treatment line</th>
+            <th style="width:90px">Category</th>
+            <th>Medical necessity assessment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">ER Visit (Date of Loss)</td>
+            <td style="text-align:center"><span class="pill pill-green">Accept</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Same-day ER visit for neck, back, and shoulder pain following a rear-end MVA is appropriate. Imaging (cervical, lumbar, shoulder X-rays) is standard of care for rule-out of acute fracture or dislocation. No challenge.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Physical Therapy (Weeks 2&ndash;10)</td>
+            <td style="text-align:center"><span class="pill pill-green">Accept</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Eight weeks of PT for cervical, lumbar, and right shoulder complaints following an MVA is within standard medical necessity parameters. Frequency (3x/week) is appropriate for the acute-to-subacute phase. No challenge to the PT course itself. Challenge applicability: the shoulder PT component should be noted as potentially attributable to the pre-existing rotator cuff tendinopathy, but separating shoulder PT billing from the concurrent cervical/lumbar PT is not practical or productive.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Cervical MRI (Week 4)</td>
+            <td style="text-align:center"><span class="pill pill-green">Accept</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Cervical MRI at four weeks post-injury with persistent radicular symptoms despite initial PT is standard diagnostic workup. Timing is appropriate &mdash; not premature. Findings (C5&ndash;C6 herniation with cord abutment) are clinically significant and correlated with the presenting symptoms.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Lumbar MRI (Week 4)</td>
+            <td style="text-align:center"><span class="pill pill-amber">Accept with note</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Lumbar MRI is medically indicated given persistent radicular symptoms. However, findings should be compared with the 2022 lumbar MRI. The treating radiologist and spine surgeon have not referenced the 2022 study. The current herniation at L4&ndash;L5 is at the identical level as the 2022 protrusion. Reserve treatment: accept the diagnostic study, but note the pre-existing finding for the injury acceptance classification (aggravation only).</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Right Shoulder MRI (Week 6)</td>
+            <td style="text-align:center"><span class="pill pill-amber">Accept with note</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Shoulder MRI is indicated for persistent symptoms with mechanism history. The partial-thickness articular-sided tear morphology and the 2023 prior treatment history support a degenerative classification. Accept the diagnostic study; challenge the injury causation.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Cervical ESI &times; 2 (Weeks 8 &amp; 11)</td>
+            <td style="text-align:center"><span class="pill pill-green">Accept</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Two cervical ESIs following failed PT with MRI-documented herniation and foraminal narrowing at the symptomatic level is an appropriate, sequenced conservative care escalation. The documented &ldquo;partial, temporary relief&rdquo; following each injection establishes treatment response and supports the ACDF recommendation as a post-conservative-care-failure escalation. This injection course strengthens the surgical recommendation&rsquo;s documentation quality. No challenge.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Lumbar ESI &times; 1 (Week 10)</td>
+            <td style="text-align:center"><span class="pill pill-amber">Partial accept</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Single lumbar ESI is medically appropriate for radicular symptoms with MRI-documented herniation. Accept the procedure. However, the injection addresses a condition at a level with documented pre-existing disc pathology. The treatment cost is partially attributable to the pre-existing disc disease. Under the aggravation-only acceptance for the lumbar injury, this injection is accepted as treatment for the acute aggravation component.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">ACDF C5&ndash;C6 (Recommended)</td>
+            <td style="text-align:center"><span class="pill pill-red">Reserve &mdash; see Sec 05</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Detailed surgical necessity analysis provided in Section 05. The recommendation meets documentation threshold for medical necessity but faces a mechanism-proportionality challenge. Must be reserved; challenge strength insufficient to exclude from reserve model.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Arthroscopic RCR (Recommended)</td>
+            <td style="text-align:center"><span class="pill pill-red">Challenge &mdash; see Sec 05</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Detailed surgical necessity analysis provided in Section 05. Strong degenerative-etiology argument. Recommendation: do NOT reserve at full acceptance. Reserve at aggravation level only, or exclude pending IME.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Pain Management (Ongoing)</td>
+            <td style="text-align:center"><span class="pill pill-amber">Partial accept</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Ongoing pain management (medication management, follow-up visits) for multi-site pain following MVA is medically appropriate through the active treatment phase. Reserve for 12&ndash;18 months of pain management from date of loss. Monitor for interventional escalation (SCS, intrathecal pump). If the cervical radiculopathy resolves post-ACDF, the pain management component attributable to cervical symptoms should resolve. Residual chronic pain management beyond the cervical recovery should be evaluated for pre-existing contribution (lumbar, shoulder).</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 05 — SURGICAL NECESSITY ASSESSMENT
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c5">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 05 &mdash; Highest Reserve Impact</div>
+        <div class="comp-title">Surgical Necessity Assessment</div>
+      </div>
+      <div class="comp-badge">2 Procedures evaluated</div>
+    </div>
+    <div class="comp-body">
+      <p>The two recommended surgical procedures represent the largest single-item cost exposures in this claim. Each is independently assessed against standard medical necessity criteria (MCG/InterQual framework) and evaluated for causal relatedness and challenge strength.</p>
+
+      <div class="callout">
+        <div class="callout-label">ACDF C5&ndash;C6 &mdash; reserve recommendation: include in reserve model</div>
+        <p><strong>The ACDF recommendation meets the documentation threshold for medical necessity.</strong> The record demonstrates: (1) MRI-documented cervical disc herniation with cord abutment and foraminal narrowing at C5&ndash;C6; (2) correlating clinical symptoms (right upper extremity radiculopathy, dermatomal distribution consistent with C6 root involvement); (3) a trial of physical therapy (8 weeks) with documented failure; (4) two cervical ESIs with documented partial, temporary relief only &mdash; establishing conservative care failure; and (5) a spine surgeon recommendation with imaging-clinical correlation documented. Under standard MCG criteria for anterior cervical fusion, this documentation meets the medical necessity threshold.</p>
+        <p><strong>Available challenges (moderate strength only):</strong> The mechanism-severity proportionality argument (25 mph rear-end, no airbag deployment, normal ER neurological exam) is available but is a litigation-stage argument, not a medical necessity denial argument. The absence of prior cervical imaging means there is no pre-existing cervical baseline to argue. For reserve purposes, ACDF should be included at full surgical cost. If the carrier wishes to challenge, an IME is recommended &mdash; but the reviewer should be aware that the conservative care documentation in this record is well-sequenced and the medical necessity challenge on the cervical surgery is not strong.</p>
+      </div>
+
+      <div class="callout danger">
+        <div class="callout-label">Arthroscopic Rotator Cuff Repair &mdash; reserve recommendation: challenge or reserve at aggravation level</div>
+        <p><strong>The rotator cuff repair recommendation does NOT meet the documentation threshold for causally related surgical necessity.</strong> The challenge is built on three independent medical arguments:</p>
+        <p><strong>(1) Tear morphology is degenerative.</strong> Partial-thickness articular-sided supraspinatus tears are the hallmark of degenerative rotator cuff disease in the orthopedic literature. Traumatic rotator cuff tears in a 42-year-old male typically present as full-thickness tears with associated findings (bone bruise, acute effusion, labral disruption) &mdash; none of which are present on this MRI. The superior labral fraying is an additional degenerative marker.</p>
+        <p><strong>(2) Documented pre-existing symptomatic disease at the identical structure.</strong> The 2023 PT records document six weeks of treatment for right rotator cuff tendinopathy with chronic shoulder pain. This is not an incidental imaging finding &mdash; it is documented symptomatic disease requiring treatment, 22 months before the MVA, at the exact structure now claimed as injured. The treating shoulder surgeon does not reference this prior treatment history.</p>
+        <p><strong>(3) Mechanism inconsistency.</strong> A rear-end collision produces an anterior deceleration force vector. The restrained driver&rsquo;s shoulder is not subjected to the abduction, external rotation, or direct impact loading patterns associated with traumatic rotator cuff injury. The right shoulder complaint in the context of a rear-end MVA, in a patient with documented pre-existing rotator cuff disease, is more consistent with symptomatic aggravation of a degenerative process than with a new traumatic tear.</p>
+        <p><strong>Recommendation:</strong> Do not reserve arthroscopic rotator cuff repair at full acceptance. If the carrier&rsquo;s claim strategy includes acceptance of some shoulder component, reserve at aggravation level (conservative care, possible injection, no surgery). If the carrier wishes to fully challenge the shoulder surgical recommendation, an IME focused on tear morphology and the 2023 treatment history will provide a strong medical basis for denial.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 06 — PRE-EXISTING APPORTIONMENT
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c6">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 06</div>
+        <div class="comp-title">Pre-Existing Condition Apportionment</div>
+      </div>
+      <div class="comp-badge">Reserve impact classification</div>
+    </div>
+    <div class="comp-body">
+      <p>Each documented pre-existing condition is mapped to its reserve impact &mdash; how it modifies the acceptance classification and cost exposure for the associated injury claim. Apportionment is a medical assessment of causation contribution; the specific percentage or dollar reduction is a claims and legal determination informed by this medical assessment.</p>
+
+      <div class="pe-grid">
+        <div class="pe-card primary">
+          <div class="pe-label">High reserve impact &mdash; reduces lumbar acceptance to aggravation</div>
+          <h4>2022 Lumbar MRI: L4&ndash;L5 Disc Protrusion</h4>
+          <p><strong>This is the highest-impact pre-existing finding for reserve purposes.</strong> A documented disc protrusion at the identical level (L4&ndash;L5) as the current herniation, obtained during a prior symptomatic episode, establishes that the lumbar disc pathology was present and symptomatic before the MVA. The current herniation represents progression from protrusion to herniation &mdash; a recognized natural history pathway for degenerative disc disease that can be accelerated by trauma. The MVA&rsquo;s contribution is the acute aggravation and the symptom flare; the underlying disc disease is pre-existing. Reserve impact: lumbar injury classification reduced from full acceptance to aggravation only. No lumbar surgical reserve unless a recommendation emerges, at which point apportionment would apply.</p>
+        </div>
+        <div class="pe-card primary">
+          <div class="pe-label">High reserve impact &mdash; supports shoulder surgical challenge</div>
+          <h4>2023 Right Shoulder PT: Rotator Cuff Tendinopathy</h4>
+          <p><strong>Documented symptomatic disease at the identical structure, 22 months pre-incident.</strong> The 2023 treatment for right rotator cuff tendinopathy establishes that the claimant had a pre-existing, symptomatic rotator cuff condition requiring physical therapy. Combined with the degenerative tear morphology on MRI, this prior treatment history supports the degenerative classification and the surgical challenge recommendation. The treating shoulder surgeon does not reference this prior treatment. Reserve impact: shoulder surgical recommendation should be challenged or reserved at aggravation level only, not at full surgical acceptance.</p>
+        </div>
+        <div class="pe-card">
+          <div class="pe-label">Low reserve impact &mdash; supporting argument only</div>
+          <h4>BMI 31 (Class I Obesity) &amp; Hypertension</h4>
+          <p>Class I obesity is a documented risk factor for degenerative disc disease and rotator cuff tendinopathy. Controlled hypertension has no direct causation relevance. These comorbidities support the degenerative classification for the shoulder and the pre-existing disease narrative for the lumbar claim, but they do not independently create a reserve modification. Their primary value is reinforcing the apportionment argument if the claim proceeds to litigation.</p>
+        </div>
+        <div class="pe-card positive">
+          <div class="pe-label">No pre-existing exposure &mdash; defense limitation</div>
+          <h4>No Prior Cervical Imaging or Treatment</h4>
+          <p>The record contains no prior cervical imaging, cervical treatment, or cervical complaints. This absence limits the defense pre-existing argument at the cervical level and is the primary reason the cervical claim acceptance is higher than the lumbar and shoulder claims. The carrier should confirm record completeness; if prior cervical imaging or treatment exists but has not been obtained, its presence could materially change the cervical acceptance classification and the ACDF reserve recommendation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 07 — THREE-SCENARIO EXPOSURE FRAMEWORK
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c7">
+    <div class="comp-head exclusive">
+      <div>
+        <div class="comp-num">Section 07 &mdash; Exclusive Deliverable</div>
+        <div class="comp-title">Three-Scenario Medical Exposure Framework</div>
+      </div>
+      <div class="comp-badge">Reserve model input</div>
+    </div>
+    <div class="comp-body">
+      <p>Three medically differentiated scenarios representing the range of defensible medical outcomes. Each scenario describes which injuries, treatments, and future care elements are included, based on the medical evidence in the record. The claims unit applies jurisdiction-specific cost data to the medical exposure described in each scenario to generate the dollar-value reserve range. Medisprudence provides the medical framework; the carrier&rsquo;s cost-containment or actuarial function provides the dollar conversion.</p>
+
+      <!-- Scenario A -->
+      <div class="finding" style="border-left-color:var(--teal)">
+        <div class="finding-label" style="color:var(--teal-text)">Scenario A &mdash; Defense-Favorable (Full medical challenge)</div>
+        <p><strong>Medical assumptions:</strong> All pre-existing arguments succeed. Shoulder surgical recommendation denied on degenerative classification. Lumbar claim reduced to aggravation-only conservative care. ACDF challenged on mechanism-proportionality (requires successful IME).</p>
+        <p><strong>Cervical:</strong> Accept conservative care only (PT, 2 ESIs). Challenge ACDF recommendation via IME on mechanism-proportionality grounds. No cervical surgical cost. Future cervical care: 6&ndash;12 months of conservative management only.</p>
+        <p><strong>Lumbar:</strong> Aggravation of pre-existing only. Accept PT and single ESI. No additional lumbar treatment. No future lumbar surgical reserve.</p>
+        <p><strong>Shoulder:</strong> Deny causal relationship for surgical tear. Accept acute conservative care only (PT, NSAIDs). No shoulder surgical cost. No future shoulder care.</p>
+        <p><strong>Pain management:</strong> Accept 6&ndash;9 months of medication management. No interventional procedures beyond the ESIs already administered.</p>
+        <p><strong>Wage loss:</strong> Accept 3&ndash;6 months of lost wages (conservative care duration). Challenge ongoing work restriction beyond conservative care resolution.</p>
+        <p><strong>Net medical exposure:</strong> Conservative care costs across three anatomical sites, approximately 6&ndash;9 months of treatment duration. No surgical costs. Lowest reserve tier.</p>
+      </div>
+
+      <!-- Scenario B -->
+      <div class="finding warn" style="border-left-color:var(--caution)">
+        <div class="finding-label" style="color:var(--caution)">Scenario B &mdash; Probable (Partial acceptance with apportionment) &mdash; Recommended reserve basis</div>
+        <p><strong>Medical assumptions:</strong> Cervical injury accepted. Lumbar injury accepted as aggravation. Shoulder claim accepted at aggravation level (no surgery). ACDF proceeds.</p>
+        <p><strong>Cervical:</strong> Full acceptance. Conservative care (PT, ESIs) plus ACDF at C5&ndash;C6. Post-surgical rehabilitation (6&ndash;8 weeks PT). Surgical facility, surgeon, anesthesia, implant, and post-op follow-up costs. Future cervical care: 12&ndash;18 months to surgical MMI, annual follow-up imaging for 2 years.</p>
+        <p><strong>Lumbar:</strong> Aggravation acceptance only. PT, single ESI, possible second ESI, and 6&ndash;12 months of conservative management. No lumbar surgical reserve. If the claimant reaches MMI with residual lumbar symptoms, a maintenance care allocation of 6&ndash;12 months beyond active treatment. Apportionment applied: the pre-existing disc protrusion at L4&ndash;L5 reduces the MVA-attributable causation fraction.</p>
+        <p><strong>Shoulder:</strong> Aggravation acceptance. Conservative care: PT (continuation), one corticosteroid injection, 6&ndash;9 months of treatment. No surgical reserve. If the claimant pursues surgical repair despite the challenge, re-evaluate reserve. Apportionment applied: the 2023 rotator cuff tendinopathy and degenerative tear morphology reduce the MVA-attributable fraction.</p>
+        <p><strong>Pain management:</strong> 12&ndash;18 months of medication management (gabapentin, NSAIDs, muscle relaxant). Follow-up visits. No interventional escalation reserved (SCS, pump).</p>
+        <p><strong>Wage loss:</strong> Accept 9&ndash;14 months of lost wages (through ACDF recovery and return to work). Modified duty return anticipated at 6&ndash;8 months post-ACDF. Full-duty return at 12&ndash;14 months if uncomplicated. Note: the claimant&rsquo;s warehouse supervisor role involves physical demands that may extend the return-to-work timeline post-ACDF.</p>
+        <p><strong>Net medical exposure:</strong> ACDF surgical costs are the primary cost driver. Moderate conservative care across lumbar and shoulder. This is the recommended reserve basis &mdash; it represents the most probable medical outcome given the record evidence.</p>
+      </div>
+
+      <!-- Scenario C -->
+      <div class="finding warn" style="border-left-color:var(--danger)">
+        <div class="finding-label" style="color:var(--danger)">Scenario C &mdash; Plaintiff-Favorable (Full acceptance, all injuries and surgeries)</div>
+        <p><strong>Medical assumptions:</strong> All injuries accepted at full causation. All surgical recommendations proceed. Pre-existing arguments fail or are not deployed. This scenario represents the maximum reasonable medical exposure if the claim goes to trial and all medical arguments are resolved in the claimant&rsquo;s favor.</p>
+        <p><strong>Cervical:</strong> Full acceptance. ACDF C5&ndash;C6. Full surgical costs, post-op rehabilitation, and extended follow-up. Possible adjacent segment disease development in future (not reserved unless documented, but counsel should be aware of the long-term ACDF complication profile for a 42-year-old).</p>
+        <p><strong>Lumbar:</strong> Full acceptance as new injury. Conservative care through current treatment phase. If symptoms persist, possible future lumbar ESI series or surgical recommendation. Reserve a second lumbar ESI and 12&ndash;18 months of lumbar treatment. No lumbar surgical reserve at this time (no recommendation in the record), but this scenario assumes a possible future recommendation.</p>
+        <p><strong>Shoulder:</strong> Full acceptance as traumatic injury. Arthroscopic rotator cuff repair. Surgical facility, surgeon, anesthesia, and post-operative rehabilitation (12&ndash;16 weeks PT). Post-RCR return to work: 4&ndash;6 months for a warehouse supervisor role.</p>
+        <p><strong>Pain management:</strong> 18&ndash;24 months of multi-modal pain management. Potential interventional escalation if chronic pain persists post-surgeries. Reserve for extended medication management and follow-up.</p>
+        <p><strong>Wage loss:</strong> Extended work absence (12&ndash;18 months through recovery from two surgeries). Possible permanent work restriction affecting occupational capacity as a warehouse supervisor. If permanent partial disability is claimed, long-term wage differential exposure.</p>
+        <p><strong>Net medical exposure:</strong> Two surgical procedures (ACDF + RCR), extended conservative care, extended wage loss, possible permanency. Maximum reserve tier. <strong>This scenario is the ceiling, not the expectation.</strong> The medical evidence in this record does not support full acceptance of the shoulder surgical recommendation or full causation for the lumbar claim.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 08 — FUTURE MEDICAL CARE PROJECTION
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c8">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 08</div>
+        <div class="comp-title">Future Medical Care Projection</div>
+      </div>
+      <div class="comp-badge">Scenario B basis</div>
+    </div>
+    <div class="comp-body">
+      <p>Future medical care projection based on Scenario B (probable outcome, recommended reserve basis). Projections extend from the current treatment status through anticipated maximum medical improvement (MMI) and any post-MMI maintenance care. All projections are based on standard clinical recovery timelines for the recommended procedures and documented injury severity.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:150px">Care category</th>
+            <th style="width:130px">Timeline</th>
+            <th>Projected care &amp; physician rationale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">ACDF Surgery &amp; Recovery</td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--teal-text)">Months 5&ndash;12</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">ACDF C5&ndash;C6 (single level). Post-surgical hospitalization: 1&ndash;2 days (outpatient or 23-hour observation increasingly common). Post-operative cervical collar: 4&ndash;6 weeks. Post-operative PT: 6&ndash;8 weeks (2&ndash;3x/week). Post-operative follow-up imaging (X-ray at 6 weeks, 3 months, 6 months, and 12 months post-op to confirm fusion). Expected return to modified duty: 6&ndash;8 weeks post-surgery. Expected return to full duty: 3&ndash;6 months post-surgery. For a warehouse supervisor role with physical demands, the upper end of the return-to-full-duty range is more likely. Expected cervical MMI: 12&ndash;18 months post-ACDF.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Lumbar Conservative Care</td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--teal-text)">Months 5&ndash;12</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Possible second lumbar ESI if symptoms persist through the ACDF recovery phase. Continued medication management (NSAIDs, muscle relaxant). Lumbar PT may resume post-ACDF recovery if symptoms have not resolved. Expected lumbar MMI: 9&ndash;15 months from date of loss. If the lumbar aggravation resolves with the overall recovery, no further lumbar care anticipated. If symptoms persist at lumbar MMI, maintenance care allocation (2&ndash;4 PCP or pain management visits per year, medication management) for 12&ndash;24 months.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Shoulder Conservative Care</td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--teal-text)">Months 5&ndash;9</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">One corticosteroid subacromial injection (if not yet administered). Continued PT (shoulder-focused, 4&ndash;6 weeks). Activity modification guidance. Expected shoulder MMI under conservative care: 6&ndash;9 months from date of loss. If the claimant pursues surgical repair despite the challenge recommendation, the surgical timeline and recovery projection from Scenario C would apply. Under Scenario B, no shoulder surgical recovery is projected.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Pain Management</td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--teal-text)">Months 5&ndash;18</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Medication management (gabapentin taper post-ACDF, NSAID as needed, possible short-course muscle relaxant). Monthly pain management visits during active treatment, transitioning to quarterly post-ACDF. No interventional escalation (SCS, pump) projected under Scenario B. If chronic pain persists beyond ACDF recovery and lumbar/shoulder MMI, a maintenance pain management allocation of 6&ndash;12 months is recommended.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Post-MMI Surveillance</td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--teal-text)">Months 18&ndash;30</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Annual cervical X-ray for 2 years post-ACDF to confirm maintained fusion and monitor adjacent segment. PCP follow-up for residual symptoms. No ongoing active treatment projected beyond 24&ndash;30 months from date of loss under Scenario B. Total projected claim medical duration: 24&ndash;30 months from date of loss to claim closure under the probable scenario.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 09 — PERMANENCY & DISABILITY ASSESSMENT
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c9">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 09</div>
+        <div class="comp-title">Permanency &amp; Disability Assessment</div>
+      </div>
+      <div class="comp-badge">Work capacity &amp; impairment</div>
+    </div>
+    <div class="comp-body">
+      <p>Assessment of the anticipated permanent impairment and residual work capacity following the treatment course projected in Scenario B. This section informs the permanent disability component of the reserve model and the wage loss / loss of earning capacity exposure.</p>
+
+      <div class="callout">
+        <div class="callout-label">Cervical &mdash; Post-ACDF permanent impairment</div>
+        <p><strong>Expected permanent impairment: mild to moderate.</strong> Single-level ACDF (C5&ndash;C6) produces a ratable permanent impairment under AMA Guides to the Evaluation of Permanent Impairment. Under the 6th Edition DRE method, a single-level ACDF typically falls within DRE Cervical Category III (15&ndash;28% whole person impairment for structural inclusions with radiculopathy). Post-ACDF patients commonly have permanent restrictions on cervical flexion/extension ROM and may have permanent lifting restrictions. For a warehouse supervisor with overhead work, heavy lifting, and prolonged standing/walking demands, some degree of permanent occupational modification is anticipated. Full return to the pre-injury warehouse supervisor role without restriction is possible but not guaranteed post-single-level ACDF. <strong>Reserve impact:</strong> include a permanent partial disability component. The degree depends on jurisdictional impairment rating methodology and the claimant&rsquo;s actual post-surgical functional recovery.</p>
+      </div>
+
+      <div class="callout warn">
+        <div class="callout-label">Lumbar &mdash; Aggravation residual</div>
+        <p><strong>Expected permanent impairment: minimal.</strong> Under the aggravation-only acceptance, the lumbar component that is attributable to the MVA is the acute symptom flare and temporary worsening of the pre-existing disc disease. If the lumbar symptoms resolve with conservative care (projected under Scenario B), no lumbar permanent impairment attributable to the MVA is anticipated. If the claimant claims persistent lumbar symptoms at MMI, the defense position is that any residual lumbar impairment is attributable to the documented pre-existing disc disease, not to the MVA aggravation. <strong>Reserve impact:</strong> do not include a lumbar permanent disability component in the Scenario B reserve. If lumbar symptoms persist, apportion any impairment rating to the pre-existing condition.</p>
+      </div>
+
+      <div class="callout neutral">
+        <div class="callout-label">Shoulder &mdash; Conservative care outcome</div>
+        <p><strong>Expected permanent impairment: none to minimal under Scenario B.</strong> Under the aggravation-only, conservative-care-only acceptance for the shoulder, no surgical intervention is projected. A partial-thickness rotator cuff tear treated conservatively commonly produces mild residual shoulder discomfort with overhead activities but does not typically result in a ratable permanent impairment if the acute symptoms resolve. If the claimant claims shoulder permanent impairment, the defense position is that any residual impairment is attributable to the pre-existing degenerative rotator cuff disease. <strong>Reserve impact:</strong> do not include a shoulder permanent disability component in the Scenario B reserve.</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Wage loss &amp; earning capacity &mdash; Scenario B projection</div>
+        <p><strong>Projected work absence: 9&ndash;14 months total.</strong> The primary wage loss driver is the ACDF recovery timeline. Pre-surgical treatment phase: approximately 5 months (date of loss through ACDF scheduling). Post-ACDF modified duty return: 6&ndash;8 weeks after surgery. Post-ACDF full-duty return: 3&ndash;6 months after surgery. For a 42-year-old warehouse supervisor, total projected work absence is approximately 9&ndash;14 months from date of loss through full-duty return. <strong>Permanent earning capacity reduction:</strong> if the claimant requires permanent occupational modification (e.g., transition from warehouse supervisor to non-physical supervisory role), a loss of earning capacity claim is possible. The magnitude depends on the actual post-surgical restrictions and the wage differential between the pre-injury and post-injury occupational capacity. This is a significant damages exposure element that counsel should evaluate independently.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 10 — RESERVE RECOMMENDATION FRAMEWORK
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c10">
+    <div class="comp-head exclusive">
+      <div>
+        <div class="comp-num">Section 10 &mdash; The Reserve Deliverable</div>
+        <div class="comp-title">Reserve Recommendation Framework</div>
+      </div>
+      <div class="comp-badge">Carrier claims unit</div>
+    </div>
+    <div class="comp-body">
+      <p>The medical framework for the claims unit&rsquo;s reserve calculation. This section translates the medical assessments in Sections 03&ndash;09 into reserve-category inputs. Medisprudence provides the medical basis for each reserve line item; the carrier&rsquo;s cost-containment function, fee-schedule data, and jurisdictional experience provide the dollar conversion. Dollar amounts are not provided in this report &mdash; they are jurisdiction-specific, fee-schedule-dependent, and outside Medisprudence&rsquo;s scope.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:190px">Reserve category</th>
+            <th style="width:140px">Scenario B basis</th>
+            <th>Medical reserve guidance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500;font-size:14px;font-family:var(--serif)">Cervical Surgery (ACDF)</td>
+            <td style="text-align:center"><span class="badge b-high">Full Reserve</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Single-level ACDF C5&ndash;C6. Include: surgeon fee, facility (hospital or ASC), anesthesia, implant (interbody cage + plate), post-operative collar, post-operative imaging series, and post-operative PT (6&ndash;8 weeks). The medical necessity documentation supports this surgery. The mechanism-proportionality challenge is a litigation argument, not a reserve-exclusion basis. <strong>Include in reserve at full acceptance.</strong></td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:14px;font-family:var(--serif)">Shoulder Surgery (RCR)</td>
+            <td style="text-align:center"><span class="badge b-low">Exclude / Challenge</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Arthroscopic rotator cuff repair is <strong>not recommended for Scenario B reserve inclusion</strong>. The degenerative tear morphology, prior treatment history, and mechanism inconsistency support a challenge. Reserve conservative shoulder care only (injection, PT). If the carrier&rsquo;s risk tolerance requires surgical contingency, reserve at 25&ndash;40% of full RCR cost as an aggravation-level contingency. <strong>Recommend IME before any shoulder surgical reserve inclusion.</strong></td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:14px;font-family:var(--serif)">Conservative Care (All Sites)</td>
+            <td style="text-align:center"><span class="badge b-moderate">Partial Reserve</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">ER visit, PT (cervical/lumbar/shoulder, Weeks 2&ndash;10), cervical ESI &times; 2, lumbar ESI &times; 1, possible lumbar ESI &times; 1 additional, possible shoulder injection &times; 1, cervical and lumbar MRIs, shoulder MRI, office visits (ortho spine, ortho shoulder, pain management, PCP). All imaging and PT accepted at full medical necessity. Lumbar and shoulder components carry an apportionment notation for the aggravation-only and degenerative-challenge classifications. <strong>Reserve all past conservative care at full billable amount. Future conservative care per Section 08 projection.</strong></td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:14px;font-family:var(--serif)">Pain Management</td>
+            <td style="text-align:center"><span class="badge b-moderate">Partial Reserve</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">12&ndash;18 months of medication management and follow-up visits. No interventional escalation (SCS, pump) reserved. Include gabapentin, NSAIDs, and follow-up visits. If chronic pain interventional procedures are subsequently recommended, request Medisprudence re-review before adjusting reserve.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:14px;font-family:var(--serif)">Wage Loss</td>
+            <td style="text-align:center"><span class="badge b-high">Full Reserve</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">9&ndash;14 months of lost wages at the claimant&rsquo;s documented earnings as a warehouse supervisor. Include any documented overtime or bonus history in the wage calculation. Post-ACDF return to modified duty at month 7&ndash;9; full duty at month 12&ndash;14. <strong>Reserve at full documented wages through projected full-duty return.</strong> Earning capacity reduction is a separate damages element that depends on post-surgical restrictions; not included in the medical reserve but flagged for counsel.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:14px;font-family:var(--serif)">Permanent Impairment</td>
+            <td style="text-align:center"><span class="badge b-moderate">Cervical Only</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Include a permanent partial disability reserve for the cervical ACDF only. DRE Cervical Category III range under AMA 6th Edition (15&ndash;28% WPI). Jurisdictional impairment rating methodology and multiplier should be applied by the claims unit. No lumbar or shoulder permanent impairment reserved under Scenario B (aggravation-only and conservative-care-only classifications).</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="finding">
+        <div class="finding-label">Recommended immediate actions for claims unit</div>
+        <p><strong>(1) Order defense IME &mdash; orthopedic focus on shoulder tear morphology and causation.</strong> The shoulder surgical challenge is the highest-value reserve reduction opportunity in this claim. An IME confirming the degenerative classification allows denial of the shoulder surgical recommendation and exclusion of RCR costs from the reserve. <strong>(2) Request complete prior medical records.</strong> Confirm whether additional prior cervical imaging or treatment exists. If prior cervical records are found, the cervical claim acceptance and ACDF reserve may require downward revision. <strong>(3) Request 2022 lumbar MRI films</strong> (not just the report) for side-by-side comparison with the current lumbar MRI. The radiological progression from protrusion to herniation is the specific finding that defines the aggravation classification. <strong>(4) Establish reserve at Scenario B level pending IME results.</strong> Adjust downward if IME supports shoulder challenge; adjust upward only if new medical information materially changes the cervical or lumbar assessment.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       BOUNDARY / DISCLAIMER
+       ══════════════════════════════════════════════════════════ -->
+  <div class="disclaimer">
+    <strong>Scope and Boundary Statement &mdash; Included in Every MRA Deliverable</strong>
+    Medisprudence provides physician-authored medical record analysis for litigation and claims support. This Medical Reserve Analysis is prepared at the direction of and for the use of the retaining TPA, insurance carrier claims unit, or defense counsel. All medical assessments, causation opinions, acceptance classifications, and reserve recommendations in this report are physician-authored. AI may assist with record extraction and organization only; all clinical conclusions are authored by the reviewing physician and are clearly identified throughout. This report provides the medical framework for reserve calculation &mdash; it does not provide dollar-amount reserve recommendations, damages valuation, settlement recommendations, or legal advice. Specific dollar amounts should be developed by the carrier&rsquo;s claims unit using the medical framework in this report combined with jurisdiction-specific fee schedule data, cost-containment analysis, and actuarial input. Medisprudence does not provide expert testimony, billing-code review, UCR analysis, or liability opinions. All clinical data in this specimen is fictional. No PHI is present.
+  </div>
+
+  <div class="doc-footer">
+    <span>Medisprudence &middot; Medical Reserve Analysis (MRA&trade;) &middot; Physician-authored carrier claims intelligence</span>
+    <span>Specimen &middot; Fictional Data &middot; May 2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>
