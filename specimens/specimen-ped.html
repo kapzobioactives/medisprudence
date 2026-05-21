@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medisprudence — Specimen: Plaintiff Expert Deconstruction (PED™)</title>
+<meta name="description" content="Specimen PED deliverable — low-speed MVA, plaintiff neuropsychologist expert report on mild TBI / permanent cognitive deficits. Defense deposition format. Fictional data. No PHI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────
+   MEDISPRUDENCE — SPECIMEN STYLES
+   Shared CSS for all specimen deliverables.
+   Matches editorial/case-file aesthetic of medisprudence.com
+   ─────────────────────────────────────────────────────────── */
+
+:root{
+  --bg:#FAF7F1;
+  --bg-alt:#F1ECE0;
+  --bg-inset:#EDE6D6;
+  --paper:#FFFCF5;
+  --ink:#1A1612;
+  --ink-2:#3D352D;
+  --ink-3:#76695B;
+  --teal:#7A1F2B;
+  --teal-text:#6B1A24;
+  --teal-dim:rgba(122,31,43,.07);
+  --teal-tint:rgba(122,31,43,.04);
+  --teal-glow:rgba(122,31,43,.18);
+  --danger:#8B2418;
+  --danger-dim:rgba(139,36,24,.08);
+  --danger-glow:rgba(139,36,24,.20);
+  --caution:#8C6A1F;
+  --caution-dim:rgba(140,106,31,.09);
+  --caution-glow:rgba(140,106,31,.22);
+  --rule:rgba(26,22,18,.10);
+  --rule-md:rgba(26,22,18,.16);
+  --rule-dark:rgba(26,22,18,.28);
+  --serif:'Spectral','Georgia',serif;
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',ui-monospace,monospace;
+  --r-sm:2px;
+  --r-md:3px;
+  --r-lg:4px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:15px;
+  background:var(--bg);
+  padding-top:44px;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--teal);color:#fff}
+*:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
+h1,h2,h3,h4{
+  font-family:var(--serif);
+  line-height:1.15;
+  font-weight:400;
+  color:var(--ink);
+  letter-spacing:-.015em;
+}
+.mono{font-family:var(--mono)}
+
+/* ── TOP BAR (specimen disclaimer / back nav) ── */
+.top-bar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:44px;background:rgba(250,247,241,.94);
+  backdrop-filter:blur(20px) saturate(1.6);
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:24px;
+  padding:0 32px;
+}
+.top-bar a.back{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);
+  display:inline-flex;align-items:center;gap:6px;
+  transition:color .18s;
+}
+.top-bar a.back:hover{color:var(--teal)}
+.top-bar .specimen-tag{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);padding-left:20px;
+  border-left:1px solid var(--rule);
+}
+.top-bar .specimen-tag strong{color:var(--teal-text);font-weight:500}
+
+/* ── DOC HEADER ── */
+.doc-header{
+  background:var(--bg);
+  padding:28px 48px 22px;
+  border-bottom:1px solid var(--rule);
+}
+.doc-header-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:18px;
+  gap:24px;flex-wrap:wrap;
+}
+.doc-brand{
+  font-family:var(--serif);font-size:20px;font-weight:400;
+  color:var(--ink);letter-spacing:-.02em;
+  display:flex;align-items:center;gap:8px;
+}
+.doc-brand svg{color:var(--teal);flex-shrink:0}
+.doc-stamp{text-align:right}
+.doc-stamp-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.doc-stamp-val{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;margin-top:3px;
+}
+.doc-title{
+  font-family:var(--serif);font-size:clamp(24px,3vw,32px);
+  font-weight:400;color:var(--ink);letter-spacing:-.02em;
+  margin-bottom:8px;line-height:1.15;
+}
+.doc-title em{font-style:italic;color:var(--teal);font-weight:400}
+.doc-subtitle{
+  font-size:13.5px;color:var(--ink-3);
+  font-family:var(--sans);
+  letter-spacing:.005em;
+}
+
+/* ── DOC NAV (anchor pills) ── */
+.doc-nav{
+  background:var(--bg-alt);
+  border-bottom:1px solid var(--rule);
+  padding:12px 48px;
+  display:flex;gap:6px;flex-wrap:wrap;
+}
+.doc-nav a{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);text-decoration:none;
+  padding:6px 12px;
+  border:1px solid var(--rule);
+  border-radius:var(--r-sm);
+  background:var(--bg);
+  transition:.18s;white-space:nowrap;
+}
+.doc-nav a:hover{
+  color:var(--teal-text);
+  border-color:var(--teal);
+  background:var(--teal-dim);
+}
+
+/* ── BODY WRAP ── */
+.doc{
+  max-width:920px;
+  margin:0 auto;
+  padding:36px 48px 56px;
+}
+
+/* ── CASE CAPTION (file metadata) ── */
+.caption{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:6px 24px;
+  margin-bottom:28px;
+}
+.caption-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  padding:14px 0;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+}
+.caption-row:last-child{border-bottom:none}
+.caption-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:2px;
+}
+.caption-val{
+  font-weight:500;color:var(--ink);font-size:14.5px;
+  line-height:1.5;
+}
+
+/* ── KPI / SCORECARD STRIP ── */
+.kpi-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  margin-bottom:32px;
+  background:var(--bg);
+  overflow:hidden;
+}
+.kpi-strip.cols-5{grid-template-columns:repeat(5,1fr)}
+.kpi{
+  padding:18px 14px;text-align:center;
+  border-right:1px solid var(--rule);
+  background:var(--bg);
+}
+.kpi:last-child{border-right:none}
+.kpi-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;
+}
+.kpi-val{
+  font-family:var(--serif);font-size:24px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.1;
+}
+.kpi-val.red{color:var(--danger)}
+.kpi-val.amber{color:var(--caution)}
+.kpi-val.green,
+.kpi-val.teal{color:var(--teal)}
+
+/* ── COMPONENT (numbered section block) ── */
+.component{
+  margin-bottom:36px;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  overflow:hidden;
+  background:var(--bg);
+}
+.comp-head{
+  background:var(--bg-alt);
+  padding:16px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.comp-head::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:var(--teal);
+}
+.comp-head.alert::before{background:var(--danger)}
+.comp-head.exclusive{
+  background:var(--ink);color:#fff;
+  border-bottom:1px solid var(--ink);
+}
+.comp-head.exclusive::before{background:var(--teal);width:3px}
+.comp-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:3px;
+}
+.comp-head.exclusive .comp-num{color:rgba(217,205,182,.85)}
+.comp-title{
+  font-family:var(--serif);font-size:21px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.2;
+}
+.comp-head.exclusive .comp-title{color:#fff}
+.comp-badge{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.comp-head.exclusive .comp-badge{color:rgba(217,205,182,.55)}
+.comp-body{padding:24px 26px}
+.comp-body p{
+  color:var(--ink-2);margin-bottom:11px;
+  font-size:14.5px;line-height:1.75;
+}
+.comp-body p strong{color:var(--ink);font-weight:500}
+.comp-body h3{
+  font-family:var(--serif);font-size:18px;
+  font-weight:400;color:var(--ink);
+  margin:18px 0 8px;letter-spacing:-.01em;
+}
+
+/* ── FINDINGS (callouts) ── */
+.finding{
+  border-left:3px solid var(--teal);
+  padding:14px 18px;margin:14px 0;
+  background:var(--teal-dim);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+}
+.finding.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.finding.caution{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.finding-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:6px;
+  color:var(--teal-text);
+}
+.finding.warn .finding-label{color:var(--danger)}
+.finding.caution .finding-label{color:var(--caution)}
+.finding p{
+  font-size:14px;color:var(--ink);
+  margin-bottom:0;line-height:1.7;
+}
+.finding p + p{margin-top:8px}
+.finding p strong{color:var(--ink);font-weight:600}
+
+/* ── EXCLUSIVE / REBUTTAL (dark inset) ── */
+.exclusive,
+.rebuttal{
+  background:var(--ink);
+  color:#fff;
+  padding:20px 24px;
+  margin:16px 0;
+  border-radius:var(--r-sm);
+  border-left:3px solid var(--teal);
+}
+.exclusive .finding-label,
+.rebuttal .finding-label{
+  color:#D8A89F;letter-spacing:.16em;
+  font-weight:500;margin-bottom:8px;
+}
+.exclusive p,
+.rebuttal p{
+  color:rgba(255,255,255,.82);
+  font-size:14px;line-height:1.75;
+}
+.exclusive p strong,
+.rebuttal p strong{color:#fff;font-weight:600}
+.exclusive p + p,
+.rebuttal p + p{margin-top:10px}
+
+/* ── TABLES ── */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:14px 0;
+  font-size:13.5px;
+  background:var(--bg);
+}
+th,td{
+  padding:11px 13px;
+  border:1px solid var(--rule);
+  vertical-align:top;
+  text-align:left;
+  line-height:1.6;
+}
+thead th{
+  background:var(--bg-inset);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:600;
+  border-color:var(--rule-md);
+}
+tbody td:first-child{
+  font-weight:500;color:var(--ink);
+  background:var(--bg-alt);
+}
+tbody tr:nth-child(even) td{background:var(--bg-alt)}
+tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
+.ref{
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.02em;
+}
+
+/* ── TIMELINE (CMIP medmal) ── */
+.timeline{
+  border-left:2px solid var(--rule-md);
+  margin:20px 0;
+  padding-left:24px;
+}
+.timeline-event{
+  position:relative;
+  padding-bottom:22px;
+}
+.timeline-event:last-child{padding-bottom:0}
+.timeline-event::before{
+  content:"";position:absolute;
+  left:-30px;top:5px;
+  width:11px;height:11px;
+  border-radius:50%;
+  background:var(--bg);
+  border:2px solid var(--rule-dark);
+}
+.timeline-event.critical::before{
+  background:var(--danger);border-color:var(--danger);
+}
+.timeline-event.flag::before{
+  background:var(--caution);border-color:var(--caution);
+}
+.timeline-event.good::before{
+  background:var(--teal);border-color:var(--teal);
+}
+.timeline-date{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.06em;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:4px;text-transform:uppercase;
+}
+.timeline-event.critical .timeline-date{color:var(--danger)}
+.timeline-event.flag .timeline-date{color:var(--caution)}
+.timeline-event p{
+  font-size:14px;color:var(--ink-2);
+  margin:0;line-height:1.7;
+}
+.timeline-event strong{color:var(--ink);font-weight:600}
+
+/* ── IME QUOTE BOX ── */
+.ime-quote{
+  border:1px solid var(--rule-md);
+  background:var(--paper);
+  padding:16px 20px 14px;
+  margin:14px 0;
+  position:relative;
+  border-radius:var(--r-sm);
+}
+.ime-quote::before{
+  content:"IME report states";
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);
+  position:absolute;top:-7px;left:14px;
+  background:var(--bg);padding:0 8px;
+}
+.ime-quote p{
+  font-family:var(--serif);font-size:15px;
+  color:var(--ink);font-style:italic;
+  margin:0;line-height:1.55;letter-spacing:.005em;
+}
+
+/* ── DEPOSITION QUESTIONS ── */
+.depo-q{counter-reset:depo;list-style:none}
+.depo-q li{
+  list-style:none;
+  padding:14px 16px 14px 50px;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+  color:var(--ink);
+  counter-increment:depo;
+  position:relative;
+  line-height:1.65;
+}
+.depo-q li::before{
+  content:"Q" counter(depo);
+  position:absolute;left:14px;top:13px;
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.05em;
+}
+.depo-q li:last-child{border-bottom:none}
+.depo-q li em{
+  font-style:italic;color:var(--ink-3);
+  display:block;margin-top:5px;font-size:12.5px;
+  font-family:var(--sans);
+}
+
+/* ── PRE-EXISTING GRID (DML) ── */
+.pe-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;margin:16px 0;
+}
+.pe-card{
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.pe-card.primary{
+  border-color:var(--danger-glow);
+  background:var(--danger-dim);
+}
+.pe-card.positive{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+}
+.pe-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;font-weight:500;
+}
+.pe-card.primary .pe-label{color:var(--danger)}
+.pe-card.positive .pe-label{color:var(--teal-text)}
+.pe-card h4{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  margin-bottom:8px;letter-spacing:-.01em;
+}
+.pe-card p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.7;
+}
+
+/* ── ACTION LIST (DML) ── */
+.action-list{
+  list-style:none;
+  display:flex;flex-direction:column;
+  gap:12px;margin-top:18px;
+}
+.action-item{
+  display:grid;
+  grid-template-columns:36px 1fr;
+  gap:14px;align-items:flex-start;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.action-item.priority{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+  border-left:3px solid var(--teal);
+}
+.action-num{
+  font-family:var(--mono);font-size:14px;
+  font-weight:500;color:var(--teal-text);
+  margin-top:1px;
+}
+.action-body strong{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  display:block;margin-bottom:6px;
+  line-height:1.3;letter-spacing:-.01em;
+}
+.action-body p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.75;margin:0;
+}
+.action-body .priority-note{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:6px;
+}
+
+/* ── BADGES / PILLS ── */
+.badge{
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:var(--r-sm);
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  font-weight:500;line-height:1.4;
+  border:1px solid currentColor;
+}
+.b-high{color:var(--danger);background:var(--danger-dim)}
+.b-moderate{color:var(--caution);background:var(--caution-dim)}
+.b-lowmod{color:var(--ink-2);background:var(--bg-inset)}
+.b-low{color:var(--teal-text);background:var(--teal-dim)}
+
+.pill{
+  display:inline-block;
+  padding:3px 10px;
+  border-radius:999px;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;
+  font-weight:500;
+}
+.pill-red{background:var(--danger-dim);color:var(--danger)}
+.pill-amber{background:var(--caution-dim);color:var(--caution)}
+.pill-green{background:var(--teal-dim);color:var(--teal-text)}
+
+/* ── CASE BOX (DML) ── */
+.case-box{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--ink);
+  border-radius:var(--r-sm);
+  padding:22px 26px;
+  margin-bottom:30px;
+}
+.case-box-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:14px;font-weight:500;
+}
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px 22px;
+  margin-bottom:14px;
+}
+.ci-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px;
+}
+.ci-val{
+  font-family:var(--mono);font-size:13px;
+  color:var(--ink);font-weight:500;
+  line-height:1.5;letter-spacing:.01em;
+}
+.case-summary{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;
+  border-top:1px solid var(--rule);
+  padding-top:14px;margin-top:8px;
+}
+
+/* ── SECTION (CVA + DML alternative section style) ── */
+.section{margin-bottom:34px}
+.sec-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:8px;font-weight:500;
+}
+.sec-title{
+  font-family:var(--serif);font-size:23px;
+  font-weight:400;color:var(--ink);letter-spacing:-.015em;
+  margin-bottom:6px;padding-bottom:10px;
+  border-bottom:1px solid var(--ink);
+}
+.sec-sub{
+  font-size:13.5px;color:var(--ink-3);
+  margin-bottom:18px;font-style:italic;line-height:1.7;
+  max-width:760px;
+}
+.body-text{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.78;margin-bottom:14px;
+}
+.body-text strong{color:var(--ink);font-weight:500}
+
+/* ── CALLOUT (DML, alternate style) ── */
+.callout{
+  border-left:3px solid var(--teal);
+  background:var(--teal-dim);
+  padding:16px 20px;
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  margin:14px 0;
+}
+.callout.danger{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.callout.warn{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.callout.neutral{
+  border-left-color:var(--ink-3);
+  background:var(--bg-alt);
+}
+.callout-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:8px;
+  color:var(--teal-text);
+}
+.callout.danger .callout-label{color:var(--danger)}
+.callout.warn .callout-label{color:var(--caution)}
+.callout.neutral .callout-label{color:var(--ink-2)}
+.callout p{
+  font-size:14px;color:var(--ink);
+  line-height:1.75;
+}
+.callout p + p{margin-top:8px}
+
+/* ── VERDICT BOX ── */
+.verdict{
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--teal);
+  background:var(--bg-alt);
+  padding:24px 28px;
+  margin:24px 0 8px;
+  border-radius:var(--r-sm);
+}
+.verdict.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+  border-color:var(--danger-glow);
+}
+.verdict-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:10px;font-weight:500;
+}
+.verdict.warn .verdict-label{color:var(--danger)}
+.verdict h3{
+  font-family:var(--serif);font-size:22px;
+  font-weight:400;color:var(--ink);
+  margin-bottom:10px;letter-spacing:-.015em;line-height:1.25;
+  max-width:760px;
+}
+.verdict.warn h3{color:var(--ink)}
+.verdict p{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;margin-top:8px;
+}
+
+/* ── DOC FOOTER + DISCLAIMER ── */
+.doc-footer{
+  border-top:1px solid var(--ink);
+  padding-top:18px;margin-top:44px;
+  display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);gap:14px;flex-wrap:wrap;
+}
+.doc-footer span:first-child{color:var(--ink-2)}
+
+.disclaimer{
+  margin-top:18px;
+  padding:18px 22px;
+  background:var(--bg-alt);
+  border-left:3px solid var(--ink);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-size:12.5px;
+  color:var(--ink-3);
+  line-height:1.75;
+  font-style:italic;
+}
+.disclaimer strong{
+  color:var(--ink-2);font-style:normal;font-weight:600;
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  display:block;margin-bottom:6px;
+}
+
+/* ── TABLE-OVERFLOW WRAPPER ── */
+.table-wrap{
+  overflow-x:auto;margin:14px 0;
+  border-radius:var(--r-sm);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:780px){
+  .doc{padding:24px 20px 40px}
+  .doc-header{padding:22px 20px 18px}
+  .doc-nav{padding:10px 20px}
+  .top-bar{padding:0 16px;gap:14px}
+  .top-bar .specimen-tag{padding-left:14px}
+  .kpi-strip,.kpi-strip.cols-5{grid-template-columns:1fr 1fr}
+  .caption-row{grid-template-columns:1fr;gap:10px}
+  .comp-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .case-grid{grid-template-columns:1fr 1fr}
+  .pe-grid{grid-template-columns:1fr}
+  .doc-header-top{flex-direction:column;align-items:flex-start;gap:14px}
+  .doc-stamp{text-align:left}
+}
+@media(max-width:520px){
+  .case-grid{grid-template-columns:1fr}
+  .doc-footer{flex-direction:column;gap:8px}
+}
+
+/* ── PRINT ── */
+@media print{
+  .top-bar,.doc-nav{display:none}
+  body{padding-top:0;background:#fff;font-size:11pt}
+  .component,.caption,.kpi-strip,.case-box{break-inside:avoid;page-break-inside:avoid}
+  .doc{padding:0;max-width:100%}
+}
+
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a class="back" href="../">&larr; Back to Medisprudence</a>
+  <span class="specimen-tag"><strong>Specimen</strong> &nbsp;·&nbsp; Fictional clinical data &nbsp;·&nbsp; No PHI</span>
+</div>
+
+<div class="doc-header">
+  <div class="doc-header-top">
+    <div class="doc-brand">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <circle cx="16" cy="11" r="2.4" fill="currentColor"/>
+        <line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      Medisprudence
+    </div>
+    <div class="doc-stamp">
+      <div class="doc-stamp-label">Document type</div>
+      <div class="doc-stamp-val">Plaintiff Expert Deconstruction (PED&trade;) &mdash; Defense Format</div>
+    </div>
+  </div>
+  <div class="doc-title">Plaintiff Expert Deconstruction &mdash; <em>Neuropsychologist / Mild TBI Causation</em></div>
+  <div class="doc-subtitle">Specimen &middot; Fictional clinical data &middot; No PHI &middot; Expert report: 34 pages &middot; Prepared for defense counsel</div>
+</div>
+
+<div class="doc-nav">
+  <a href="#c1">01 Case &amp; Expert</a>
+  <a href="#c2">02 Deconstruction Scorecard</a>
+  <a href="#c3">03 Credential Audit</a>
+  <a href="#c4">04 Methodology Critique</a>
+  <a href="#c5">05 PVT Analysis</a>
+  <a href="#c6">06 Literature Reconciliation</a>
+  <a href="#c7">07 Pre-Existing Confounder</a>
+  <a href="#c8">08 Inconsistency Map</a>
+  <a href="#c9">09 Cross-Examination</a>
+  <a href="#c10">10 Rebuttal Guidance</a>
+</div>
+
+<div class="doc">
+
+  <!-- ══ 01 CASE & EXPERT SUMMARY ══ -->
+  <div class="case-box" id="c1">
+    <div class="case-box-label">Case &amp; Expert Summary</div>
+    <div class="case-grid">
+      <div><div class="ci-label">Claim type</div><div class="ci-val">Auto Liability &mdash; Rear-End MVA</div></div>
+      <div><div class="ci-label">Mechanism / delta-V</div><div class="ci-val">Low-speed rear-end, est. ~12 mph delta-V. No airbag. No ER loss of consciousness.</div></div>
+      <div><div class="ci-label">Plaintiff</div><div class="ci-val">34 M, IT infrastructure manager</div></div>
+      <div><div class="ci-label">Plaintiff&rsquo;s theory</div><div class="ci-val">Mild TBI &rarr; post-concussion syndrome &rarr; permanent cognitive deficits (processing speed, working memory, executive function) &rarr; occupational disability</div></div>
+      <div><div class="ci-label">Expert deconstructed</div><div class="ci-val">Dr. James T. Holden, PhD &mdash; Neuropsychologist, licensed in Ohio. Retained expert, plaintiff side.</div></div>
+      <div><div class="ci-label">Expert report date</div><div class="ci-val">14 months post-injury (report dated November 2026)</div></div>
+      <div><div class="ci-label">Pre-existing factors</div><div class="ci-val">ADHD (diagnosed age 16, Adderall through college, self-discontinued); prior sports concussion (college, 2014); anxiety disorder (SSRIs, ongoing)</div></div>
+      <div><div class="ci-label">Jurisdiction</div><div class="ci-val">Superior Court, Cook County, Illinois</div></div>
+      <div><div class="ci-label">Retained by</div><div class="ci-val">Defense counsel for at-fault vehicle insurer</div></div>
+      <div><div class="ci-label">Reviewed by</div><div class="ci-val">Dr. A. Kasturi, MBBS &middot; Medisprudence</div></div>
+    </div>
+    <div class="case-summary">
+      The plaintiff, a 34-year-old male IT infrastructure manager, was rear-ended at low speed at a traffic signal on September 14, 2025. He did not lose consciousness. The ER evaluation on the date of loss documents no loss of consciousness, a GCS of 15, and normal neurological examination. The plaintiff was discharged with a diagnosis of cervical strain. No head CT was obtained at the ER. At Week 6, the plaintiff first reported cognitive complaints (difficulty concentrating, memory lapses, word-finding difficulty) to his primary care physician, who referred him to neurology. A brain MRI at Week 8 was normal. The neurologist documented mild post-concussion symptoms and referred the plaintiff for neuropsychological evaluation. The neuropsychological evaluation was performed by Dr. James T. Holden, PhD at 14 months post-injury and produced a 34-page report concluding that the plaintiff has permanent cognitive deficits in processing speed, working memory, and executive function causally attributable to the September 2025 MVA, and that these deficits constitute a permanent partial occupational disability preventing the plaintiff from performing his pre-injury IT management responsibilities. Dr. Holden&rsquo;s report forms the foundation of the plaintiff&rsquo;s cognitive disability and loss of earning capacity claims. This Plaintiff Expert Deconstruction identifies the methodological, factual, scientific, and credibility vulnerabilities in Dr. Holden&rsquo;s report that are available to the defense.
+    </div>
+  </div>
+
+  <!-- ══ 02 DECONSTRUCTION SCORECARD ══ -->
+  <div class="component" id="c2">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 02</div>
+        <div class="comp-title">Deconstruction Scorecard</div>
+      </div>
+      <div class="comp-badge">Vulnerability summary</div>
+    </div>
+  </div>
+
+  <div class="kpi-strip cols-5">
+    <div class="kpi"><div class="kpi-label">Credential Match</div><div class="kpi-val amber">Partial</div></div>
+    <div class="kpi"><div class="kpi-label">PVT Compliance</div><div class="kpi-val red">Failed</div></div>
+    <div class="kpi"><div class="kpi-label">Literature Accuracy</div><div class="kpi-val amber">Selective</div></div>
+    <div class="kpi"><div class="kpi-label">Confounder Mgmt</div><div class="kpi-val red">Absent</div></div>
+    <div class="kpi"><div class="kpi-label">Overall Defensibility</div><div class="kpi-val red">Vulnerable</div></div>
+  </div>
+
+  <div class="callout danger" style="margin-top:0;margin-bottom:36px">
+    <div class="callout-label">Physician&rsquo;s Net Assessment</div>
+    <p><strong>Dr. Holden&rsquo;s report contains four independent, high-severity vulnerabilities that each independently undermine his causation opinion.</strong> Taken together, they present a plaintiff&rsquo;s expert whose methodology fails to meet the standards expected of a forensic neuropsychological evaluation under Daubert and Frye. The single most damaging vulnerability is the Performance Validity Test result: one of three PVTs administered falls below the accepted failure threshold, and Dr. Holden&rsquo;s report does not acknowledge this result or explain it. This is a direct methodological failure that a defense neuropsychologist can characterize as either incompetent or as a deliberate omission. The second most damaging vulnerability is the complete failure to address ADHD &mdash; a condition that produces deficits in the identical cognitive domains Dr. Holden attributes to the MVA. If the defense successfully establishes these vulnerabilities at Daubert hearing or at deposition, the opinion on permanent cognitive disability loses its scientific foundation.</p>
+  </div>
+
+  <!-- ══ 03 CREDENTIAL AUDIT ══ -->
+  <div class="component" id="c3">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 03</div>
+        <div class="comp-title">Credential &amp; Practice Gap Audit</div>
+      </div>
+      <div class="comp-badge">Expert qualification challenge</div>
+    </div>
+    <div class="comp-body">
+      <p>A physician-authored review of Dr. Holden&rsquo;s professional background, licensure, publication record, and forensic practice pattern as disclosed in his CV and report. Credential challenges are secondary to methodological challenges for most courts, but they establish context for the deposition and provide cross-examination foundation.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:180px">Credential element</th>
+            <th style="width:100px">Assessment</th>
+            <th>Defense analysis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Licensure jurisdiction</td>
+            <td style="text-align:center"><span class="pill pill-amber">Note</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Dr. Holden is licensed in Ohio and practicing in Columbus, Ohio. This case is venued in Cook County, Illinois. He has no Illinois licensure listed in the CV. While expert witnesses are not required to be licensed in the venue jurisdiction, establishing that Dr. Holden has no independent knowledge of the Illinois medical community, local standard of care, or Illinois-specific rehabilitation resources is appropriate cross-examination context.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Clinical vs forensic practice ratio</td>
+            <td style="text-align:center"><span class="pill pill-red">Flag</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong>Dr. Holden&rsquo;s CV discloses forensic neuropsychological evaluations as a primary practice activity.</strong> His publications are predominantly in forensic and medico-legal neuropsychology journals. His CV lists no current clinical neuropsychology hospital privileges, no active patient treatment panel, and no neurological clinic affiliation. This pattern &mdash; a practitioner whose primary activity is performing evaluations for litigation rather than treating patients &mdash; is a recognized forensic bias indicator in the neuropsychological literature and is directly relevant to cross-examination on objectivity.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Plaintiff vs defense referral ratio</td>
+            <td style="text-align:center"><span class="pill pill-red">Flag</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Dr. Holden&rsquo;s disclosed prior testimony (Appendix B of his report) lists 18 cases in the preceding 4 years: 14 plaintiff-retained, 4 defense-retained. This 78% plaintiff-retention rate is a documented indicator of referral-source bias. The Greiffenstein &amp; Cohen (2005) professional standards for forensic neuropsychology recommend that practitioners with &gt;70% single-side retention patterns disclose and address this imbalance. Dr. Holden&rsquo;s report does not acknowledge this pattern.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Mild TBI specialty</td>
+            <td style="text-align:center"><span class="pill pill-green">Adequate</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Dr. Holden holds ABPP board certification in Clinical Neuropsychology and has published in mild TBI neuropsychology. His specialty credentials for this type of case are adequate and this is not a productive challenge line. Defense energy should focus on methodology, not specialty qualification.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Compensation disclosure</td>
+            <td style="text-align:center"><span class="pill pill-amber">Note</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Dr. Holden discloses a forensic evaluation fee of $650/hour, total fees for this matter of approximately $9,800 (evaluation + report). He also bills $450/hour for deposition time. His total forensic income for the prior year (disclosed in response to discovery) was approximately $312,000. Cross-examination on total forensic income, percentage from litigation versus clinical work, and the plaintiff-referral concentration establishes the financial interest underpinning the opinion.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 04 METHODOLOGY CRITIQUE ══ -->
+  <div class="component" id="c4">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 04 &mdash; Primary Attack Vector</div>
+        <div class="comp-title">Neuropsychological Methodology Critique</div>
+      </div>
+      <div class="comp-badge">5 Deficiencies identified</div>
+    </div>
+    <div class="comp-body">
+      <p>A physician-authored critique of the methodological choices Dr. Holden made in designing, administering, and interpreting the neuropsychological evaluation, benchmarked against published professional standards (APA Guidelines for Psychological Assessment, NAN Policy and Planning Committee standards, AACN practice guidelines, and the Heilbronner et al. 2010 consensus statement on forensic neuropsychological practice).</p>
+
+      <div class="timeline">
+        <div class="timeline-event critical">
+          <div class="timeline-date">Deficiency 01 &mdash; Highest severity</div>
+          <p><strong>Evaluation performed 14 months post-injury without addressing the temporal causation gap.</strong> Dr. Holden evaluated the plaintiff 14 months after the MVA. His report contains no methodology section addressing why cognitive deficits identified 14 months post-injury are attributable to an MVA rather than to the natural evolution of ADHD, anxiety, occupational stress, medication changes, or other non-MVA factors that operated in the 14-month interval. Published mTBI literature (Iverson et al., 2012; McCrea et al., 2013) documents that the vast majority of mTBI-related cognitive deficits resolve within 3 months. A 14-month post-injury evaluation is an outlier in the mTBI evaluation timeline, and a forensic neuropsychologist is professionally obligated to address why the temporal gap does not break the causal chain. Dr. Holden does not do so anywhere in the 34-page report.</p>
+        </div>
+        <div class="timeline-event critical">
+          <div class="timeline-date">Deficiency 02 &mdash; Highest severity</div>
+          <p><strong>No baseline comparison data or pre-injury cognitive functioning assessment.</strong> Dr. Holden attributes the plaintiff&rsquo;s identified processing speed, working memory, and executive function deficits to the MVA. The normative comparison used is age-matched population norms. However, the plaintiff is a 34-year-old IT infrastructure manager &mdash; a cognitively demanding profession requiring above-average processing speed, working memory, and executive function as professional prerequisites. Dr. Holden does not use education- and profession-matched norms, does not obtain or review academic records, does not obtain prior cognitive testing data (the plaintiff had documented ADHD testing at age 16), and does not establish what the plaintiff&rsquo;s pre-injury cognitive baseline actually was. Without a pre-injury baseline, identifying a &ldquo;deficit&rdquo; relative to age-matched population norms in someone who was professionally performing above population norms is a methodological error. This plaintiff&rsquo;s pre-injury functioning may have been in the superior range; his current testing may be in the average range &mdash; a real functional decline from his individual baseline &mdash; or his pre-injury functioning may have been at the population average, making the current scores non-significant. Dr. Holden cannot determine which without baseline data.</p>
+        </div>
+        <div class="timeline-event flag">
+          <div class="timeline-date">Deficiency 03 &mdash; High severity</div>
+          <p><strong>Battery selection does not include ecological validity measures.</strong> The test battery selected by Dr. Holden consists entirely of laboratory cognitive measures (WAIS-IV, WMS-IV, DKEFS, processing speed subtests). He administered no ecological validity measures &mdash; tests designed to assess how cognitive performance translates to real-world occupational function (e.g., BRIEF-A for executive function in daily life, Cognistat for functional cognitive assessment). For a disability opinion specifically claiming the plaintiff cannot perform his IT management role, the absence of any validated occupational functional assessment is a significant methodological gap. Dr. Holden extrapolates from laboratory task performance to occupational disability without an ecological bridge.</p>
+        </div>
+        <div class="timeline-event flag">
+          <div class="timeline-date">Deficiency 04 &mdash; High severity</div>
+          <p><strong>Anxiety disorder not controlled for in test interpretation.</strong> The plaintiff has a documented anxiety disorder for which he has been on an SSRI (escitalopram 10mg) throughout the post-injury period. Anxiety independently produces deficits in processing speed, working memory, and executive function &mdash; the identical domains Dr. Holden attributes to mTBI. Dr. Holden&rsquo;s report acknowledges the anxiety diagnosis in the history section but does not address the confounding effect of anxiety on neuropsychological test performance anywhere in the interpretation section. The Report of Psychological Testing (Section IV) states that &ldquo;test results are considered valid and interpretable&rdquo; without specifying how the anxiety confounder was controlled, partialled out, or considered in interpreting the identified deficits.</p>
+        </div>
+        <div class="timeline-event">
+          <div class="timeline-date">Deficiency 05 &mdash; Moderate severity</div>
+          <p><strong>No structured diagnostic criteria applied for post-concussion syndrome diagnosis.</strong> Dr. Holden diagnoses &ldquo;Post-Concussion Syndrome&rdquo; (PCS) in Section V of his report without specifying whether he applied the ICD-10 criteria or the DSM-5 criteria for Mild Neurocognitive Disorder Due to TBI, and without documenting whether all required diagnostic criteria were met. The ICD-10 PCS criteria require symptoms in three or more of seven specified categories; DSM-5 requires specific cognitive decline from a previous level of performance as documented by clinical assessment. Dr. Holden&rsquo;s diagnosis is stated as a clinical conclusion without showing the diagnostic criteria workup that supports it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 05 PVT ANALYSIS ══ -->
+  <div class="component" id="c5">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 05 &mdash; Single Most Damaging Finding</div>
+        <div class="comp-title">Performance Validity Test (PVT) Analysis</div>
+      </div>
+      <div class="comp-badge">Effort &amp; validity</div>
+    </div>
+    <div class="comp-body">
+      <p>Performance Validity Tests (PVTs) are embedded or standalone tests designed to detect insufficient effort, symptom magnification, or non-credible performance during neuropsychological evaluation. Under published professional standards (Heilbronner et al., 2010; Bush et al., 2005; AACN Practice Guidelines), a comprehensive forensic neuropsychological evaluation must include multiple PVTs and must report all PVT results, including failures. Failure to report a PVT failure, or to address it in the interpretation, is a recognized professional standard violation that renders the evaluation&rsquo;s findings unreliable.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:180px">PVT administered</th>
+            <th style="width:100px">Result</th>
+            <th style="width:130px">Threshold</th>
+            <th>Report treatment &amp; defense analysis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Test of Memory Malingering (TOMM) &mdash; Trial 2</td>
+            <td style="text-align:center"><span class="pill pill-green">Pass</span></td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--ink-3);text-align:center">≥45/50</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Score: 49/50. Pass. Dr. Holden reports this result in Appendix A. No concerns.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Word Memory Test (WMT) &mdash; Immediate Recognition</td>
+            <td style="text-align:center"><span class="pill pill-green">Pass</span></td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--ink-3);text-align:center">≥82.5%</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Score: 88%. Pass. Reported in Appendix A.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Reliable Digit Span (RDS) &mdash; Embedded in WAIS-IV</td>
+            <td style="text-align:center"><span class="pill pill-red">FAIL</span></td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--ink-3);text-align:center">≥8</td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong style="color:var(--danger)">Score: 6. Below the accepted failure threshold of 8.</strong> This embedded PVT failure is documented in the raw data (Appendix A, page 28) but is not mentioned anywhere in the body of Dr. Holden&rsquo;s report. It does not appear in Section IV (Test Validity), Section V (Clinical Interpretation), or the summary and conclusions. The RDS score of 6 falls below the &lt;7 cutoff associated with non-credible performance in the published literature (Greiffenstein et al., 1994; Babikian et al., 2006). Dr. Holden&rsquo;s Section IV states: <em>&ldquo;Performance validity indicators suggest adequate effort throughout the evaluation. Results are considered reliable and valid.&rdquo;</em> This statement is directly contradicted by the RDS score in Appendix A. This is the single most damaging finding in the deconstruction of Dr. Holden&rsquo;s report.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="finding warn">
+        <div class="finding-label">Physician assessment &mdash; PVT failure omission is a critical professional standard violation</div>
+        <p><strong>Dr. Holden administered three PVTs. One failed. He reported two and omitted the third from the body of his report while stating that validity indicators showed &ldquo;adequate effort throughout.&rdquo;</strong> Under AACN practice guidelines and the Heilbronner et al. (2010) consensus statement, a neuropsychologist is professionally obligated to report all PVT results and to address any failure in the interpretation section. A failure on an embedded PVT (RDS &lt;7) in the context of passing two standalone PVTs is not automatically dispositive &mdash; it requires clinical explanation. The explanation could be that the RDS failure reflects genuine cognitive impairment affecting digit span performance rather than insufficient effort &mdash; but that explanation must be documented, not omitted. Dr. Holden&rsquo;s failure to acknowledge the RDS result means his validity statement is factually inaccurate, and his entire reliability-and-validity foundation &mdash; on which his causation opinion rests &mdash; is compromised. A defense neuropsychologist can credibly characterize this omission as a serious methodological failure regardless of whether it was intentional.</p>
+      </div>
+
+      <div class="exclusive">
+        <div class="finding-label">Medisprudence exclusive &mdash; cross-examination deployment sequence for PVT issue</div>
+        <p><strong>Do not lead with the RDS failure at deposition.</strong> The highest-value cross-examination sequence is: <strong>(1)</strong> Establish that Dr. Holden administered three PVTs, naming each. <strong>(2)</strong> Confirm that he reported two passes in the body of his report. <strong>(3)</strong> Confirm his Section IV statement that &ldquo;performance validity indicators suggest adequate effort throughout.&rdquo; <strong>(4)</strong> Establish that the Reliable Digit Span is a recognized embedded PVT in the neuropsychological literature. <strong>(5)</strong> Establish the accepted failure threshold (score &lt;7 or &lt;8 per the literature). <strong>(6)</strong> Show Appendix A, page 28, and ask him to read the RDS score. <strong>(7)</strong> Ask why the RDS score does not appear in Section IV. This sequence commits him to the statements before confronting him with the omission, maximizing the impact of the contradiction.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 06 LITERATURE RECONCILIATION ══ -->
+  <div class="component" id="c6">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 06</div>
+        <div class="comp-title">Literature Reconciliation &mdash; What the Science Actually Says</div>
+      </div>
+      <div class="comp-badge">4 Citations audited</div>
+    </div>
+    <div class="comp-body">
+      <p>Dr. Holden cites seven peer-reviewed papers in support of his opinions. Four of the seven citations are audited below for accuracy of characterization. The remaining three are adequately represented. A pattern of selective citation &mdash; citing only papers supporting the permanent-deficit conclusion while omitting contrary literature &mdash; is independently grounds for a Daubert challenge to the reliability of the expert&rsquo;s methodology.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:200px">Citation (as used in report)</th>
+            <th style="width:115px">Accuracy</th>
+            <th>Actual literature finding &amp; defense relevance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-size:13.5px"><strong>Bigler &amp; Brooks (2009)</strong><br><span style="color:var(--ink-3);font-style:italic">Dr. Holden cites for proposition that mTBI can produce &ldquo;persistent and permanent neuropsychological deficits.&rdquo;</span></td>
+            <td style="text-align:center"><span class="pill pill-amber">Misleading</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Bigler &amp; Brooks (2009) is a review article discussing neuroimaging findings in mTBI populations with structural brain lesions on advanced neuroimaging (DTI, fMRI). <strong>The plaintiff has a normal conventional brain MRI.</strong> Bigler &amp; Brooks specifically distinguish their findings as applicable to the subset of mTBI patients with documented neuroimaging abnormalities &mdash; a qualifier Dr. Holden&rsquo;s report does not reproduce. Citing this paper for the general proposition that mTBI causes permanent deficits, in a patient with a normal MRI, mischaracterizes the paper&rsquo;s scope.</td>
+          </tr>
+          <tr>
+            <td style="font-size:13.5px"><strong>Iverson et al. (2010)</strong><br><span style="color:var(--ink-3);font-style:italic">Dr. Holden cites for proposition that post-concussion symptoms are causally attributable to mTBI rather than psychological factors.</span></td>
+            <td style="text-align:center"><span class="pill pill-red">Contradicted</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Iverson et al. (2010) is a peer-reviewed study documenting that the symptom profile of post-concussion syndrome significantly overlaps with the symptom profile of depression, anxiety, and ADHD. The study&rsquo;s primary conclusion is that <strong>pre-existing psychiatric conditions &mdash; specifically anxiety and ADHD &mdash; are major predictors of persistent post-concussion symptoms.</strong> This is the exact opposite of the use to which Dr. Holden puts the citation. Iverson et al. (2010) actually supports the defense position that the plaintiff&rsquo;s anxiety disorder and ADHD history are more likely contributors to the symptom profile than the MVA. Dr. Holden cites the paper for the wrong proposition.</td>
+          </tr>
+          <tr>
+            <td style="font-size:13.5px"><strong>Omission: McCrea et al. (2013)</strong><br><span style="color:var(--ink-3);font-style:italic">Not cited by Dr. Holden.</span></td>
+            <td style="text-align:center"><span class="pill pill-red">Omitted</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">McCrea et al. (2013) &mdash; a landmark prospective study of mTBI recovery &mdash; documents that 85&ndash;90% of patients with mTBI demonstrate full cognitive recovery within 3 months of injury. This is among the most-cited papers in mTBI neuropsychology and directly contradicts Dr. Holden&rsquo;s opinion that the plaintiff has &ldquo;permanent&rdquo; cognitive deficits attributable to an mTBI 14 months prior. The omission of the single most relevant recovery-timeline paper from a 34-page expert report on mTBI causation is not an oversight &mdash; it is a selection bias that a defense expert can characterize as deliberate.</td>
+          </tr>
+          <tr>
+            <td style="font-size:13.5px"><strong>Omission: Binder et al. (1997)</strong><br><span style="color:var(--ink-3);font-style:italic">Not cited by Dr. Holden.</span></td>
+            <td style="text-align:center"><span class="pill pill-red">Omitted</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Binder et al. (1997) is a meta-analytic study on neuropsychological performance in mTBI that specifically examined the role of litigation status, financial incentive, and pre-existing psychiatric factors in producing persistent cognitive symptoms. The study found that patients with financial incentives (active litigation) and pre-existing psychiatric conditions had significantly worse neuropsychological performance than non-litigating mTBI patients. This paper is directly applicable to a litigating plaintiff with a pre-existing anxiety disorder and ADHD, and its omission from Dr. Holden&rsquo;s review is consequential.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 07 PRE-EXISTING CONFOUNDER ANALYSIS ══ -->
+  <div class="component" id="c7">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 07 &mdash; Critical Gap</div>
+        <div class="comp-title">Pre-Existing Confounder Analysis &mdash; ADHD &amp; Prior Concussion</div>
+      </div>
+      <div class="comp-badge">Causation apportionment</div>
+    </div>
+    <div class="comp-body">
+      <p>The plaintiff has two documented pre-existing conditions that independently produce deficits in the precise cognitive domains Dr. Holden attributes to the MVA. Dr. Holden&rsquo;s report addresses neither as a confounder to the cognitive test results. This is not a minor omission &mdash; it is a foundational flaw in the causation analysis.</p>
+
+      <div class="pe-grid">
+        <div class="pe-card primary">
+          <div class="pe-label">Confounder 01 &mdash; Highest impact</div>
+          <h4>ADHD &mdash; Diagnosed Age 16, Medicated Through College</h4>
+          <p>Attention Deficit Hyperactivity Disorder (ADHD) independently produces deficits in processing speed, working memory, and executive function &mdash; the identical three cognitive domains Dr. Holden documents and attributes to the MVA. The neuropsychological signature of ADHD on the WAIS-IV and DKEFS subtests Dr. Holden administered is well-characterized in the literature and is often indistinguishable from mTBI cognitive sequelae on standard neuropsychological testing. The plaintiff was diagnosed at age 16 and medicated with Adderall through college. He self-discontinued medication after college. His ADHD was therefore an <strong>unmedicated, untreated, active condition</strong> at the time of Dr. Holden&rsquo;s evaluation. Dr. Holden&rsquo;s report mentions the ADHD diagnosis in the history section (page 6) and then does not reference it again for the remaining 28 pages. There is no discussion anywhere in the report of how the examiner distinguished ADHD-related cognitive profile from mTBI-related cognitive profile. For a forensic evaluation, this absence is indefensible.</p>
+        </div>
+        <div class="pe-card primary">
+          <div class="pe-label">Confounder 02 &mdash; High impact</div>
+          <h4>Prior Sports Concussion &mdash; College (2014)</h4>
+          <p>The plaintiff sustained a concussion during contact sports in 2014 &mdash; 11 years before the MVA and 12 years before Dr. Holden&rsquo;s evaluation. While a single prior concussion at age 22 in an otherwise healthy individual would not typically be expected to produce ongoing cognitive deficits 12 years later, it is directly relevant to the causation analysis for two reasons: <strong>(1)</strong> It establishes that the plaintiff&rsquo;s nervous system has previously experienced concussive trauma &mdash; a fact that must be addressed when attributing new cognitive findings to a subsequent mTBI. <strong>(2)</strong> It means the plaintiff has no documented neuropsychological baseline from the period between his 2014 concussion recovery and the 2025 MVA. Dr. Holden&rsquo;s report does not reference the 2014 concussion in any clinical context.</p>
+        </div>
+      </div>
+
+      <div class="finding warn">
+        <div class="finding-label">Defense cross-examination argument &mdash; the ADHD blind spot</div>
+        <p><strong>The core cross-examination argument on the ADHD issue is simple: Dr. Holden administered a battery specifically designed to detect deficits in processing speed, working memory, and executive function &mdash; in a patient with a known, documented, and currently unmedicated condition that specifically causes deficits in processing speed, working memory, and executive function &mdash; and then attributed those deficits to the MVA without eliminating the pre-existing condition as an alternative explanation.</strong> The defense neuropsychologist can testify that this is a methodological failure that would be unacceptable in any peer-reviewed forensic context. The rebuttal expert should be directed to specifically address whether the plaintiff&rsquo;s cognitive profile is distinguishable from an ADHD profile versus an mTBI profile using the test data available.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 08 INTERNAL INCONSISTENCY MAP ══ -->
+  <div class="component" id="c8">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 08</div>
+        <div class="comp-title">Internal Inconsistency Map</div>
+      </div>
+      <div class="comp-badge">6 Inconsistencies catalogued</div>
+    </div>
+    <div class="comp-body">
+      <p>Statements, findings, and conclusions within Dr. Holden&rsquo;s own report that contradict each other or that contradict the raw data in the appendices. Internal inconsistencies are among the most effective cross-examination tools because they require no external authority &mdash; the expert is simply confronted with his own words.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:36px">#</th>
+            <th>Statement A (from report)</th>
+            <th>Statement B (from report or raw data)</th>
+            <th style="width:130px">Page references</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center;font-size:13px">1</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">&ldquo;Performance validity indicators suggest adequate effort throughout the evaluation. Results are considered reliable and valid.&rdquo;</td>
+            <td style="font-size:13.5px;color:var(--ink-2);color:var(--danger)">RDS score of 6 &mdash; below the accepted PVT failure threshold of 7&ndash;8 &mdash; is documented in raw data Appendix A without discussion or acknowledgment in the body of the report.</td>
+            <td style="font-family:var(--mono);font-size:11.5px;color:var(--ink-3)">Body: p.12<br>Raw data: App. A, p.28</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center;font-size:13px">2</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">&ldquo;Processing speed deficits were severe, falling in the 4th percentile relative to age-matched norms, representing a significant decline from estimated pre-morbid function.&rdquo;</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Dr. Holden&rsquo;s &ldquo;estimated pre-morbid function&rdquo; is based solely on a word-reading test (WTAR). The WTAR estimates premorbid IQ from reading ability &mdash; a measure that is known to be insensitive to pre-morbid processing speed, which is the specific domain claimed to be impaired. The discrepancy between estimated premorbid IQ (High Average) and current processing speed (4th percentile) is the basis for the deficit claim, but the estimation method does not measure the claimed domain.</td>
+            <td style="font-family:var(--mono);font-size:11.5px;color:var(--ink-3)">Body: pp.14, 19<br>Raw data: App. A, p.31</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center;font-size:13px">3</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">&ldquo;The plaintiff demonstrates intact language function throughout the evaluation.&rdquo;</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The plaintiff&rsquo;s presenting complaint (to his PCP, to the neurologist, and to Dr. Holden in his history) includes prominent &ldquo;word-finding difficulty.&rdquo; Word-finding difficulty is a language function. Dr. Holden characterizes language as intact and does not reconcile this finding with the plaintiff&rsquo;s own primary complaint.</td>
+            <td style="font-family:var(--mono);font-size:11.5px;color:var(--ink-3)">Body: p.17<br>History: p.5</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center;font-size:13px">4</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">&ldquo;The plaintiff&rsquo;s cognitive deficits are consistent with the severity of the traumatic brain injury sustained in the September 2025 MVA.&rdquo;</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The American Congress of Rehabilitation Medicine (ACRM) criteria for mild TBI require: loss of consciousness ≤30 minutes, post-traumatic amnesia ≤24 hours, and GCS 13&ndash;15. The ER documentation shows GCS 15, no loss of consciousness, and no documented post-traumatic amnesia. Under ACRM criteria this is a minimal, not mild, TBI &mdash; a distinction the mTBI literature treats as clinically significant for prognosis. Dr. Holden classifies the injury as &ldquo;mild TBI&rdquo; without applying or referencing the ACRM criteria.</td>
+            <td style="font-family:var(--mono);font-size:11.5px;color:var(--ink-3)">Body: p.22<br>ER records: referenced p.7</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center;font-size:13px">5</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">&ldquo;Anxiety symptoms are secondary to the TBI and are not an independent diagnostic entity relevant to the cognitive findings.&rdquo;</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">History section documents the plaintiff has been on an SSRI (escitalopram) for anxiety disorder since 2022 &mdash; three years before the MVA. A pre-existing anxiety disorder diagnosed and treated three years before the incident is definitionally not secondary to the TBI.</td>
+            <td style="font-family:var(--mono);font-size:11.5px;color:var(--ink-3)">Body: p.20<br>History: p.6</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center;font-size:13px">6</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">&ldquo;These deficits represent permanent cognitive impairment with no expected future improvement.&rdquo;</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Dr. Holden recommends (in Section VI, Recommendations): &ldquo;cognitive rehabilitation therapy, 2&times;/week for 12 months, with re-evaluation at completion.&rdquo; Cognitive rehabilitation therapy is a treatment designed to improve cognitive function. Recommending treatment with expected improvement is internally inconsistent with a conclusion of permanent impairment with no expected improvement.</td>
+            <td style="font-family:var(--mono);font-size:11.5px;color:var(--ink-3)">Body: p.24<br>Recommendations: p.30</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 09 CROSS-EXAMINATION QUESTION BANK ══ -->
+  <div class="component" id="c9">
+    <div class="comp-head exclusive">
+      <div>
+        <div class="comp-num">Section 09 &mdash; Exclusive Deliverable</div>
+        <div class="comp-title">Cross-Examination Question Bank</div>
+      </div>
+      <div class="comp-badge">28 Questions &middot; 6 Tracks</div>
+    </div>
+    <div class="comp-body">
+      <p>Physician-authored cross-examination questions organized by attack track. Each question is targeted at a specific vulnerability identified in this report. The track sequence reflects the recommended strategic order: begin with the foundational qualification and bias establishment (Tracks 1&ndash;2), then proceed to the highest-impact methodological attacks (Tracks 3&ndash;5), and close with the internal contradiction sequence (Track 6).</p>
+
+      <h3>Track 1 &mdash; Forensic Practice Pattern &amp; Referral Bias (4 questions)</h3>
+      <ol class="depo-q">
+        <li>Dr. Holden, your CV lists neuropsychological consultation and forensic evaluation as primary professional activities. Do you currently maintain any active clinical treatment panels at a hospital or neuropsychology clinic? <em>Target: establish that his primary income source is forensic rather than clinical.</em></li>
+        <li>Of the 18 cases listed in your prior testimony disclosure, how many were plaintiff-retained versus defense-retained? <em>Target: establish 14:4 ratio, 78% plaintiff-side.</em></li>
+        <li>Are you aware of any professional guidelines recommending that forensic practitioners with predominantly single-side referral patterns disclose and address this in their reports? <em>Target: establish awareness of the standard without it having been followed.</em></li>
+        <li>What percentage of your annual professional income in 2025 came from forensic evaluation work versus clinical treatment? <em>Target: financial interest quantification.</em></li>
+      </ol>
+
+      <h3 style="margin-top:24px">Track 2 &mdash; Temporal Causation (3 questions)</h3>
+      <ol class="depo-q">
+        <li>You evaluated the plaintiff 14 months after the MVA. In the mTBI outcome literature with which you are familiar, what is the typical recovery timeline for cognitive deficits following a mild traumatic brain injury? <em>Target: elicit the 3-month recovery figure from his own testimony.</em></li>
+        <li>Can you identify the section of your report where you explain why cognitive deficits found 14 months post-injury are more likely attributable to the MVA than to alternative causes that may have operated in the intervening 14 months? <em>Target: the report contains no such section.</em></li>
+        <li>Between September 2025 and your November 2026 evaluation, are you aware of any other stressors, life events, or medical changes in the plaintiff&rsquo;s history that could have affected his cognitive function? <em>Target: establish that the 14-month gap was not investigated.</em></li>
+      </ol>
+
+      <h3 style="margin-top:24px">Track 3 &mdash; PVT Omission (per exclusive sequence, Section 05)</h3>
+      <ol class="depo-q">
+        <li>Doctor, how many Performance Validity Tests did you administer during this evaluation? <em>Target: commit to three.</em></li>
+        <li>Which three PVTs did you administer, and what were the results of each? <em>Target: he will likely report TOMM and WMT passes; wait to see if he volunteers RDS.</em></li>
+        <li>Is the Reliable Digit Span an embedded Performance Validity Test recognized in the neuropsychological literature? <em>Target: establish RDS as a PVT.</em></li>
+        <li>What is the accepted failure threshold for the Reliable Digit Span? <em>Target: establish ≤7 or ≤8.</em></li>
+        <li>I am showing you Appendix A, page 28 of your own report. Can you tell me the Reliable Digit Span score documented there? <em>Target: force him to read the score of 6.</em></li>
+        <li>Can you point me to the section of your report where you discuss this RDS result? <em>Target: there is no such section.</em></li>
+        <li>Your Section IV states that &ldquo;performance validity indicators suggest adequate effort throughout the evaluation.&rdquo; Was that statement written with knowledge of the RDS score of 6? <em>Target: either he forgot it or he deliberately omitted it.</em></li>
+      </ol>
+
+      <h3 style="margin-top:24px">Track 4 &mdash; ADHD Confounder (5 questions)</h3>
+      <ol class="depo-q">
+        <li>In your clinical training, does ADHD produce deficits in processing speed, working memory, or executive function? <em>Target: he must say yes.</em></li>
+        <li>At the time of your evaluation, the plaintiff&rsquo;s ADHD was unmedicated. Did you administer any testing designed to distinguish an ADHD-related cognitive profile from an mTBI-related cognitive profile? <em>Target: no such testing was performed.</em></li>
+        <li>Can you identify the section of your report where you address ADHD as a potential confounder for the identified processing speed, working memory, and executive function findings? <em>Target: there is no such section.</em></li>
+        <li>Is Iverson et al. (2010) in your reference list? <em>Target: yes. Then:</em> And is ADHD identified in that paper as a predictor of persistent post-concussion symptoms? <em>Target: force him to confirm the paper supports the defense position.</em></li>
+        <li>If you were performing this evaluation again today, would you include testing or analysis designed to distinguish the ADHD cognitive signature from the mTBI cognitive signature? <em>Target: if yes, why was it not done? If no, he contradicts best practice.</em></li>
+      </ol>
+
+      <h3 style="margin-top:24px">Track 5 &mdash; Permanency Contradiction (3 questions)</h3>
+      <ol class="depo-q">
+        <li>Your report concludes on page 24 that the plaintiff has permanent cognitive impairment with no expected future improvement. Is that your opinion? <em>Target: commit to permanency.</em></li>
+        <li>On page 30, you recommend cognitive rehabilitation therapy two times per week for twelve months with re-evaluation at completion. What is the purpose of cognitive rehabilitation therapy? <em>Target: elicit that it is designed to improve cognitive function.</em></li>
+        <li>If the deficits are permanent with no expected improvement, why are you recommending a treatment designed to improve cognitive function? <em>Target: the internal contradiction of treatment recommendation + permanency opinion.</em></li>
+      </ol>
+
+      <h3 style="margin-top:24px">Track 6 &mdash; Literature Accuracy (2 questions)</h3>
+      <ol class="depo-q">
+        <li>Are you familiar with McCrea et al. 2013, which documented that 85 to 90 percent of patients with mild TBI show full cognitive recovery within three months of injury? Why is that study not cited in your reference list? <em>Target: force an explanation for the omission of the most relevant contrary paper.</em></li>
+        <li>You cite Iverson et al. 2010 for the proposition that post-concussion symptoms are attributable to mTBI rather than psychological factors. Is it accurate that Iverson et al. 2010 specifically found that pre-existing ADHD and anxiety are major predictors of persistent post-concussion symptoms &mdash; the opposite of the proposition for which you cited it? <em>Target: expose the citation mischaracterization.</em></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ══ 10 REBUTTAL EXPERT GUIDANCE ══ -->
+  <div class="component" id="c10">
+    <div class="comp-head exclusive">
+      <div>
+        <div class="comp-num">Section 10 &mdash; Exclusive Deliverable</div>
+        <div class="comp-title">Rebuttal Neuropsychologist Guidance</div>
+      </div>
+      <div class="comp-badge">Expert preparation memorandum</div>
+    </div>
+    <div class="comp-body">
+      <p>A physician-authored memorandum identifying the specific clinical questions the defense rebuttal neuropsychologist should address. Designed for transmission to the defense expert with the record package, at counsel&rsquo;s discretion.</p>
+      <ul class="action-list">
+        <li class="action-item priority">
+          <div class="action-num">01</div>
+          <div class="action-body">
+            <div class="priority-note">Primary opinion required</div>
+            <strong>Can the plaintiff&rsquo;s cognitive profile be distinguished from an ADHD profile on the available test data?</strong>
+            <p>The rebuttal expert should specifically address whether the WAIS-IV and DKEFS test profile documented by Dr. Holden is distinguishable from the neuropsychological profile of unmedicated ADHD in a 34-year-old adult male. If the profiles are not distinguishable on the available data, the causation opinion attributing the deficits to mTBI rather than ADHD is not supportable.</p>
+          </div>
+        </li>
+        <li class="action-item priority">
+          <div class="action-num">02</div>
+          <div class="action-body">
+            <div class="priority-note">Primary opinion required</div>
+            <strong>Does the RDS score of 6 affect the reliability of the neuropsychological findings?</strong>
+            <p>The rebuttal expert should address whether a failed RDS in the context of passing TOMM and WMT is clinically significant, how it should have been addressed in the report, and whether its omission from the validity section affects the overall reliability and interpretability of the cognitive findings.</p>
+          </div>
+        </li>
+        <li class="action-item">
+          <div class="action-num">03</div>
+          <div class="action-body">
+            <strong>Is the permanent cognitive deficit opinion consistent with the mTBI natural history literature for this injury severity?</strong>
+            <p>The rebuttal expert should address the 3-month recovery literature (McCrea et al., 2013; Iverson et al., 2012) and opine on whether a &ldquo;permanent&rdquo; deficit opinion, in a patient with no neuroimaging abnormality and no documented LOC, is consistent with the scientific literature on mTBI outcomes.</p>
+          </div>
+        </li>
+        <li class="action-item">
+          <div class="action-num">04</div>
+          <div class="action-body">
+            <strong>What additional testing, if any, would be required to produce a reliable causation opinion in this case?</strong>
+            <p>The rebuttal expert should specify what a methodologically adequate forensic neuropsychological evaluation in this case would require: pre-injury baseline data acquisition, ADHD-specific testing, ecological validity measures, and an appropriate confounder analysis. This testimony establishes the standard against which Dr. Holden&rsquo;s methodology is measured.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Scope and Boundary Statement &mdash; Included in Every PED Deliverable</strong>
+    This Plaintiff Expert Deconstruction is prepared at the direction of and for the use of defense counsel. All assessments in this report are physician-authored. Medisprudence does not provide legal advice, Daubert hearing strategy, or trial strategy. The vulnerabilities identified in this report represent the physician reviewer&rsquo;s assessment of the expert report&rsquo;s methodological and factual weaknesses; whether and how to deploy these vulnerabilities in deposition, at hearing, or at trial is entirely counsel&rsquo;s strategic decision. All clinical data in this specimen is fictional. No PHI is present.
+  </div>
+
+  <div class="doc-footer">
+    <span>Medisprudence &middot; Plaintiff Expert Deconstruction (PED&trade;) &middot; Physician-authored expert challenge intelligence</span>
+    <span>Specimen &middot; Fictional Data &middot; May 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
