@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medisprudence — Specimen: UR Process Audit (URP™)</title>
+<meta name="description" content="Specimen URP deliverable — commercial health plan denial of spinal cord stimulator for FBSS. Bad faith defensibility audit. MCG criteria compliance review. Fictional clinical data. No PHI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────
+   MEDISPRUDENCE — SPECIMEN STYLES
+   Shared CSS for all specimen deliverables.
+   Matches editorial/case-file aesthetic of medisprudence.com
+   ─────────────────────────────────────────────────────────── */
+
+:root{
+  --bg:#FAF7F1;
+  --bg-alt:#F1ECE0;
+  --bg-inset:#EDE6D6;
+  --paper:#FFFCF5;
+  --ink:#1A1612;
+  --ink-2:#3D352D;
+  --ink-3:#76695B;
+  --teal:#7A1F2B;
+  --teal-text:#6B1A24;
+  --teal-dim:rgba(122,31,43,.07);
+  --teal-tint:rgba(122,31,43,.04);
+  --teal-glow:rgba(122,31,43,.18);
+  --danger:#8B2418;
+  --danger-dim:rgba(139,36,24,.08);
+  --danger-glow:rgba(139,36,24,.20);
+  --caution:#8C6A1F;
+  --caution-dim:rgba(140,106,31,.09);
+  --caution-glow:rgba(140,106,31,.22);
+  --rule:rgba(26,22,18,.10);
+  --rule-md:rgba(26,22,18,.16);
+  --rule-dark:rgba(26,22,18,.28);
+  --serif:'Spectral','Georgia',serif;
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',ui-monospace,monospace;
+  --r-sm:2px;
+  --r-md:3px;
+  --r-lg:4px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:15px;
+  background:var(--bg);
+  padding-top:44px;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--teal);color:#fff}
+*:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
+h1,h2,h3,h4{
+  font-family:var(--serif);
+  line-height:1.15;
+  font-weight:400;
+  color:var(--ink);
+  letter-spacing:-.015em;
+}
+.mono{font-family:var(--mono)}
+
+/* ── TOP BAR (specimen disclaimer / back nav) ── */
+.top-bar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:44px;background:rgba(250,247,241,.94);
+  backdrop-filter:blur(20px) saturate(1.6);
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:24px;
+  padding:0 32px;
+}
+.top-bar a.back{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);
+  display:inline-flex;align-items:center;gap:6px;
+  transition:color .18s;
+}
+.top-bar a.back:hover{color:var(--teal)}
+.top-bar .specimen-tag{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);padding-left:20px;
+  border-left:1px solid var(--rule);
+}
+.top-bar .specimen-tag strong{color:var(--teal-text);font-weight:500}
+
+/* ── DOC HEADER ── */
+.doc-header{
+  background:var(--bg);
+  padding:28px 48px 22px;
+  border-bottom:1px solid var(--rule);
+}
+.doc-header-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:18px;
+  gap:24px;flex-wrap:wrap;
+}
+.doc-brand{
+  font-family:var(--serif);font-size:20px;font-weight:400;
+  color:var(--ink);letter-spacing:-.02em;
+  display:flex;align-items:center;gap:8px;
+}
+.doc-brand svg{color:var(--teal);flex-shrink:0}
+.doc-stamp{text-align:right}
+.doc-stamp-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.doc-stamp-val{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;margin-top:3px;
+}
+.doc-title{
+  font-family:var(--serif);font-size:clamp(24px,3vw,32px);
+  font-weight:400;color:var(--ink);letter-spacing:-.02em;
+  margin-bottom:8px;line-height:1.15;
+}
+.doc-title em{font-style:italic;color:var(--teal);font-weight:400}
+.doc-subtitle{
+  font-size:13.5px;color:var(--ink-3);
+  font-family:var(--sans);
+  letter-spacing:.005em;
+}
+
+/* ── DOC NAV (anchor pills) ── */
+.doc-nav{
+  background:var(--bg-alt);
+  border-bottom:1px solid var(--rule);
+  padding:12px 48px;
+  display:flex;gap:6px;flex-wrap:wrap;
+}
+.doc-nav a{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);text-decoration:none;
+  padding:6px 12px;
+  border:1px solid var(--rule);
+  border-radius:var(--r-sm);
+  background:var(--bg);
+  transition:.18s;white-space:nowrap;
+}
+.doc-nav a:hover{
+  color:var(--teal-text);
+  border-color:var(--teal);
+  background:var(--teal-dim);
+}
+
+/* ── BODY WRAP ── */
+.doc{
+  max-width:920px;
+  margin:0 auto;
+  padding:36px 48px 56px;
+}
+
+/* ── CASE CAPTION (file metadata) ── */
+.caption{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:6px 24px;
+  margin-bottom:28px;
+}
+.caption-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  padding:14px 0;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+}
+.caption-row:last-child{border-bottom:none}
+.caption-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:2px;
+}
+.caption-val{
+  font-weight:500;color:var(--ink);font-size:14.5px;
+  line-height:1.5;
+}
+
+/* ── KPI / SCORECARD STRIP ── */
+.kpi-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  margin-bottom:32px;
+  background:var(--bg);
+  overflow:hidden;
+}
+.kpi-strip.cols-5{grid-template-columns:repeat(5,1fr)}
+.kpi{
+  padding:18px 14px;text-align:center;
+  border-right:1px solid var(--rule);
+  background:var(--bg);
+}
+.kpi:last-child{border-right:none}
+.kpi-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;
+}
+.kpi-val{
+  font-family:var(--serif);font-size:24px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.1;
+}
+.kpi-val.red{color:var(--danger)}
+.kpi-val.amber{color:var(--caution)}
+.kpi-val.green,
+.kpi-val.teal{color:var(--teal)}
+
+/* ── COMPONENT (numbered section block) ── */
+.component{
+  margin-bottom:36px;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  overflow:hidden;
+  background:var(--bg);
+}
+.comp-head{
+  background:var(--bg-alt);
+  padding:16px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.comp-head::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:var(--teal);
+}
+.comp-head.alert::before{background:var(--danger)}
+.comp-head.exclusive{
+  background:var(--ink);color:#fff;
+  border-bottom:1px solid var(--ink);
+}
+.comp-head.exclusive::before{background:var(--teal);width:3px}
+.comp-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:3px;
+}
+.comp-head.exclusive .comp-num{color:rgba(217,205,182,.85)}
+.comp-title{
+  font-family:var(--serif);font-size:21px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.2;
+}
+.comp-head.exclusive .comp-title{color:#fff}
+.comp-badge{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.comp-head.exclusive .comp-badge{color:rgba(217,205,182,.55)}
+.comp-body{padding:24px 26px}
+.comp-body p{
+  color:var(--ink-2);margin-bottom:11px;
+  font-size:14.5px;line-height:1.75;
+}
+.comp-body p strong{color:var(--ink);font-weight:500}
+.comp-body h3{
+  font-family:var(--serif);font-size:18px;
+  font-weight:400;color:var(--ink);
+  margin:18px 0 8px;letter-spacing:-.01em;
+}
+
+/* ── FINDINGS (callouts) ── */
+.finding{
+  border-left:3px solid var(--teal);
+  padding:14px 18px;margin:14px 0;
+  background:var(--teal-dim);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+}
+.finding.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.finding.caution{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.finding-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:6px;
+  color:var(--teal-text);
+}
+.finding.warn .finding-label{color:var(--danger)}
+.finding.caution .finding-label{color:var(--caution)}
+.finding p{
+  font-size:14px;color:var(--ink);
+  margin-bottom:0;line-height:1.7;
+}
+.finding p + p{margin-top:8px}
+.finding p strong{color:var(--ink);font-weight:600}
+
+/* ── EXCLUSIVE / REBUTTAL (dark inset) ── */
+.exclusive,
+.rebuttal{
+  background:var(--ink);
+  color:#fff;
+  padding:20px 24px;
+  margin:16px 0;
+  border-radius:var(--r-sm);
+  border-left:3px solid var(--teal);
+}
+.exclusive .finding-label,
+.rebuttal .finding-label{
+  color:#D8A89F;letter-spacing:.16em;
+  font-weight:500;margin-bottom:8px;
+}
+.exclusive p,
+.rebuttal p{
+  color:rgba(255,255,255,.82);
+  font-size:14px;line-height:1.75;
+}
+.exclusive p strong,
+.rebuttal p strong{color:#fff;font-weight:600}
+.exclusive p + p,
+.rebuttal p + p{margin-top:10px}
+
+/* ── TABLES ── */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:14px 0;
+  font-size:13.5px;
+  background:var(--bg);
+}
+th,td{
+  padding:11px 13px;
+  border:1px solid var(--rule);
+  vertical-align:top;
+  text-align:left;
+  line-height:1.6;
+}
+thead th{
+  background:var(--bg-inset);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:600;
+  border-color:var(--rule-md);
+}
+tbody td:first-child{
+  font-weight:500;color:var(--ink);
+  background:var(--bg-alt);
+}
+tbody tr:nth-child(even) td{background:var(--bg-alt)}
+tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
+.ref{
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.02em;
+}
+
+/* ── TIMELINE (CMIP medmal) ── */
+.timeline{
+  border-left:2px solid var(--rule-md);
+  margin:20px 0;
+  padding-left:24px;
+}
+.timeline-event{
+  position:relative;
+  padding-bottom:22px;
+}
+.timeline-event:last-child{padding-bottom:0}
+.timeline-event::before{
+  content:"";position:absolute;
+  left:-30px;top:5px;
+  width:11px;height:11px;
+  border-radius:50%;
+  background:var(--bg);
+  border:2px solid var(--rule-dark);
+}
+.timeline-event.critical::before{
+  background:var(--danger);border-color:var(--danger);
+}
+.timeline-event.flag::before{
+  background:var(--caution);border-color:var(--caution);
+}
+.timeline-event.good::before{
+  background:var(--teal);border-color:var(--teal);
+}
+.timeline-date{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.06em;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:4px;text-transform:uppercase;
+}
+.timeline-event.critical .timeline-date{color:var(--danger)}
+.timeline-event.flag .timeline-date{color:var(--caution)}
+.timeline-event p{
+  font-size:14px;color:var(--ink-2);
+  margin:0;line-height:1.7;
+}
+.timeline-event strong{color:var(--ink);font-weight:600}
+
+/* ── IME QUOTE BOX ── */
+.ime-quote{
+  border:1px solid var(--rule-md);
+  background:var(--paper);
+  padding:16px 20px 14px;
+  margin:14px 0;
+  position:relative;
+  border-radius:var(--r-sm);
+}
+.ime-quote::before{
+  content:"IME report states";
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);
+  position:absolute;top:-7px;left:14px;
+  background:var(--bg);padding:0 8px;
+}
+.ime-quote p{
+  font-family:var(--serif);font-size:15px;
+  color:var(--ink);font-style:italic;
+  margin:0;line-height:1.55;letter-spacing:.005em;
+}
+
+/* ── DEPOSITION QUESTIONS ── */
+.depo-q{counter-reset:depo;list-style:none}
+.depo-q li{
+  list-style:none;
+  padding:14px 16px 14px 50px;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+  color:var(--ink);
+  counter-increment:depo;
+  position:relative;
+  line-height:1.65;
+}
+.depo-q li::before{
+  content:"Q" counter(depo);
+  position:absolute;left:14px;top:13px;
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.05em;
+}
+.depo-q li:last-child{border-bottom:none}
+.depo-q li em{
+  font-style:italic;color:var(--ink-3);
+  display:block;margin-top:5px;font-size:12.5px;
+  font-family:var(--sans);
+}
+
+/* ── PRE-EXISTING GRID (DML) ── */
+.pe-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;margin:16px 0;
+}
+.pe-card{
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.pe-card.primary{
+  border-color:var(--danger-glow);
+  background:var(--danger-dim);
+}
+.pe-card.positive{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+}
+.pe-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;font-weight:500;
+}
+.pe-card.primary .pe-label{color:var(--danger)}
+.pe-card.positive .pe-label{color:var(--teal-text)}
+.pe-card h4{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  margin-bottom:8px;letter-spacing:-.01em;
+}
+.pe-card p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.7;
+}
+
+/* ── ACTION LIST (DML) ── */
+.action-list{
+  list-style:none;
+  display:flex;flex-direction:column;
+  gap:12px;margin-top:18px;
+}
+.action-item{
+  display:grid;
+  grid-template-columns:36px 1fr;
+  gap:14px;align-items:flex-start;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.action-item.priority{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+  border-left:3px solid var(--teal);
+}
+.action-num{
+  font-family:var(--mono);font-size:14px;
+  font-weight:500;color:var(--teal-text);
+  margin-top:1px;
+}
+.action-body strong{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  display:block;margin-bottom:6px;
+  line-height:1.3;letter-spacing:-.01em;
+}
+.action-body p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.75;margin:0;
+}
+.action-body .priority-note{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:6px;
+}
+
+/* ── BADGES / PILLS ── */
+.badge{
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:var(--r-sm);
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  font-weight:500;line-height:1.4;
+  border:1px solid currentColor;
+}
+.b-high{color:var(--danger);background:var(--danger-dim)}
+.b-moderate{color:var(--caution);background:var(--caution-dim)}
+.b-lowmod{color:var(--ink-2);background:var(--bg-inset)}
+.b-low{color:var(--teal-text);background:var(--teal-dim)}
+
+.pill{
+  display:inline-block;
+  padding:3px 10px;
+  border-radius:999px;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;
+  font-weight:500;
+}
+.pill-red{background:var(--danger-dim);color:var(--danger)}
+.pill-amber{background:var(--caution-dim);color:var(--caution)}
+.pill-green{background:var(--teal-dim);color:var(--teal-text)}
+
+/* ── CASE BOX (DML) ── */
+.case-box{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--ink);
+  border-radius:var(--r-sm);
+  padding:22px 26px;
+  margin-bottom:30px;
+}
+.case-box-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:14px;font-weight:500;
+}
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px 22px;
+  margin-bottom:14px;
+}
+.ci-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px;
+}
+.ci-val{
+  font-family:var(--mono);font-size:13px;
+  color:var(--ink);font-weight:500;
+  line-height:1.5;letter-spacing:.01em;
+}
+.case-summary{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;
+  border-top:1px solid var(--rule);
+  padding-top:14px;margin-top:8px;
+}
+
+/* ── SECTION (CVA + DML alternative section style) ── */
+.section{margin-bottom:34px}
+.sec-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:8px;font-weight:500;
+}
+.sec-title{
+  font-family:var(--serif);font-size:23px;
+  font-weight:400;color:var(--ink);letter-spacing:-.015em;
+  margin-bottom:6px;padding-bottom:10px;
+  border-bottom:1px solid var(--ink);
+}
+.sec-sub{
+  font-size:13.5px;color:var(--ink-3);
+  margin-bottom:18px;font-style:italic;line-height:1.7;
+  max-width:760px;
+}
+.body-text{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.78;margin-bottom:14px;
+}
+.body-text strong{color:var(--ink);font-weight:500}
+
+/* ── CALLOUT (DML, alternate style) ── */
+.callout{
+  border-left:3px solid var(--teal);
+  background:var(--teal-dim);
+  padding:16px 20px;
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  margin:14px 0;
+}
+.callout.danger{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.callout.warn{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.callout.neutral{
+  border-left-color:var(--ink-3);
+  background:var(--bg-alt);
+}
+.callout-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:8px;
+  color:var(--teal-text);
+}
+.callout.danger .callout-label{color:var(--danger)}
+.callout.warn .callout-label{color:var(--caution)}
+.callout.neutral .callout-label{color:var(--ink-2)}
+.callout p{
+  font-size:14px;color:var(--ink);
+  line-height:1.75;
+}
+.callout p + p{margin-top:8px}
+
+/* ── VERDICT BOX ── */
+.verdict{
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--teal);
+  background:var(--bg-alt);
+  padding:24px 28px;
+  margin:24px 0 8px;
+  border-radius:var(--r-sm);
+}
+.verdict.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+  border-color:var(--danger-glow);
+}
+.verdict-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:10px;font-weight:500;
+}
+.verdict.warn .verdict-label{color:var(--danger)}
+.verdict h3{
+  font-family:var(--serif);font-size:22px;
+  font-weight:400;color:var(--ink);
+  margin-bottom:10px;letter-spacing:-.015em;line-height:1.25;
+  max-width:760px;
+}
+.verdict.warn h3{color:var(--ink)}
+.verdict p{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;margin-top:8px;
+}
+
+/* ── DOC FOOTER + DISCLAIMER ── */
+.doc-footer{
+  border-top:1px solid var(--ink);
+  padding-top:18px;margin-top:44px;
+  display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);gap:14px;flex-wrap:wrap;
+}
+.doc-footer span:first-child{color:var(--ink-2)}
+
+.disclaimer{
+  margin-top:18px;
+  padding:18px 22px;
+  background:var(--bg-alt);
+  border-left:3px solid var(--ink);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-size:12.5px;
+  color:var(--ink-3);
+  line-height:1.75;
+  font-style:italic;
+}
+.disclaimer strong{
+  color:var(--ink-2);font-style:normal;font-weight:600;
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  display:block;margin-bottom:6px;
+}
+
+/* ── TABLE-OVERFLOW WRAPPER ── */
+.table-wrap{
+  overflow-x:auto;margin:14px 0;
+  border-radius:var(--r-sm);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:780px){
+  .doc{padding:24px 20px 40px}
+  .doc-header{padding:22px 20px 18px}
+  .doc-nav{padding:10px 20px}
+  .top-bar{padding:0 16px;gap:14px}
+  .top-bar .specimen-tag{padding-left:14px}
+  .kpi-strip,.kpi-strip.cols-5{grid-template-columns:1fr 1fr}
+  .caption-row{grid-template-columns:1fr;gap:10px}
+  .comp-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .case-grid{grid-template-columns:1fr 1fr}
+  .pe-grid{grid-template-columns:1fr}
+  .doc-header-top{flex-direction:column;align-items:flex-start;gap:14px}
+  .doc-stamp{text-align:left}
+}
+@media(max-width:520px){
+  .case-grid{grid-template-columns:1fr}
+  .doc-footer{flex-direction:column;gap:8px}
+}
+
+/* ── PRINT ── */
+@media print{
+  .top-bar,.doc-nav{display:none}
+  body{padding-top:0;background:#fff;font-size:11pt}
+  .component,.caption,.kpi-strip,.case-box{break-inside:avoid;page-break-inside:avoid}
+  .doc{padding:0;max-width:100%}
+}
+
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a class="back" href="../">&larr; Back to Medisprudence</a>
+  <span class="specimen-tag"><strong>Specimen</strong> &nbsp;·&nbsp; Fictional clinical data &nbsp;·&nbsp; No PHI</span>
+</div>
+
+<div class="doc-header">
+  <div class="doc-header-top">
+    <div class="doc-brand">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <circle cx="16" cy="11" r="2.4" fill="currentColor"/>
+        <line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      Medisprudence
+    </div>
+    <div class="doc-stamp">
+      <div class="doc-stamp-label">Document type</div>
+      <div class="doc-stamp-val">UR Process Audit (URP&trade;) &mdash; Bad Faith Defensibility Review</div>
+    </div>
+  </div>
+  <div class="doc-title">UR Process Audit &mdash; <em>SCS Denial / Failed Back Surgery Syndrome</em></div>
+  <div class="doc-subtitle">Specimen &middot; Fictional clinical data &middot; No PHI &middot; Denial reviewed: spinal cord stimulator trial &middot; Prepared for carrier legal &amp; medical director</div>
+</div>
+
+<div class="doc-nav">
+  <a href="#c1">01 Denial Summary</a>
+  <a href="#c2">02 Bad Faith Scorecard</a>
+  <a href="#c3">03 Clinical Criteria Audit</a>
+  <a href="#c4">04 Documentation Adequacy</a>
+  <a href="#c5">05 Process Compliance</a>
+  <a href="#c6">06 Bad Faith Exposure Map</a>
+  <a href="#c7">07 Clinical Narrative Defense</a>
+  <a href="#c8">08 Remediation Recommendations</a>
+</div>
+
+<div class="doc">
+
+  <!-- ══ 01 DENIAL SUMMARY ══ -->
+  <div class="case-box" id="c1">
+    <div class="case-box-label">Denial &amp; Litigation Summary</div>
+    <div class="case-grid">
+      <div><div class="ci-label">Request type</div><div class="ci-val">Prior Authorization &mdash; Spinal Cord Stimulator (SCS) Trial Implant</div></div>
+      <div><div class="ci-label">Diagnosis</div><div class="ci-val">Failed Back Surgery Syndrome (FBSS) / Chronic Post-Surgical Low Back &amp; Left Leg Pain</div></div>
+      <div><div class="ci-label">Member</div><div class="ci-val">52 F, administrative director. Commercial PPO plan.</div></div>
+      <div><div class="ci-label">Requesting provider</div><div class="ci-val">Interventional pain management, board-certified anesthesiology &amp; pain medicine</div></div>
+      <div><div class="ci-label">Denial date</div><div class="ci-val">March 14, 2025 &mdash; Initial denial by plan UR physician</div></div>
+      <div><div class="ci-label">Denial basis</div><div class="ci-val">Not medically necessary: &ldquo;Documentation does not demonstrate adequate trial of conservative therapies as required by plan criteria.&rdquo;</div></div>
+      <div><div class="ci-label">Appeal outcome</div><div class="ci-val">Level 1 appeal denied (April 8, 2025). Level 2 appeal denied (May 3, 2025). IRO (Independent Review Organization): denial reversed May 22, 2025.</div></div>
+      <div><div class="ci-label">Current litigation</div><div class="ci-val">Member filed bad faith action in state court: alleges unreasonable denial, failure to apply correct criteria, and delayed access to necessary care. Member subsequently underwent SCS trial (post-IRO reversal) with documented therapeutic success.</div></div>
+      <div><div class="ci-label">Records reviewed</div><div class="ci-val">UR file (482 pages), denial letters, appeal letters, IRO report, clinical record, pain management notes, surgical records (index surgery), PT records, medication history</div></div>
+      <div><div class="ci-label">Reviewed by</div><div class="ci-val">Dr. A. Kasturi, MBBS &middot; Medisprudence &middot; Payer-side utilization review background, InterQual and MCG criteria</div></div>
+    </div>
+    <div class="case-summary">
+      A 52-year-old female administrative director with a two-year history of Failed Back Surgery Syndrome (FBSS) following an L4&ndash;L5 and L5&ndash;S1 two-level posterior lumbar interbody fusion in January 2023 was submitted for prior authorization for a spinal cord stimulator (SCS) trial implant by her board-certified interventional pain management physician in February 2025. The member&rsquo;s clinical record at submission documented persistent chronic low back and left lower extremity radicular pain despite: two years of ongoing conservative management (multiple medications, PT, activity modification), four lumbar epidural steroid injections post-surgery (two at L4&ndash;L5 and two at L5&ndash;S1), and a psychological evaluation clearing the member for SCS candidacy. The plan&rsquo;s UR physician denied the SCS trial on March 14, 2025, citing inadequate conservative therapy trial. Level 1 and Level 2 appeals were denied on the same basis. The Independent Review Organization reversed the denial on May 22, 2025, finding that the clinical documentation clearly demonstrated adequate conservative care failure per published clinical guidelines. The member underwent a successful SCS trial and proceeded to permanent implantation. She is now suing the carrier for bad faith denial. This UR Process Audit reviews the clinical basis for the denial, the criteria applied, the documentation reviewed, and the process compliance, in order to assess the carrier&rsquo;s bad faith exposure and identify the specific vulnerabilities that must be addressed in the litigation defense.
+    </div>
+  </div>
+
+  <!-- ══ 02 BAD FAITH SCORECARD ══ -->
+  <div class="component" id="c2">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 02</div>
+        <div class="comp-title">Bad Faith Exposure Scorecard</div>
+      </div>
+      <div class="comp-badge">Carrier risk summary</div>
+    </div>
+  </div>
+
+  <div class="kpi-strip cols-5">
+    <div class="kpi"><div class="kpi-label">Clinical Basis</div><div class="kpi-val amber">Defensible</div></div>
+    <div class="kpi"><div class="kpi-label">Criteria Accuracy</div><div class="kpi-val red">Misapplied</div></div>
+    <div class="kpi"><div class="kpi-label">Documentation Review</div><div class="kpi-val red">Incomplete</div></div>
+    <div class="kpi"><div class="kpi-label">Process Compliance</div><div class="kpi-val amber">Partial</div></div>
+    <div class="kpi"><div class="kpi-label">Overall Bad Faith Risk</div><div class="kpi-val red">Elevated</div></div>
+  </div>
+
+  <div class="callout danger" style="margin-top:0;margin-bottom:36px">
+    <div class="callout-label">Physician&rsquo;s Net Assessment for Carrier Legal</div>
+    <p><strong>The carrier&rsquo;s clinical basis for the SCS denial &mdash; that conservative care was inadequate &mdash; is factually incorrect on this record and the IRO correctly reversed it.</strong> The clinical record submitted with the PA request contained documentation of four post-surgical ESIs, two years of multi-modal pain management, a cleared psychological evaluation, and a board-certified pain physician&rsquo;s clinical judgment that all conservative options had been exhausted. The plan UR physician&rsquo;s denial applied an incorrect criteria threshold (requiring a specific number of PT sessions that the MCG criteria for SCS do not specify) and did not document review of the ESI records or the psychological evaluation. Three specific vulnerabilities exist in the denial that the plaintiff&rsquo;s bad faith claim will exploit. This audit identifies each vulnerability and provides the remediation pathway for litigation defense. The carrier&rsquo;s strongest defense argument is that the SCS trial criteria are legitimately complex and that the initial UR physician exercised clinical judgment in good faith &mdash; however, the same-basis Level 2 denial, after the member submitted additional documentation, is the most damaging element of the record for bad faith purposes.</p>
+  </div>
+
+  <!-- ══ 03 CLINICAL CRITERIA AUDIT ══ -->
+  <div class="component" id="c3">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 03 &mdash; Core Bad Faith Question</div>
+        <div class="comp-title">Clinical Criteria Audit &mdash; MCG Guidelines for SCS</div>
+      </div>
+      <div class="comp-badge">Criterion-by-criterion review</div>
+    </div>
+    <div class="comp-body">
+      <p>The plan&rsquo;s policy for SCS prior authorization incorporates MCG (Milliman Care Guidelines) criteria for Spinal Cord Stimulation. Each MCG criterion applicable to SCS trial authorization is evaluated against the documentation available to the UR physician at the time of the initial denial. This is the definitive test of whether the denial was clinically supportable &mdash; the fundamental question in a bad faith action.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:210px">MCG criterion (SCS trial)</th>
+            <th style="width:120px">Met at submission?</th>
+            <th>Record evidence &amp; UR physician review</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Diagnosis consistent with SCS indication<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">FBSS / post-surgical radiculopathy</span></td>
+            <td style="text-align:center"><span class="pill pill-green">Met</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Failed Back Surgery Syndrome following lumbar fusion is an MCG-listed primary indication for SCS. The diagnosis is unambiguously documented in the pain management records, the requesting physician&rsquo;s letter, and the surgical records. The UR denial letter does not dispute the diagnosis. This criterion is met and not in dispute.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Documented failure of ≥6 months conservative care<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">MCG criterion C-1</span></td>
+            <td style="text-align:center"><span class="pill pill-green">Met &mdash; 24 months</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The member&rsquo;s FBSS symptoms commenced with the index surgery in January 2023. The SCS PA was submitted in February 2025 &mdash; 24 months later. The pain management record documents continuous multi-modal pain management over this entire 24-month period. <strong>The UR denial letter states that &ldquo;documentation does not demonstrate adequate trial of conservative therapies.&rdquo;</strong> This statement is factually incorrect: the record submitted with the PA request includes 24 months of documented, continuous conservative management &mdash; four times the MCG minimum. The UR physician&rsquo;s denial letter does not specify which conservative care element was allegedly missing.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Documented failure of ≥2 different drug classes for chronic pain<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">MCG criterion C-2</span></td>
+            <td style="text-align:center"><span class="pill pill-green">Met</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Medication record documents: gabapentin (adequate dose, 12 months, discontinued due to intolerance), duloxetine (adequate dose, 9 months, partial response), opioid analgesic (hydrocodone, per opioid management protocol, ongoing), NSAID trial (contraindicated after 3 months due to renal function), topical lidocaine (inadequate response). This is four distinct drug classes with documented failure or intolerance. MCG C-2 requires two. This criterion is clearly met. The UR denial does not reference medication history or invoke this criterion.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Documented failure of epidural steroid injections or interventional procedures<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">MCG criterion C-3</span></td>
+            <td style="text-align:center"><span class="pill pill-red">Met &mdash; Not reviewed</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong style="color:var(--danger)">Critical vulnerability.</strong> The submitted PA documentation includes records of four post-surgical lumbar ESIs (L4&ndash;L5 and L5&ndash;S1, two each) with documented inadequate response. The ESI records are included on pages 112&ndash;148 of the submitted PA package. The UR physician&rsquo;s denial letter contains no reference to the ESI records. The UR file review log (internal document) does not list the ESI records as reviewed. MCG criterion C-3 requires documented failure of interventional procedures &mdash; this criterion is clearly met by the four ESI records, but there is no evidence the UR physician reviewed them. If the UR physician had reviewed the ESI records, the denial cannot be clinically sustained. If the UR physician did not review them, the denial was made on an incomplete clinical record.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Psychological evaluation clearance<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">MCG criterion C-4</span></td>
+            <td style="text-align:center"><span class="pill pill-red">Met &mdash; Not reviewed</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong style="color:var(--danger)">Critical vulnerability.</strong> MCG criterion C-4 requires a pre-SCS psychological evaluation confirming the absence of untreated psychiatric conditions that would preclude SCS candidacy. A psychological evaluation was performed by a licensed psychologist on January 15, 2025 and was included in the PA submission package (pages 201&ndash;218). The evaluation cleared the member for SCS implantation with no psychiatric contraindications. The UR denial letter does not reference the psychological evaluation. The UR file review log does not list the psychological evaluation as reviewed. The IRO reviewer specifically noted that the psychological evaluation clearance was present and adequate in the submission.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Requesting physician is appropriately specialized<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">MCG criterion C-5</span></td>
+            <td style="text-align:center"><span class="pill pill-green">Met</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The requesting physician is board-certified in Anesthesiology and Pain Medicine. MCG C-5 requires the SCS request to originate from a pain management specialist. Met. Not in dispute.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">No contraindications present<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">MCG criterion C-6</span></td>
+            <td style="text-align:center"><span class="pill pill-green">Met</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">No documented coagulopathy, active systemic infection, or active untreated psychiatric contraindication. The psychological evaluation specifically cleared this. Met. Not in dispute.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="finding warn">
+        <div class="finding-label">Criteria audit summary &mdash; 6 of 6 criteria met at submission, 2 not reviewed by UR physician</div>
+        <p><strong>All six MCG criteria applicable to SCS trial authorization were met by the documentation in the submitted PA package. The UR physician&rsquo;s denial was based on a criteria element (inadequate conservative care) that is factually contradicted by the record.</strong> Most critically, the two criteria that are most specific to SCS authorization &mdash; the post-surgical interventional procedure failure (C-3, four ESIs) and the psychological evaluation clearance (C-4) &mdash; appear to not have been reviewed by the UR physician, as neither is referenced in the denial letter or the review log. The IRO&rsquo;s reversal explicitly cited both the ESI records and the psychological evaluation as documenting met criteria. The bad faith plaintiff will frame this as the plan denying coverage without reviewing the most clinical significant documents in the submission.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 04 DOCUMENTATION ADEQUACY REVIEW ══ -->
+  <div class="component" id="c4">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 04</div>
+        <div class="comp-title">UR File Documentation Adequacy Review</div>
+      </div>
+      <div class="comp-badge">Record completeness audit</div>
+    </div>
+    <div class="comp-body">
+      <p>A review of the UR physician&rsquo;s documentation practices across the initial denial and both appeal levels. In a bad faith action, the quality of the UR physician&rsquo;s documentation is the evidentiary foundation for the carrier&rsquo;s defense. Inadequate documentation of the clinical rationale is itself evidence of an inadequate review process.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:180px">Documentation element</th>
+            <th style="width:110px">Adequacy</th>
+            <th>Audit finding &amp; bad faith relevance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">UR physician&rsquo;s review log</td>
+            <td style="text-align:center"><span class="pill pill-red">Deficient</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong>The UR physician&rsquo;s review log lists 7 of the 23 documents submitted with the PA request.</strong> The ESI records (pages 112&ndash;148) and the psychological evaluation (pages 201&ndash;218) are not listed. In a bad faith action, an incomplete review log is direct evidence that the UR physician did not review all submitted documentation before denying the request. The plaintiff will rely on this log as the central exhibit demonstrating incomplete review.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Denial letter clinical rationale</td>
+            <td style="text-align:center"><span class="pill pill-red">Deficient</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The initial denial letter (March 14, 2025) is 1.5 pages. The clinical rationale section is a single paragraph: <em>&ldquo;The submitted documentation does not demonstrate an adequate trial of conservative therapies as required by plan medical policy. Specifically, the documentation does not establish the completion of a structured physical therapy program as a prerequisite to interventional device consideration.&rdquo;</em> This rationale: <strong>(1)</strong> does not reference any specific MCG criterion number; <strong>(2)</strong> invokes a &ldquo;structured physical therapy program&rdquo; requirement that does not appear in the MCG SCS criteria as a quantified minimum; <strong>(3)</strong> does not address the documented 24 months of conservative management; <strong>(4)</strong> does not address the four ESIs; and <strong>(5)</strong> does not address the psychological evaluation. A denial letter that fails to specify which criteria element was unmet and why is not a clinically adequate denial letter under standard UR documentation practice.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Level 1 appeal review</td>
+            <td style="text-align:center"><span class="pill pill-red">Deficient</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The Level 1 appeal denial letter (April 8, 2025) is 1.2 pages and reproduces the identical clinical rationale as the initial denial, word for word, with a different date. The member&rsquo;s Level 1 appeal submission included a 4-page letter from the requesting pain physician specifically responding to the PT program requirement and providing explicit documentation of the four ESIs and the psychological evaluation. The Level 1 appeal denial does not acknowledge any of the additional documentation provided in the appeal. <strong>An appeal denial that does not address new clinical information provided by the member is among the most damaging fact patterns in a bad faith action.</strong></td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Level 2 appeal review</td>
+            <td style="text-align:center"><span class="pill pill-amber">Partial</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The Level 2 appeal was reviewed by a second UR physician (different from the initial reviewer). The Level 2 denial letter (May 3, 2025) is 2.5 pages and references the requesting physician&rsquo;s appeal letter. It acknowledges the four ESIs but characterizes them as &ldquo;not demonstrating systematic failure of the complete conservative care protocol.&rdquo; The Level 2 denial does not specify what &ldquo;complete conservative care protocol&rdquo; requires beyond what is documented. It does not acknowledge the psychological evaluation. This is a partial improvement over Level 1 but still inadequate, and the IRO reversed on both the ESI adequacy assessment and the psychological evaluation acknowledgment gap.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Criteria version documentation</td>
+            <td style="text-align:center"><span class="pill pill-amber">Gap</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The denial letters reference &ldquo;plan medical policy&rdquo; and &ldquo;MCG criteria&rdquo; but do not specify the MCG criteria version applied. MCG SCS criteria are updated annually. In a bad faith action, the carrier must establish that the criteria applied were the most current version in effect at the time of the denial and that the criteria version applied is consistent with the plan&rsquo;s adopted criteria schedule. The UR file does not contain documentation of which MCG version was used.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 05 PROCESS COMPLIANCE REVIEW ══ -->
+  <div class="component" id="c5">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 05</div>
+        <div class="comp-title">UR Process Compliance Review</div>
+      </div>
+      <div class="comp-badge">Regulatory &amp; plan standards</div>
+    </div>
+    <div class="comp-body">
+      <p>An assessment of whether the UR process complied with applicable regulatory requirements (ACA, state UR laws, ERISA standards) and the plan&rsquo;s own stated UR procedures. Process violations that are independent of the clinical merits create separate bad faith exposure and can be used by plaintiff to argue systemic rather than case-specific bad faith.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:200px">Process standard</th>
+            <th style="width:100px">Compliance</th>
+            <th>Audit finding</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Turnaround time &mdash; non-urgent PA<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">ACA: 15 calendar days</span></td>
+            <td style="text-align:center"><span class="pill pill-green">Compliant</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">PA submitted February 25, 2025. Denial issued March 14, 2025 (17 calendar days). The plan extended the review window by 14 days (within the ACA-permitted extension with member notice). The extension notice was sent on March 7, 2025 within the required timeframe. Turnaround time compliant.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Denial notice requirements<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">ERISA §503, ACA</span></td>
+            <td style="text-align:center"><span class="pill pill-amber">Partial</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The denial notice includes: the specific reason for denial, the plan criteria applied (by name, not by criterion number), the member&rsquo;s right to appeal, and appeal timeframes. Missing: the denial does not include the specific clinical rationale in sufficient detail for the member to understand what additional documentation would result in approval. ERISA regulations and ACA implementing guidance require that denial notices be sufficiently specific to allow the member to perfect an appeal. The generic &ldquo;adequate conservative care not documented&rdquo; rationale without specifying which element is missing does not meet this standard.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">UR physician specialty match<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">State UR law / URAC standards</span></td>
+            <td style="text-align:center"><span class="pill pill-red">Non-Compliant</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong style="color:var(--danger)">Critical compliance gap.</strong> The initial denial UR physician is a board-certified internist. The request is for a spinal cord stimulator &mdash; an interventional pain procedure. Most state UR statutes (and URAC UR accreditation standards) require that a UR denial be issued by a physician in the same or similar specialty as the type of care under review when the denial is based on clinical criteria. A general internist reviewing an interventional pain procedure request for a complex chronic pain patient with post-surgical neuropathy does not meet the specialty-match standard. The Level 2 reviewer is a physiatrist &mdash; closer but still not an interventional pain specialist. This specialty-match deficiency is a documented process violation available to the plaintiff independent of the clinical merits argument.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">Peer-to-peer opportunity<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">URAC standard / plan policy</span></td>
+            <td style="text-align:center"><span class="pill pill-amber">Gap</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The plan&rsquo;s own UR policy (section 4.3) states that a peer-to-peer discussion opportunity will be offered to the requesting provider prior to adverse determination on complex clinical requests. The UR file contains no documentation that a peer-to-peer opportunity was offered to the requesting pain physician before the initial denial. The requesting physician&rsquo;s appeal letter references not being offered a peer-to-peer call. If the plan&rsquo;s own policy requires peer-to-peer and it was not offered, this is a plan policy violation independent of regulatory requirements.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;font-size:13.5px">IRO referral process<br><span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase">ACA external review requirements</span></td>
+            <td style="text-align:center"><span class="pill pill-green">Compliant</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Following Level 2 denial, the member was notified of her right to external review within the required timeframe. The IRO was an appropriately accredited organization. The IRO process was compliant. The IRO reversal, however, becomes a highly damaging exhibit in the bad faith action because it is the opinion of a neutral clinical panel finding that the plan&rsquo;s denial was incorrect &mdash; something the plaintiff will use to establish that the denial was not &ldquo;fairly debatable.&rdquo;</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 06 BAD FAITH EXPOSURE MAP ══ -->
+  <div class="component" id="c6">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 06 &mdash; Litigation Risk</div>
+        <div class="comp-title">Bad Faith Exposure Map</div>
+      </div>
+      <div class="comp-badge">3 High-severity exposures</div>
+    </div>
+    <div class="comp-body">
+      <p>The three specific vulnerabilities in this denial record that create the highest bad faith litigation exposure, ranked by expected plaintiff reliance and difficulty of defense rebuttal. Identified for carrier legal counsel and the medical director.</p>
+
+      <div class="pe-grid">
+        <div class="pe-card primary">
+          <div class="pe-label">Exposure 01 &mdash; Highest bad faith risk</div>
+          <h4>Level 1 Appeal Denial Ignored the Requesting Physician&rsquo;s Responsive Documentation</h4>
+          <p>The plaintiff&rsquo;s most powerful factual argument is that the Level 1 appeal denial reproduced the initial denial rationale word-for-word without acknowledging the requesting physician&rsquo;s four-page appeal letter specifically documenting the ESIs and psychological evaluation. Under the &ldquo;fairly debatable&rdquo; standard used in most state bad faith law, a denial is not fairly debatable if the insurer fails to evaluate all information submitted. An appeal denial that does not acknowledge new information submitted on appeal is the strongest single indicator that the review process was perfunctory rather than substantive. This is the fact pattern plaintiff&rsquo;s counsel will center the case on.</p>
+        </div>
+        <div class="pe-card primary">
+          <div class="pe-label">Exposure 02 &mdash; High bad faith risk</div>
+          <h4>ESI Records and Psychological Evaluation Not Listed in UR Review Log</h4>
+          <p>The UR physician&rsquo;s review log documents review of 7 of 23 submitted documents and does not include the two most clinically significant documents in the submission &mdash; the four ESI records and the psychological clearance evaluation. The IRO reversal explicitly cited both as documentation of met criteria. The plaintiff will argue that a UR physician who denies a claim without reviewing the most clinically relevant documents in the submission did not conduct a meaningful review. This argument is difficult to rebut when the review log itself is the evidence.</p>
+        </div>
+        <div class="pe-card">
+          <div class="pe-label">Exposure 03 &mdash; Moderate bad faith risk</div>
+          <h4>Specialty-Match Deficiency on Initial UR Review</h4>
+          <p>The initial denial issued by a board-certified internist for a complex interventional pain request creates a process-based bad faith argument independent of the clinical analysis. The plaintiff will argue that a generalist internist reviewing a spinal cord stimulator request for a patient with failed spinal fusion and post-surgical neuropathy lacks the clinical background to assess whether conservative care failure was adequate. Most state UR statutes require specialty-matched review for denials of this type, and URAC standards are consistent with this requirement.</p>
+        </div>
+        <div class="pe-card positive">
+          <div class="pe-label">Carrier defense strength</div>
+          <h4>SCS Criteria Are Legitimately Complex and the Clinical Question Is Not Clear-Cut</h4>
+          <p>The carrier&rsquo;s strongest defense argument is that SCS criteria genuinely require clinical judgment about adequacy of conservative care, that reasonable physicians can disagree about whether a specific conservative care course meets the criteria threshold, and that the UR process was conducted in good faith even if the ultimate determination was incorrect. The Level 2 denial by a physiatrist (a more appropriate specialty) who specifically engaged with the ESI records represents an improvement over the initial denial and supports the good-faith argument. The carrier should lean into this defense while remediating the Level 1 and review-log vulnerabilities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 07 CLINICAL NARRATIVE DEFENSE ══ -->
+  <div class="component" id="c7">
+    <div class="comp-head exclusive">
+      <div>
+        <div class="comp-num">Section 07 &mdash; Exclusive Deliverable</div>
+        <div class="comp-title">Clinical Defense Narrative</div>
+      </div>
+      <div class="comp-badge">For carrier legal counsel</div>
+    </div>
+    <div class="comp-body">
+      <p>A physician-authored narrative articulating the strongest clinically defensible rationale for the denial &mdash; a rationale that the original UR documentation failed to express but that may be arguable from the clinical record. This is the clinical argument that should be developed with the carrier&rsquo;s retained medical expert. <strong>This narrative does not assert that the denial was correct &mdash; the IRO reversal establishes it was not.</strong> It identifies the most defensible clinical argument available to the carrier for bad faith purposes.</p>
+
+      <div class="callout neutral">
+        <div class="callout-label">The strongest defensible clinical argument for the carrier</div>
+        <p>MCG SCS criteria require that the member demonstrate failure of &ldquo;adequate&rdquo; conservative care &mdash; a term that requires clinical judgment to apply. The plan&rsquo;s UR physicians could argue that while the member documented four ESIs, the documentation submitted did not adequately specify the degree of functional improvement and subsequent functional decline following each injection. MCG criterion C-3 requires documentation that interventional procedures provided inadequate or unsustained relief &mdash; not merely that they were performed. The ESI records in the submission document the procedures and note &ldquo;inadequate response&rdquo; but do not include pre- and post-injection pain scores, functional outcome measures, or duration-of-relief documentation that would more robustly demonstrate inadequate response by clinical standards.</p>
+        <p>Additionally, the psychological evaluation clearance, while present, used a self-report instrument (BDI-II) without a structured clinical interview or full MMPI-2-RF administration &mdash; the more robust assessment protocol recommended in the SCS literature. A UR physician reviewing the psychological evaluation could have found it methodologically less comprehensive than MCG C-4 contemplates, though the MCG criteria do not specify the required assessment instruments.</p>
+        <p><strong>The limitation of this defensive narrative</strong> is that these arguments were not articulated in the denial letters &mdash; they were not the basis on which the denial was made. In a bad faith action, the carrier typically cannot defend on clinical grounds that were not the basis of the original denial. The original denial said &ldquo;adequate conservative care not documented.&rdquo; It did not say &ldquo;ESI outcome documentation was methodologically insufficient&rdquo; or &ldquo;psychological evaluation was incomplete.&rdquo; Courts in most jurisdictions limit the carrier&rsquo;s defense to the rationale stated in the denial letter. This is why the documentation deficiencies in Section 04 are so damaging &mdash; they limit the clinical arguments now available to the carrier in litigation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 08 REMEDIATION RECOMMENDATIONS ══ -->
+  <div class="component" id="c8">
+    <div class="comp-head exclusive">
+      <div>
+        <div class="comp-num">Section 08 &mdash; Systemic Recommendations</div>
+        <div class="comp-title">UR Process Remediation Recommendations</div>
+      </div>
+      <div class="comp-badge">For medical director &amp; compliance</div>
+    </div>
+    <div class="comp-body">
+      <p>Physician-authored recommendations for remediation of the UR process gaps identified in this audit. These recommendations address the systemic conditions that produced the vulnerabilities in this specific denial. Their implementation reduces the carrier&rsquo;s bad faith exposure in future claims and may be relevant to demonstrating good-faith remedial action in the current litigation.</p>
+
+      <ul class="action-list">
+        <li class="action-item priority">
+          <div class="action-num">01</div>
+          <div class="action-body">
+            <div class="priority-note">Immediate implementation recommended</div>
+            <strong>Require complete document review logs for all PA denials &mdash; with specific notation of each clinical document reviewed</strong>
+            <p>The UR review log should list every document submitted with the PA request by date, author, and document type, with a notation that each was reviewed. For complex clinical requests (&gt;15 pages), a document inventory confirmation should be completed before the review is closed. The review log gap is the single most damaging process vulnerability in this record and is the easiest to remediate prospectively.</p>
+          </div>
+        </li>
+        <li class="action-item priority">
+          <div class="action-num">02</div>
+          <div class="action-body">
+            <div class="priority-note">Immediate implementation recommended</div>
+            <strong>Require appeal denial letters to specifically address new clinical information submitted with the appeal</strong>
+            <p>Appeal denial letters must demonstrate that the new information submitted with the appeal was reviewed and considered, even if the determination is unchanged. A template section heading &ldquo;Response to Additional Clinical Information Submitted with Appeal&rdquo; should be required in all appeal denial letters, with a brief specific narrative addressing the new documentation. The Level 1 denial that reproduced the initial denial word-for-word without acknowledging the requesting physician&rsquo;s responsive letter is the most damaging single document in this litigation.</p>
+          </div>
+        </li>
+        <li class="action-item priority">
+          <div class="action-num">03</div>
+          <div class="action-body">
+            <div class="priority-note">Policy update recommended</div>
+            <strong>Implement specialty-match protocols for interventional and surgical UR decisions</strong>
+            <p>Create and enforce a specialty-match routing protocol requiring that PA requests for interventional procedures (SCS, intrathecal pump, ablation), surgical procedures, and complex device requests be routed to UR physicians with relevant specialty training. For SCS requests, the initial UR reviewer should be an interventional pain specialist, physiatrist, or neurosurgeon. An internist or family medicine physician is not an appropriate primary reviewer for a spinal cord stimulator request. This policy should be codified in the UR policies and procedures manual and tracked via the UR software routing logic.</p>
+          </div>
+        </li>
+        <li class="action-item">
+          <div class="action-num">04</div>
+          <div class="action-body">
+            <strong>Require peer-to-peer documentation for complex PA denials before issuance</strong>
+            <p>The plan&rsquo;s own policy (section 4.3) requires a peer-to-peer opportunity for complex clinical requests. Create a workflow checkpoint requiring documentation that: (1) the peer-to-peer opportunity was offered; (2) if accepted, the peer-to-peer discussion outcome was documented; (3) if declined, the declination was documented. The denial should not be finalized until this checkpoint is completed. The failure to offer or document a peer-to-peer call in this case is a plan policy violation that is independent of the regulatory bad faith argument.</p>
+          </div>
+        </li>
+        <li class="action-item">
+          <div class="action-num">05</div>
+          <div class="action-body">
+            <strong>Require MCG criterion-specific denial documentation with the criterion version cited</strong>
+            <p>Denial letters for MCG-criteria-based decisions should cite the specific MCG criterion number that was not met, specify the MCG edition/version applied, and provide a factual explanation of why the submitted documentation does not satisfy that specific criterion. Generic denial language (&ldquo;adequate conservative care not documented&rdquo;) without criterion-specific attribution is insufficiently specific to meet ACA adverse notice requirements and creates the ambiguity that made this denial vulnerable at appeal and IRO.</p>
+          </div>
+        </li>
+        <li class="action-item">
+          <div class="action-num">06</div>
+          <div class="action-body">
+            <strong>Commission a Medisprudence URP audit of 20 recent SCS PA denials</strong>
+            <p>SCS is among the highest-risk PA categories for bad faith litigation because the criteria require nuanced clinical judgment and the procedure is high-cost with documented efficacy for FBSS. A targeted audit of recent SCS denials using the same MCG criterion-by-criterion framework applied in this report will identify whether the documentation and process deficiencies found here are systemic or case-specific &mdash; a critical distinction for both litigation defense and regulatory exposure management.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Scope and Boundary Statement &mdash; Included in Every URP Deliverable</strong>
+    This UR Process Audit is a physician-authored review prepared at the direction of and for the use of carrier legal counsel and/or the medical director. All clinical assessments, criteria analyses, and process compliance findings in this report are physician-authored. This report is prepared in anticipation of litigation and should be reviewed with counsel regarding privilege implications before distribution. Medisprudence does not provide legal advice, litigation strategy, or regulatory compliance certifications. The clinical analysis in this report represents the reviewing physician&rsquo;s assessment of the clinical defensibility of the denial based on the documentation in the UR file &mdash; it does not constitute a legal opinion on bad faith liability, which is a legal determination dependent on jurisdiction-specific law, damages evidence, and litigation strategy outside Medisprudence&rsquo;s scope. All clinical data in this specimen is fictional. No PHI is present.
+  </div>
+
+  <div class="doc-footer">
+    <span>Medisprudence &middot; UR Process Audit (URP&trade;) &middot; Physician-authored bad faith defensibility review</span>
+    <span>Specimen &middot; Fictional Data &middot; May 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
