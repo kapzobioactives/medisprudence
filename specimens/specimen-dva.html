@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medisprudence — Specimen: Defense Vulnerability Analysis (DVA™)</title>
+<meta name="description" content="Specimen DVA deliverable — premises liability slip-and-fall with pre-existing OA, CRPS challenge, and TKA necessity analysis. Fictional clinical data. No PHI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────
+   MEDISPRUDENCE — SPECIMEN STYLES
+   Shared CSS for all specimen deliverables.
+   Matches editorial/case-file aesthetic of medisprudence.com
+   ─────────────────────────────────────────────────────────── */
+
+:root{
+  --bg:#FAF7F1;
+  --bg-alt:#F1ECE0;
+  --bg-inset:#EDE6D6;
+  --paper:#FFFCF5;
+  --ink:#1A1612;
+  --ink-2:#3D352D;
+  --ink-3:#76695B;
+  --teal:#7A1F2B;
+  --teal-text:#6B1A24;
+  --teal-dim:rgba(122,31,43,.07);
+  --teal-tint:rgba(122,31,43,.04);
+  --teal-glow:rgba(122,31,43,.18);
+  --danger:#8B2418;
+  --danger-dim:rgba(139,36,24,.08);
+  --danger-glow:rgba(139,36,24,.20);
+  --caution:#8C6A1F;
+  --caution-dim:rgba(140,106,31,.09);
+  --caution-glow:rgba(140,106,31,.22);
+  --rule:rgba(26,22,18,.10);
+  --rule-md:rgba(26,22,18,.16);
+  --rule-dark:rgba(26,22,18,.28);
+  --serif:'Spectral','Georgia',serif;
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',ui-monospace,monospace;
+  --r-sm:2px;
+  --r-md:3px;
+  --r-lg:4px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:15px;
+  background:var(--bg);
+  padding-top:44px;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--teal);color:#fff}
+*:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
+h1,h2,h3,h4{
+  font-family:var(--serif);
+  line-height:1.15;
+  font-weight:400;
+  color:var(--ink);
+  letter-spacing:-.015em;
+}
+.mono{font-family:var(--mono)}
+
+/* ── TOP BAR (specimen disclaimer / back nav) ── */
+.top-bar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:44px;background:rgba(250,247,241,.94);
+  backdrop-filter:blur(20px) saturate(1.6);
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:24px;
+  padding:0 32px;
+}
+.top-bar a.back{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);
+  display:inline-flex;align-items:center;gap:6px;
+  transition:color .18s;
+}
+.top-bar a.back:hover{color:var(--teal)}
+.top-bar .specimen-tag{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);padding-left:20px;
+  border-left:1px solid var(--rule);
+}
+.top-bar .specimen-tag strong{color:var(--teal-text);font-weight:500}
+
+/* ── DOC HEADER ── */
+.doc-header{
+  background:var(--bg);
+  padding:28px 48px 22px;
+  border-bottom:1px solid var(--rule);
+}
+.doc-header-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:18px;
+  gap:24px;flex-wrap:wrap;
+}
+.doc-brand{
+  font-family:var(--serif);font-size:20px;font-weight:400;
+  color:var(--ink);letter-spacing:-.02em;
+  display:flex;align-items:center;gap:8px;
+}
+.doc-brand svg{color:var(--teal);flex-shrink:0}
+.doc-stamp{text-align:right}
+.doc-stamp-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.doc-stamp-val{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;margin-top:3px;
+}
+.doc-title{
+  font-family:var(--serif);font-size:clamp(24px,3vw,32px);
+  font-weight:400;color:var(--ink);letter-spacing:-.02em;
+  margin-bottom:8px;line-height:1.15;
+}
+.doc-title em{font-style:italic;color:var(--teal);font-weight:400}
+.doc-subtitle{
+  font-size:13.5px;color:var(--ink-3);
+  font-family:var(--sans);
+  letter-spacing:.005em;
+}
+
+/* ── DOC NAV (anchor pills) ── */
+.doc-nav{
+  background:var(--bg-alt);
+  border-bottom:1px solid var(--rule);
+  padding:12px 48px;
+  display:flex;gap:6px;flex-wrap:wrap;
+}
+.doc-nav a{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);text-decoration:none;
+  padding:6px 12px;
+  border:1px solid var(--rule);
+  border-radius:var(--r-sm);
+  background:var(--bg);
+  transition:.18s;white-space:nowrap;
+}
+.doc-nav a:hover{
+  color:var(--teal-text);
+  border-color:var(--teal);
+  background:var(--teal-dim);
+}
+
+/* ── BODY WRAP ── */
+.doc{
+  max-width:920px;
+  margin:0 auto;
+  padding:36px 48px 56px;
+}
+
+/* ── CASE CAPTION (file metadata) ── */
+.caption{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:6px 24px;
+  margin-bottom:28px;
+}
+.caption-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  padding:14px 0;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+}
+.caption-row:last-child{border-bottom:none}
+.caption-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:2px;
+}
+.caption-val{
+  font-weight:500;color:var(--ink);font-size:14.5px;
+  line-height:1.5;
+}
+
+/* ── KPI / SCORECARD STRIP ── */
+.kpi-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  margin-bottom:32px;
+  background:var(--bg);
+  overflow:hidden;
+}
+.kpi-strip.cols-5{grid-template-columns:repeat(5,1fr)}
+.kpi{
+  padding:18px 14px;text-align:center;
+  border-right:1px solid var(--rule);
+  background:var(--bg);
+}
+.kpi:last-child{border-right:none}
+.kpi-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;
+}
+.kpi-val{
+  font-family:var(--serif);font-size:24px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.1;
+}
+.kpi-val.red{color:var(--danger)}
+.kpi-val.amber{color:var(--caution)}
+.kpi-val.green,
+.kpi-val.teal{color:var(--teal)}
+
+/* ── COMPONENT (numbered section block) ── */
+.component{
+  margin-bottom:36px;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  overflow:hidden;
+  background:var(--bg);
+}
+.comp-head{
+  background:var(--bg-alt);
+  padding:16px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.comp-head::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:var(--teal);
+}
+.comp-head.alert::before{background:var(--danger)}
+.comp-head.exclusive{
+  background:var(--ink);color:#fff;
+  border-bottom:1px solid var(--ink);
+}
+.comp-head.exclusive::before{background:var(--teal);width:3px}
+.comp-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:3px;
+}
+.comp-head.exclusive .comp-num{color:rgba(217,205,182,.85)}
+.comp-title{
+  font-family:var(--serif);font-size:21px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.2;
+}
+.comp-head.exclusive .comp-title{color:#fff}
+.comp-badge{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.comp-head.exclusive .comp-badge{color:rgba(217,205,182,.55)}
+.comp-body{padding:24px 26px}
+.comp-body p{
+  color:var(--ink-2);margin-bottom:11px;
+  font-size:14.5px;line-height:1.75;
+}
+.comp-body p strong{color:var(--ink);font-weight:500}
+.comp-body h3{
+  font-family:var(--serif);font-size:18px;
+  font-weight:400;color:var(--ink);
+  margin:18px 0 8px;letter-spacing:-.01em;
+}
+
+/* ── FINDINGS (callouts) ── */
+.finding{
+  border-left:3px solid var(--teal);
+  padding:14px 18px;margin:14px 0;
+  background:var(--teal-dim);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+}
+.finding.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.finding.caution{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.finding-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:6px;
+  color:var(--teal-text);
+}
+.finding.warn .finding-label{color:var(--danger)}
+.finding.caution .finding-label{color:var(--caution)}
+.finding p{
+  font-size:14px;color:var(--ink);
+  margin-bottom:0;line-height:1.7;
+}
+.finding p + p{margin-top:8px}
+.finding p strong{color:var(--ink);font-weight:600}
+
+/* ── EXCLUSIVE / REBUTTAL (dark inset) ── */
+.exclusive,
+.rebuttal{
+  background:var(--ink);
+  color:#fff;
+  padding:20px 24px;
+  margin:16px 0;
+  border-radius:var(--r-sm);
+  border-left:3px solid var(--teal);
+}
+.exclusive .finding-label,
+.rebuttal .finding-label{
+  color:#D8A89F;letter-spacing:.16em;
+  font-weight:500;margin-bottom:8px;
+}
+.exclusive p,
+.rebuttal p{
+  color:rgba(255,255,255,.82);
+  font-size:14px;line-height:1.75;
+}
+.exclusive p strong,
+.rebuttal p strong{color:#fff;font-weight:600}
+.exclusive p + p,
+.rebuttal p + p{margin-top:10px}
+
+/* ── TABLES ── */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:14px 0;
+  font-size:13.5px;
+  background:var(--bg);
+}
+th,td{
+  padding:11px 13px;
+  border:1px solid var(--rule);
+  vertical-align:top;
+  text-align:left;
+  line-height:1.6;
+}
+thead th{
+  background:var(--bg-inset);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:600;
+  border-color:var(--rule-md);
+}
+tbody td:first-child{
+  font-weight:500;color:var(--ink);
+  background:var(--bg-alt);
+}
+tbody tr:nth-child(even) td{background:var(--bg-alt)}
+tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
+.ref{
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.02em;
+}
+
+/* ── TIMELINE (CMIP medmal) ── */
+.timeline{
+  border-left:2px solid var(--rule-md);
+  margin:20px 0;
+  padding-left:24px;
+}
+.timeline-event{
+  position:relative;
+  padding-bottom:22px;
+}
+.timeline-event:last-child{padding-bottom:0}
+.timeline-event::before{
+  content:"";position:absolute;
+  left:-30px;top:5px;
+  width:11px;height:11px;
+  border-radius:50%;
+  background:var(--bg);
+  border:2px solid var(--rule-dark);
+}
+.timeline-event.critical::before{
+  background:var(--danger);border-color:var(--danger);
+}
+.timeline-event.flag::before{
+  background:var(--caution);border-color:var(--caution);
+}
+.timeline-event.good::before{
+  background:var(--teal);border-color:var(--teal);
+}
+.timeline-date{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.06em;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:4px;text-transform:uppercase;
+}
+.timeline-event.critical .timeline-date{color:var(--danger)}
+.timeline-event.flag .timeline-date{color:var(--caution)}
+.timeline-event p{
+  font-size:14px;color:var(--ink-2);
+  margin:0;line-height:1.7;
+}
+.timeline-event strong{color:var(--ink);font-weight:600}
+
+/* ── IME QUOTE BOX ── */
+.ime-quote{
+  border:1px solid var(--rule-md);
+  background:var(--paper);
+  padding:16px 20px 14px;
+  margin:14px 0;
+  position:relative;
+  border-radius:var(--r-sm);
+}
+.ime-quote::before{
+  content:"IME report states";
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);
+  position:absolute;top:-7px;left:14px;
+  background:var(--bg);padding:0 8px;
+}
+.ime-quote p{
+  font-family:var(--serif);font-size:15px;
+  color:var(--ink);font-style:italic;
+  margin:0;line-height:1.55;letter-spacing:.005em;
+}
+
+/* ── DEPOSITION QUESTIONS ── */
+.depo-q{counter-reset:depo;list-style:none}
+.depo-q li{
+  list-style:none;
+  padding:14px 16px 14px 50px;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+  color:var(--ink);
+  counter-increment:depo;
+  position:relative;
+  line-height:1.65;
+}
+.depo-q li::before{
+  content:"Q" counter(depo);
+  position:absolute;left:14px;top:13px;
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.05em;
+}
+.depo-q li:last-child{border-bottom:none}
+.depo-q li em{
+  font-style:italic;color:var(--ink-3);
+  display:block;margin-top:5px;font-size:12.5px;
+  font-family:var(--sans);
+}
+
+/* ── PRE-EXISTING GRID (DML) ── */
+.pe-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;margin:16px 0;
+}
+.pe-card{
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.pe-card.primary{
+  border-color:var(--danger-glow);
+  background:var(--danger-dim);
+}
+.pe-card.positive{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+}
+.pe-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;font-weight:500;
+}
+.pe-card.primary .pe-label{color:var(--danger)}
+.pe-card.positive .pe-label{color:var(--teal-text)}
+.pe-card h4{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  margin-bottom:8px;letter-spacing:-.01em;
+}
+.pe-card p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.7;
+}
+
+/* ── ACTION LIST (DML) ── */
+.action-list{
+  list-style:none;
+  display:flex;flex-direction:column;
+  gap:12px;margin-top:18px;
+}
+.action-item{
+  display:grid;
+  grid-template-columns:36px 1fr;
+  gap:14px;align-items:flex-start;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.action-item.priority{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+  border-left:3px solid var(--teal);
+}
+.action-num{
+  font-family:var(--mono);font-size:14px;
+  font-weight:500;color:var(--teal-text);
+  margin-top:1px;
+}
+.action-body strong{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  display:block;margin-bottom:6px;
+  line-height:1.3;letter-spacing:-.01em;
+}
+.action-body p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.75;margin:0;
+}
+.action-body .priority-note{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:6px;
+}
+
+/* ── BADGES / PILLS ── */
+.badge{
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:var(--r-sm);
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  font-weight:500;line-height:1.4;
+  border:1px solid currentColor;
+}
+.b-high{color:var(--danger);background:var(--danger-dim)}
+.b-moderate{color:var(--caution);background:var(--caution-dim)}
+.b-lowmod{color:var(--ink-2);background:var(--bg-inset)}
+.b-low{color:var(--teal-text);background:var(--teal-dim)}
+
+.pill{
+  display:inline-block;
+  padding:3px 10px;
+  border-radius:999px;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;
+  font-weight:500;
+}
+.pill-red{background:var(--danger-dim);color:var(--danger)}
+.pill-amber{background:var(--caution-dim);color:var(--caution)}
+.pill-green{background:var(--teal-dim);color:var(--teal-text)}
+
+/* ── CASE BOX (DML) ── */
+.case-box{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--ink);
+  border-radius:var(--r-sm);
+  padding:22px 26px;
+  margin-bottom:30px;
+}
+.case-box-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:14px;font-weight:500;
+}
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px 22px;
+  margin-bottom:14px;
+}
+.ci-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px;
+}
+.ci-val{
+  font-family:var(--mono);font-size:13px;
+  color:var(--ink);font-weight:500;
+  line-height:1.5;letter-spacing:.01em;
+}
+.case-summary{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;
+  border-top:1px solid var(--rule);
+  padding-top:14px;margin-top:8px;
+}
+
+/* ── SECTION (CVA + DML alternative section style) ── */
+.section{margin-bottom:34px}
+.sec-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:8px;font-weight:500;
+}
+.sec-title{
+  font-family:var(--serif);font-size:23px;
+  font-weight:400;color:var(--ink);letter-spacing:-.015em;
+  margin-bottom:6px;padding-bottom:10px;
+  border-bottom:1px solid var(--ink);
+}
+.sec-sub{
+  font-size:13.5px;color:var(--ink-3);
+  margin-bottom:18px;font-style:italic;line-height:1.7;
+  max-width:760px;
+}
+.body-text{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.78;margin-bottom:14px;
+}
+.body-text strong{color:var(--ink);font-weight:500}
+
+/* ── CALLOUT (DML, alternate style) ── */
+.callout{
+  border-left:3px solid var(--teal);
+  background:var(--teal-dim);
+  padding:16px 20px;
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  margin:14px 0;
+}
+.callout.danger{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.callout.warn{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.callout.neutral{
+  border-left-color:var(--ink-3);
+  background:var(--bg-alt);
+}
+.callout-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:8px;
+  color:var(--teal-text);
+}
+.callout.danger .callout-label{color:var(--danger)}
+.callout.warn .callout-label{color:var(--caution)}
+.callout.neutral .callout-label{color:var(--ink-2)}
+.callout p{
+  font-size:14px;color:var(--ink);
+  line-height:1.75;
+}
+.callout p + p{margin-top:8px}
+
+/* ── VERDICT BOX ── */
+.verdict{
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--teal);
+  background:var(--bg-alt);
+  padding:24px 28px;
+  margin:24px 0 8px;
+  border-radius:var(--r-sm);
+}
+.verdict.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+  border-color:var(--danger-glow);
+}
+.verdict-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:10px;font-weight:500;
+}
+.verdict.warn .verdict-label{color:var(--danger)}
+.verdict h3{
+  font-family:var(--serif);font-size:22px;
+  font-weight:400;color:var(--ink);
+  margin-bottom:10px;letter-spacing:-.015em;line-height:1.25;
+  max-width:760px;
+}
+.verdict.warn h3{color:var(--ink)}
+.verdict p{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;margin-top:8px;
+}
+
+/* ── DOC FOOTER + DISCLAIMER ── */
+.doc-footer{
+  border-top:1px solid var(--ink);
+  padding-top:18px;margin-top:44px;
+  display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);gap:14px;flex-wrap:wrap;
+}
+.doc-footer span:first-child{color:var(--ink-2)}
+
+.disclaimer{
+  margin-top:18px;
+  padding:18px 22px;
+  background:var(--bg-alt);
+  border-left:3px solid var(--ink);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-size:12.5px;
+  color:var(--ink-3);
+  line-height:1.75;
+  font-style:italic;
+}
+.disclaimer strong{
+  color:var(--ink-2);font-style:normal;font-weight:600;
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  display:block;margin-bottom:6px;
+}
+
+/* ── TABLE-OVERFLOW WRAPPER ── */
+.table-wrap{
+  overflow-x:auto;margin:14px 0;
+  border-radius:var(--r-sm);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:780px){
+  .doc{padding:24px 20px 40px}
+  .doc-header{padding:22px 20px 18px}
+  .doc-nav{padding:10px 20px}
+  .top-bar{padding:0 16px;gap:14px}
+  .top-bar .specimen-tag{padding-left:14px}
+  .kpi-strip,.kpi-strip.cols-5{grid-template-columns:1fr 1fr}
+  .caption-row{grid-template-columns:1fr;gap:10px}
+  .comp-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .case-grid{grid-template-columns:1fr 1fr}
+  .pe-grid{grid-template-columns:1fr}
+  .doc-header-top{flex-direction:column;align-items:flex-start;gap:14px}
+  .doc-stamp{text-align:left}
+}
+@media(max-width:520px){
+  .case-grid{grid-template-columns:1fr}
+  .doc-footer{flex-direction:column;gap:8px}
+}
+
+/* ── PRINT ── */
+@media print{
+  .top-bar,.doc-nav{display:none}
+  body{padding-top:0;background:#fff;font-size:11pt}
+  .component,.caption,.kpi-strip,.case-box{break-inside:avoid;page-break-inside:avoid}
+  .doc{padding:0;max-width:100%}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<div class="top-bar">
+  <a class="back" href="../">&larr; Back to Medisprudence</a>
+  <span class="specimen-tag"><strong>Specimen</strong> &nbsp;·&nbsp; Fictional clinical data &nbsp;·&nbsp; No PHI</span>
+</div>
+
+<!-- ── DOC HEADER ── -->
+<div class="doc-header">
+  <div class="doc-header-top">
+    <div class="doc-brand">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <circle cx="16" cy="11" r="2.4" fill="currentColor"/>
+        <line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      Medisprudence
+    </div>
+    <div class="doc-stamp">
+      <div class="doc-stamp-label">Document type</div>
+      <div class="doc-stamp-val">Defense Vulnerability Analysis (DVA&trade;)</div>
+    </div>
+  </div>
+  <div class="doc-title">Defense Vulnerability Analysis &mdash; <em>Premises Liability / Left Knee</em></div>
+  <div class="doc-subtitle">Specimen &middot; Fictional clinical data &middot; No PHI &middot; Approx. 1,240 pages / 11 providers &middot; Prepared for defense counsel</div>
+</div>
+
+<!-- ── DOC NAV ── -->
+<div class="doc-nav">
+  <a href="#c1">01 Claim Overview</a>
+  <a href="#c2">02 Exposure Scorecard</a>
+  <a href="#c3">03 Causation Defense</a>
+  <a href="#c4">04 Pre-Existing Leverage</a>
+  <a href="#c5">05 Treatment Challenge</a>
+  <a href="#c6">06 CRPS Diagnosis</a>
+  <a href="#c7">07 Surveillance</a>
+  <a href="#c8">08 Documentation Gaps</a>
+  <a href="#c9">09 IME Focus</a>
+  <a href="#c10">10 Deposition Questions</a>
+  <a href="#c11">11 Net Exposure</a>
+</div>
+
+<div class="doc">
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 01 — CLAIM MEDICAL OVERVIEW
+       ══════════════════════════════════════════════════════════ -->
+  <div class="case-box" id="c1">
+    <div class="case-box-label">Claim Medical Overview</div>
+    <div class="case-grid">
+      <div><div class="ci-label">Claim type</div><div class="ci-val">Premises Liability &mdash; Slip &amp; Fall</div></div>
+      <div><div class="ci-label">Mechanism</div><div class="ci-val">Fall on wet floor, commercial lobby</div></div>
+      <div><div class="ci-label">Date of loss</div><div class="ci-val">October 15, 2025</div></div>
+      <div><div class="ci-label">Claimant</div><div class="ci-val">55 F, administrative office manager</div></div>
+      <div><div class="ci-label">Primary claims</div><div class="ci-val">Left knee meniscal tear &rarr; meniscectomy &rarr; TKA recommended; CRPS Type I left LE; cervical strain</div></div>
+      <div><div class="ci-label">Pre-existing flagged</div><div class="ci-val">Bilateral knee OA (2023), prior left knee cortisone injection (Aug 2024), BMI 36.8, T2DM (HbA1c 8.4%)</div></div>
+      <div><div class="ci-label">Jurisdiction</div><div class="ci-val">Superior Court, Los Angeles County, California</div></div>
+      <div><div class="ci-label">Retained by</div><div class="ci-val">Defense counsel for insured premises owner &mdash; commercial GL carrier</div></div>
+      <div><div class="ci-label">Records reviewed</div><div class="ci-val">1,240 pages / 11 providers (ER, ortho, pain mgmt, PT/OT, PCP, radiology, neurology, endocrinology, rheumatology, podiatry, surgeon)</div></div>
+      <div><div class="ci-label">Reviewed by</div><div class="ci-val">Dr. A. Kasturi, MBBS &middot; Medisprudence</div></div>
+    </div>
+    <div class="case-summary">
+      A 55-year-old female administrative office manager alleges she slipped on a recently mopped floor in the lobby of a commercial office building on October 15, 2025, sustaining a fall onto her left knee and left side. The claimant presented to the emergency department on the date of loss with left knee pain and was discharged with a clinical impression of left knee contusion. An MRI obtained at Week 3 revealed a left medial meniscal tear. An arthroscopic partial medial meniscectomy was performed at Week 8 (December 10, 2025). A post-operative course documented persistent left knee pain through Week 16, at which time the treating orthopedic surgeon recommended total knee arthroplasty (TKA). At Week 18, the claimant was evaluated by a pain management physician who diagnosed Complex Regional Pain Syndrome (CRPS) Type I of the left lower extremity. A cervical strain claim was added at Week 4 based on a PCP visit documenting neck pain attributed to the fall mechanism. Pre-existing medical records document bilateral knee X-rays from 2023 showing moderate bilateral medial compartment osteoarthritis (Kellgren-Lawrence Grade II&ndash;III left, Grade II right), a prior left knee intra-articular cortisone injection in August 2024 for left knee pain, and a right knee arthroscopic meniscectomy in 2020. The claimant has a documented BMI of 36.8 (Class II obesity) and poorly controlled Type 2 diabetes mellitus with a most recent HbA1c of 8.4%. Surveillance footage obtained by the carrier at Week 14 (post-meniscectomy) documents the claimant ambulating without assistive device and carrying grocery bags bilaterally.
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 02 — MEDICAL EXPOSURE SCORECARD
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c2">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 02</div>
+        <div class="comp-title">Medical Exposure Scorecard</div>
+      </div>
+      <div class="comp-badge">Quick-reference summary</div>
+    </div>
+  </div>
+
+  <div class="kpi-strip cols-5">
+    <div class="kpi"><div class="kpi-label">Causation Exposure</div><div class="kpi-val green">Low</div></div>
+    <div class="kpi"><div class="kpi-label">Pre-Existing Leverage</div><div class="kpi-val teal">Strong</div></div>
+    <div class="kpi"><div class="kpi-label">TKA Necessity</div><div class="kpi-val green">Challengeable</div></div>
+    <div class="kpi"><div class="kpi-label">CRPS Dx Strength</div><div class="kpi-val amber">Vulnerable</div></div>
+    <div class="kpi"><div class="kpi-label">Surveillance Value</div><div class="kpi-val teal">High</div></div>
+  </div>
+
+  <div class="callout" style="margin-top:0;margin-bottom:36px">
+    <div class="callout-label">Physician&rsquo;s Net Assessment for Claims Positioning</div>
+    <p><strong>This claim carries significant medical vulnerability for the claimant across multiple independent axes.</strong> The pre-existing left knee osteoarthritis with documented prior symptomatic treatment (2024 cortisone injection), the degenerative meniscal tear morphology, the poorly documented CRPS diagnosis, and the surveillance-records functional inconsistency each independently reduce the medical defensibility of the claimed damages. Compounded, they present a medical record that favors the defense position on causation apportionment, treatment necessity, and damages credibility. The claimant&rsquo;s strongest medical element is the temporal proximity of the fall to the acute meniscal tear diagnosis; the defense&rsquo;s strongest medical element is the pre-existing documented symptomatic left knee OA with prior injection therapy at the same joint. The cervical claim is medically unsupported. This report details each exposure axis with record-specific evidence and physician-authored assessment.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 03 — CAUSATION DEFENSE ASSESSMENT
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c3">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 03 &mdash; Primary Analysis</div>
+        <div class="comp-title">Causation Defense Assessment &mdash; Ranked by Adversarial Strength</div>
+      </div>
+      <div class="comp-badge">6 Arguments mapped</div>
+    </div>
+    <div class="comp-body">
+      <p>A physician-authored assessment of the medical causation arguments available to the defense, ranked by expected strength at deposition, mediation, or trial. Each argument is evaluated for its medical supportability based on the documentation in this record &mdash; not on legal strategy, which remains counsel&rsquo;s domain. Arguments are ranked by the strength of the medical evidence supporting them, not by expected impact on settlement, which depends on non-medical factors outside Medisprudence&rsquo;s scope.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:36px">#</th>
+            <th style="width:108px">Strength</th>
+            <th>Defense causation argument &mdash; medical basis &amp; physician assessment</th>
+            <th style="width:200px">Record evidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">1</td>
+            <td style="text-align:center"><span class="badge b-high">Very Strong</span></td>
+            <td>
+              <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">The left medial meniscal tear is morphologically consistent with a degenerative etiology, not an acute traumatic event &mdash; and the claimant&rsquo;s own pre-existing imaging confirms the substrate for degenerative tearing</strong>
+              The post-incident MRI (Week 3) describes the left medial meniscal tear as a <strong>horizontal cleavage pattern involving the posterior horn</strong>. In orthopedic radiology, horizontal cleavage tears are the morphological signature of degenerative meniscal pathology &mdash; they propagate along planes of mucoid degeneration within the meniscal fibrocartilage and are strongly associated with pre-existing osteoarthritis. This is distinct from acute traumatic meniscal tears, which typically present as vertical longitudinal, bucket-handle, or radial tear patterns with associated findings such as bone bruise, joint effusion, and ligamentous injury &mdash; none of which are present on this MRI. The 2023 bilateral knee X-rays already document Kellgren-Lawrence Grade II&ndash;III osteoarthritis in the left medial compartment, confirming the degenerative substrate. The MRI tear morphology is the single most important radiological finding in this record for causation apportionment. A defense medical expert can credibly testify that this tear pattern, on this pre-existing substrate, represents a degenerative tear that was either already present or was a mechanically inevitable consequence of the documented osteoarthritis &mdash; and that the fall, at most, rendered it symptomatic.
+            </td>
+            <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">MRI (Week 3):</strong> Left medial meniscus horizontal cleavage tear, posterior horn. No bone bruise. No ligament injury. No acute effusion.<br><br><strong style="color:var(--ink-2);font-size:12.5px">2023 X-rays:</strong> KL Grade II&ndash;III left medial compartment OA. Joint space narrowing. Marginal osteophytes.<br><br><strong style="color:var(--ink-2);font-size:12.5px">2024 cortisone injection:</strong> Left knee, documented &ldquo;medial joint line pain.&rdquo;</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">2</td>
+            <td style="text-align:center"><span class="badge b-high">Very Strong</span></td>
+            <td>
+              <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">Documented pre-incident symptomatic left knee disease &mdash; the August 2024 cortisone injection proves the left knee was already a site of active medical treatment before this fall</strong>
+              The record contains a pain management note from August 2024 documenting an intra-articular cortisone injection to the left knee for &ldquo;medial joint line pain with activity-limiting symptoms.&rdquo; This is not an incidental imaging finding discovered retrospectively &mdash; it is a documented episode of symptomatic left knee disease requiring interventional treatment at the same anatomical site, 14 months before the alleged incident. The claimant was already receiving treatment for left knee pain. The defense argument is not merely that pre-existing degenerative disease exists at the site (which it does), but that the claimant had an <strong>active, symptomatic, previously treated condition</strong> at the identical joint. This distinguishes this case from a typical degenerative-substrate argument: the defense is not inferring prior symptoms from imaging alone but from a documented treatment encounter. The treating orthopedic surgeon&rsquo;s operative report and surgical recommendation do not reference this prior injection or the prior symptomatic history.
+            </td>
+            <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">Aug 2024 pain mgmt note:</strong> Left knee intra-articular cortisone injection. &ldquo;Medial joint line pain with activity-limiting symptoms.&rdquo; &ldquo;Moderate OA changes on imaging.&rdquo;<br><br><strong style="color:var(--ink-2);font-size:12.5px">Surgical report (Week 8):</strong> No reference to 2024 injection. No prior treatment history documented.<br><br><strong style="color:var(--ink-2);font-size:12.5px">Treating ortho office notes:</strong> No pre-incident symptom history taken.</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">3</td>
+            <td style="text-align:center"><span class="badge b-high">Strong</span></td>
+            <td>
+              <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">The TKA recommendation is medically attributable to pre-existing osteoarthritis progression, not to a meniscal tear from a single fall event</strong>
+              Total knee arthroplasty is not a treatment for meniscal tears. TKA is indicated for end-stage osteoarthritis with failed conservative management. The treating surgeon&rsquo;s TKA recommendation note (Week 16) documents &ldquo;persistent mechanical symptoms and medial compartment arthrosis with bone-on-bone changes.&rdquo; The &ldquo;bone-on-bone&rdquo; characterization describes advanced osteoarthritis &mdash; complete loss of articular cartilage at the medial compartment &mdash; which represents progression of the pre-existing KL Grade II&ndash;III disease documented in 2023. Arthroscopic meniscectomy in a joint with pre-existing moderate-to-advanced OA is a well-documented accelerant of arthritic progression; published literature documents accelerated cartilage loss following partial meniscectomy in osteoarthritic knees. The defense medical position is that TKA was a foreseeable endpoint of the documented pre-existing osteoarthritis, that meniscectomy in a degenerative knee predictably accelerated the timeline, and that the fall itself did not create the condition requiring arthroplasty. This is a well-supported medical argument with extensive peer-reviewed literature behind it.
+            </td>
+            <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">TKA rec (Week 16):</strong> &ldquo;Persistent mechanical symptoms.&rdquo; &ldquo;Medial compartment arthrosis, bone-on-bone.&rdquo; &ldquo;Failed meniscectomy.&rdquo;<br><br><strong style="color:var(--ink-2);font-size:12.5px">2023 X-rays:</strong> KL Grade II&ndash;III &mdash; already moderate OA.<br><br><strong style="color:var(--ink-2);font-size:12.5px">Arthroscopic op note:</strong> &ldquo;Significant chondromalacia, Outerbridge Grade III&ndash;IV medial femoral condyle.&rdquo;</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">4</td>
+            <td style="text-align:center"><span class="badge b-moderate">Strong</span></td>
+            <td>
+              <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">Bilateral degenerative disease pattern &mdash; prior right knee arthroscopic meniscectomy (2020) demonstrates a systemic degenerative process, not a traumatic event</strong>
+              The claimant underwent right knee arthroscopic meniscectomy in 2020 for a medial meniscal tear in the contralateral knee. The 2023 X-rays document bilateral OA. The right knee followed the identical clinical pathway &mdash; degenerative meniscal tear, meniscectomy &mdash; without any reported traumatic event. This bilateral symmetry is characteristic of systemic degenerative joint disease, not of unilateral traumatic injury. A defense expert can frame the left knee presentation as the second manifestation of a bilateral degenerative disease process that has already produced the identical pathology and identical surgical intervention in the contralateral knee. The claimant&rsquo;s treating orthopedic surgeon does not address the right knee surgical history or its implications for the left knee causation narrative in any note in this record.
+            </td>
+            <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">2020 surgical record:</strong> Right knee arthroscopic partial medial meniscectomy. Degenerative meniscal tear. No trauma history.<br><br><strong style="color:var(--ink-2);font-size:12.5px">2023 bilateral X-rays:</strong> OA in both knees.<br><br><strong style="color:var(--ink-2);font-size:12.5px">Current treating ortho:</strong> No reference to right knee surgical history.</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">5</td>
+            <td style="text-align:center"><span class="badge b-moderate">Moderate</span></td>
+            <td>
+              <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">Obesity (BMI 36.8) and poorly controlled Type 2 diabetes are independent, documented contributors to osteoarthritis progression and poor surgical outcomes</strong>
+              BMI 36.8 places the claimant in Class II obesity. Published orthopedic literature identifies obesity as an independent risk factor for meniscal degeneration, OA progression, and accelerated cartilage loss following meniscectomy. Type 2 diabetes mellitus with poor glycemic control (HbA1c 8.4%) is independently associated with accelerated OA progression through inflammatory and metabolic pathways. These are not speculative risk associations &mdash; they are documented comorbidities in this claimant&rsquo;s medical record. The defense medical argument is that the causation fraction attributable to the fall is reduced by the independent contribution of these modifiable risk factors to the very pathology (OA progression, failed meniscectomy, TKA candidacy) that forms the basis of the damages claim. This is a supporting argument that amplifies the primary causation defense.
+            </td>
+            <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">PCP records:</strong> BMI 36.8. T2DM. HbA1c 8.4% (Jan 2025). Metformin + glipizide.<br><br><strong style="color:var(--ink-2);font-size:12.5px">Endocrinology (2024):</strong> &ldquo;Poorly controlled. Weight management discussed. Patient declined referral.&rdquo;<br><br><strong style="color:var(--ink-2);font-size:12.5px">Treating ortho:</strong> BMI not addressed in surgical decision-making documentation.</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;color:var(--ink);text-align:center">6</td>
+            <td style="text-align:center"><span class="badge b-high">Very Strong</span></td>
+            <td>
+              <strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500;display:block;margin-bottom:6px;line-height:1.3">The cervical strain claim has no objective imaging support, no documented neurological deficit, and no mechanism-consistent clinical presentation</strong>
+              The cervical strain diagnosis appears at a PCP visit at Week 4 &mdash; 28 days post-incident. The PCP note documents &ldquo;neck pain, patient attributes to fall.&rdquo; No cervical imaging was obtained. No neurological examination findings are documented. The ER evaluation on the date of loss documents &ldquo;left knee pain&rdquo; as the sole presenting complaint; no cervical complaint is noted in the ER history, review of systems, or physical examination. A slip-and-fall mechanism producing a lateral fall onto the knee is not a recognized mechanism for clinically significant cervical injury. The four-week delay to first cervical complaint, the absence of any cervical symptoms at the ER visit, and the absence of any objective imaging or neurological findings create a cervical claim that is medically unsupported in this record. This claim should be vigorously challenged.
+            </td>
+            <td style="font-size:12.5px;color:var(--ink-3);line-height:1.65"><strong style="color:var(--ink-2);font-size:12.5px">ER (date of loss):</strong> &ldquo;Left knee pain.&rdquo; No cervical complaint. No cervical exam.<br><br><strong style="color:var(--ink-2);font-size:12.5px">PCP (Week 4):</strong> &ldquo;Neck pain, patient attributes to fall.&rdquo; No imaging. No neuro exam.<br><br><strong style="color:var(--ink-2);font-size:12.5px">Entire record:</strong> No cervical MRI. No cervical X-ray. No neurological deficit documented.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 04 — PRE-EXISTING CONDITION LEVERAGE MAP
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c4">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 04</div>
+        <div class="comp-title">Pre-Existing Condition Leverage Map</div>
+      </div>
+      <div class="comp-badge">Causation apportionment</div>
+    </div>
+    <div class="comp-body">
+      <p>A physician-authored mapping of each documented pre-existing condition to its adversarial weight in the causation defense. This section equips the defense medical expert and counsel with record-specific evidence for apportionment arguments. Pre-existing conditions are classified by their expected weight in the overall defense medical position.</p>
+
+      <div class="pe-grid">
+        <div class="pe-card primary">
+          <div class="pe-label">Primary leverage &mdash; highest weight</div>
+          <h4>Left Knee Osteoarthritis (KL Grade II&ndash;III, 2023)</h4>
+          <p>Documented moderate medial compartment osteoarthritis at the identical compartment and joint as the current surgical claims. Kellgren-Lawrence Grade II&ndash;III represents established degenerative disease with joint space narrowing and osteophyte formation. This is not early or incidental OA &mdash; it is moderate-to-advanced disease documented two years before the incident. Combined with the meniscal tear morphology (horizontal cleavage, degenerative pattern), the 2023 imaging provides the evidentiary foundation for an apportionment argument that substantially reduces the fall&rsquo;s causation contribution. The intraoperative finding of Outerbridge Grade III&ndash;IV chondromalacia at the medial femoral condyle confirms cartilage damage consistent with the pre-existing OA severity, not with an acute traumatic meniscal tear in an otherwise healthy joint.</p>
+        </div>
+        <div class="pe-card primary">
+          <div class="pe-label">Primary leverage &mdash; highest weight</div>
+          <h4>Prior Left Knee Cortisone Injection (August 2024)</h4>
+          <p>This is the single most impactful pre-existing evidence in this record because it establishes that the claimant had <strong>symptomatic, treatment-requiring left knee disease</strong> before the fall. The August 2024 pain management note documents medial joint line pain with activity-limiting symptoms. The injection site is the identical anatomical location as the current claim. A defense medical expert can testify that the claimant was already on a clinical trajectory requiring escalating treatment for left knee OA, that the fall at most accelerated a pre-existing symptomatic process, and that the treating surgeon&rsquo;s failure to address this prior treatment history constitutes a critical omission in the causation narrative.</p>
+        </div>
+        <div class="pe-card">
+          <div class="pe-label">Secondary leverage &mdash; high weight</div>
+          <h4>Right Knee Arthroscopic Meniscectomy (2020)</h4>
+          <p>Bilateral degenerative disease. The right knee followed the identical clinical course (degenerative meniscal tear &rarr; meniscectomy) without any traumatic event. This contralateral surgical history undermines the traumatic-causation narrative by demonstrating that this claimant&rsquo;s joints produce degenerative meniscal tears independent of trauma. Expected deployment: expert testimony framing the left knee as the natural bilateral counterpart, not an injury.</p>
+        </div>
+        <div class="pe-card">
+          <div class="pe-label">Supporting leverage &mdash; moderate weight</div>
+          <h4>Obesity (BMI 36.8, Class II) &amp; Poorly Controlled T2DM (HbA1c 8.4%)</h4>
+          <p>Independent risk factors for OA progression, meniscal degeneration, and poor post-operative outcomes. The endocrinology note documents the claimant declined weight management referral. These comorbidities support the defense argument that the pathology driving the TKA recommendation is multifactorial, with the fall representing one contributor among several documented, modifiable risk factors. Not a standalone causation argument, but a significant amplifier of the primary apportionment position.</p>
+        </div>
+      </div>
+
+      <div class="finding warn">
+        <div class="finding-label">Critical defense advantage &mdash; treating surgeon omission</div>
+        <p><strong>The treating orthopedic surgeon&rsquo;s operative report and TKA recommendation note do not reference: the 2023 bilateral knee X-rays, the August 2024 left knee cortisone injection, the 2020 right knee meniscectomy, or the claimant&rsquo;s BMI or diabetic status.</strong> The surgeon&rsquo;s notes treat the left knee meniscal tear and subsequent TKA recommendation as if the knee had no prior history. This omission is the defense&rsquo;s most powerful medical credibility argument. The surgeon either did not obtain a complete prior history, did not review available records, or chose not to address them. Any of these explanations undermines the treating surgeon&rsquo;s causation narrative and creates deposition and cross-examination exposure that is documented and specific.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 05 — TREATMENT APPROPRIATENESS CHALLENGE
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c5">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 05 &mdash; Payer-Side Medical Necessity Framework</div>
+        <div class="comp-title">Treatment Appropriateness Challenge Map</div>
+      </div>
+      <div class="comp-badge">InterQual / MCG lens</div>
+    </div>
+    <div class="comp-body">
+      <p>Each major treatment element is evaluated through a payer-side medical necessity framework &mdash; the same InterQual and MCG criteria applied in utilization management review of US commercial claims. This section identifies where the treatment course deviates from standard medical necessity documentation requirements, providing defense counsel with specific, criteria-referenced challenges to treatment appropriateness and reasonableness.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:180px">Treatment element</th>
+            <th style="width:110px">Defense challenge</th>
+            <th>Medical necessity assessment</th>
+            <th style="width:190px">Documentation deficiency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">Arthroscopic Partial Meniscectomy</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Left knee &middot; Week 8</span></td>
+            <td style="text-align:center"><span class="badge b-moderate">Moderate</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The meniscectomy itself is the least vulnerable treatment element. The MRI documents a meniscal tear, conservative management (4 weeks of PT, NSAIDs) was attempted, and mechanical symptoms persisted. Standard InterQual criteria for arthroscopic meniscectomy are met on documentation. <strong>However</strong>, the defense challenge is not that the meniscectomy was unnecessary in isolation &mdash; it is that performing a meniscectomy in a knee with documented KL Grade II&ndash;III OA and Outerbridge Grade III&ndash;IV chondromalacia is a decision with predictable consequences (accelerated OA progression), and the surgeon did not document informed consent addressing this known risk or the pre-existing arthritis. The meniscectomy is defensible as a procedure; its downstream consequences (TKA) are apportionable.</td>
+            <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--caution);font-size:12.5px">Informed consent documentation</strong> does not address the elevated risk of OA acceleration from meniscectomy in a KL Grade II&ndash;III joint. No documentation of discussion of non-surgical alternatives given the OA severity.</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">Physical Therapy</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Pre-op &middot; 4 weeks</span></td>
+            <td style="text-align:center"><span class="badge b-low">Low</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The pre-operative PT course is appropriate in scope and duration. Four weeks of conservative management before surgical referral for a symptomatic meniscal tear with mechanical symptoms is consistent with standard care guidelines. This treatment element is not a productive defense challenge. Post-operative PT (documented through Week 14) is similarly appropriate for post-meniscectomy rehabilitation.</td>
+            <td style="font-size:12.5px;color:var(--ink-3)">No objective functional outcome measures used (ODI, KOOS, or similar). Minor gap &mdash; does not create a meaningful defense argument.</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">Total Knee Arthroplasty</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Recommended &middot; Week 16</span></td>
+            <td style="text-align:center"><span class="badge b-high">Very Strong</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong>This is the highest-value treatment challenge in the defense position.</strong> The TKA recommendation at Week 16 &mdash; only eight weeks after meniscectomy &mdash; carries multiple independent medical necessity challenges: <strong>(1)</strong> Eight weeks post-meniscectomy is insufficient time for post-operative rehabilitation and recovery before concluding the meniscectomy &ldquo;failed.&rdquo; Standard post-meniscectomy recovery extends 3&ndash;6 months before surgical failure can be assessed. <strong>(2)</strong> No viscosupplementation, corticosteroid injection, or bracing trial was attempted post-meniscectomy before escalation to TKA. The conservative care ladder between meniscectomy and TKA was not climbed. <strong>(3)</strong> TKA is indicated for end-stage OA &mdash; the condition that was pre-existing and documented. The surgeon&rsquo;s note attributes the TKA to &ldquo;failed meniscectomy,&rdquo; but the meniscectomy did not fail &mdash; the underlying OA progressed, as it was expected to after meniscectomy in a KL Grade II&ndash;III joint. <strong>(4)</strong> No second orthopedic opinion was obtained. Under standard MCG criteria for TKA, documented failure of adequate conservative care post-index surgery is required. This record does not demonstrate that failure.</td>
+            <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--danger);font-size:12.5px">No post-meniscectomy conservative care</strong> attempted before TKA recommendation. No injection trial. No bracing. No viscosupplementation. <strong style="color:var(--danger);font-size:12.5px">Eight-week interval</strong> is clinically premature. No failed-conservative-care documentation per MCG/InterQual.</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">CRPS Treatment</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">Stellate ganglion block &middot; Week 20</span></td>
+            <td style="text-align:center"><span class="badge b-high">Strong</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The CRPS diagnosis itself is challenged in Section 06 below. If the CRPS diagnosis does not survive clinical scrutiny, the associated treatments &mdash; stellate ganglion block, gabapentin escalation, and the pending spinal cord stimulator consultation &mdash; become medically unnecessary by definition. Even if CRPS is accepted arguendo, a stellate ganglion block is not a first-line CRPS intervention for a lower extremity; lumbar sympathetic block is the anatomically appropriate sympathetic blockade for left lower extremity CRPS. This clinical selection error further undermines the treating pain management physician&rsquo;s CRPS management credibility.</td>
+            <td style="font-size:12.5px;color:var(--ink-3)"><strong style="color:var(--danger);font-size:12.5px">Stellate ganglion block</strong> is cervicothoracic &mdash; indicated for upper extremity CRPS, not lower extremity. <strong style="color:var(--danger);font-size:12.5px">No documented Budapest criteria</strong> assessment before interventional treatment.</td>
+          </tr>
+          <tr>
+            <td><strong style="font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:500">Cervical Treatment</strong><br><span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase">PCP visits &middot; Weeks 4 &amp; 8</span></td>
+            <td style="text-align:center"><span class="badge b-high">Very Strong</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Two PCP visits for cervical strain without imaging, without neurological findings, and without any intervention beyond NSAIDs. The cervical claim is medically unsupported (see Causation Argument #6). Treatment for a condition that lacks objective support is, by definition, not medically necessary as a consequence of the incident. The cervical treatment costs should be challenged entirely.</td>
+            <td style="font-size:12.5px;color:var(--ink-3)">No imaging. No neurological examination. No referral. No ER cervical complaint. <strong style="color:var(--danger);font-size:12.5px">Four-week delay</strong> to first cervical complaint.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 06 — CRPS DIAGNOSIS CHALLENGE
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c6">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 06 &mdash; Diagnosis-Specific Deep Dive</div>
+        <div class="comp-title">CRPS Type I Diagnosis Challenge</div>
+      </div>
+      <div class="comp-badge">Budapest criteria audit</div>
+    </div>
+    <div class="comp-body">
+      <p>Complex Regional Pain Syndrome (CRPS) is among the most contested diagnoses in litigation medicine. The current diagnostic standard is the Budapest Criteria, which requires documented findings across four clinical categories: sensory, vasomotor, sudomotor/edema, and motor/trophic. This section audits the treating pain management physician&rsquo;s CRPS diagnosis against the Budapest Criteria documentation requirements and identifies specific clinical and documentation vulnerabilities available to the defense.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:160px">Budapest category</th>
+            <th style="width:100px">Criteria met?</th>
+            <th>Record documentation &amp; defense assessment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Sensory</td>
+            <td style="text-align:center"><span class="pill pill-amber">Partial</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The pain management note documents &ldquo;allodynia to light touch over the left knee and anterior shin.&rdquo; This satisfies the sensory symptom criterion. <strong>However</strong>, the distribution described (knee and anterior shin) is also the expected post-surgical pain distribution following arthroscopic meniscectomy. No documentation distinguishes the reported allodynia from expected post-operative nociceptive sensitization. No quantitative sensory testing was performed. A defense expert can argue that localized hyperesthesia over a recent surgical site is a normal post-operative finding, not evidence of CRPS.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Vasomotor</td>
+            <td style="text-align:center"><span class="pill pill-red">Absent</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong>No vasomotor signs are documented in the pain management evaluation or in any note in this record.</strong> The Budapest Criteria require at least one sign in at least three of the four categories. Vasomotor findings (temperature asymmetry, skin color changes) are among the most objective and verifiable CRPS signs. Their absence is significant. No thermographic assessment or documented temperature comparison between extremities was performed.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Sudomotor / Edema</td>
+            <td style="text-align:center"><span class="pill pill-amber">Partial</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)">The pain management note documents &ldquo;mild edema, left knee and distal leg.&rdquo; Post-operative edema following arthroscopic meniscectomy at Week 18 is within the expected post-surgical recovery timeline, particularly in a patient with Class II obesity and poorly controlled diabetes (both independent causes of lower extremity edema). No documentation distinguishes the observed edema from post-surgical, obesity-related, or diabetes-related edema. No sudomotor testing was performed.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Motor / Trophic</td>
+            <td style="text-align:center"><span class="pill pill-red">Absent</span></td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong>No motor or trophic changes are documented.</strong> No muscle weakness assessment, no ROM deficit attributed to CRPS (as opposed to post-surgical limitation), no skin texture changes, no hair growth changes, no nail changes. The Budapest Criteria require signs in at least three categories. With vasomotor absent and motor/trophic absent, the documented findings satisfy at most two categories (sensory and sudomotor/edema), both of which have alternative explanations (post-surgical pain and post-surgical/comorbidity-related edema).</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="finding warn">
+        <div class="finding-label">Physician assessment &mdash; CRPS diagnosis does not meet Budapest Criteria on this record</div>
+        <p><strong>The CRPS Type I diagnosis documented at Week 18 does not satisfy the Budapest Clinical Criteria based on the documentation in this record.</strong> The Budapest Criteria require: (1) continuing pain disproportionate to the inciting event; (2) at least one symptom reported in three of four categories; (3) at least one sign observed in two or more categories; and (4) no other diagnosis that better explains the findings. On this record, signs are documented in at most two categories (sensory and sudomotor/edema), both with plausible alternative explanations (post-surgical nociceptive sensitization and comorbidity-related edema). Vasomotor and motor/trophic categories have no documented findings. No confirmatory testing (three-phase bone scan, thermography, quantitative sudomotor axon reflex testing) was obtained. The pain management physician&rsquo;s note does not reference the Budapest Criteria, does not systematically document findings across all four categories, and does not address or rule out alternative diagnoses.</p>
+        <p>This is a diagnosis that a defense medical expert can credibly challenge as not meeting the accepted diagnostic standard. If the CRPS diagnosis is excluded, the damages exposure attributable to CRPS (pain management treatment, gabapentin, stellate ganglion block, pending SCS evaluation, and the CRPS-attributed disability and pain and suffering claim) may be significantly reduced.</p>
+      </div>
+
+      <div class="exclusive">
+        <div class="finding-label">Medisprudence exclusive &mdash; available only in DVA deliverables</div>
+        <p><strong>Diagnostic credibility attack sequence.</strong> For defense expert or cross-examination use: <strong>(1)</strong> Establish that Budapest Criteria are the accepted diagnostic standard for CRPS. <strong>(2)</strong> Walk through each of the four categories against the record documentation. <strong>(3)</strong> Identify the two categories with no documented findings (vasomotor, motor/trophic). <strong>(4)</strong> Establish that the findings in the remaining two categories (allodynia, edema) have documented alternative explanations (post-surgical pain, obesity/DM-related edema). <strong>(5)</strong> Note the absence of any confirmatory diagnostic testing. <strong>(6)</strong> Note the anatomical error in the treatment selection (stellate ganglion block for lower extremity CRPS). This sequence systematically dismantles the CRPS diagnosis without requiring the defense expert to assert it does not exist &mdash; the documentation simply does not support it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 07 — SURVEILLANCE-RECORDS RECONCILIATION
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c7">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 07</div>
+        <div class="comp-title">Surveillance&ndash;Records Reconciliation</div>
+      </div>
+      <div class="comp-badge">Functional inconsistency analysis</div>
+    </div>
+    <div class="comp-body">
+      <p>Surveillance footage obtained by the carrier at Week 14 (six weeks post-meniscectomy) documents the claimant&rsquo;s observed functional capacity in a non-clinical setting. This section reconciles the surveillance observations with the contemporaneous medical record documentation and identifies specific functional inconsistencies available to the defense.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:220px">Surveillance observation (Week 14)</th>
+            <th>Contemporaneous medical record (Weeks 12&ndash;16)</th>
+            <th style="width:200px">Functional inconsistency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong style="color:var(--ink);font-size:13.5px">Ambulation:</strong> Claimant observed walking through parking lot and grocery store without assistive device, without visible antalgic gait, for approximately 35 minutes of continuous surveillance.</td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong style="color:var(--ink);font-size:13.5px">PT note (Week 13):</strong> &ldquo;Continues to require single-point cane for community ambulation. Unable to walk more than 10 minutes without significant pain. Antalgic gait persists.&rdquo;<br><br><strong style="color:var(--ink);font-size:13.5px">Ortho note (Week 16):</strong> &ldquo;Patient presents with cane. Reports inability to walk through grocery store without rest breaks.&rdquo;</td>
+            <td style="font-size:13px;color:var(--danger)"><strong>Direct contradiction.</strong> Surveillance documents 35 minutes of continuous, unassisted, non-antalgic ambulation. Treating PT documents cane dependence and 10-minute walking tolerance. Ortho note documents cane use and grocery-store intolerance &mdash; the specific activity documented on surveillance.</td>
+          </tr>
+          <tr>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong style="color:var(--ink);font-size:13.5px">Carrying:</strong> Claimant observed carrying two grocery bags (one per hand) from store to vehicle, estimated 10&ndash;15 lbs per bag, without visible difficulty or compensatory posture.</td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong style="color:var(--ink);font-size:13.5px">PT note (Week 13):</strong> &ldquo;Unable to carry more than 5 lbs due to left knee instability and pain.&rdquo;<br><br><strong style="color:var(--ink);font-size:13.5px">Ortho note (Week 16):</strong> &ldquo;Significant functional limitation. Unable to perform household activities including lifting and carrying.&rdquo;</td>
+            <td style="font-size:13px;color:var(--danger)"><strong>Direct contradiction.</strong> Surveillance documents bilateral carrying of 20&ndash;30 lbs total without visible limitation. PT note documents a 5 lb carrying limit. The ortho note documents inability to perform household carrying.</td>
+          </tr>
+          <tr>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong style="color:var(--ink);font-size:13.5px">Vehicle operation:</strong> Claimant observed entering and exiting vehicle without difficulty, driving independently.</td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong style="color:var(--ink);font-size:13.5px">Ortho note (Week 16):</strong> &ldquo;Reports difficulty with prolonged sitting and vehicle entry/exit.&rdquo;</td>
+            <td style="font-size:13px;color:var(--caution)"><strong>Partial inconsistency.</strong> Surveillance documents unimpaired vehicle entry/exit. Medical record documents reported difficulty. Surveillance is a single time point and does not capture pain that may not be visibly expressed.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="finding warn">
+        <div class="finding-label">Physician assessment &mdash; surveillance-records discrepancy is significant</div>
+        <p>The surveillance footage documents functional capacity that directly contradicts the treating providers&rsquo; contemporaneous documentation on two of the three most specific functional measures: ambulation distance and carrying capacity. This is not a subtle inconsistency or a matter of interpretation. <strong>The PT note documents a 10-minute walking limit and 5 lb carrying limit in the same week the surveillance documents 35 minutes of unassisted ambulation and bilateral carrying of 20&ndash;30 lbs.</strong> This discrepancy has two possible medical explanations: (1) the claimant&rsquo;s self-reported symptoms to treating providers are significantly exaggerated relative to observed functional capacity; or (2) the claimant&rsquo;s functional capacity fluctuates dramatically between surveillance and clinical encounters. Explanation (1) is far more clinically plausible. This surveillance evidence substantially undermines the functional limitation narrative supporting both the TKA recommendation and the CRPS disability claim.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 08 — DOCUMENTATION DEFICIENCY INDEX
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c8">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 08</div>
+        <div class="comp-title">Documentation Deficiency Index</div>
+      </div>
+      <div class="comp-badge">10 deficiencies catalogued</div>
+    </div>
+    <div class="comp-body">
+      <p>A systematic catalogue of every clinically significant documentation gap, omission, or inconsistency identified in the treating providers&rsquo; records. Each deficiency is mapped to the defense argument it supports. This index is designed for use in IME preparation, deposition preparation, and mediation briefing.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:36px">#</th>
+            <th style="width:160px">Deficiency</th>
+            <th>Record details</th>
+            <th style="width:130px">Supports argument</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center">1</td>
+            <td style="font-weight:500;font-size:13.5px">Treating surgeon did not address 2023 bilateral knee X-rays</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">No reference to prior imaging in operative report, TKA recommendation, or any orthopedic office note. The documented KL Grade II&ndash;III OA at the operative level is not acknowledged anywhere in the treating surgeon&rsquo;s records.</td>
+            <td style="font-size:12px;color:var(--ink-3)">Pre-existing condition; TKA causation</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center">2</td>
+            <td style="font-weight:500;font-size:13.5px">Treating surgeon did not address August 2024 cortisone injection</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">No reference to prior interventional treatment at the same joint. No pre-incident symptom history documented in the orthopedic chart.</td>
+            <td style="font-size:12px;color:var(--ink-3)">Pre-existing symptomatic disease</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center">3</td>
+            <td style="font-weight:500;font-size:13.5px">Treating surgeon did not address right knee surgical history</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">No reference to 2020 right knee meniscectomy. Bilateral degenerative disease pattern not discussed.</td>
+            <td style="font-size:12px;color:var(--ink-3)">Bilateral degenerative pattern</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center">4</td>
+            <td style="font-weight:500;font-size:13.5px">No post-meniscectomy conservative care before TKA recommendation</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">No viscosupplementation, no corticosteroid injection, no bracing trial documented between meniscectomy (Week 8) and TKA recommendation (Week 16).</td>
+            <td style="font-size:12px;color:var(--ink-3)">TKA medical necessity; premature escalation</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center">5</td>
+            <td style="font-weight:500;font-size:13.5px">Eight-week meniscectomy-to-TKA interval is clinically premature</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Standard post-meniscectomy recovery assessment extends 3&ndash;6 months. No documentation of why the eight-week evaluation timeline was appropriate for this patient.</td>
+            <td style="font-size:12px;color:var(--ink-3)">TKA medical necessity</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center">6</td>
+            <td style="font-weight:500;font-size:13.5px">CRPS diagnosis lacks Budapest Criteria documentation</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Pain management note does not reference Budapest Criteria. Only 2 of 4 sign categories documented. No confirmatory testing. No alternative diagnoses ruled out.</td>
+            <td style="font-size:12px;color:var(--ink-3)">CRPS diagnosis challenge</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center">7</td>
+            <td style="font-weight:500;font-size:13.5px">Stellate ganglion block for lower extremity CRPS</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Anatomically inappropriate sympathetic blockade. Stellate ganglion (cervicothoracic) targets upper extremity sympathetic chain. Lower extremity CRPS requires lumbar sympathetic block.</td>
+            <td style="font-size:12px;color:var(--ink-3)">CRPS treatment credibility; provider competence</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center">8</td>
+            <td style="font-weight:500;font-size:13.5px">No ER cervical complaint despite subsequent cervical claim</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Date-of-loss ER evaluation documents left knee pain only. No cervical complaint, no cervical exam. First cervical complaint at PCP Week 4.</td>
+            <td style="font-size:12px;color:var(--ink-3)">Cervical causation denial</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center">9</td>
+            <td style="font-weight:500;font-size:13.5px">Surveillance-records functional discrepancy</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Week 14 surveillance contradicts contemporaneous PT and orthopedic documentation on ambulation distance, assistive device use, and carrying capacity. See Section 07.</td>
+            <td style="font-size:12px;color:var(--ink-3)">Damages credibility; functional exaggeration</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--mono);font-weight:500;text-align:center">10</td>
+            <td style="font-weight:500;font-size:13.5px">BMI and diabetic status not addressed in surgical decision-making</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">No documentation addressing the impact of BMI 36.8 and HbA1c 8.4% on OA progression, surgical outcomes, or the causation apportionment analysis. Endocrinology note documents patient declined weight management referral.</td>
+            <td style="font-size:12px;color:var(--ink-3)">Causation apportionment; comorbidity contribution</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 09 — IME FOCUS MEMORANDUM
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c9">
+    <div class="comp-head exclusive">
+      <div>
+        <div class="comp-num">Section 09 &mdash; Exclusive Deliverable</div>
+        <div class="comp-title">IME Focus Memorandum</div>
+      </div>
+      <div class="comp-badge">For defense medical expert</div>
+    </div>
+    <div class="comp-body">
+      <p>A physician-authored memorandum identifying the clinical questions the defense independent medical examiner should be directed to address. This is not a script &mdash; it is a clinical focus guide that ensures the defense IME evaluation covers the specific medical questions this record raises, grounded in the documentation deficiencies and causation vulnerabilities identified in this report. Designed for transmission to the defense medical expert with the record package, at counsel&rsquo;s discretion.</p>
+
+      <ul class="action-list">
+        <li class="action-item priority">
+          <div class="action-num">01</div>
+          <div class="action-body">
+            <div class="priority-note">Critical focus area</div>
+            <strong>Meniscal tear morphology &mdash; degenerative versus traumatic classification</strong>
+            <p>The IME physician should review the MRI and provide an independent characterization of the meniscal tear morphology. Key questions: Is the horizontal cleavage tear pattern consistent with a degenerative or traumatic etiology? Would this tear pattern be expected in a knee with documented KL Grade II&ndash;III osteoarthritis independent of any traumatic event? Is the absence of bone bruise, ligamentous injury, and acute traumatic effusion on the MRI consistent with an acute traumatic meniscal tear from a ground-level fall? What is the IME physician&rsquo;s assessment of the most likely tear etiology given the MRI morphology, the pre-existing OA severity, and the mechanism described?</p>
+          </div>
+        </li>
+        <li class="action-item priority">
+          <div class="action-num">02</div>
+          <div class="action-body">
+            <div class="priority-note">Critical focus area</div>
+            <strong>TKA necessity apportionment &mdash; contribution of pre-existing OA versus fall</strong>
+            <p>The IME physician should address whether the TKA recommendation is attributable to the fall or to the progression of pre-existing osteoarthritis. Key questions: Given the documented KL Grade II&ndash;III OA in 2023 and the Outerbridge Grade III&ndash;IV chondromalacia found at arthroscopy, was TKA a foreseeable clinical endpoint independent of this fall? Did the meniscectomy in an arthritic knee accelerate OA progression? If the fall had not occurred, what is the IME physician&rsquo;s assessment of the clinical timeline to TKA candidacy based on the pre-existing disease severity? Was the eight-week interval between meniscectomy and TKA recommendation clinically premature?</p>
+          </div>
+        </li>
+        <li class="action-item priority">
+          <div class="action-num">03</div>
+          <div class="action-body">
+            <div class="priority-note">Critical focus area</div>
+            <strong>CRPS diagnosis &mdash; Budapest Criteria assessment on examination</strong>
+            <p>The IME physician should perform a systematic Budapest Criteria evaluation at the examination. Key questions: Does the physical examination demonstrate signs in at least three of the four Budapest categories? Are vasomotor signs present (temperature asymmetry, skin color changes)? Are motor/trophic signs present? Can the sensory findings (allodynia) be distinguished from post-surgical nociceptive sensitization? Can the observed edema be distinguished from post-surgical, obesity-related, or diabetes-related edema? Does any other diagnosis better explain the findings? The IME physician should document the Budapest Criteria assessment systematically in the report.</p>
+          </div>
+        </li>
+        <li class="action-item">
+          <div class="action-num">04</div>
+          <div class="action-body">
+            <strong>Prior symptomatic left knee disease &mdash; cortisone injection history</strong>
+            <p>The IME physician should address the significance of the August 2024 cortisone injection. Was the claimant already symptomatic and functionally limited at the left knee before the fall? What does the prior injection indicate about the trajectory of the pre-existing left knee OA? Does the treating surgeon&rsquo;s failure to address this prior treatment history affect the causation analysis?</p>
+          </div>
+        </li>
+        <li class="action-item">
+          <div class="action-num">05</div>
+          <div class="action-body">
+            <strong>Surveillance-consistent functional assessment</strong>
+            <p>The IME physician should assess the claimant&rsquo;s functional capacity at examination, with specific attention to ambulation distance, gait pattern, assistive device use, and carrying capacity. If the examination findings are consistent with the surveillance observations (functional capacity exceeding the treating providers&rsquo; documentation), this should be noted. If the examination findings are consistent with the treating providers&rsquo; documented limitations, the discrepancy with surveillance should be addressed.</p>
+          </div>
+        </li>
+        <li class="action-item">
+          <div class="action-num">06</div>
+          <div class="action-body">
+            <strong>Cervical strain &mdash; mechanism analysis and examination findings</strong>
+            <p>The IME physician should address whether the described slip-and-fall mechanism is a recognized mechanism for cervical injury, and should document the cervical examination findings. Expected conclusion: a ground-level fall onto the lateral knee and hip is not a mechanism that produces clinically significant cervical injury in the absence of head strike or deceleration. The four-week delay to first complaint and absence of ER cervical findings support a non-traumatic etiology.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 10 — TREATING PHYSICIAN DEPOSITION QUESTIONS
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c10">
+    <div class="comp-head exclusive">
+      <div>
+        <div class="comp-num">Section 10 &mdash; Exclusive Deliverable</div>
+        <div class="comp-title">Treating Physician Deposition Question Bank</div>
+      </div>
+      <div class="comp-badge">3 Deponents &middot; 24 Questions</div>
+    </div>
+    <div class="comp-body">
+      <p>Physician-authored deposition questions designed to expose the specific documentation deficiencies and clinical omissions identified in this report. Each question is targeted at a specific record gap and is designed to elicit testimony that supports the defense medical position. These are medically informed questions &mdash; not legal strategy. Counsel should adapt sequencing and phrasing to deposition strategy.</p>
+
+      <h3 style="margin-top:24px;margin-bottom:6px">Treating Orthopedic Surgeon</h3>
+      <p style="font-size:13px;color:var(--ink-3);margin-bottom:14px;font-style:italic">Focus: pre-existing disease omission, TKA causation, and premature surgical escalation</p>
+      <ol class="depo-q">
+        <li>Doctor, before performing the arthroscopic meniscectomy on the claimant&rsquo;s left knee, did you review any prior imaging of the left knee? <em>Target: establish whether the surgeon reviewed or ignored the 2023 X-rays showing KL Grade II&ndash;III OA.</em></li>
+        <li>Were you aware that the claimant received an intra-articular cortisone injection to the left knee in August of 2024 &mdash; approximately 14 months before the fall &mdash; for medial joint line pain with activity-limiting symptoms? <em>Target: establish that the surgeon did not obtain a complete prior treatment history.</em></li>
+        <li>In your operative report, you described the meniscal tear as a horizontal cleavage pattern. In your training and experience, is a horizontal cleavage tear pattern more commonly associated with degenerative meniscal disease or with acute traumatic injury? <em>Target: the surgeon&rsquo;s own tear morphology description supports the degenerative classification.</em></li>
+        <li>During the arthroscopic procedure, you noted Outerbridge Grade III to IV chondromalacia at the medial femoral condyle. Is Grade III to IV chondromalacia a finding you would expect to develop in the eight weeks between the fall and surgery, or does it represent a pre-existing degenerative process? <em>Target: the intraoperative findings confirm pre-existing advanced OA.</em></li>
+        <li>Were you aware that the claimant had undergone a right knee arthroscopic meniscectomy in 2020 for a degenerative medial meniscal tear in the other knee? <em>Target: establish bilateral degenerative disease pattern the surgeon did not address.</em></li>
+        <li>You recommended total knee arthroplasty at Week 16 &mdash; eight weeks after the meniscectomy. In your training and experience, what is the standard post-operative recovery period before concluding that an arthroscopic meniscectomy has failed? <em>Target: eight weeks is premature by the surgeon&rsquo;s own training standards.</em></li>
+        <li>Between the meniscectomy and the TKA recommendation, did you prescribe or attempt any conservative treatment such as viscosupplementation, corticosteroid injection, or unloader bracing? <em>Target: the conservative care ladder was not climbed before surgical escalation.</em></li>
+        <li>Your TKA recommendation note describes the indication as &ldquo;failed meniscectomy&rdquo; with &ldquo;bone-on-bone medial compartment arthrosis.&rdquo; Is it accurate that total knee arthroplasty is a treatment for osteoarthritis, not a treatment for a meniscal tear? <em>Target: the TKA addresses the pre-existing OA, not the fall injury.</em></li>
+        <li>If the claimant&rsquo;s left knee already had Kellgren-Lawrence Grade II to III osteoarthritis in 2023 and she was already receiving cortisone injections for left knee pain in 2024, is it your medical opinion that she would never have required a total knee arthroplasty absent this fall? <em>Target: force the surgeon to address causation apportionment.</em></li>
+        <li>Did you review surveillance footage showing the claimant ambulating without an assistive device and carrying grocery bags bilaterally approximately six weeks after the meniscectomy you performed? <em>Target: introduce functional inconsistency into the treatment decision-making narrative.</em></li>
+      </ol>
+
+      <h3 style="margin-top:28px;margin-bottom:6px">Treating Pain Management Physician</h3>
+      <p style="font-size:13px;color:var(--ink-3);margin-bottom:14px;font-style:italic">Focus: CRPS diagnostic rigor, Budapest Criteria compliance, and treatment selection</p>
+      <ol class="depo-q">
+        <li>Doctor, when you diagnosed Complex Regional Pain Syndrome Type I, did you apply the Budapest Clinical Diagnostic Criteria? <em>Target: establish whether the accepted diagnostic standard was used.</em></li>
+        <li>The Budapest Criteria require at least one sign observed in at least three of four categories: sensory, vasomotor, sudomotor or edema, and motor or trophic. In your evaluation, how many of those four categories had documented clinical signs? <em>Target: force enumeration &mdash; the record supports at most two.</em></li>
+        <li>Did you observe any vasomotor signs &mdash; temperature asymmetry or skin color changes &mdash; on your examination? <em>Target: no vasomotor findings are documented.</em></li>
+        <li>Did you observe any motor or trophic changes &mdash; muscle weakness, tremor, decreased range of motion attributable to CRPS, skin texture changes, hair growth changes, or nail changes? <em>Target: no motor/trophic findings are documented.</em></li>
+        <li>The edema you documented in the left lower extremity &mdash; did you consider whether that edema could be attributable to the claimant&rsquo;s Class II obesity or her poorly controlled Type 2 diabetes rather than to CRPS? <em>Target: alternative diagnoses for the only sudomotor/edema finding.</em></li>
+        <li>The allodynia you documented over the left knee and anterior shin &mdash; is that distribution also consistent with expected post-operative nociceptive sensitization following an arthroscopic meniscectomy performed ten weeks earlier? <em>Target: alternative explanation for the only sensory finding.</em></li>
+        <li>Did you obtain any confirmatory diagnostic testing for CRPS &mdash; a three-phase bone scan, thermographic assessment, or quantitative sudomotor axon reflex testing? <em>Target: no confirmatory testing was performed.</em></li>
+        <li>You treated the claimant&rsquo;s left lower extremity CRPS with a stellate ganglion block. The stellate ganglion is located in the cervicothoracic region and innervates the upper extremity sympathetic chain. For lower extremity CRPS, would a lumbar sympathetic block be the anatomically appropriate procedure? <em>Target: anatomical treatment selection error undermines CRPS management competence.</em></li>
+      </ol>
+
+      <h3 style="margin-top:28px;margin-bottom:6px">Treating Physical Therapist</h3>
+      <p style="font-size:13px;color:var(--ink-3);margin-bottom:14px;font-style:italic">Focus: functional documentation supporting surveillance discrepancy</p>
+      <ol class="depo-q">
+        <li>In your note from Week 13, you documented that the claimant &ldquo;continues to require a single-point cane for community ambulation&rdquo; and is &ldquo;unable to walk more than 10 minutes without significant pain.&rdquo; How did you determine the 10-minute walking tolerance? <em>Target: establish whether the limitation is self-reported or objectively measured.</em></li>
+        <li>In that same note, you documented a carrying capacity limit of 5 pounds. How was that limit determined &mdash; by objective testing or by the claimant&rsquo;s report? <em>Target: if self-reported, the PT documentation is based on statements contradicted by surveillance.</em></li>
+        <li>Did you use any standardized functional outcome measure &mdash; the KOOS, the LEFS, the Lysholm score, or any validated instrument &mdash; to objectively document the claimant&rsquo;s functional limitations at any point during the treatment course? <em>Target: no validated functional measures in the record.</em></li>
+        <li>If I showed you surveillance footage from the same week as your note documenting a 10-minute walking limit and 5-pound carrying limit, and that footage showed the claimant walking unassisted for 35 minutes and carrying 20 to 30 pounds of groceries, would that affect your clinical assessment of the claimant&rsquo;s functional limitations? <em>Target: confrontation with surveillance evidence.</em></li>
+        <li>Did the claimant at any point during treatment demonstrate functional capacity during therapy sessions that exceeded what she reported as her community-level tolerance? <em>Target: establish whether the PT ever observed inconsistency between reported and demonstrated function.</em></li>
+        <li>Did you communicate your functional findings to the treating orthopedic surgeon before the total knee arthroplasty recommendation was made? <em>Target: the PT&rsquo;s inflated limitation documentation may have influenced the TKA decision.</em></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 11 — NET MEDICAL EXPOSURE ASSESSMENT
+       ══════════════════════════════════════════════════════════ -->
+  <div class="component" id="c11">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 11 &mdash; The Bottom Line</div>
+        <div class="comp-title">Net Medical Exposure Assessment</div>
+      </div>
+      <div class="comp-badge">Physician-authored</div>
+    </div>
+    <div class="comp-body">
+      <p>A physician-authored net assessment of the claimant&rsquo;s medical case, summarizing the defense&rsquo;s medical position across all axes analyzed in this report. This assessment addresses the medical defensibility of each claim component. It does not address damages valuation, settlement strategy, or liability, which remain counsel&rsquo;s domain.</p>
+
+      <div class="verdict">
+        <div class="verdict-label">Left knee meniscal tear &mdash; causation</div>
+        <h3>Defense position: Strong &mdash; degenerative etiology well-supported</h3>
+        <p>The horizontal cleavage tear morphology, pre-existing KL Grade II&ndash;III OA at the same compartment, absence of acute traumatic MRI findings (no bone bruise, no ligamentous injury), prior symptomatic treatment (2024 cortisone injection), and contralateral knee surgical history (2020 right meniscectomy, identical pathology) collectively create a medical record that strongly supports a degenerative tear etiology. The most defensible medical position is that the fall rendered a pre-existing degenerative tear symptomatic, did not create a new traumatic injury, and that the claimant was already on a symptomatic trajectory at this joint. This is not a close-call causation argument &mdash; the medical evidence favors the defense position.</p>
+      </div>
+
+      <div class="verdict">
+        <div class="verdict-label">TKA recommendation &mdash; medical necessity and causation</div>
+        <h3>Defense position: Very Strong &mdash; TKA treats OA, not a meniscal tear</h3>
+        <p>The TKA recommendation is medically attributable to pre-existing osteoarthritis that was documented, symptomatic, and progressive before the fall. The premature eight-week meniscectomy-to-TKA interval, the absence of intermediate conservative care, and the surgeon&rsquo;s failure to address the extensive pre-existing disease history create a TKA recommendation that is both causally apportionable and medically challengeable on necessity grounds. The defense medical expert can credibly testify that TKA was a foreseeable endpoint of the documented OA, that meniscectomy in this knee predictably accelerated the timeline, and that the fall&rsquo;s contribution to TKA candidacy is a fraction of the total causation &mdash; not the sole cause.</p>
+      </div>
+
+      <div class="verdict">
+        <div class="verdict-label">CRPS Type I &mdash; diagnostic validity</div>
+        <h3>Defense position: Very Strong &mdash; Budapest Criteria not met on documentation</h3>
+        <p>The CRPS diagnosis does not satisfy the Budapest Clinical Criteria based on the documentation in this record. Signs are documented in at most two of four required categories, both with plausible non-CRPS explanations. No confirmatory testing was obtained. The anatomically inappropriate treatment selection (stellate ganglion block for lower extremity CRPS) further undermines the treating physician&rsquo;s diagnostic credibility. This diagnosis should be vigorously challenged. If excluded, the CRPS-attributable treatment costs, disability, and pain and suffering claims are eliminated from the damages exposure.</p>
+      </div>
+
+      <div class="verdict warn">
+        <div class="verdict-label">Claimant&rsquo;s strongest element &mdash; temporal proximity</div>
+        <h3>Counsel awareness: the claimant retains one significant medical argument</h3>
+        <p>The fall occurred, the claimant presented to the ER on the same day, and the MRI three weeks later documented a meniscal tear. Temporal proximity is the claimant&rsquo;s strongest and most intuitive medical argument. A jury may find the &ldquo;she fell and now her knee is torn&rdquo; narrative compelling despite the degenerative morphology and pre-existing disease. The defense medical position is scientifically well-supported, but temporal proximity has outsized persuasive weight with lay jurors. Counsel should anticipate that the plaintiff will simplify the narrative to mechanism-and-timing, and prepare the defense medical expert to explain the degenerative tear distinction in accessible, non-technical terms. The surveillance evidence and the CRPS diagnostic challenge are the defense&rsquo;s most powerful tools for counterbalancing the temporal-proximity narrative.</p>
+      </div>
+
+      <div class="verdict">
+        <div class="verdict-label">Cervical strain</div>
+        <h3>Defense position: Very Strong &mdash; claim is medically unsupported</h3>
+        <p>No ER cervical complaint, no imaging, no neurological findings, no recognized mechanism, four-week delay to first complaint. This claim should be challenged in its entirety. The medical evidence does not support a cervical injury attributable to this incident.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       BOUNDARY / DISCLAIMER
+       ══════════════════════════════════════════════════════════ -->
+  <div class="disclaimer">
+    <strong>Scope and Boundary Statement &mdash; Included in Every DVA Deliverable</strong>
+    Medisprudence provides physician-authored medical record analysis for litigation support. This Defense Vulnerability Analysis is prepared at the direction of and for the use of defense counsel, the retaining TPA, or the retaining insurance carrier. All medical assessments in this report are physician-authored. AI may assist with record extraction and organization only; all clinical conclusions, causation assessments, diagnostic evaluations, and medical opinions are authored by the reviewing physician and are clearly identified throughout. Medisprudence does not provide legal advice, expert testimony, damages valuation, settlement recommendations, billing-code review, UCR analysis, or liability opinions. This report assesses the medical defensibility of the claimant&rsquo;s medical case based on the documentation in the record &mdash; it does not guarantee any outcome at mediation, arbitration, or trial. The defense medical arguments described in this report represent the reviewing physician&rsquo;s assessment of what the medical evidence in this record supports &mdash; they are recommendations for investigation and expert development, not final medical-legal conclusions. All clinical data in this specimen is fictional. No PHI is present.
+  </div>
+
+  <div class="doc-footer">
+    <span>Medisprudence &middot; Defense Vulnerability Analysis (DVA&trade;) &middot; Physician-authored defense medical intelligence</span>
+    <span>Specimen &middot; Fictional Data &middot; May 2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>
