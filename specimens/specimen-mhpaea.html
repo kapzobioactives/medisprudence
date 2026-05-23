@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medisprudence — Specimen: MHPAEA Behavioral Health Parity Review</title>
+<meta name="description" content="Specimen MHPAEA Parity Review deliverable — fictional health plan. Side-by-side NQTL analysis across all six categories. No PHI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────
+   MEDISPRUDENCE — SPECIMEN STYLES
+   Shared CSS for all specimen deliverables.
+   Matches editorial/case-file aesthetic of medisprudence.com
+   ─────────────────────────────────────────────────────────── */
+
+:root{
+  --bg:#FAF7F1;
+  --bg-alt:#F1ECE0;
+  --bg-inset:#EDE6D6;
+  --paper:#FFFCF5;
+  --ink:#1A1612;
+  --ink-2:#3D352D;
+  --ink-3:#76695B;
+  --teal:#7A1F2B;
+  --teal-text:#6B1A24;
+  --teal-dim:rgba(122,31,43,.07);
+  --teal-tint:rgba(122,31,43,.04);
+  --teal-glow:rgba(122,31,43,.18);
+  --danger:#8B2418;
+  --danger-dim:rgba(139,36,24,.08);
+  --danger-glow:rgba(139,36,24,.20);
+  --caution:#8C6A1F;
+  --caution-dim:rgba(140,106,31,.09);
+  --caution-glow:rgba(140,106,31,.22);
+  --rule:rgba(26,22,18,.10);
+  --rule-md:rgba(26,22,18,.16);
+  --rule-dark:rgba(26,22,18,.28);
+  --serif:'Spectral','Georgia',serif;
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',ui-monospace,monospace;
+  --r-sm:2px;
+  --r-md:3px;
+  --r-lg:4px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:15px;
+  background:var(--bg);
+  padding-top:44px;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--teal);color:#fff}
+*:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
+h1,h2,h3,h4{
+  font-family:var(--serif);
+  line-height:1.15;
+  font-weight:400;
+  color:var(--ink);
+  letter-spacing:-.015em;
+}
+.mono{font-family:var(--mono)}
+
+/* ── TOP BAR (specimen disclaimer / back nav) ── */
+.top-bar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:44px;background:rgba(250,247,241,.94);
+  backdrop-filter:blur(20px) saturate(1.6);
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:24px;
+  padding:0 32px;
+}
+.top-bar a.back{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);
+  display:inline-flex;align-items:center;gap:6px;
+  transition:color .18s;
+}
+.top-bar a.back:hover{color:var(--teal)}
+.top-bar .specimen-tag{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);padding-left:20px;
+  border-left:1px solid var(--rule);
+}
+.top-bar .specimen-tag strong{color:var(--teal-text);font-weight:500}
+
+/* ── DOC HEADER ── */
+.doc-header{
+  background:var(--bg);
+  padding:28px 48px 22px;
+  border-bottom:1px solid var(--rule);
+}
+.doc-header-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:18px;
+  gap:24px;flex-wrap:wrap;
+}
+.doc-brand{
+  font-family:var(--serif);font-size:20px;font-weight:400;
+  color:var(--ink);letter-spacing:-.02em;
+  display:flex;align-items:center;gap:8px;
+}
+.doc-brand svg{color:var(--teal);flex-shrink:0}
+.doc-stamp{text-align:right}
+.doc-stamp-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.doc-stamp-val{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;margin-top:3px;
+}
+.doc-title{
+  font-family:var(--serif);font-size:clamp(24px,3vw,32px);
+  font-weight:400;color:var(--ink);letter-spacing:-.02em;
+  margin-bottom:8px;line-height:1.15;
+}
+.doc-title em{font-style:italic;color:var(--teal);font-weight:400}
+.doc-subtitle{
+  font-size:13.5px;color:var(--ink-3);
+  font-family:var(--sans);
+  letter-spacing:.005em;
+}
+
+/* ── DOC NAV (anchor pills) ── */
+.doc-nav{
+  background:var(--bg-alt);
+  border-bottom:1px solid var(--rule);
+  padding:12px 48px;
+  display:flex;gap:6px;flex-wrap:wrap;
+}
+.doc-nav a{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);text-decoration:none;
+  padding:6px 12px;
+  border:1px solid var(--rule);
+  border-radius:var(--r-sm);
+  background:var(--bg);
+  transition:.18s;white-space:nowrap;
+}
+.doc-nav a:hover{
+  color:var(--teal-text);
+  border-color:var(--teal);
+  background:var(--teal-dim);
+}
+
+/* ── BODY WRAP ── */
+.doc{
+  max-width:920px;
+  margin:0 auto;
+  padding:36px 48px 56px;
+}
+
+/* ── CASE CAPTION (file metadata) ── */
+.caption{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:6px 24px;
+  margin-bottom:28px;
+}
+.caption-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  padding:14px 0;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+}
+.caption-row:last-child{border-bottom:none}
+.caption-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:2px;
+}
+.caption-val{
+  font-weight:500;color:var(--ink);font-size:14.5px;
+  line-height:1.5;
+}
+
+/* ── KPI / SCORECARD STRIP ── */
+.kpi-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  margin-bottom:32px;
+  background:var(--bg);
+  overflow:hidden;
+}
+.kpi-strip.cols-5{grid-template-columns:repeat(5,1fr)}
+.kpi{
+  padding:18px 14px;text-align:center;
+  border-right:1px solid var(--rule);
+  background:var(--bg);
+}
+.kpi:last-child{border-right:none}
+.kpi-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;
+}
+.kpi-val{
+  font-family:var(--serif);font-size:24px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.1;
+}
+.kpi-val.red{color:var(--danger)}
+.kpi-val.amber{color:var(--caution)}
+.kpi-val.green,
+.kpi-val.teal{color:var(--teal)}
+
+/* ── COMPONENT (numbered section block) ── */
+.component{
+  margin-bottom:36px;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  overflow:hidden;
+  background:var(--bg);
+}
+.comp-head{
+  background:var(--bg-alt);
+  padding:16px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.comp-head::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:var(--teal);
+}
+.comp-head.alert::before{background:var(--danger)}
+.comp-head.exclusive{
+  background:var(--ink);color:#fff;
+  border-bottom:1px solid var(--ink);
+}
+.comp-head.exclusive::before{background:var(--teal);width:3px}
+.comp-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:3px;
+}
+.comp-head.exclusive .comp-num{color:rgba(217,205,182,.85)}
+.comp-title{
+  font-family:var(--serif);font-size:21px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.2;
+}
+.comp-head.exclusive .comp-title{color:#fff}
+.comp-badge{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.comp-head.exclusive .comp-badge{color:rgba(217,205,182,.55)}
+.comp-body{padding:24px 26px}
+.comp-body p{
+  color:var(--ink-2);margin-bottom:11px;
+  font-size:14.5px;line-height:1.75;
+}
+.comp-body p strong{color:var(--ink);font-weight:500}
+.comp-body h3{
+  font-family:var(--serif);font-size:18px;
+  font-weight:400;color:var(--ink);
+  margin:18px 0 8px;letter-spacing:-.01em;
+}
+
+/* ── FINDINGS (callouts) ── */
+.finding{
+  border-left:3px solid var(--teal);
+  padding:14px 18px;margin:14px 0;
+  background:var(--teal-dim);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+}
+.finding.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.finding.caution{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.finding-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:6px;
+  color:var(--teal-text);
+}
+.finding.warn .finding-label{color:var(--danger)}
+.finding.caution .finding-label{color:var(--caution)}
+.finding p{
+  font-size:14px;color:var(--ink);
+  margin-bottom:0;line-height:1.7;
+}
+.finding p + p{margin-top:8px}
+.finding p strong{color:var(--ink);font-weight:600}
+
+/* ── EXCLUSIVE / REBUTTAL (dark inset) ── */
+.exclusive,
+.rebuttal{
+  background:var(--ink);
+  color:#fff;
+  padding:20px 24px;
+  margin:16px 0;
+  border-radius:var(--r-sm);
+  border-left:3px solid var(--teal);
+}
+.exclusive .finding-label,
+.rebuttal .finding-label{
+  color:#D8A89F;letter-spacing:.16em;
+  font-weight:500;margin-bottom:8px;
+}
+.exclusive p,
+.rebuttal p{
+  color:rgba(255,255,255,.82);
+  font-size:14px;line-height:1.75;
+}
+.exclusive p strong,
+.rebuttal p strong{color:#fff;font-weight:600}
+.exclusive p + p,
+.rebuttal p + p{margin-top:10px}
+
+/* ── TABLES ── */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:14px 0;
+  font-size:13.5px;
+  background:var(--bg);
+}
+th,td{
+  padding:11px 13px;
+  border:1px solid var(--rule);
+  vertical-align:top;
+  text-align:left;
+  line-height:1.6;
+}
+thead th{
+  background:var(--bg-inset);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:600;
+  border-color:var(--rule-md);
+}
+tbody td:first-child{
+  font-weight:500;color:var(--ink);
+  background:var(--bg-alt);
+}
+tbody tr:nth-child(even) td{background:var(--bg-alt)}
+tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
+.ref{
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.02em;
+}
+
+/* ── TIMELINE (CMIP medmal) ── */
+.timeline{
+  border-left:2px solid var(--rule-md);
+  margin:20px 0;
+  padding-left:24px;
+}
+.timeline-event{
+  position:relative;
+  padding-bottom:22px;
+}
+.timeline-event:last-child{padding-bottom:0}
+.timeline-event::before{
+  content:"";position:absolute;
+  left:-30px;top:5px;
+  width:11px;height:11px;
+  border-radius:50%;
+  background:var(--bg);
+  border:2px solid var(--rule-dark);
+}
+.timeline-event.critical::before{
+  background:var(--danger);border-color:var(--danger);
+}
+.timeline-event.flag::before{
+  background:var(--caution);border-color:var(--caution);
+}
+.timeline-event.good::before{
+  background:var(--teal);border-color:var(--teal);
+}
+.timeline-date{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.06em;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:4px;text-transform:uppercase;
+}
+.timeline-event.critical .timeline-date{color:var(--danger)}
+.timeline-event.flag .timeline-date{color:var(--caution)}
+.timeline-event p{
+  font-size:14px;color:var(--ink-2);
+  margin:0;line-height:1.7;
+}
+.timeline-event strong{color:var(--ink);font-weight:600}
+
+/* ── IME QUOTE BOX ── */
+.ime-quote{
+  border:1px solid var(--rule-md);
+  background:var(--paper);
+  padding:16px 20px 14px;
+  margin:14px 0;
+  position:relative;
+  border-radius:var(--r-sm);
+}
+.ime-quote::before{
+  content:"IME report states";
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);
+  position:absolute;top:-7px;left:14px;
+  background:var(--bg);padding:0 8px;
+}
+.ime-quote p{
+  font-family:var(--serif);font-size:15px;
+  color:var(--ink);font-style:italic;
+  margin:0;line-height:1.55;letter-spacing:.005em;
+}
+
+/* ── DEPOSITION QUESTIONS ── */
+.depo-q{counter-reset:depo;list-style:none}
+.depo-q li{
+  list-style:none;
+  padding:14px 16px 14px 50px;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+  color:var(--ink);
+  counter-increment:depo;
+  position:relative;
+  line-height:1.65;
+}
+.depo-q li::before{
+  content:"Q" counter(depo);
+  position:absolute;left:14px;top:13px;
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.05em;
+}
+.depo-q li:last-child{border-bottom:none}
+.depo-q li em{
+  font-style:italic;color:var(--ink-3);
+  display:block;margin-top:5px;font-size:12.5px;
+  font-family:var(--sans);
+}
+
+/* ── PRE-EXISTING GRID (DML) ── */
+.pe-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;margin:16px 0;
+}
+.pe-card{
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.pe-card.primary{
+  border-color:var(--danger-glow);
+  background:var(--danger-dim);
+}
+.pe-card.positive{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+}
+.pe-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;font-weight:500;
+}
+.pe-card.primary .pe-label{color:var(--danger)}
+.pe-card.positive .pe-label{color:var(--teal-text)}
+.pe-card h4{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  margin-bottom:8px;letter-spacing:-.01em;
+}
+.pe-card p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.7;
+}
+
+/* ── ACTION LIST (DML) ── */
+.action-list{
+  list-style:none;
+  display:flex;flex-direction:column;
+  gap:12px;margin-top:18px;
+}
+.action-item{
+  display:grid;
+  grid-template-columns:36px 1fr;
+  gap:14px;align-items:flex-start;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.action-item.priority{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+  border-left:3px solid var(--teal);
+}
+.action-num{
+  font-family:var(--mono);font-size:14px;
+  font-weight:500;color:var(--teal-text);
+  margin-top:1px;
+}
+.action-body strong{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  display:block;margin-bottom:6px;
+  line-height:1.3;letter-spacing:-.01em;
+}
+.action-body p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.75;margin:0;
+}
+.action-body .priority-note{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:6px;
+}
+
+/* ── BADGES / PILLS ── */
+.badge{
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:var(--r-sm);
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  font-weight:500;line-height:1.4;
+  border:1px solid currentColor;
+}
+.b-high{color:var(--danger);background:var(--danger-dim)}
+.b-moderate{color:var(--caution);background:var(--caution-dim)}
+.b-lowmod{color:var(--ink-2);background:var(--bg-inset)}
+.b-low{color:var(--teal-text);background:var(--teal-dim)}
+
+.pill{
+  display:inline-block;
+  padding:3px 10px;
+  border-radius:999px;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;
+  font-weight:500;
+}
+.pill-red{background:var(--danger-dim);color:var(--danger)}
+.pill-amber{background:var(--caution-dim);color:var(--caution)}
+.pill-green{background:var(--teal-dim);color:var(--teal-text)}
+
+/* ── CASE BOX (DML) ── */
+.case-box{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--ink);
+  border-radius:var(--r-sm);
+  padding:22px 26px;
+  margin-bottom:30px;
+}
+.case-box-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:14px;font-weight:500;
+}
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px 22px;
+  margin-bottom:14px;
+}
+.ci-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px;
+}
+.ci-val{
+  font-family:var(--mono);font-size:13px;
+  color:var(--ink);font-weight:500;
+  line-height:1.5;letter-spacing:.01em;
+}
+.case-summary{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;
+  border-top:1px solid var(--rule);
+  padding-top:14px;margin-top:8px;
+}
+
+/* ── SECTION (CVA + DML alternative section style) ── */
+.section{margin-bottom:34px}
+.sec-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:8px;font-weight:500;
+}
+.sec-title{
+  font-family:var(--serif);font-size:23px;
+  font-weight:400;color:var(--ink);letter-spacing:-.015em;
+  margin-bottom:6px;padding-bottom:10px;
+  border-bottom:1px solid var(--ink);
+}
+.sec-sub{
+  font-size:13.5px;color:var(--ink-3);
+  margin-bottom:18px;font-style:italic;line-height:1.7;
+  max-width:760px;
+}
+.body-text{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.78;margin-bottom:14px;
+}
+.body-text strong{color:var(--ink);font-weight:500}
+
+/* ── CALLOUT (DML, alternate style) ── */
+.callout{
+  border-left:3px solid var(--teal);
+  background:var(--teal-dim);
+  padding:16px 20px;
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  margin:14px 0;
+}
+.callout.danger{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.callout.warn{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.callout.neutral{
+  border-left-color:var(--ink-3);
+  background:var(--bg-alt);
+}
+.callout-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:8px;
+  color:var(--teal-text);
+}
+.callout.danger .callout-label{color:var(--danger)}
+.callout.warn .callout-label{color:var(--caution)}
+.callout.neutral .callout-label{color:var(--ink-2)}
+.callout p{
+  font-size:14px;color:var(--ink);
+  line-height:1.75;
+}
+.callout p + p{margin-top:8px}
+
+/* ── VERDICT BOX ── */
+.verdict{
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--teal);
+  background:var(--bg-alt);
+  padding:24px 28px;
+  margin:24px 0 8px;
+  border-radius:var(--r-sm);
+}
+.verdict.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+  border-color:var(--danger-glow);
+}
+.verdict-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:10px;font-weight:500;
+}
+.verdict.warn .verdict-label{color:var(--danger)}
+.verdict h3{
+  font-family:var(--serif);font-size:22px;
+  font-weight:400;color:var(--ink);
+  margin-bottom:10px;letter-spacing:-.015em;line-height:1.25;
+  max-width:760px;
+}
+.verdict.warn h3{color:var(--ink)}
+.verdict p{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;margin-top:8px;
+}
+
+/* ── DOC FOOTER + DISCLAIMER ── */
+.doc-footer{
+  border-top:1px solid var(--ink);
+  padding-top:18px;margin-top:44px;
+  display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);gap:14px;flex-wrap:wrap;
+}
+.doc-footer span:first-child{color:var(--ink-2)}
+
+.disclaimer{
+  margin-top:18px;
+  padding:18px 22px;
+  background:var(--bg-alt);
+  border-left:3px solid var(--ink);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-size:12.5px;
+  color:var(--ink-3);
+  line-height:1.75;
+  font-style:italic;
+}
+.disclaimer strong{
+  color:var(--ink-2);font-style:normal;font-weight:600;
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  display:block;margin-bottom:6px;
+}
+
+/* ── TABLE-OVERFLOW WRAPPER ── */
+.table-wrap{
+  overflow-x:auto;margin:14px 0;
+  border-radius:var(--r-sm);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:780px){
+  .doc{padding:24px 20px 40px}
+  .doc-header{padding:22px 20px 18px}
+  .doc-nav{padding:10px 20px}
+  .top-bar{padding:0 16px;gap:14px}
+  .top-bar .specimen-tag{padding-left:14px}
+  .kpi-strip,.kpi-strip.cols-5{grid-template-columns:1fr 1fr}
+  .caption-row{grid-template-columns:1fr;gap:10px}
+  .comp-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .case-grid{grid-template-columns:1fr 1fr}
+  .pe-grid{grid-template-columns:1fr}
+  .doc-header-top{flex-direction:column;align-items:flex-start;gap:14px}
+  .doc-stamp{text-align:left}
+}
+@media(max-width:520px){
+  .case-grid{grid-template-columns:1fr}
+  .doc-footer{flex-direction:column;gap:8px}
+}
+
+/* ── PRINT ── */
+@media print{
+  .top-bar,.doc-nav{display:none}
+  body{padding-top:0;background:#fff;font-size:11pt}
+  .component,.caption,.kpi-strip,.case-box{break-inside:avoid;page-break-inside:avoid}
+  .doc{padding:0;max-width:100%}
+}
+
+
+/* ── GRADE BADGES (compliance specimens — map to badge system) ── */
+.grade{
+  display:inline-block;padding:3px 8px;
+  border-radius:var(--r-sm);
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  font-weight:500;line-height:1.4;
+  border:1px solid currentColor;
+}
+.grade-red{color:var(--danger);background:var(--danger-dim)}
+.grade-amber{color:var(--caution);background:var(--caution-dim)}
+.grade-green{color:var(--teal-text);background:var(--teal-dim)}
+
+/* ── TBL-SCROLL (alias for table-wrap) ── */
+.tbl-scroll{overflow-x:auto;margin:14px 0;border-radius:var(--r-sm)}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a class="back" href="../">&larr; Back to Medisprudence</a>
+  <span class="specimen-tag"><strong>Specimen</strong> &nbsp;&middot;&nbsp; Fictional plan data &nbsp;&middot;&nbsp; No PHI</span>
+</div>
+
+<div class="doc-header">
+  <div class="doc-header-top">
+    <div class="doc-brand">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <circle cx="16" cy="11" r="2.4" fill="currentColor"/>
+        <line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      Medisprudence
+    </div>
+    <div class="doc-stamp">
+      <div class="doc-stamp-label">Document type</div>
+      <div class="doc-stamp-val">MHPAEA Behavioral Health Parity Review</div>
+    </div>
+  </div>
+  <div class="doc-title">MHPAEA Parity Review &mdash; <em>Self-Insured Employer Plan (Multi-State Commercial)</em></div>
+  <div class="doc-subtitle">Specimen &middot; Fictional plan data &middot; No PHI &middot; 6-section deliverable demonstrated &middot; Consolidated Health Alliance, Inc.</div>
+</div>
+
+<div class="doc-nav">
+  <a href="#s1">01 NQTL Comparison</a>
+  <a href="#s2">02 Prior Authorization</a>
+  <a href="#s3">03 Concurrent Review</a>
+  <a href="#s4">04 Retrospective Review</a>
+  <a href="#s5">05 Step Therapy</a>
+  <a href="#s6">06 Network &amp; Summary</a>
+</div>
+
+<div class="doc">
+
+  <div class="caption">
+    <div class="caption-row">
+      <div><div class="caption-label">Plan sponsor</div><div class="caption-val">Consolidated Health Alliance, Inc. &mdash; Self-insured employer plan, ERISA-governed</div></div>
+      <div><div class="caption-label">Plan type</div><div class="caption-val">Multi-state commercial PPO &middot; ~12,000 covered lives</div></div>
+    </div>
+    <div class="caption-row">
+      <div><div class="caption-label">TPA / ASO</div><div class="caption-val">HealthFirst Administrative Services &mdash; claims administration and UM delegation</div></div>
+      <div><div class="caption-label">Criteria sets in use</div><div class="caption-val">InterQual (M/S) &middot; Proprietary BH criteria manual (2024 ed.)</div></div>
+    </div>
+    <div class="caption-row">
+      <div><div class="caption-label">Review period</div><div class="caption-val">Plan Year 2025 (January 1 &ndash; December 31, 2025)</div></div>
+      <div><div class="caption-label">Requesting counsel</div><div class="caption-val">[ERISA Benefits Attorney &mdash; Redacted]</div></div>
+    </div>
+    <div class="caption-row">
+      <div><div class="caption-label">Documents reviewed</div><div class="caption-val">SPD, EOC, InterQual license, BH criteria manual, PA log (sampled), TPA UM policy manual</div></div>
+      <div><div class="caption-label">Reviewed by</div><div class="caption-val">Dr. A. Kasturi, MBBS &middot; Medisprudence</div></div>
+    </div>
+  </div>
+
+  <div class="kpi-strip cols-5">
+    <div class="kpi"><div class="kpi-label">NQTL categories assessed</div><div class="kpi-val">6 of 6</div></div>
+    <div class="kpi"><div class="kpi-label">Exposed categories</div><div class="kpi-val red">3 Found</div></div>
+    <div class="kpi"><div class="kpi-label">Borderline categories</div><div class="kpi-val amber">2 Found</div></div>
+    <div class="kpi"><div class="kpi-label">Compliant categories</div><div class="kpi-val green">1 Clear</div></div>
+    <div class="kpi"><div class="kpi-label">Overall plan risk</div><div class="kpi-val red">Exposed</div></div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="component" id="s1">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 1 of 6</div>
+        <div class="comp-title">NQTL Comparison Summary &mdash; All Six Categories</div>
+      </div>
+      <div class="comp-badge">Side-by-side comparison &middot; Risk graded</div>
+    </div>
+    <div class="comp-body">
+      <p style="font-style:italic;color:var(--ink-3);font-size:13.5px;margin-bottom:14px">MHPAEA requires that nonquantitative treatment limitations (NQTLs) applied to behavioral health (BH) benefits be no more restrictive than the predominant NQTLs applied to substantially all medical/surgical (M/S) benefits in the same classification.</p>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:32px">#</th>
+            <th style="width:160px">NQTL Category</th>
+            <th>Medical / Surgical Standard</th>
+            <th>Behavioral Health Standard</th>
+            <th style="width:100px">Risk Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><strong>Prior Authorization</strong></td>
+            <td>Required for inpatient admissions, high-cost imaging (&gt;$2,000), and select surgical procedures. Not required for standard outpatient physician visits or diagnostic imaging.</td>
+            <td>Required for <strong>all</strong> inpatient admissions, <strong>all</strong> outpatient visits beyond initial evaluation, <strong>all</strong> psychological testing, and IOP/PHP. No visit threshold before PA applies.</td>
+            <td><span class="grade grade-red">Exposed</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><strong>Concurrent Review</strong></td>
+            <td>Concurrent review at day 3 for medical inpatient. Subsequent reviews at clinically determined intervals, typically every 2&ndash;3 days based on acuity.</td>
+            <td>Concurrent review at <strong>day 1</strong> for BH inpatient and at <strong>every session</strong> for IOP/PHP. Subsequent inpatient reviews <strong>daily</strong> regardless of acuity or clinical trajectory.</td>
+            <td><span class="grade grade-red">Exposed</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><strong>Retrospective Review</strong></td>
+            <td>Retrospective review for claims exceeding $15,000 or flagged by DRG outlier audit. Standard claims auto-adjudicated against benefit schedule.</td>
+            <td>Retrospective review for <strong>all BH inpatient claims</strong> regardless of cost threshold, and for any outpatient BH series exceeding 12 sessions. No auto-adjudication pathway.</td>
+            <td><span class="grade grade-red">Exposed</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><strong>Criteria Stringency</strong></td>
+            <td>InterQual criteria applied as written. No plan-specific overlays. Reviewer discretion permitted on borderline cases with documented rationale.</td>
+            <td>Proprietary BH criteria manual with additional plan-specific requirements: mandatory functional impairment documentation on every session note, mandatory treatment plan update every 4 sessions.</td>
+            <td><span class="grade grade-amber">Borderline</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><strong>Step Therapy / Fail-First</strong></td>
+            <td>Step therapy applies to specialty pharmaceuticals. Two-step maximum. Medical exception pathway documented and accessible.</td>
+            <td>Outpatient psychotherapy required before IOP; IOP before PHP. <strong>No documented medical exception pathway</strong> for BH step therapy requirements.</td>
+            <td><span class="grade grade-amber">Borderline</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><strong>Network Admission Standards</strong></td>
+            <td>Board certification or eligibility required. 60-day credentialing review. Re-credentialing every 36 months per NCQA standards.</td>
+            <td>Same board certification requirement. Same credentialing timeline. Same re-credentialing cycle. No differential BH-specific admission requirements identified.</td>
+            <td><span class="grade grade-green">Compliant</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="component" id="s2">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 2 of 6</div>
+        <div class="comp-title">Prior Authorization &mdash; Detailed Disparity Analysis</div>
+      </div>
+      <div class="comp-badge">NQTL Category 1 &middot; Risk: Exposed</div>
+    </div>
+    <div class="comp-body">
+      <h3>The disparity</h3>
+      <p>The plan&rsquo;s prior authorization requirements for BH services are applied at a materially lower threshold than for analogous M/S services. On the M/S side, prior authorization is triggered by cost ($2,000+ imaging) or clinical complexity (inpatient, select surgical). On the BH side, prior authorization is triggered by <em>any service beyond a single evaluation visit</em> &mdash; irrespective of cost, complexity, or clinical acuity.</p>
+      <p>Concretely: a patient can see a cardiologist for six outpatient visits, receive an echocardiogram and a stress test, and have a Holter monitor placed &mdash; none requiring prior authorization. The same patient seeing a psychiatrist for medication management requires prior authorization after the initial evaluation. The triggering threshold is calibrated to service classification, not clinical risk.</p>
+      <div class="finding warn">
+        <div class="finding-label">Physician analysis</div>
+        <p>From a UM operational perspective, M/S PA thresholds are calibrated to clinical risk and cost. The BH PA threshold is calibrated to service type alone. This is the textbook disparity pattern identified in DOL enforcement actions since the CAA 2023 amendments: a facially neutral NQTL applied using different triggering standards. The plan&rsquo;s SPD does not disclose the differential trigger &mdash; the member-facing benefit summary describes both as &ldquo;prior authorization may be required for certain services.&rdquo;</p>
+      </div>
+      <h3>Regulatory citation</h3>
+      <p>29 CFR &sect;2590.712(c)(4): NQTLs imposed on MH/SUD benefits may not be more restrictive than the predominant NQTL applied to substantially all M/S benefits in the same classification, as written and in operation. DOL MHPAEA Self-Compliance Tool, Element 3: identify the factors used to determine whether the NQTL applies and evaluate whether those factors are applied comparably.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="component" id="s3">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 3 of 6</div>
+        <div class="comp-title">Concurrent Review &mdash; Detailed Disparity Analysis</div>
+      </div>
+      <div class="comp-badge">NQTL Category 2 &middot; Risk: Exposed</div>
+    </div>
+    <div class="comp-body">
+      <h3>The disparity</h3>
+      <p>Medical inpatient concurrent review begins at day 3, with subsequent reviews at clinically determined intervals per InterQual benchmarks. A stable medical admission may not be reviewed again until day 5 or 6.</p>
+      <p>BH inpatient concurrent review begins at <strong>day 1</strong> &mdash; prior to any clinical trajectory being established. Subsequent BH reviews occur <strong>daily</strong>, regardless of documented clinical trajectory, acuity, or response to treatment. For IOP and PHP, concurrent review occurs at every session &mdash; a patient attending three IOP sessions per week is subject to three concurrent authorization reviews per week. No analogous M/S outpatient service is reviewed at this frequency.</p>
+      <div class="finding warn">
+        <div class="finding-label">Physician analysis</div>
+        <p>The clinical rationale for day-3 M/S concurrent review is well-established: 48&ndash;72 hours to establish a clinical trajectory. The same rationale applies to BH inpatient admissions. Reviewing at day 1, before any intervention has had time to produce a measurable effect, serves no clinical function &mdash; it serves an administrative gatekeeping function applied only to BH admissions. The daily review frequency is not calibrated to clinical need; it is fixed by classification.</p>
+      </div>
+      <h3>Regulatory citation</h3>
+      <p>29 CFR &sect;2590.712(c)(4)(iii)(A): The processes, strategies, evidentiary standards, and other factors used in applying the NQTL to MH/SUD benefits must be comparable to, and applied no more stringently than, those used for M/S benefits. A fixed daily BH review frequency with no acuity adjustment is not comparable to the acuity-based M/S review schedule.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="component" id="s4">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 4 of 6</div>
+        <div class="comp-title">Retrospective Review &mdash; Detailed Disparity Analysis</div>
+      </div>
+      <div class="comp-badge">NQTL Category 3 &middot; Risk: Exposed</div>
+    </div>
+    <div class="comp-body">
+      <h3>The disparity</h3>
+      <p>M/S claims below $15,000 that do not trigger DRG outlier flags are auto-adjudicated without retrospective clinical review. The majority of M/S outpatient claims and a significant proportion of M/S inpatient claims process without post-service clinical scrutiny.</p>
+      <p>All BH inpatient claims are subject to retrospective review regardless of cost. BH outpatient claims trigger retrospective review once a treatment series exceeds 12 sessions. No auto-adjudication pathway exists for BH claims at any dollar threshold. A $4,200 BH inpatient admission receives the same retrospective scrutiny as a $47,000 M/S DRG outlier. A $2,400 series of 16 outpatient psychotherapy sessions triggers review; a $2,400 series of 16 physical therapy sessions does not.</p>
+      <div class="finding warn">
+        <div class="finding-label">Physician analysis</div>
+        <p>The plan&rsquo;s retrospective review program is explicitly cost-calibrated on the M/S side and explicitly not cost-calibrated on the BH side. The absence of a BH cost threshold is a structural design disparity in the UM program, not an operational variance. Low-cost, clinically straightforward BH claims face retrospective scrutiny that equivalent-cost M/S claims do not.</p>
+      </div>
+      <h3>Regulatory citation</h3>
+      <p>29 CFR &sect;2590.712(c)(4); DOL FAQs Part 45, Q4: Plans must demonstrate that factors used to design retrospective review programs are applied comparably across M/S and BH benefits. A cost threshold applied only to M/S claims is a facially non-comparable design factor.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="component" id="s5">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 5 of 6</div>
+        <div class="comp-title">Step Therapy / Fail-First &mdash; Detailed Disparity Analysis</div>
+      </div>
+      <div class="comp-badge">NQTL Category 5 &middot; Risk: Borderline</div>
+    </div>
+    <div class="comp-body">
+      <h3>The disparity</h3>
+      <p>The plan&rsquo;s M/S step therapy protocol for specialty pharmaceuticals includes a documented medical exception pathway: the prescribing physician submits clinical documentation supporting the requested agent, and the exception is reviewed on clinical merits. The process is documented in the SPD and the TPA&rsquo;s pharmacy benefit manual.</p>
+      <p>The BH step therapy requirement &mdash; outpatient psychotherapy before IOP, IOP before PHP &mdash; has <strong>no documented medical exception pathway</strong>. The BH criteria manual describes the step requirement as mandatory without identifying a process for clinical override when the treating clinician determines a higher level of care is immediately indicated.</p>
+      <div class="finding">
+        <div class="finding-label">Physician analysis</div>
+        <p>The &ldquo;borderline&rdquo; designation reflects that the step concept itself is a recognized clinical practice pattern. The specific deficiency is the absent exception pathway. There are well-documented clinical situations where outpatient psychotherapy is contraindicated as a first step: active SUD with medical detoxification needs, acute eating disorder with metabolic instability, acute psychotic episodes requiring structured milieu. Adding a documented medical exception process that mirrors the M/S protocol would likely resolve the exposure.</p>
+      </div>
+      <h3>Regulatory citation</h3>
+      <p>29 CFR &sect;2590.712(c)(4); CAA 2021 &sect;203: comparative analysis must include the factors used to determine applicability of NQTLs and whether exceptions are available. If M/S step therapy permits exceptions and BH step therapy does not, exception availability is a non-comparable factor.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="component" id="s6">
+    <div class="comp-head exclusive">
+      <div>
+        <div class="comp-num">Section 6 of 6</div>
+        <div class="comp-title">Network Admission Standards &amp; Physician Narrative Summary</div>
+      </div>
+      <div class="comp-badge">Category 6 &middot; Compliant &middot; Overall Assessment</div>
+    </div>
+    <div class="comp-body">
+      <h3>Network admission standards &mdash; compliant</h3>
+      <p>The plan&rsquo;s provider credentialing standards apply identically to M/S and BH providers: board certification or eligibility, 60-day credentialing review, 36-month re-credentialing per NCQA standards. No differential BH-specific admission requirements were identified in the credentialing policy or the TPA&rsquo;s provider manual. This category is assessed as compliant.</p>
+      <h3>Physician narrative summary</h3>
+      <p>This plan has material MHPAEA exposure in three of six NQTL categories. The exposure is structural &mdash; it reflects how the UM program was designed, not how individual reviewers applied criteria on specific claims. The M/S UM program calibrates NQTL intensity to clinical acuity and cost. The BH UM program calibrates NQTL intensity to benefit classification alone. Prior authorization, concurrent review, and retrospective review are all triggered at lower thresholds for BH than for analogous M/S services, and none of those lower thresholds have documented clinical justification.</p>
+      <p>Two additional categories present borderline exposure. Both involve BH-specific requirements that have M/S analogues but lack the exception pathways available on the M/S side. These are more readily remediable than the structural design disparities in the first three categories.</p>
+    </div>
+  </div>
+
+  <div class="verdict warn">
+    <div class="verdict-label">Analysis summary</div>
+    <h3>This plan has material MHPAEA exposure in three of six NQTL categories, with two additional borderline findings.</h3>
+    <p>The three most significant findings: <strong>(1)</strong> prior authorization is triggered for BH services at a materially lower threshold than for analogous M/S services, with no clinical-acuity or cost-based calibration; <strong>(2)</strong> concurrent review frequency for BH inpatient is fixed at daily regardless of clinical trajectory, compared to acuity-based intervals for M/S inpatient; and <strong>(3)</strong> retrospective review applies to all BH inpatient claims without a cost threshold, while M/S claims below $15,000 are auto-adjudicated. The common thread: BH utilization management intensity is calibrated to benefit classification rather than to clinical need or cost &mdash; the structural design pattern that DOL enforcement has specifically targeted since the CAA 2023 amendments.</p>
+  </div>
+
+  <div class="doc-footer">
+    <span>Medisprudence &middot; Physician-Directed Medical Case Intelligence</span>
+    <span>Specimen &middot; Fictional Data &middot; June 2026</span>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Disclaimer</strong>
+    This document is a specimen prepared with fictional plan data. It does not constitute a legal opinion, a compliance certification, a guarantee of regulatory adherence, or an attestation that any plan is or is not in compliance with MHPAEA. Medisprudence provides physician-authored clinical criteria analysis for attorney-directed regulatory and compliance work. Legal and regulatory conclusions remain with retained counsel. AI may assist with document extraction and organization only; physician-authored analysis is clearly identified throughout.
+  </div>
+
+</div>
+</body>
+</html>

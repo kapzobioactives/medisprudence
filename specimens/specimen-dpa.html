@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medisprudence — Specimen: Clinical Denial Pattern Audit</title>
+<meta name="description" content="Specimen Clinical Denial Pattern Audit — fictional 10-claim sample. Criteria mismatch analysis, defensibility grading, pattern summary. No PHI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────────────────
+   MEDISPRUDENCE — SPECIMEN STYLES
+   Shared CSS for all specimen deliverables.
+   Matches editorial/case-file aesthetic of medisprudence.com
+   ─────────────────────────────────────────────────────────── */
+
+:root{
+  --bg:#FAF7F1;
+  --bg-alt:#F1ECE0;
+  --bg-inset:#EDE6D6;
+  --paper:#FFFCF5;
+  --ink:#1A1612;
+  --ink-2:#3D352D;
+  --ink-3:#76695B;
+  --teal:#7A1F2B;
+  --teal-text:#6B1A24;
+  --teal-dim:rgba(122,31,43,.07);
+  --teal-tint:rgba(122,31,43,.04);
+  --teal-glow:rgba(122,31,43,.18);
+  --danger:#8B2418;
+  --danger-dim:rgba(139,36,24,.08);
+  --danger-glow:rgba(139,36,24,.20);
+  --caution:#8C6A1F;
+  --caution-dim:rgba(140,106,31,.09);
+  --caution-glow:rgba(140,106,31,.22);
+  --rule:rgba(26,22,18,.10);
+  --rule-md:rgba(26,22,18,.16);
+  --rule-dark:rgba(26,22,18,.28);
+  --serif:'Spectral','Georgia',serif;
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',ui-monospace,monospace;
+  --r-sm:2px;
+  --r-md:3px;
+  --r-lg:4px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:15px;
+  background:var(--bg);
+  padding-top:44px;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--teal);color:#fff}
+*:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
+h1,h2,h3,h4{
+  font-family:var(--serif);
+  line-height:1.15;
+  font-weight:400;
+  color:var(--ink);
+  letter-spacing:-.015em;
+}
+.mono{font-family:var(--mono)}
+
+/* ── TOP BAR (specimen disclaimer / back nav) ── */
+.top-bar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:44px;background:rgba(250,247,241,.94);
+  backdrop-filter:blur(20px) saturate(1.6);
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:24px;
+  padding:0 32px;
+}
+.top-bar a.back{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);
+  display:inline-flex;align-items:center;gap:6px;
+  transition:color .18s;
+}
+.top-bar a.back:hover{color:var(--teal)}
+.top-bar .specimen-tag{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);padding-left:20px;
+  border-left:1px solid var(--rule);
+}
+.top-bar .specimen-tag strong{color:var(--teal-text);font-weight:500}
+
+/* ── DOC HEADER ── */
+.doc-header{
+  background:var(--bg);
+  padding:28px 48px 22px;
+  border-bottom:1px solid var(--rule);
+}
+.doc-header-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:18px;
+  gap:24px;flex-wrap:wrap;
+}
+.doc-brand{
+  font-family:var(--serif);font-size:20px;font-weight:400;
+  color:var(--ink);letter-spacing:-.02em;
+  display:flex;align-items:center;gap:8px;
+}
+.doc-brand svg{color:var(--teal);flex-shrink:0}
+.doc-stamp{text-align:right}
+.doc-stamp-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.doc-stamp-val{
+  font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;margin-top:3px;
+}
+.doc-title{
+  font-family:var(--serif);font-size:clamp(24px,3vw,32px);
+  font-weight:400;color:var(--ink);letter-spacing:-.02em;
+  margin-bottom:8px;line-height:1.15;
+}
+.doc-title em{font-style:italic;color:var(--teal);font-weight:400}
+.doc-subtitle{
+  font-size:13.5px;color:var(--ink-3);
+  font-family:var(--sans);
+  letter-spacing:.005em;
+}
+
+/* ── DOC NAV (anchor pills) ── */
+.doc-nav{
+  background:var(--bg-alt);
+  border-bottom:1px solid var(--rule);
+  padding:12px 48px;
+  display:flex;gap:6px;flex-wrap:wrap;
+}
+.doc-nav a{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-2);text-decoration:none;
+  padding:6px 12px;
+  border:1px solid var(--rule);
+  border-radius:var(--r-sm);
+  background:var(--bg);
+  transition:.18s;white-space:nowrap;
+}
+.doc-nav a:hover{
+  color:var(--teal-text);
+  border-color:var(--teal);
+  background:var(--teal-dim);
+}
+
+/* ── BODY WRAP ── */
+.doc{
+  max-width:920px;
+  margin:0 auto;
+  padding:36px 48px 56px;
+}
+
+/* ── CASE CAPTION (file metadata) ── */
+.caption{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:6px 24px;
+  margin-bottom:28px;
+}
+.caption-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  padding:14px 0;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+}
+.caption-row:last-child{border-bottom:none}
+.caption-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:2px;
+}
+.caption-val{
+  font-weight:500;color:var(--ink);font-size:14.5px;
+  line-height:1.5;
+}
+
+/* ── KPI / SCORECARD STRIP ── */
+.kpi-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  margin-bottom:32px;
+  background:var(--bg);
+  overflow:hidden;
+}
+.kpi-strip.cols-5{grid-template-columns:repeat(5,1fr)}
+.kpi{
+  padding:18px 14px;text-align:center;
+  border-right:1px solid var(--rule);
+  background:var(--bg);
+}
+.kpi:last-child{border-right:none}
+.kpi-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;
+}
+.kpi-val{
+  font-family:var(--serif);font-size:24px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.1;
+}
+.kpi-val.red{color:var(--danger)}
+.kpi-val.amber{color:var(--caution)}
+.kpi-val.green,
+.kpi-val.teal{color:var(--teal)}
+
+/* ── COMPONENT (numbered section block) ── */
+.component{
+  margin-bottom:36px;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  overflow:hidden;
+  background:var(--bg);
+}
+.comp-head{
+  background:var(--bg-alt);
+  padding:16px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.comp-head::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:var(--teal);
+}
+.comp-head.alert::before{background:var(--danger)}
+.comp-head.exclusive{
+  background:var(--ink);color:#fff;
+  border-bottom:1px solid var(--ink);
+}
+.comp-head.exclusive::before{background:var(--teal);width:3px}
+.comp-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:3px;
+}
+.comp-head.exclusive .comp-num{color:rgba(217,205,182,.85)}
+.comp-title{
+  font-family:var(--serif);font-size:21px;
+  font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.2;
+}
+.comp-head.exclusive .comp-title{color:#fff}
+.comp-badge{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.comp-head.exclusive .comp-badge{color:rgba(217,205,182,.55)}
+.comp-body{padding:24px 26px}
+.comp-body p{
+  color:var(--ink-2);margin-bottom:11px;
+  font-size:14.5px;line-height:1.75;
+}
+.comp-body p strong{color:var(--ink);font-weight:500}
+.comp-body h3{
+  font-family:var(--serif);font-size:18px;
+  font-weight:400;color:var(--ink);
+  margin:18px 0 8px;letter-spacing:-.01em;
+}
+
+/* ── FINDINGS (callouts) ── */
+.finding{
+  border-left:3px solid var(--teal);
+  padding:14px 18px;margin:14px 0;
+  background:var(--teal-dim);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+}
+.finding.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.finding.caution{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.finding-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:6px;
+  color:var(--teal-text);
+}
+.finding.warn .finding-label{color:var(--danger)}
+.finding.caution .finding-label{color:var(--caution)}
+.finding p{
+  font-size:14px;color:var(--ink);
+  margin-bottom:0;line-height:1.7;
+}
+.finding p + p{margin-top:8px}
+.finding p strong{color:var(--ink);font-weight:600}
+
+/* ── EXCLUSIVE / REBUTTAL (dark inset) ── */
+.exclusive,
+.rebuttal{
+  background:var(--ink);
+  color:#fff;
+  padding:20px 24px;
+  margin:16px 0;
+  border-radius:var(--r-sm);
+  border-left:3px solid var(--teal);
+}
+.exclusive .finding-label,
+.rebuttal .finding-label{
+  color:#D8A89F;letter-spacing:.16em;
+  font-weight:500;margin-bottom:8px;
+}
+.exclusive p,
+.rebuttal p{
+  color:rgba(255,255,255,.82);
+  font-size:14px;line-height:1.75;
+}
+.exclusive p strong,
+.rebuttal p strong{color:#fff;font-weight:600}
+.exclusive p + p,
+.rebuttal p + p{margin-top:10px}
+
+/* ── TABLES ── */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:14px 0;
+  font-size:13.5px;
+  background:var(--bg);
+}
+th,td{
+  padding:11px 13px;
+  border:1px solid var(--rule);
+  vertical-align:top;
+  text-align:left;
+  line-height:1.6;
+}
+thead th{
+  background:var(--bg-inset);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:600;
+  border-color:var(--rule-md);
+}
+tbody td:first-child{
+  font-weight:500;color:var(--ink);
+  background:var(--bg-alt);
+}
+tbody tr:nth-child(even) td{background:var(--bg-alt)}
+tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
+.ref{
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.02em;
+}
+
+/* ── TIMELINE (CMIP medmal) ── */
+.timeline{
+  border-left:2px solid var(--rule-md);
+  margin:20px 0;
+  padding-left:24px;
+}
+.timeline-event{
+  position:relative;
+  padding-bottom:22px;
+}
+.timeline-event:last-child{padding-bottom:0}
+.timeline-event::before{
+  content:"";position:absolute;
+  left:-30px;top:5px;
+  width:11px;height:11px;
+  border-radius:50%;
+  background:var(--bg);
+  border:2px solid var(--rule-dark);
+}
+.timeline-event.critical::before{
+  background:var(--danger);border-color:var(--danger);
+}
+.timeline-event.flag::before{
+  background:var(--caution);border-color:var(--caution);
+}
+.timeline-event.good::before{
+  background:var(--teal);border-color:var(--teal);
+}
+.timeline-date{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.06em;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:4px;text-transform:uppercase;
+}
+.timeline-event.critical .timeline-date{color:var(--danger)}
+.timeline-event.flag .timeline-date{color:var(--caution)}
+.timeline-event p{
+  font-size:14px;color:var(--ink-2);
+  margin:0;line-height:1.7;
+}
+.timeline-event strong{color:var(--ink);font-weight:600}
+
+/* ── IME QUOTE BOX ── */
+.ime-quote{
+  border:1px solid var(--rule-md);
+  background:var(--paper);
+  padding:16px 20px 14px;
+  margin:14px 0;
+  position:relative;
+  border-radius:var(--r-sm);
+}
+.ime-quote::before{
+  content:"IME report states";
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);
+  position:absolute;top:-7px;left:14px;
+  background:var(--bg);padding:0 8px;
+}
+.ime-quote p{
+  font-family:var(--serif);font-size:15px;
+  color:var(--ink);font-style:italic;
+  margin:0;line-height:1.55;letter-spacing:.005em;
+}
+
+/* ── DEPOSITION QUESTIONS ── */
+.depo-q{counter-reset:depo;list-style:none}
+.depo-q li{
+  list-style:none;
+  padding:14px 16px 14px 50px;
+  border-bottom:1px dotted var(--rule-md);
+  font-size:14px;
+  color:var(--ink);
+  counter-increment:depo;
+  position:relative;
+  line-height:1.65;
+}
+.depo-q li::before{
+  content:"Q" counter(depo);
+  position:absolute;left:14px;top:13px;
+  font-family:var(--mono);font-size:11px;
+  color:var(--teal-text);font-weight:500;
+  letter-spacing:.05em;
+}
+.depo-q li:last-child{border-bottom:none}
+.depo-q li em{
+  font-style:italic;color:var(--ink-3);
+  display:block;margin-top:5px;font-size:12.5px;
+  font-family:var(--sans);
+}
+
+/* ── PRE-EXISTING GRID (DML) ── */
+.pe-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;margin:16px 0;
+}
+.pe-card{
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.pe-card.primary{
+  border-color:var(--danger-glow);
+  background:var(--danger-dim);
+}
+.pe-card.positive{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+}
+.pe-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;font-weight:500;
+}
+.pe-card.primary .pe-label{color:var(--danger)}
+.pe-card.positive .pe-label{color:var(--teal-text)}
+.pe-card h4{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  margin-bottom:8px;letter-spacing:-.01em;
+}
+.pe-card p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.7;
+}
+
+/* ── ACTION LIST (DML) ── */
+.action-list{
+  list-style:none;
+  display:flex;flex-direction:column;
+  gap:12px;margin-top:18px;
+}
+.action-item{
+  display:grid;
+  grid-template-columns:36px 1fr;
+  gap:14px;align-items:flex-start;
+  border:1px solid var(--rule-md);
+  border-radius:var(--r-sm);
+  padding:18px 20px;
+  background:var(--bg);
+}
+.action-item.priority{
+  border-color:var(--teal-glow);
+  background:var(--teal-dim);
+  border-left:3px solid var(--teal);
+}
+.action-num{
+  font-family:var(--mono);font-size:14px;
+  font-weight:500;color:var(--teal-text);
+  margin-top:1px;
+}
+.action-body strong{
+  font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);
+  display:block;margin-bottom:6px;
+  line-height:1.3;letter-spacing:-.01em;
+}
+.action-body p{
+  font-size:13.5px;color:var(--ink-2);
+  line-height:1.75;margin:0;
+}
+.action-body .priority-note{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-text);font-weight:500;
+  margin-bottom:6px;
+}
+
+/* ── BADGES / PILLS ── */
+.badge{
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:var(--r-sm);
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  font-weight:500;line-height:1.4;
+  border:1px solid currentColor;
+}
+.b-high{color:var(--danger);background:var(--danger-dim)}
+.b-moderate{color:var(--caution);background:var(--caution-dim)}
+.b-lowmod{color:var(--ink-2);background:var(--bg-inset)}
+.b-low{color:var(--teal-text);background:var(--teal-dim)}
+
+.pill{
+  display:inline-block;
+  padding:3px 10px;
+  border-radius:999px;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;
+  font-weight:500;
+}
+.pill-red{background:var(--danger-dim);color:var(--danger)}
+.pill-amber{background:var(--caution-dim);color:var(--caution)}
+.pill-green{background:var(--teal-dim);color:var(--teal-text)}
+
+/* ── CASE BOX (DML) ── */
+.case-box{
+  background:var(--bg-alt);
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--ink);
+  border-radius:var(--r-sm);
+  padding:22px 26px;
+  margin-bottom:30px;
+}
+.case-box-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:14px;font-weight:500;
+}
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px 22px;
+  margin-bottom:14px;
+}
+.ci-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px;
+}
+.ci-val{
+  font-family:var(--mono);font-size:13px;
+  color:var(--ink);font-weight:500;
+  line-height:1.5;letter-spacing:.01em;
+}
+.case-summary{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;
+  border-top:1px solid var(--rule);
+  padding-top:14px;margin-top:8px;
+}
+
+/* ── SECTION (CVA + DML alternative section style) ── */
+.section{margin-bottom:34px}
+.sec-num{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:8px;font-weight:500;
+}
+.sec-title{
+  font-family:var(--serif);font-size:23px;
+  font-weight:400;color:var(--ink);letter-spacing:-.015em;
+  margin-bottom:6px;padding-bottom:10px;
+  border-bottom:1px solid var(--ink);
+}
+.sec-sub{
+  font-size:13.5px;color:var(--ink-3);
+  margin-bottom:18px;font-style:italic;line-height:1.7;
+  max-width:760px;
+}
+.body-text{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.78;margin-bottom:14px;
+}
+.body-text strong{color:var(--ink);font-weight:500}
+
+/* ── CALLOUT (DML, alternate style) ── */
+.callout{
+  border-left:3px solid var(--teal);
+  background:var(--teal-dim);
+  padding:16px 20px;
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  margin:14px 0;
+}
+.callout.danger{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+}
+.callout.warn{
+  border-left-color:var(--caution);
+  background:var(--caution-dim);
+}
+.callout.neutral{
+  border-left-color:var(--ink-3);
+  background:var(--bg-alt);
+}
+.callout-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;margin-bottom:8px;
+  color:var(--teal-text);
+}
+.callout.danger .callout-label{color:var(--danger)}
+.callout.warn .callout-label{color:var(--caution)}
+.callout.neutral .callout-label{color:var(--ink-2)}
+.callout p{
+  font-size:14px;color:var(--ink);
+  line-height:1.75;
+}
+.callout p + p{margin-top:8px}
+
+/* ── VERDICT BOX ── */
+.verdict{
+  border:1px solid var(--rule-md);
+  border-left:3px solid var(--teal);
+  background:var(--bg-alt);
+  padding:24px 28px;
+  margin:24px 0 8px;
+  border-radius:var(--r-sm);
+}
+.verdict.warn{
+  border-left-color:var(--danger);
+  background:var(--danger-dim);
+  border-color:var(--danger-glow);
+}
+.verdict-label{
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal-text);margin-bottom:10px;font-weight:500;
+}
+.verdict.warn .verdict-label{color:var(--danger)}
+.verdict h3{
+  font-family:var(--serif);font-size:22px;
+  font-weight:400;color:var(--ink);
+  margin-bottom:10px;letter-spacing:-.015em;line-height:1.25;
+  max-width:760px;
+}
+.verdict.warn h3{color:var(--ink)}
+.verdict p{
+  font-size:14.5px;color:var(--ink-2);
+  line-height:1.75;margin-top:8px;
+}
+
+/* ── DOC FOOTER + DISCLAIMER ── */
+.doc-footer{
+  border-top:1px solid var(--ink);
+  padding-top:18px;margin-top:44px;
+  display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);gap:14px;flex-wrap:wrap;
+}
+.doc-footer span:first-child{color:var(--ink-2)}
+
+.disclaimer{
+  margin-top:18px;
+  padding:18px 22px;
+  background:var(--bg-alt);
+  border-left:3px solid var(--ink);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-size:12.5px;
+  color:var(--ink-3);
+  line-height:1.75;
+  font-style:italic;
+}
+.disclaimer strong{
+  color:var(--ink-2);font-style:normal;font-weight:600;
+  font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  display:block;margin-bottom:6px;
+}
+
+/* ── TABLE-OVERFLOW WRAPPER ── */
+.table-wrap{
+  overflow-x:auto;margin:14px 0;
+  border-radius:var(--r-sm);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:780px){
+  .doc{padding:24px 20px 40px}
+  .doc-header{padding:22px 20px 18px}
+  .doc-nav{padding:10px 20px}
+  .top-bar{padding:0 16px;gap:14px}
+  .top-bar .specimen-tag{padding-left:14px}
+  .kpi-strip,.kpi-strip.cols-5{grid-template-columns:1fr 1fr}
+  .caption-row{grid-template-columns:1fr;gap:10px}
+  .comp-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .case-grid{grid-template-columns:1fr 1fr}
+  .pe-grid{grid-template-columns:1fr}
+  .doc-header-top{flex-direction:column;align-items:flex-start;gap:14px}
+  .doc-stamp{text-align:left}
+}
+@media(max-width:520px){
+  .case-grid{grid-template-columns:1fr}
+  .doc-footer{flex-direction:column;gap:8px}
+}
+
+/* ── PRINT ── */
+@media print{
+  .top-bar,.doc-nav{display:none}
+  body{padding-top:0;background:#fff;font-size:11pt}
+  .component,.caption,.kpi-strip,.case-box{break-inside:avoid;page-break-inside:avoid}
+  .doc{padding:0;max-width:100%}
+}
+
+
+/* ── GRADE BADGES (compliance specimens — map to badge system) ── */
+.grade{
+  display:inline-block;padding:3px 8px;
+  border-radius:var(--r-sm);
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.10em;text-transform:uppercase;
+  font-weight:500;line-height:1.4;
+  border:1px solid currentColor;
+}
+.grade-red{color:var(--danger);background:var(--danger-dim)}
+.grade-amber{color:var(--caution);background:var(--caution-dim)}
+.grade-green{color:var(--teal-text);background:var(--teal-dim)}
+
+/* ── TBL-SCROLL (alias for table-wrap) ── */
+.tbl-scroll{overflow-x:auto;margin:14px 0;border-radius:var(--r-sm)}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a class="back" href="../">&larr; Back to Medisprudence</a>
+  <span class="specimen-tag"><strong>Specimen</strong> &nbsp;&middot;&nbsp; Fictional plan data &nbsp;&middot;&nbsp; No PHI</span>
+</div>
+
+<div class="doc-header">
+  <div class="doc-header-top">
+    <div class="doc-brand">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <line x1="16" y1="4" x2="16" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="10" y1="29" x2="22" y2="29" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <line x1="5" y1="11" x2="27" y2="11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        <circle cx="16" cy="11" r="2.4" fill="currentColor"/>
+        <line x1="5" y1="11" x2="5" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M1.5 19 Q5 24.5 8.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <line x1="27" y1="11" x2="27" y2="19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M23.5 19 Q27 24.5 30.5 19" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      Medisprudence
+    </div>
+    <div class="doc-stamp">
+      <div class="doc-stamp-label">Document type</div>
+      <div class="doc-stamp-val">Clinical Denial Pattern Audit</div>
+    </div>
+  </div>
+  <div class="doc-title">Clinical Denial Pattern Audit &mdash; <em>Regional TPA (Employer Self-Insured Plan)</em></div>
+  <div class="doc-subtitle">Specimen &middot; Fictional plan data &middot; No PHI &middot; 6-section deliverable demonstrated &middot; Abbreviated 10-claim sample &middot; Midwest Manufacturing Group, LLC</div>
+</div>
+
+<div class="doc-nav">
+  <a href="#s1">01 Methodology</a>
+  <a href="#s2">02 Denial Categorization</a>
+  <a href="#s3">03 Criteria Mismatch</a>
+  <a href="#s4">04 Defensibility Assessment</a>
+  <a href="#s5">05 Pattern Summary</a>
+  <a href="#s6">06 Physician Narrative</a>
+</div>
+
+<div class="doc">
+
+  <div class="caption">
+    <div class="caption-row">
+      <div><div class="caption-label">Plan sponsor</div><div class="caption-val">Midwest Manufacturing Group, LLC &mdash; Self-insured employer plan, ERISA-governed</div></div>
+      <div><div class="caption-label">TPA</div><div class="caption-val">Regional Health Administrators, Inc. (UM delegation)</div></div>
+    </div>
+    <div class="caption-row">
+      <div><div class="caption-label">Sample period</div><div class="caption-val">July 1 &ndash; December 31, 2025 (H2 2025)</div></div>
+      <div><div class="caption-label">Criteria set</div><div class="caption-val">MCG (24th ed.) &middot; TPA supplemental clinical policy</div></div>
+    </div>
+    <div class="caption-row">
+      <div><div class="caption-label">Sample size</div><div class="caption-val">10 claims (abbreviated specimen) &middot; Full audit: 20&ndash;50 claims</div></div>
+      <div><div class="caption-label">Denial types</div><div class="caption-val">Medical necessity (8) &middot; Level of care (2)</div></div>
+    </div>
+    <div class="caption-row">
+      <div><div class="caption-label">Requesting counsel</div><div class="caption-val">[ERISA Benefits Attorney &mdash; Redacted]</div></div>
+      <div><div class="caption-label">Reviewed by</div><div class="caption-val">Dr. A. Kasturi, MBBS &middot; Medisprudence</div></div>
+    </div>
+  </div>
+
+  <div class="kpi-strip cols-5">
+    <div class="kpi"><div class="kpi-label">Claims audited</div><div class="kpi-val">10 of 10</div></div>
+    <div class="kpi"><div class="kpi-label">Indefensible denials</div><div class="kpi-val red">3 Found</div></div>
+    <div class="kpi"><div class="kpi-label">Questionable denials</div><div class="kpi-val amber">4 Found</div></div>
+    <div class="kpi"><div class="kpi-label">Defensible denials</div><div class="kpi-val teal">3 Clear</div></div>
+    <div class="kpi"><div class="kpi-label">Pattern risk</div><div class="kpi-val red">Systematic</div></div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="component" id="s1">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 1 of 6</div>
+        <div class="comp-title">Sample Methodology Description</div>
+      </div>
+      <div class="comp-badge">Audit design &middot; Selection criteria</div>
+    </div>
+    <div class="comp-body">
+      <p style="font-style:italic;color:var(--ink-3)">This specimen demonstrates a 10-claim abbreviated sample. A full Clinical Denial Pattern Audit reviews 20&ndash;50 claims selected to represent the plan&rsquo;s denial distribution across condition categories, denial types, and service levels.</p>
+      <h3>Selection methodology</h3>
+      <p>Claims were selected from the plan&rsquo;s H2 2025 denial log to represent the three highest-volume denial categories: musculoskeletal (4 claims), behavioral health (3 claims), and cardiology (3 claims). Within each category, claims were selected across inpatient medical necessity, outpatient medical necessity, and level-of-care denial types. Administrative denials (eligibility, timely filing, coding) are excluded &mdash; they are not subject to clinical defensibility assessment.</p>
+      <h3>Assessment framework</h3>
+      <p>Each claim is assessed on four dimensions: (1) whether the stated criteria actually apply to the clinical presentation; (2) whether the denial rationale addresses the specific clinical evidence rather than using boilerplate language; (3) whether the reviewer documented consideration of the clinical evidence that supports the service; and (4) whether the peer-to-peer review, if conducted, is documented with sufficient specificity to demonstrate good-faith engagement.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="component" id="s2">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 2 of 6</div>
+        <div class="comp-title">Denial Rationale Categorization</div>
+      </div>
+      <div class="comp-badge">10 claims &middot; 3 condition categories</div>
+    </div>
+    <div class="comp-body">
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:32px">#</th>
+            <th style="width:110px">Category</th>
+            <th style="width:100px">Denial Type</th>
+            <th>Service Denied</th>
+            <th style="width:200px">Criteria Cited</th>
+            <th style="width:46px">P2P?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Musculoskeletal</td><td>Med. necessity</td><td>Lumbar fusion L4&ndash;L5 (elective)</td><td>MCG SG-SU &ldquo;Spinal Fusion, Lumbar&rdquo;</td><td>Yes</td></tr>
+          <tr><td>2</td><td>Musculoskeletal</td><td>Med. necessity</td><td>Knee arthroscopy (meniscal repair)</td><td>MCG SG-SU &ldquo;Knee Arthroscopy&rdquo;</td><td>No</td></tr>
+          <tr><td>3</td><td>Musculoskeletal</td><td>Med. necessity</td><td>PT continuation beyond 12 visits (cervical)</td><td>TPA supplemental policy CP-2024-009</td><td>No</td></tr>
+          <tr><td>4</td><td>Musculoskeletal</td><td>Level of care</td><td>Inpatient admission for shoulder arthroplasty</td><td>MCG &ldquo;Inpatient Admission, General&rdquo;</td><td>Yes</td></tr>
+          <tr><td>5</td><td>Behavioral health</td><td>Med. necessity</td><td>IOP continuation beyond 4 weeks (SUD)</td><td>TPA supplemental policy BH-2024-003</td><td>No</td></tr>
+          <tr><td>6</td><td>Behavioral health</td><td>Med. necessity</td><td>Psychological testing (neuropsych battery)</td><td>MCG A-AC &ldquo;Psychological Testing&rdquo;</td><td>No</td></tr>
+          <tr><td>7</td><td>Behavioral health</td><td>Level of care</td><td>BH inpatient &rarr; IOP step-down (day 4)</td><td>MCG &ldquo;Inpatient, Behavioral Health&rdquo;</td><td>Yes</td></tr>
+          <tr><td>8</td><td>Cardiology</td><td>Med. necessity</td><td>Cardiac MRI (rule out ARVC)</td><td>MCG A-IM &ldquo;Cardiac MRI&rdquo;</td><td>No</td></tr>
+          <tr><td>9</td><td>Cardiology</td><td>Med. necessity</td><td>Cardiac rehab Phase II (continued)</td><td>TPA supplemental policy CP-2024-014</td><td>No</td></tr>
+          <tr><td>10</td><td>Cardiology</td><td>Med. necessity</td><td>PCI (percutaneous coronary intervention)</td><td>MCG SG-CV &ldquo;Percutaneous Coronary&rdquo;</td><td>Yes</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="component" id="s3">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 3 of 6</div>
+        <div class="comp-title">Criteria Mismatch Analysis</div>
+      </div>
+      <div class="comp-badge">5 mismatches identified in 10 claims</div>
+    </div>
+    <div class="comp-body">
+      <p style="font-style:italic;color:var(--ink-3)">A criteria mismatch occurs when the denial letter cites criteria that do not correspond to the clinical presentation, the denial type, or the plan&rsquo;s own clinical policy. Mismatches are distinct from disagreements about whether criteria were met &mdash; they indicate the wrong criteria were applied.</p>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:32px">#</th>
+            <th style="width:200px">Criteria Cited in Denial</th>
+            <th style="width:200px">Criteria Actually Applicable</th>
+            <th>Nature of Mismatch</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3</td>
+            <td>TPA supplemental policy CP-2024-009 (PT visit limits)</td>
+            <td>MCG &ldquo;Physical Therapy, Outpatient&rdquo;</td>
+            <td><strong>Supplemental policy substituted for clinical criteria.</strong> Blanket 12-visit limit applied instead of MCG criteria that assess ongoing necessity based on documented functional progress. The supplemental policy contains no clinical assessment methodology.</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>MCG &ldquo;Inpatient Admission, General&rdquo;</td>
+            <td>MCG &ldquo;Inpatient Admission, Orthopedic Surgery&rdquo;</td>
+            <td><strong>Generic criteria applied instead of procedure-specific criteria.</strong> General inpatient admission criteria applied to a planned surgical admission rather than the orthopedic-surgery-specific criteria that account for post-surgical pain management, mobility requirements, and complication monitoring.</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>TPA supplemental policy BH-2024-003 (IOP duration limit)</td>
+            <td>MCG A-AC &ldquo;Intensive Outpatient Program, SUD&rdquo;</td>
+            <td><strong>Supplemental policy substituted for clinical criteria (BH).</strong> Same pattern as Claim 3: blanket 4-week limit applied via supplemental policy rather than MCG criteria assessing treatment response, relapse risk, and functional status.</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>MCG A-AC &ldquo;Psychological Testing&rdquo; (screening criteria)</td>
+            <td>MCG A-AC &ldquo;Neuropsychological Testing&rdquo;</td>
+            <td><strong>Wrong criteria subcategory.</strong> Screening-level psychological testing criteria applied to a full neuropsychological battery referral. The clinical indications and medical necessity thresholds differ between screening instruments and comprehensive batteries.</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>TPA supplemental policy CP-2024-014 (cardiac rehab session limits)</td>
+            <td>MCG &ldquo;Cardiac Rehabilitation, Phase II&rdquo;</td>
+            <td><strong>Supplemental policy substituted for clinical criteria.</strong> Third instance of supplemental policy substitution. The TPA&rsquo;s session limit policy overrides MCG criteria that assess continuation based on documented functional improvement and hemodynamic response.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="finding warn">
+        <div class="finding-label">Pattern identified</div>
+        <p>Three of five criteria mismatches (Claims 3, 5, 9) share the same structural defect: TPA supplemental policy substituted for published clinical criteria. This is a systematic pattern, not an isolated reviewer error.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="component" id="s4">
+    <div class="comp-head">
+      <div>
+        <div class="comp-num">Section 4 of 6</div>
+        <div class="comp-title">Clinical Defensibility Assessment</div>
+      </div>
+      <div class="comp-badge">Per-claim grading &middot; Four-dimension evaluation</div>
+    </div>
+    <div class="comp-body">
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:32px">#</th>
+            <th style="width:95px">Category</th>
+            <th style="width:80px">Criteria Match</th>
+            <th style="width:80px">Rationale Specificity</th>
+            <th style="width:80px">Evidence Considered</th>
+            <th style="width:80px">P2P Doc.</th>
+            <th style="width:110px">Overall Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>MSK</td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td><span class="grade grade-green">Defensible</span></td></tr>
+          <tr><td>2</td><td>MSK</td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td style="text-align:center"><span class="pill pill-amber">&triangle;</span></td><td style="text-align:center"><span class="pill pill-amber">&triangle;</span></td><td style="text-align:center;color:var(--ink-3)">—</td><td><span class="grade grade-amber">Questionable</span></td></tr>
+          <tr><td>3</td><td>MSK</td><td style="text-align:center"><span class="pill pill-red">✗</span></td><td style="text-align:center"><span class="pill pill-red">✗</span></td><td style="text-align:center"><span class="pill pill-red">✗</span></td><td style="text-align:center;color:var(--ink-3)">—</td><td><span class="grade grade-red">Indefensible</span></td></tr>
+          <tr><td>4</td><td>MSK</td><td style="text-align:center"><span class="pill pill-red">✗</span></td><td style="text-align:center"><span class="pill pill-amber">&triangle;</span></td><td style="text-align:center"><span class="pill pill-amber">&triangle;</span></td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td><span class="grade grade-amber">Questionable</span></td></tr>
+          <tr><td>5</td><td>BH</td><td style="text-align:center"><span class="pill pill-red">✗</span></td><td style="text-align:center"><span class="pill pill-red">✗</span></td><td style="text-align:center"><span class="pill pill-red">✗</span></td><td style="text-align:center;color:var(--ink-3)">—</td><td><span class="grade grade-red">Indefensible</span></td></tr>
+          <tr><td>6</td><td>BH</td><td style="text-align:center"><span class="pill pill-red">✗</span></td><td style="text-align:center"><span class="pill pill-amber">&triangle;</span></td><td style="text-align:center"><span class="pill pill-amber">&triangle;</span></td><td style="text-align:center;color:var(--ink-3)">—</td><td><span class="grade grade-amber">Questionable</span></td></tr>
+          <tr><td>7</td><td>BH</td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td style="text-align:center"><span class="pill pill-amber">&triangle;</span></td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td><span class="grade grade-green">Defensible</span></td></tr>
+          <tr><td>8</td><td>Cardiology</td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td style="text-align:center;color:var(--ink-3)">—</td><td><span class="grade grade-green">Defensible</span></td></tr>
+          <tr><td>9</td><td>Cardiology</td><td style="text-align:center"><span class="pill pill-red">✗</span></td><td style="text-align:center"><span class="pill pill-red">✗</span></td><td style="text-align:center"><span class="pill pill-red">✗</span></td><td style="text-align:center;color:var(--ink-3)">—</td><td><span class="grade grade-red">Indefensible</span></td></tr>
+          <tr><td>10</td><td>Cardiology</td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td style="text-align:center"><span class="pill pill-amber">&triangle;</span></td><td style="text-align:center"><span class="pill pill-green">✓</span></td><td style="text-align:center"><span class="pill pill-amber">&triangle;</span></td><td><span class="grade grade-amber">Questionable</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="finding">
+        <div class="finding-label">Grade definitions</div>
+        <p><strong>Defensible:</strong> Correct criteria applied, rationale addresses specific clinical evidence, supporting evidence considered, P2P adequately documented. Likely survives DOL audit or fiduciary proceeding scrutiny.</p>
+        <p><strong>Questionable:</strong> Correct criteria may have been applied, but documentation gaps create ambiguity or risk. The denial might survive scrutiny but presents meaningful exposure.</p>
+        <p><strong>Indefensible:</strong> Wrong criteria applied, or denial based on a blanket administrative policy that bypasses clinical criteria assessment entirely.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="component" id="s5">
+    <div class="comp-head alert">
+      <div>
+        <div class="comp-num">Section 5 of 6</div>
+        <div class="comp-title">Pattern Summary &amp; Risk Grading</div>
+      </div>
+      <div class="comp-badge">3 systematic patterns identified</div>
+    </div>
+    <div class="comp-body">
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:50px">Pattern</th>
+            <th>Description</th>
+            <th style="width:90px">Claims</th>
+            <th style="width:110px">Risk Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Supplemental policy substituted for published clinical criteria</td><td>3, 5, 9</td><td><span class="grade grade-red">Critical</span></td></tr>
+          <tr><td>2</td><td>Wrong criteria subcategory applied to clinical presentation</td><td>4, 6</td><td><span class="grade grade-amber">Moderate</span></td></tr>
+          <tr><td>3</td><td>Absent P2P documentation on policy-limit denials</td><td>3, 5, 9</td><td><span class="grade grade-amber">Moderate</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Pattern 1 &mdash; Supplemental policy substitution</h3>
+      <p>Three of ten sampled denials were based on TPA supplemental policies that impose blanket service limits without any clinical assessment methodology. In each case, MCG criteria exist for the same service with clinical assessment parameters that the supplemental policy ignores. This is a design-level problem: the supplemental policies are constructed to deny services based on utilization counts, not clinical evaluation. This is the single most significant finding and the most material fiduciary exposure.</p>
+      <h3>Pattern 2 &mdash; Criteria subcategory errors</h3>
+      <p>Two of ten denials applied the wrong criteria subcategory &mdash; general inpatient criteria instead of surgery-specific criteria, and screening criteria instead of neuropsychological battery criteria. This suggests either insufficient reviewer training on MCG navigation or inadequate criteria-selection oversight in the TPA&rsquo;s UM workflow.</p>
+      <h3>Pattern 3 &mdash; Absent peer-to-peer documentation</h3>
+      <p>Of the six claims without P2P, three involved supplemental-policy denials where P2P was not offered because the denial was based on a hard policy limit rather than a clinical determination. The absence of P2P in policy-limit denials is structurally embedded: there is no clinical disagreement to discuss when the denial is based on a visit count, not a clinical judgment. This further supports the finding that the supplemental policies bypass the clinical UM process entirely.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="component" id="s6">
+    <div class="comp-head exclusive">
+      <div>
+        <div class="comp-num">Section 6 of 6</div>
+        <div class="comp-title">Physician Narrative &amp; Remediation Recommendations</div>
+      </div>
+      <div class="comp-badge">Summary &middot; Remediation guidance</div>
+    </div>
+    <div class="comp-body">
+      <p>The central finding of this audit is that the TPA&rsquo;s utilization management program operates two parallel denial tracks: a clinical track that applies MCG criteria with varying levels of rigor, and an administrative track that applies blanket service limits through supplemental policies without clinical assessment. The clinical track, when properly applied (Claims 1, 7, 8, 10), produces defensible denials. The administrative track (Claims 3, 5, 9) produces indefensible denials by construction &mdash; not because individual reviewers made errors, but because the supplemental policies are designed to deny services based on utilization counts rather than clinical evaluation.</p>
+      <p>In a DOL audit or ERISA fiduciary proceeding, the question will be whether the plan fiduciaries knew that their TPA was using administrative cost-containment limits labeled as clinical policies &mdash; and whether that constitutes a breach of fiduciary duty. The plan sponsor&rsquo;s fiduciary exposure is directly proportional to how long the supplemental-policy substitution pattern continues after this audit identifies it.</p>
+      <h3>Remediation recommendations</h3>
+      <p><strong>Immediate:</strong> Suspend the three supplemental policies identified (CP-2024-009, BH-2024-003, CP-2024-014) and replace them with MCG criteria-based clinical assessments for the same services.</p>
+      <p><strong>Short-term:</strong> Conduct reviewer training on MCG criteria navigation, specifically on selecting the correct criteria subcategory for surgical admissions and neuropsychological testing referrals. Implement criteria-selection audit in the TPA&rsquo;s UM workflow before the denial letter is issued.</p>
+      <p><strong>Structural:</strong> Review the entire supplemental policy manual for additional blanket service limits. Any supplemental policy that imposes a hard utilization limit without a clinical assessment methodology should be assessed for the same defect identified in this audit.</p>
+    </div>
+  </div>
+
+  <div class="verdict warn">
+    <div class="verdict-label">Analysis summary</div>
+    <h3>This audit identifies a systematic pattern of supplemental-policy substitution creating material ERISA fiduciary exposure.</h3>
+    <p>Three of ten sampled denials were based on TPA supplemental policies that bypass the plan&rsquo;s stated clinical criteria methodology. These denials are indefensible &mdash; not because the clinical judgment was wrong, but because no clinical judgment was applied. Two additional denials applied incorrect criteria subcategories. The remediation is structural: the supplemental policies must be replaced with criteria-based assessments, and reviewer training must address criteria navigation.</p>
+  </div>
+
+  <div class="doc-footer">
+    <span>Medisprudence &middot; Physician-Directed Medical Case Intelligence</span>
+    <span>Specimen &middot; Fictional Data &middot; June 2026</span>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Disclaimer</strong>
+    This document is a specimen prepared with fictional plan and claim data. It does not constitute a re-adjudication of any individual claim, a recommendation to overturn or uphold specific denials, a legal opinion on ERISA fiduciary breach, or a compliance certification. Medisprudence provides physician-authored clinical denial pattern analysis for attorney-directed regulatory and compliance work. Legal conclusions regarding fiduciary duty, DOL enforcement, and plan remediation remain with retained counsel. AI may assist with data extraction and organization only; physician-authored analysis is clearly identified throughout.
+  </div>
+
+</div>
+</body>
+</html>
