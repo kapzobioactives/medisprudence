@@ -1,6 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Physician-led medical case intelligence for plaintiff teams, defense firms, TPAs, and carriers. IME deconstruction, case viability screening, Defense Medical Lens, and MHPAEA parity review — from a physician with 3,000+ payer-side claim reviews under InterQual and MCG.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://medisprudence.com/">
+  <meta property="og:title" content="Medisprudence — Medical Case Intelligence for Litigation">
+  <meta property="og:description" content="Physician-authored IME deconstruction, case viability screening, and defense vulnerability analysis — calibrated to how defense reviewers actually evaluate records. From a physician with 3,000+ payer-side claim reviews under InterQual and MCG.">
+  <meta property="og:image" content="https://medisprudence.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Medisprudence">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Medisprudence — Medical Case Intelligence for Litigation">
+  <meta name="twitter:description" content="Physician-authored IME deconstruction, case viability screening, and defense vulnerability analysis — calibrated to how defense reviewers actually evaluate records.">
+  <meta name="twitter:image" content="https://medisprudence.com/og-image.png">
+  <link rel="canonical" href="https://medisprudence.com/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Medisprudence",
+    "description": "Physician-led medical case intelligence for litigation support. IME deconstruction, case viability screening, Defense Medical Lens, and full intelligence reports for plaintiff teams, defense firms, TPAs, and carriers.",
+    "url": "https://medisprudence.com",
+    "email": "contact@medisprudence.com",
+    "founder": {
+      "@type": "Person",
+      "name": "Dr. Arun Kasturi",
+      "honorificPrefix": "Dr.",
+      "jobTitle": "Payer-side Utilization-Review Physician",
+      "description": "MBBS physician with 3,000+ US commercial claim reviews under InterQual and MCG"
+    },
+    "serviceType": [
+      "IME Report Deconstruction",
+      "Case Viability Screening",
+      "Defense Medical Lens",
+      "Full Intelligence Report",
+      "Medical Reserve Analysis",
+      "UR Process Audit",
+      "MHPAEA Parity Review",
+      "Clinical Denial Pattern Audit"
+    ],
+    "areaServed": "United States",
+    "knowsAbout": ["InterQual criteria", "MCG criteria", "Utilization review", "IME deconstruction", "Medical case intelligence", "MHPAEA compliance", "ERISA benefits"]
+  }
+  </script>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
@@ -17,10 +61,134 @@
     #__bundler_placeholder { color: #999; font-size: 14px; }
   </style>
   <noscript>
-    <style>#__bundler_loading { display: none; }</style>
-    <div style="position:fixed;bottom:12px;left:12px;font:13px/1.4 -apple-system,BlinkMacSystemFont,sans-serif;color:#999;background:rgba(255,255,255,0.9);padding:6px 12px;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.08);z-index:10000;">
-      This page requires JavaScript to display.
+  <style>
+    .ns{font-family:Georgia,'Times New Roman',serif;background:#FAF7F1;color:#1A1612;max-width:1160px;margin:0 auto;padding:40px 24px;line-height:1.7}
+    .ns-nav{font-family:system-ui,sans-serif;font-size:15px;display:flex;align-items:center;justify-content:space-between;padding-bottom:24px;border-bottom:1px solid #ddd;margin-bottom:48px;flex-wrap:wrap;gap:12px}
+    .ns-brand{font-size:22px;font-weight:400;letter-spacing:-.02em}
+    .ns-cta{background:#1A1612;color:#fff;padding:10px 20px;text-decoration:none;font-size:14px;font-weight:600;border-radius:999px;font-family:system-ui,sans-serif}
+    .ns h1{font-size:clamp(32px,5vw,56px);font-weight:400;line-height:1.08;letter-spacing:-.02em;max-width:820px;margin-bottom:18px}
+    .ns h1 em{color:#7A1F2B;font-style:italic}
+    .ns-lede{font-size:19px;line-height:1.75;max-width:580px;margin-bottom:32px;font-family:system-ui,sans-serif;color:#1A1612}
+    .ns-badge{font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7A1F2B;background:rgba(122,31,43,.07);border:1px solid rgba(122,31,43,.18);padding:4px 12px;border-radius:3px;display:inline-block;margin-bottom:28px}
+    .ns h2{font-size:clamp(22px,3vw,32px);font-weight:400;margin:48px 0 18px;letter-spacing:-.015em}
+    .ns-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:16px}
+    .ns-card{border:1px solid #ddd;padding:22px;background:#fff}
+    .ns-card h3{font-family:system-ui,sans-serif;font-size:16px;font-weight:600;margin-bottom:8px;color:#1A1612}
+    .ns-card p{font-size:15px;line-height:1.65;color:#3D352D;margin:0;font-family:system-ui,sans-serif}
+    .ns-card .price{font-family:monospace;font-size:13px;color:#7A1F2B;margin-top:10px;letter-spacing:.06em}
+    .ns-card.defense{border-left:3px solid #2B5A7A}
+    .ns-card.defense h3{color:#1A1612}
+    .ns-card.compliance{border-top:2px solid #1F4A2B}
+    .ns-about{background:#F1ECE0;padding:32px;margin:48px 0}
+    .ns-about h2{margin-top:0}
+    .ns p.credential{font-family:system-ui,sans-serif;font-size:15px;line-height:1.75;color:#1A1612;max-width:800px}
+    .ns-areas{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;font-family:system-ui,sans-serif;font-size:15px}
+    .ns-areas li{padding:10px 14px;border:1px solid #ddd;color:#1A1612}
+    .ns-footer{border-top:1px solid #ddd;margin-top:48px;padding-top:24px;font-family:system-ui,sans-serif;font-size:14px;color:#76695B}
+    .ns-footer a{color:#7A1F2B}
+    @media(max-width:600px){.ns{padding:24px 16px}}
+  </style>
+  <div class="ns">
+
+    <div class="ns-nav">
+      <span class="ns-brand">Medisprudence</span>
+      <a class="ns-cta" href="mailto:contact@medisprudence.com">Request Case Review</a>
     </div>
+
+    <div class="ns-badge">Physician-led case intelligence for litigation</div>
+    <h1>The clinical story inside the medical record <em>determines the case.</em></h1>
+    <p class="ns-lede">Medisprudence delivers physician-authored analysis for plaintiff teams, defense firms, TPAs, and carriers — IME deconstruction, case viability screening, Defense Medical Lens pre-mediation analysis, and MHPAEA parity review. Conflict-screened on every matter. From a physician with 3,000+ payer-side claim reviews under InterQual and MCG.</p>
+
+    <h2>Services — Plaintiff &amp; Claimant Teams</h2>
+    <div class="ns-grid">
+      <div class="ns-card">
+        <h3>IME Report Deconstruction</h3>
+        <p>Every unsupported assertion, omitted fact, and internal contradiction in the defense IME — with 20+ physician-authored deposition questions built from the report's specific weaknesses.</p>
+        <div class="price">From $500 · 3–5 business days</div>
+      </div>
+      <div class="ns-card">
+        <h3>Case Viability Screening (CVA™)</h3>
+        <p>Does the medical record support the case theory? Pre-expert physician intelligence calibrated to how defense reviewers actually evaluate records.</p>
+        <div class="price">From $350 · 72 hours</div>
+      </div>
+      <div class="ns-card">
+        <h3>Defense Medical Lens™</h3>
+        <p>Pre-mediation simulation of how a defense reviewer evaluates the record — ranked pressure points, causation exposure, and a documentation action list. Built by a physician who performed that exact review function.</p>
+        <div class="price">From $400 add-on · 48 hrs</div>
+      </div>
+      <div class="ns-card">
+        <h3>Full Intelligence Report (CMIP™)</h3>
+        <p>Seven-component complete case intelligence: medical chronology, coherence map, pre-existing condition dossier, treatment gap analysis, defense vulnerability analysis, and expert readiness brief.</p>
+        <div class="price">From $1,500 · 5–10 business days</div>
+      </div>
+    </div>
+
+    <h2>Services — Defense Firms, TPAs &amp; Carriers</h2>
+    <div class="ns-grid">
+      <div class="ns-card defense">
+        <h3>IME Quality Review</h3>
+        <p>Pre-submission physician review of your defense IME — seven-defect analysis before the report is exposed to plaintiff cross-examination. Risk management before the report leaves your desk.</p>
+        <div class="price">From $400 · 3–5 days</div>
+      </div>
+      <div class="ns-card defense">
+        <h3>Medical Reserve Analysis</h3>
+        <p>Physician-authored medical exposure assessment for reserve decisions — documented clinical basis that survives internal audit and bad faith pre-litigation review.</p>
+        <div class="price">From $750 · 5–7 days</div>
+      </div>
+      <div class="ns-card defense">
+        <h3>UR Process Audit</h3>
+        <p>Was the denial documentarily defensible? Criteria application review, peer-to-peer documentation assessment, and defensibility grading for bad faith defense teams.</p>
+        <div class="price">From $600 · 5–7 days</div>
+      </div>
+      <div class="ns-card defense">
+        <h3>Plaintiff Expert Report Analysis</h3>
+        <p>Analytical deconstruction of the plaintiff's disclosed medical expert report — unsupported assertions, omitted contrary evidence, Daubert challenge points, and 20+ deposition questions.</p>
+        <div class="price">From $500 · 3–5 days</div>
+      </div>
+    </div>
+
+    <h2>Compliance Consulting — ERISA Benefits Attorneys &amp; Plan Sponsors</h2>
+    <div class="ns-grid">
+      <div class="ns-card compliance">
+        <h3>MHPAEA Behavioral Health Parity Review</h3>
+        <p>Physician-authored comparative analysis of a health plan's behavioral health UM criteria against its medical/surgical criteria across all six NQTL categories — identifying where the plan is exposed under MHPAEA. Risk grading: Compliant / Borderline / Exposed.</p>
+        <div class="price">$3,000–$8,000 · 10–15 business days</div>
+      </div>
+      <div class="ns-card compliance">
+        <h3>Clinical Denial Pattern Audit</h3>
+        <p>Physician-authored review of a 20–50 claim sample — criteria mismatch analysis, clinical defensibility assessment, and pattern summary for ERISA fiduciary defense or pre-litigation DOL audit response.</p>
+        <div class="price">$4,000–$10,000 · 15–20 business days</div>
+      </div>
+    </div>
+
+    <div class="ns-about">
+      <h2>About — Dr. Arun Kasturi, MBBS</h2>
+      <p class="credential">Dr. Kasturi is an MBBS physician and the founding physician of Medisprudence. He has reviewed 3,000+ US commercial claims as a payer-side utilization-review physician, applying InterQual and MCG criteria under real claims conditions — the same criteria framework that defense IME physicians and payer reviewers use. He is currently pursuing an LLB. Medisprudence serves both plaintiff and defense clients under conflict-screened, separate engagements. The analysis follows the evidence, not a side.</p>
+      <p class="credential" style="margin-top:14px"><strong>The defining credential:</strong> No other physician-legal consulting firm in the US market has first-hand payer-side utilization review experience at this volume. When Medisprudence deconstructs a defense IME or projects defense medical pressure points, the analysis is grounded in operational knowledge of the exact methodology being challenged.</p>
+    </div>
+
+    <h2>Practice Areas</h2>
+    <ul class="ns-areas">
+      <li>Personal Injury — Auto &amp; Trucking</li>
+      <li>Medical Malpractice</li>
+      <li>Bad Faith Insurance Litigation</li>
+      <li>Workers Compensation</li>
+      <li>Mass Tort / MDL</li>
+      <li>Long-Term Disability &amp; ERISA</li>
+      <li>MHPAEA &amp; Behavioral Health Parity</li>
+      <li>ERISA Denial Defensibility</li>
+    </ul>
+
+    <h2>How It Works</h2>
+    <p class="credential">Start with a no-PHI inquiry — case type, injury, IME status, approximate record volume, and the decision you need to make. No records required to get a scope and pricing confirmation. Medisprudence confirms scope, fee, turnaround, and conflict status before any records are transmitted. A BAA is executed before PHI-containing records are accepted.</p>
+
+    <div class="ns-footer">
+      <p><strong>Medisprudence™</strong> · Physician-authored. Payer-informed. Attorney-directed. · <a href="mailto:contact@medisprudence.com">contact@medisprudence.com</a></p>
+      <p>Operated from India · Cross-border processing disclosed before records are accepted · Do not send PHI by email</p>
+      <p>Medisprudence provides physician-directed medical case intelligence under attorney supervision. Not a patient-facing medical service. We do not provide legal advice or independent expert testimony.</p>
+    </div>
+
+  </div>
   </noscript>
 </head>
 <body>
