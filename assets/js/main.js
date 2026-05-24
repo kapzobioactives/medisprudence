@@ -8,7 +8,8 @@ function updateIntakeForm(){
   var svc = svcEl.value;
   var medEl = document.getElementById('f_dml_mediation');
   var med = medEl ? medEl.value : '';
-  iv('ib-case-context', svc !== 'white-label');
+  var isCompliance = svc === 'mhpaea' || svc === 'cdpa';
+  iv('ib-case-context', svc !== 'white-label' && !isCompliance);
   iv('ib-ime', svc === 'ime' || svc === 'pkg-ime');
   iv('ib-dml', svc === 'dml');
   iv('ib-dml-date', svc === 'dml' && med !== '' && med !== 'No — pre-mediation planning');
@@ -16,6 +17,10 @@ function updateIntakeForm(){
   iv('ib-cmip', svc === 'cmip');
   iv('ib-wl', svc === 'white-label');
   iv('ib-notsure', svc === 'not-sure');
+  iv('ib-compliance', isCompliance);
+  // Show denial sample size field only for Clinical Denial Pattern Audit
+  var sampleEl = document.getElementById('ib-comp-sample-size');
+  if(sampleEl) sampleEl.style.display = svc === 'cdpa' ? 'block' : 'none';
 }
 function submitIntakeForm(e){
   e.preventDefault();
