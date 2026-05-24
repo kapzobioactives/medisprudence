@@ -1,1 +1,52 @@
-/* /index.html 200
+# Cloudflare Pages redirects for Medisprudence
+# IMPORTANT: Do not use "/* /index.html 200" on this static multi-page site.
+# That wildcard rewrite makes shared URLs like /samples/ resolve as the homepage/index.
+
+/index.html / 301
+/samples.html /samples/ 301
+
+# Optional clean no-slash aliases. Cloudflare usually handles directory indexes,
+# but these explicit redirects keep LinkedIn and other crawlers on the canonical pages.
+/samples /samples/ 301
+/analysis /analysis/ 301
+/about /about/ 301
+/faq /faq/ 301
+/intake /intake/ 301
+/contact /contact/ 301
+
+/ime-deconstruction /ime-deconstruction/ 301
+/case-viability-screening /case-viability-screening/ 301
+/defense-medical-lens /defense-medical-lens/ 301
+/full-intelligence-report /full-intelligence-report/ 301
+/packages /packages/ 301
+/white-label /white-label/ 301
+/plaintiff-teams /plaintiff-teams/ 301
+
+/ime-quality-review /ime-quality-review/ 301
+/plaintiff-expert-analysis /plaintiff-expert-analysis/ 301
+/medical-reserve-analysis /medical-reserve-analysis/ 301
+/ur-process-audit /ur-process-audit/ 301
+/bellwether-defense-screening /bellwether-defense-screening/ 301
+/defense-vulnerability-analysis /defense-vulnerability-analysis/ 301
+/defense-carriers /defense-carriers/ 301
+
+/mhpaea-parity-review /mhpaea-parity-review/ 301
+/clinical-denial-pattern-audit /clinical-denial-pattern-audit/ 301
+/compliance-consulting /compliance-consulting/ 301
+/conflict-policy /conflict-policy/ 301
+
+/personal-injury /personal-injury/ 301
+/medical-malpractice /medical-malpractice/ 301
+/bad-faith-insurance /bad-faith-insurance/ 301
+/workers-compensation /workers-compensation/ 301
+/mass-tort-mdl /mass-tort-mdl/ 301
+/ltd-erisa /ltd-erisa/ 301
+
+/privacy /privacy/ 301
+/terms /terms/ 301
+/security /security/ 301
+/ai-use-policy /ai-use-policy/ 301
+/why /why/ 301
+/treatment-gap-analysis /treatment-gap-analysis/ 301
+/pre-existing-condition-dossier /pre-existing-condition-dossier/ 301
+/specimens /specimens/ 301
