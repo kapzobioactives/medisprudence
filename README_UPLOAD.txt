@@ -30,3 +30,7 @@ Important:
 - The root file must be named index.html, lowercase.
 - Do not upload only index.html. Upload all folders, especially assets/ and every route folder.
 - Existing legacy URLs without trailing slash should normally resolve to the folder URL on GitHub Pages.
+
+
+IMPORTANT SPECIMENS NOTE:
+This ZIP includes /specimens/index.html as a redirect and fixes /samples/ links to point to /specimens/*.html. Do NOT delete your existing specimen HTML files inside the /specimens/ folder (specimen-ime.html, specimen-cva.html, etc.). Keep those files from your current repo.
