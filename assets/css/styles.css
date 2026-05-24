@@ -606,6 +606,7 @@ p{color:var(--ink);line-height:1.75;font-size:17px}
 .home-hero h1{font-size:clamp(34px,5vw,62px);max-width:840px;line-height:1.04}
 .home-hero h1 em{color:var(--teal);font-style:italic;font-weight:400}
 .hero-lede{font-size:clamp(16px,1.7vw,19px);color:var(--ink);max-width:580px;margin:16px 0 28px;line-height:1.75}
+.hero-brand-line{font-family:var(--serif);font-size:clamp(22px,2.3vw,30px);line-height:1.25;color:var(--ink);max-width:720px;margin:14px 0 0}
 .hero-proof{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap}
 .hp-num{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink)}
 .hp-label{font-family:var(--mono);font-size:12px;letter-spacing:.10em;text-transform:uppercase;color:var(--ink-2)}
