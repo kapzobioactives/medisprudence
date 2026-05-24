@@ -1197,3 +1197,86 @@ footer{background:var(--bg-alt);border-top:1px solid var(--rule);padding:36px 0 
   #p-home .premium-btn{width:100%;}
   #p-home .premium-micro-proof{line-height:1.5;align-items:flex-start;}
 }
+
+/* FINAL POLISH — normal scrolling nav + sharper header/micro typography */
+html{-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;}
+body{padding-top:0!important;}
+#nav{
+  position:relative!important;
+  top:auto!important;
+  left:auto!important;
+  right:auto!important;
+  z-index:9000;
+  margin:24px 28px 24px!important;
+  width:auto!important;
+  background:rgba(255,253,248,.98)!important;
+  border:1px solid rgba(26,22,18,.16)!important;
+  box-shadow:0 14px 38px rgba(26,22,18,.055)!important;
+  backdrop-filter:none!important;
+}
+#nav.scrolled{border-color:rgba(26,22,18,.16)!important;}
+.brand-wordmark{
+  font-size:24px!important;
+  font-weight:500!important;
+  letter-spacing:-.012em!important;
+  color:#17130f!important;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+}
+.brand svg{width:25px!important;height:25px!important;stroke-width:2;}
+.nav-item>a,.nav-item>button{
+  font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif!important;
+  font-size:16px!important;
+  font-weight:560!important;
+  letter-spacing:-.015em!important;
+  color:#5E554C!important;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+}
+.nav-item>a:hover,.nav-item>button:hover,.nav-item>a.active{color:#17130f!important;}
+.chevron{font-size:10px!important;color:#756b61!important;}
+.nav-cta{
+  font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif!important;
+  font-size:14.5px!important;
+  font-weight:650!important;
+  letter-spacing:-.01em!important;
+  color:#fff!important;
+}
+#p-home .premium-kicker{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace!important;
+  font-size:16.5px!important;
+  font-weight:600!important;
+  letter-spacing:.17em!important;
+  color:#7A1F2B!important;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+}
+#p-home .premium-micro-proof{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace!important;
+  font-size:15.5px!important;
+  font-weight:500!important;
+  letter-spacing:.11em!important;
+  color:#342D27!important;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+}
+#p-home .reviewer-topline,
+#p-home .reviewer-foot,
+#p-home .reviewer-stats span,
+#p-home .reviewer-body h2 span{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace!important;
+  font-weight:500!important;
+  color:#4C433B!important;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+}
+@media (min-width:901px){
+  body{padding-top:0!important;}
+  #nav{margin:24px 70px 24px!important;top:auto!important;left:auto!important;right:auto!important;}
+  .nav-item>a,.nav-item>button{font-size:16px!important;padding:20px 15px!important;}
+}
+@media (max-width:900px){
+  body{padding-top:0!important;}
+  #nav{margin:14px 14px 18px!important;height:58px!important;padding:0 16px!important;}
+  .brand-wordmark{font-size:22px!important;}
+}
