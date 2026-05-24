@@ -1,302 +1,449 @@
-function updateIntakeForm(){
-          var svc = document.getElementById('f_service').value;
-          var med = document.getElementById('f_dml_mediation') ? document.getElementById('f_dml_mediation').value : '';
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/assets/fonts/cf38d9bc-ddf4-4b57-b191-f1728ecd6b0d.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/assets/fonts/5c08b874-1de1-4bd0-ab2f-2d1779dde5e9.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/assets/fonts/cf38d9bc-ddf4-4b57-b191-f1728ecd6b0d.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/assets/fonts/5c08b874-1de1-4bd0-ab2f-2d1779dde5e9.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/assets/fonts/cf38d9bc-ddf4-4b57-b191-f1728ecd6b0d.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/assets/fonts/5c08b874-1de1-4bd0-ab2f-2d1779dde5e9.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/31adb1d6-89e9-4209-8cc4-3abe7477e060.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/41b18258-329d-4555-bef2-736faf983286.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/12fc977c-d87a-4c02-be27-4a372700adeb.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/c0cf0b34-abff-4583-a4b6-bb6ed1c186e4.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/685eebb9-5b0e-4c89-a90b-61880b292cd9.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/0c98ba40-ee11-4569-98d3-78d2e99ec473.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/31adb1d6-89e9-4209-8cc4-3abe7477e060.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/41b18258-329d-4555-bef2-736faf983286.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/12fc977c-d87a-4c02-be27-4a372700adeb.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/c0cf0b34-abff-4583-a4b6-bb6ed1c186e4.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/685eebb9-5b0e-4c89-a90b-61880b292cd9.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/0c98ba40-ee11-4569-98d3-78d2e99ec473.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Spectral';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/1047767d-21e4-44a2-9bf2-8a0ae2a5728a.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Spectral';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/951ed181-31be-4fe1-9dca-bb97532b05d9.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Spectral';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/40a60ae3-2882-4458-b856-09d53af38777.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Spectral';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/982bc621-8778-4bf8-91e8-0bd4aea180cb.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Spectral';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/2c14112e-835c-42ee-be4f-d726476f3c16.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Spectral';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/324af5fc-747b-4a44-bd21-f49fc8ed0f2f.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Spectral';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/2b7a1b5c-a544-4298-b92b-24d67e80e2fe.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Spectral';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/2e6412ac-d692-4488-9382-2390042f7725.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Spectral';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/bf99d057-2601-4358-b14b-f4e403963ce2.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Spectral';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/882ef915-1b94-4a11-a0be-dd5b78dab092.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/33346364-a69e-4b08-ac17-d07830cfc467.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/0a66a6d1-ab06-442a-8a6d-4cc68b6c9546.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/2131f19a-577e-4ed0-8fba-a61139bb33ff.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/0896edb0-71ce-4d26-8808-615a01938cc9.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/186f5202-4528-4479-9185-7d32ad226871.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/14776c61-64fd-434e-91d6-d48ca334f286.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/89c33ff0-298d-4dd5-a801-db76fd8b9281.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/484697f4-ef6e-43e9-a9fd-cede19ea81ad.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/ab0e0e89-cecc-499b-b96e-db5d67f2c24a.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/05951e26-7393-4825-81db-b9aeca509a74.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/fb709e37-748d-4d0d-9a2f-0138000af4eb.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/08cdc52f-ce75-4a92-ade2-97d2fac10eab.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/5e9046bf-f180-478f-8d38-034116fe99ef.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/497f22b8-d57a-405e-b567-2987f1c4504e.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/b346b0b8-a88d-4d6a-aaa7-5378ab09d800.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
-          // Block 2 — hide for White-Label Partnership only
-          iv('ib-case-context', svc !== 'white-label');
-
-          // Block 3 — IME only (including IME response package)
-          iv('ib-ime', svc === 'ime' || svc === 'pkg-ime');
-
-          // Block 4 — DML only
-          iv('ib-dml', svc === 'dml');
-          iv('ib-dml-date', svc === 'dml' && med !== '' && med !== 'No \u2014 pre-mediation planning');
-
-          // Block 5 — CVA only (including full package)
-          iv('ib-cva', svc === 'cva' || svc === 'pkg-full');
-
-          // Block 6 — CMIP only
-          iv('ib-cmip', svc === 'cmip');
-
-          // Block 7 — White-Label only
-          iv('ib-wl', svc === 'white-label');
-
-          // Block 8 — Not sure only
-          iv('ib-notsure', svc === 'not-sure');
-        }
-
-        function iv(id, show){
-          var el = document.getElementById(id);
-          if(el) el.style.display = show ? 'block' : 'none';
-        }
-
-        function submitIntakeForm(e){
-          e.preventDefault();
-          if(window._intakeSubmitting) return;
-          window._intakeSubmitting = true;
-          var btn = document.getElementById('intake-submit-btn');
-          var err = document.getElementById('intake-error');
-          btn.disabled = true;
-          btn.textContent = 'Sending\u2026';
-          err.style.display = 'none';
-
-          var form = document.getElementById('intake-form-el');
-          var data = new FormData(form);
-
-          fetch('https://formspree.io/f/xnjwkapj', {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-          })
-          .then(function(r){
-            if(r.ok){
-              form.style.display = 'none';
-              document.getElementById('intake-success').style.display = 'block';
-            } else {
-              r.json().then(function(d){
-                err.textContent = (d.errors && d.errors.map(function(x){return x.message}).join(', ')) || 'Submission failed. Please email contact@medisprudence.com directly.';
-                err.style.display = 'block';
-                btn.disabled = false;
-                btn.textContent = 'Submit Case Review Request \u2192';
-                window._intakeSubmitting = false;
-              });
-            }
-          })
-          .catch(function(){
-            err.textContent = 'Network error. Please email contact@medisprudence.com directly.';
-            err.style.display = 'block';
-            btn.disabled = false;
-            btn.textContent = 'Submit Case Review Request \u2192';
-            window._intakeSubmitting = false;
-          });
-        }
-
-        // Initialise on page load
-        document.addEventListener('DOMContentLoaded', updateIntakeForm);
-        if(document.readyState!=='loading'){updateIntakeForm();}
 
 /* ---- split from original template ---- */
 
-var T={
-  home:'Medisprudence — Medical Case Intelligence for Litigation',
-  why:'Why Medisprudence — The Payer Reviewer Advantage',
-  results:'Sample Deliverables — Medisprudence',
-  about:'About — Medisprudence',faq:'FAQ — Medisprudence',
-  contact:'Contact — Medisprudence',intake:'Request Case Review — Medisprudence',
-  security:'Data Security — Medisprudence',privacy:'Privacy Policy — Medisprudence',
-  terms:'Terms of Use — Medisprudence','ai-use':'AI Use Disclosure — Medisprudence',
-  packages:'Case Packages &amp; Bundles — Medisprudence',
-  'svc-cva':'Case Viability Screening — Medisprudence',
-  'svc-dml':'Defense Medical Lens™ — Medisprudence',
-  'svc-cmip':'Full Intelligence Report — Medisprudence',
-  'svc-dva':'Defense Vulnerability Analysis — Medisprudence',
-  'svc-erb':'Expert Readiness Brief — Medisprudence',
-  'svc-pec':'Pre-existing Condition Dossier — Medisprudence',
-  'svc-tga':'Treatment Gap Analysis — Medisprudence',
-  'svc-wl':'White-Label for LNC Firms — Medisprudence',
-  'pa-pi':'Personal Injury — Medisprudence',
-  'pa-mm':'Medical Malpractice — Medisprudence',
-  'pa-bf':'Bad Faith Insurance Litigation — Medisprudence',
-  'pa-wc':'Workers Compensation — Medisprudence',
-  'pa-mt':'Mass Tort / MDL — Medisprudence',
-  'analysis':'Analysis — Medisprudence',
-  'blog-1':'What a Payer Reviewer Actually Looks For in a Medical Record — Medisprudence',
-  'blog-2':'Seven Defects We Find in Almost Every Defense IME Report — Medisprudence',
-  'blog-3':'More Likely Than Not: What the Medical Evidence Actually Has to Show — Medisprudence',
-  'blog-4':'Why Case Viability Screening Before You Retain an Expert Saves $5,000+ — Medisprudence',
-  'blog-5':'Physician Case Intelligence vs. Legal Nurse Consulting — Medisprudence',
-  'blog-6':'Pre-existing Conditions in PI Cases — Medisprudence',
-  'pa-ltderisa':'Long-Term Disability & ERISA — Medisprudence',
-  'conflict-policy':'How We Handle Both Sides — Medisprudence',
-  'plaintiff-teams':'Plaintiff Teams — Medisprudence',
-  'defense-carriers':'Defense & Carriers — Medisprudence',
-  'svc-imeqr':'IME Quality Review — Medisprudence',
-  'svc-pea':'Plaintiff Expert Report Analysis — Medisprudence',
-  'svc-mra':'Medical Reserve Analysis — Medisprudence',
-  'svc-urpa':'UR Process Audit — Medisprudence',
-  'svc-bds':'Bellwether Defense Screening — Medisprudence',
-  'blog-7':'Before Your IME Goes Out — Medisprudence',
-  'blog-8':'Reserve-Setting with Medical Evidence — Medisprudence',
-  'blog-9':'Plaintiff Expert Report Daubert Defects — Medisprudence',
-  'blog-10':'Criteria Application in Bad Faith Defense — Medisprudence',
-  'blog-11':'The UR Record: What Plaintiff Will Subpoena — Medisprudence',
-  'svc-mhpaea':'MHPAEA Behavioral Health Parity Review — Medisprudence',
-  'svc-dpa':'Clinical Denial Pattern Audit — Medisprudence',
-  'compliance':'Compliance Consulting — Medisprudence'
-};
-/* ── PUSHSTATE ROUTER ── */
-var ROUTES={
-  '/':'home','/why':'why','/ime-deconstruction':'svc-ime','/samples':'results',
-  '/about':'about','/faq':'faq','/contact':'contact',
-  '/intake':'intake','/security':'security',
-  '/privacy':'privacy','/terms':'terms',
-  '/ai-use-policy':'ai-use',
-  '/packages':'packages',
-  '/case-viability-screening':'svc-cva',
-  '/defense-medical-lens':'svc-dml',
-  '/full-intelligence-report':'svc-cmip',
-  '/defense-vulnerability-analysis':'svc-dva',
-  '/expert-readiness-brief':'svc-erb',
-  '/pre-existing-condition-dossier':'svc-pec',
-  '/treatment-gap-analysis':'svc-tga',
-  '/white-label':'svc-wl',
-  '/personal-injury':'pa-pi',
-  '/medical-malpractice':'pa-mm',
-  '/bad-faith-insurance':'pa-bf',
-  '/workers-compensation':'pa-wc',
-  '/mass-tort-mdl':'pa-mt',
-  '/analysis':'analysis',
-  '/analysis/payer-reviewer-perspective':'blog-1',
-  '/analysis/defense-ime-defects':'blog-2',
-  '/analysis/more-likely-than-not':'blog-3',
-  '/analysis/viability-before-expert':'blog-4',
-  '/analysis/physician-vs-lnc':'blog-5',
-  '/analysis/pre-existing-conditions':'blog-6',
-  '/ltd-erisa':'pa-ltderisa',
-  '/conflict-policy':'conflict-policy',
-  '/plaintiff-teams':'plaintiff-teams',
-  '/defense-carriers':'defense-carriers',
-  '/ime-quality-review':'svc-imeqr',
-  '/plaintiff-expert-analysis':'svc-pea',
-  '/medical-reserve-analysis':'svc-mra',
-  '/ur-process-audit':'svc-urpa',
-  '/bellwether-defense-screening':'svc-bds',
-  '/analysis/ime-quality-pre-submission':'blog-7',
-  '/analysis/reserve-setting-medical-evidence':'blog-8',
-  '/analysis/plaintiff-expert-daubert':'blog-9',
-  '/analysis/criteria-application-bad-faith':'blog-10',
-  '/analysis/ur-record-subpoena':'blog-11',
-  '/analysis/mhpaea-nqtl-um-practice':'blog-12',
-  '/analysis/denial-clinical-defensibility':'blog-13',
-  '/analysis/erisa-fiduciary-um-physician':'blog-14',
-  '/mhpaea-parity-review':'svc-mhpaea',
-  '/clinical-denial-pattern-audit':'svc-dpa',
-  '/compliance-consulting':'compliance'
-};
-function showPage(id){
-  if(!id)id='home';
-  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
-  var el=document.getElementById('p-'+id);
-  if(!el){el=document.getElementById('p-home');}
-  el.classList.add('active');
-  window.scrollTo(0,0);
-  document.title=T[id]||'Medisprudence';
-  var ogUrl=document.querySelector('meta[property="og:url"]');
-  if(ogUrl)ogUrl.setAttribute('content','https://medisprudence.com'+window.location.pathname);
-}
-function route(){
-  var path=window.location.pathname;
-  showPage(ROUTES[path]||'home');
-}
-/* Intercept all internal link clicks — no page reload */
-document.addEventListener('click',function(e){
-  var a=e.target.closest('a[href]');
-  if(!a)return;
-  var href=a.getAttribute('href');
-  if(!href||!href.startsWith('/')||href.startsWith('//')
-     ||a.getAttribute('target')==='_blank')return;
-  e.preventDefault();
-  if(href!==window.location.pathname){history.pushState({},'',href);}
-  route();
-});
-window.addEventListener('popstate',route);
-document.addEventListener('DOMContentLoaded',route);
-if(document.readyState!=='loading'){route();}
-window.addEventListener('scroll',function(){
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10);
-});
-function openDrawer(){
-  var d=document.getElementById('mobile-drawer');
-  d.style.display='block';
-  requestAnimationFrame(function(){d.classList.add('open');});
-  window._drawerScrollY = window.scrollY;
-  document.body.style.overflow='hidden';
-  document.body.style.position='fixed';
-  document.body.style.width='100%';
-  document.body.style.top='-'+window._drawerScrollY+'px';
-}
-function closeDrawer(){
-  var d=document.getElementById('mobile-drawer');
-  if(!d)return;
-  d.classList.remove('open');
-  document.body.style.overflow='';
-  document.body.style.position='';
-  document.body.style.width='';
-  document.body.style.top='';
-  window.scrollTo(0, window._drawerScrollY||0);
-  setTimeout(function(){d.style.display='none';},350);
-}
-function toggleDrawer(){
-  var d=document.getElementById('mobile-drawer');
-  if(d.classList.contains('open')){closeDrawer();}else{openDrawer();}
-}
-/* Close drawer when any drawer nav link is tapped */
-document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('.drawer-nav,.drawer-cta').forEach(function(el){
-    el.addEventListener('click',function(){setTimeout(closeDrawer,80);});
-  });
-});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer();});
-document.addEventListener('click',function(e){
-  var q=e.target.closest('.faq-q');
-  if(!q)return;
-  var item=q.closest('.faq-item');
-  var wasOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(function(x){x.classList.remove('open');});
-  if(!wasOpen)item.classList.add('open');
-});
 
-/* ======= Tab toggle (Services / Results) ======= */
-document.addEventListener('click',function(e){
-  var btn=e.target.closest('.tab-btn');
-  if(!btn)return;
-  var bar=btn.closest('.tab-bar');
-  if(!bar)return;
-  var target=btn.getAttribute('data-tab');
-  if(!target)return;
-  /* deactivate sibling buttons */
-  bar.querySelectorAll('.tab-btn').forEach(function(b){
-    b.classList.remove('active');
-    b.setAttribute('aria-selected','false');
-  });
-  btn.classList.add('active');
-  btn.setAttribute('aria-selected','true');
-  /* find the scope where the panels live — current section */
-  var scope=bar.closest('.sec,.sec-tight,.page')||document;
-  scope.querySelectorAll('.tab-panel').forEach(function(p){
-    /* only flip panels whose ids match one of the buttons in this bar */
-    var match=bar.querySelector('[data-tab="'+p.id+'"]');
-    if(match)p.classList.remove('active');
-  });
-  var panel=document.getElementById(target);
-  if(panel)panel.classList.add('active');
-});
+:root{
+  --bg:#FAF7F1;--bg-alt:#F1ECE0;--bg-inset:#EDE6D6;
+  --ink:#1A1612;--ink-2:#3D352D;--ink-3:#76695B;
+  --teal:#7A1F2B;--teal-text:#6B1A24;--teal-dim:rgba(122,31,43,.07);--teal-glow:rgba(122,31,43,.18);
+  --compliance:#1F4A2B;--compliance-text:#1A3F25;--compliance-dim:rgba(31,74,43,.07);--compliance-glow:rgba(31,74,43,.18);
+  --danger:#8B2418;--caution:#8C6A1F;
+  --rule:rgba(26,22,18,.10);--rule-md:rgba(26,22,18,.16);--rule-dark:rgba(26,22,18,.28);
+  --shadow-sm:0 1px 2px rgba(26,22,18,.04);
+  --shadow-lg:0 2px 8px rgba(26,22,18,.06),0 16px 48px rgba(26,22,18,.08);
+  --serif:'Spectral','Georgia',serif;
+  --sans:'Instrument Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --wrap:1160px;--r-sm:2px;--r-md:3px;--r-lg:4px;--r-xl:6px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7;font-size:17px;overflow-x:hidden;padding-top:56px}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;border:0;background:none}
+::selection{background:var(--teal);color:#fff}
+*:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--ink);line-height:1.1;letter-spacing:-.015em}
+h4,h5,h6{font-family:var(--sans);font-weight:600;color:var(--ink);letter-spacing:-.02em}
+p{color:var(--ink);line-height:1.75;font-size:17px}
+.label{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-text);font-weight:500}
+.label-dim{font-family:var(--mono);font-size:12.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--ink-2)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 40px}
+.sec{padding:clamp(32px,4vw,56px) 0;position:relative}
+.sec-tight{padding:clamp(22px,3vw,40px) 0}
 
-function filterArticles(audience){
-  var cards=document.querySelectorAll('#p-analysis .an-card');
-  var visible=0;
-  cards.forEach(function(c){
-    var a=c.getAttribute('data-audience')||'both';
-    var show=(audience==='all'||a===audience||a==='both');
-    c.style.display=show?'':'none';
-    if(show)visible++;
-  });
-  var pills=document.querySelectorAll('#analysis-filters .pill');
-  pills.forEach(function(p){
-    p.classList.toggle('active',p.getAttribute('data-aud')===audience);
-  });
-  var empty=document.getElementById('an-empty');
-  if(empty)empty.style.display=visible===0?'block':'none';
-}
-function sortArticles(order){
-  var grid=document.getElementById('analysis-grid');
-  if(!grid)return;
-  var cards=Array.from(grid.querySelectorAll('.an-card'));
-  cards.sort(function(a,b){
-    var da=a.getAttribute('data-date')||'';
-    var db=b.getAttribute('data-date')||'';
-    return order==='old'?da.localeCompare(db):db.localeCompare(da);
-  });
-  var empty=document.getElementById('an-empty');
-  cards.forEach(function(c){grid.insertBefore(c,empty);});
-}
+/* FOUNDER BAR — editorial pull quote, not tinted card */
+.founder-bar{background:transparent;border:none;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);border-radius:0;padding:18px 0 20px;margin:28px 0;position:relative}
+.founder-bar .fb-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-text);margin-bottom:8px}
+.founder-bar p{color:var(--ink);font-family:var(--serif);font-size:19px;font-weight:400;line-height:1.55;margin:0;letter-spacing:-.005em;font-style:italic}
+.founder-bar strong{color:var(--ink);font-weight:500;font-style:normal;background:linear-gradient(transparent 62%,var(--teal-dim) 62%)}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:9000;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(255,255,255,.93);backdrop-filter:blur(24px) saturate(1.8);border-bottom:1px solid transparent;transition:border-color .3s}
+#nav.scrolled{border-bottom-color:var(--rule)}
+.brand{display:flex;align-items:center;gap:8px;flex-shrink:0;text-decoration:none}
+.brand svg{color:var(--teal)}
+.brand-wordmark{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink);letter-spacing:-.02em}
+.nav-center{display:flex;align-items:center;list-style:none}
+.nav-item{position:relative}
+.nav-item>a,.nav-item>button{color:var(--ink-2);font-size:13px;font-weight:500;cursor:pointer;padding:18px 12px;transition:color .18s;white-space:nowrap;letter-spacing:-.01em;display:flex;align-items:center;gap:4px;border:none;background:none;font-family:var(--sans);line-height:1}
+.nav-item>a:hover,.nav-item>button:hover,.nav-item>a.active{color:var(--ink)}
+.chevron{font-size:9px;transition:transform .2s;display:inline-block}
+.nav-item:hover .chevron{transform:rotate(180deg)}
+/* DROPDOWN FIX — no gap, padding inside */
+.dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:260px;background:#fff;border:1px solid var(--rule-md);border-radius:var(--r-md);box-shadow:var(--shadow-lg);padding:6px 0;opacity:0;visibi
