@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://medisprudence.com/specimens/specimen-mra.html">
 <title>Medisprudence — Specimen: Medical Reserve Analysis (MRA™)</title>
-<meta name="description" content="Specimen MRA deliverable — auto liability rear-end MVA with ACDF recommendation, rotator cuff, and pre-existing lumbar disc. TPA/carrier format. Fictional clinical data. No PHI.">
+<meta name="description" content="Specimen medical reserve analysis for an auto-liability matter with fictional data, showing treatment probability, causation, and reserve exposure.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -23,11 +25,11 @@
   --ink:#1A1612;
   --ink-2:#3D352D;
   --ink-3:#76695B;
-  --teal:#7A1F2B;
-  --teal-text:#6B1A24;
-  --teal-dim:rgba(122,31,43,.07);
-  --teal-tint:rgba(122,31,43,.04);
-  --teal-glow:rgba(122,31,43,.18);
+  --accent:#7A1F2B;
+  --accent-text:#6B1A24;
+  --accent-dim:rgba(122,31,43,.07);
+  --accent-tint:rgba(122,31,43,.04);
+  --accent-glow:rgba(122,31,43,.18);
   --danger:#8B2418;
   --danger-dim:rgba(139,36,24,.08);
   --danger-glow:rgba(139,36,24,.20);
@@ -56,8 +58,8 @@ body{
   padding-top:44px;
 }
 a{color:inherit;text-decoration:none}
-::selection{background:var(--teal);color:#fff}
-*:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+::selection{background:var(--accent);color:#fff}
+*:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
 h1,h2,h3,h4{
   font-family:var(--serif);
@@ -84,14 +86,14 @@ h1,h2,h3,h4{
   display:inline-flex;align-items:center;gap:6px;
   transition:color .18s;
 }
-.top-bar a.back:hover{color:var(--teal)}
+.top-bar a.back:hover{color:var(--accent)}
 .top-bar .specimen-tag{
   font-family:var(--mono);font-size:10.5px;
   letter-spacing:.16em;text-transform:uppercase;
   color:var(--ink-3);padding-left:20px;
   border-left:1px solid var(--rule);
 }
-.top-bar .specimen-tag strong{color:var(--teal-text);font-weight:500}
+.top-bar .specimen-tag strong{color:var(--accent-text);font-weight:500}
 
 /* ── DOC HEADER ── */
 .doc-header{
@@ -111,7 +113,7 @@ h1,h2,h3,h4{
   color:var(--ink);letter-spacing:-.02em;
   display:flex;align-items:center;gap:8px;
 }
-.doc-brand svg{color:var(--teal);flex-shrink:0}
+.doc-brand svg{color:var(--accent);flex-shrink:0}
 .doc-stamp{text-align:right}
 .doc-stamp-label{
   font-family:var(--mono);font-size:10px;
@@ -121,14 +123,14 @@ h1,h2,h3,h4{
 .doc-stamp-val{
   font-family:var(--mono);font-size:11.5px;
   letter-spacing:.06em;text-transform:uppercase;
-  color:var(--teal-text);font-weight:500;margin-top:3px;
+  color:var(--accent-text);font-weight:500;margin-top:3px;
 }
 .doc-title{
   font-family:var(--serif);font-size:clamp(24px,3vw,32px);
   font-weight:400;color:var(--ink);letter-spacing:-.02em;
   margin-bottom:8px;line-height:1.15;
 }
-.doc-title em{font-style:italic;color:var(--teal);font-weight:400}
+.doc-title em{font-style:italic;color:var(--accent);font-weight:400}
 .doc-subtitle{
   font-size:13.5px;color:var(--ink-3);
   font-family:var(--sans);
@@ -153,9 +155,9 @@ h1,h2,h3,h4{
   transition:.18s;white-space:nowrap;
 }
 .doc-nav a:hover{
-  color:var(--teal-text);
-  border-color:var(--teal);
-  background:var(--teal-dim);
+  color:var(--accent-text);
+  border-color:var(--accent);
+  background:var(--accent-dim);
 }
 
 /* ── BODY WRAP ── */
@@ -220,7 +222,7 @@ h1,h2,h3,h4{
 .kpi-val.red{color:var(--danger)}
 .kpi-val.amber{color:var(--caution)}
 .kpi-val.green,
-.kpi-val.teal{color:var(--teal)}
+.kpi-val.teal{color:var(--accent)}
 
 /* ── COMPONENT (numbered section block) ── */
 .component{
@@ -240,18 +242,18 @@ h1,h2,h3,h4{
 }
 .comp-head::before{
   content:"";position:absolute;left:0;top:0;bottom:0;
-  width:3px;background:var(--teal);
+  width:3px;background:var(--accent);
 }
 .comp-head.alert::before{background:var(--danger)}
 .comp-head.exclusive{
   background:var(--ink);color:#fff;
   border-bottom:1px solid var(--ink);
 }
-.comp-head.exclusive::before{background:var(--teal);width:3px}
+.comp-head.exclusive::before{background:var(--accent);width:3px}
 .comp-num{
   font-family:var(--mono);font-size:10.5px;
   letter-spacing:.14em;text-transform:uppercase;
-  color:var(--teal-text);font-weight:500;
+  color:var(--accent-text);font-weight:500;
   margin-bottom:3px;
 }
 .comp-head.exclusive .comp-num{color:rgba(217,205,182,.85)}
@@ -281,9 +283,9 @@ h1,h2,h3,h4{
 
 /* ── FINDINGS (callouts) ── */
 .finding{
-  border-left:3px solid var(--teal);
+  border-left:3px solid var(--accent);
   padding:14px 18px;margin:14px 0;
-  background:var(--teal-dim);
+  background:var(--accent-dim);
   border-radius:0 var(--r-sm) var(--r-sm) 0;
 }
 .finding.warn{
@@ -298,7 +300,7 @@ h1,h2,h3,h4{
   font-family:var(--mono);font-size:10px;
   letter-spacing:.14em;text-transform:uppercase;
   font-weight:500;margin-bottom:6px;
-  color:var(--teal-text);
+  color:var(--accent-text);
 }
 .finding.warn .finding-label{color:var(--danger)}
 .finding.caution .finding-label{color:var(--caution)}
@@ -317,7 +319,7 @@ h1,h2,h3,h4{
   padding:20px 24px;
   margin:16px 0;
   border-radius:var(--r-sm);
-  border-left:3px solid var(--teal);
+  border-left:3px solid var(--accent);
 }
 .exclusive .finding-label,
 .rebuttal .finding-label{
@@ -367,7 +369,7 @@ tbody tr:nth-child(even) td{background:var(--bg-alt)}
 tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
 .ref{
   font-family:var(--mono);font-size:11px;
-  color:var(--teal-text);font-weight:500;
+  color:var(--accent-text);font-weight:500;
   letter-spacing:.02em;
 }
 
@@ -397,12 +399,12 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
   background:var(--caution);border-color:var(--caution);
 }
 .timeline-event.good::before{
-  background:var(--teal);border-color:var(--teal);
+  background:var(--accent);border-color:var(--accent);
 }
 .timeline-date{
   font-family:var(--mono);font-size:11px;
   letter-spacing:.06em;
-  color:var(--teal-text);font-weight:500;
+  color:var(--accent-text);font-weight:500;
   margin-bottom:4px;text-transform:uppercase;
 }
 .timeline-event.critical .timeline-date{color:var(--danger)}
@@ -452,7 +454,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
   content:"Q" counter(depo);
   position:absolute;left:14px;top:13px;
   font-family:var(--mono);font-size:11px;
-  color:var(--teal-text);font-weight:500;
+  color:var(--accent-text);font-weight:500;
   letter-spacing:.05em;
 }
 .depo-q li:last-child{border-bottom:none}
@@ -479,8 +481,8 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
   background:var(--danger-dim);
 }
 .pe-card.positive{
-  border-color:var(--teal-glow);
-  background:var(--teal-dim);
+  border-color:var(--accent-glow);
+  background:var(--accent-dim);
 }
 .pe-label{
   font-family:var(--mono);font-size:10.5px;
@@ -488,7 +490,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
   color:var(--ink-3);margin-bottom:8px;font-weight:500;
 }
 .pe-card.primary .pe-label{color:var(--danger)}
-.pe-card.positive .pe-label{color:var(--teal-text)}
+.pe-card.positive .pe-label{color:var(--accent-text)}
 .pe-card h4{
   font-family:var(--serif);font-size:16px;
   font-weight:500;color:var(--ink);
@@ -515,13 +517,13 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
   background:var(--bg);
 }
 .action-item.priority{
-  border-color:var(--teal-glow);
-  background:var(--teal-dim);
-  border-left:3px solid var(--teal);
+  border-color:var(--accent-glow);
+  background:var(--accent-dim);
+  border-left:3px solid var(--accent);
 }
 .action-num{
   font-family:var(--mono);font-size:14px;
-  font-weight:500;color:var(--teal-text);
+  font-weight:500;color:var(--accent-text);
   margin-top:1px;
 }
 .action-body strong{
@@ -537,7 +539,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
 .action-body .priority-note{
   font-family:var(--mono);font-size:10px;
   letter-spacing:.14em;text-transform:uppercase;
-  color:var(--teal-text);font-weight:500;
+  color:var(--accent-text);font-weight:500;
   margin-bottom:6px;
 }
 
@@ -554,7 +556,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
 .b-high{color:var(--danger);background:var(--danger-dim)}
 .b-moderate{color:var(--caution);background:var(--caution-dim)}
 .b-lowmod{color:var(--ink-2);background:var(--bg-inset)}
-.b-low{color:var(--teal-text);background:var(--teal-dim)}
+.b-low{color:var(--accent-text);background:var(--accent-dim)}
 
 .pill{
   display:inline-block;
@@ -566,7 +568,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
 }
 .pill-red{background:var(--danger-dim);color:var(--danger)}
 .pill-amber{background:var(--caution-dim);color:var(--caution)}
-.pill-green{background:var(--teal-dim);color:var(--teal-text)}
+.pill-green{background:var(--accent-dim);color:var(--accent-text)}
 
 /* ── CASE BOX (DML) ── */
 .case-box{
@@ -610,7 +612,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
 .sec-num{
   font-family:var(--mono);font-size:10.5px;
   letter-spacing:.16em;text-transform:uppercase;
-  color:var(--teal-text);margin-bottom:8px;font-weight:500;
+  color:var(--accent-text);margin-bottom:8px;font-weight:500;
 }
 .sec-title{
   font-family:var(--serif);font-size:23px;
@@ -631,8 +633,8 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
 
 /* ── CALLOUT (DML, alternate style) ── */
 .callout{
-  border-left:3px solid var(--teal);
-  background:var(--teal-dim);
+  border-left:3px solid var(--accent);
+  background:var(--accent-dim);
   padding:16px 20px;
   border-radius:0 var(--r-sm) var(--r-sm) 0;
   margin:14px 0;
@@ -653,7 +655,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
   font-family:var(--mono);font-size:10px;
   letter-spacing:.14em;text-transform:uppercase;
   font-weight:500;margin-bottom:8px;
-  color:var(--teal-text);
+  color:var(--accent-text);
 }
 .callout.danger .callout-label{color:var(--danger)}
 .callout.warn .callout-label{color:var(--caution)}
@@ -667,7 +669,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
 /* ── VERDICT BOX ── */
 .verdict{
   border:1px solid var(--rule-md);
-  border-left:3px solid var(--teal);
+  border-left:3px solid var(--accent);
   background:var(--bg-alt);
   padding:24px 28px;
   margin:24px 0 8px;
@@ -681,7 +683,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
 .verdict-label{
   font-family:var(--mono);font-size:10.5px;
   letter-spacing:.16em;text-transform:uppercase;
-  color:var(--teal-text);margin-bottom:10px;font-weight:500;
+  color:var(--accent-text);margin-bottom:10px;font-weight:500;
 }
 .verdict.warn .verdict-label{color:var(--danger)}
 .verdict h3{
@@ -765,7 +767,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
 
 <!-- ── TOP BAR ── -->
 <div class="top-bar">
-  <a class="back" href="../">&larr; Back to Medisprudence</a>
+  <a class="back" href="/samples/">&larr; Back to Medisprudence</a>
   <span class="specimen-tag"><strong>Specimen</strong> &nbsp;·&nbsp; Fictional clinical data &nbsp;·&nbsp; No PHI</span>
 </div>
 
@@ -1086,8 +1088,8 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
       <p>Three medically differentiated scenarios representing the range of defensible medical outcomes. Each scenario describes which injuries, treatments, and future care elements are included, based on the medical evidence in the record. The claims unit applies jurisdiction-specific cost data to the medical exposure described in each scenario to generate the dollar-value reserve range. Medisprudence provides the medical framework; the carrier&rsquo;s cost-containment or actuarial function provides the dollar conversion.</p>
 
       <!-- Scenario A -->
-      <div class="finding" style="border-left-color:var(--teal)">
-        <div class="finding-label" style="color:var(--teal-text)">Scenario A &mdash; Defense-Favorable (Full medical challenge)</div>
+      <div class="finding" style="border-left-color:var(--accent)">
+        <div class="finding-label" style="color:var(--accent-text)">Scenario A &mdash; Defense-Favorable (Full medical challenge)</div>
         <p><strong>Medical assumptions:</strong> All pre-existing arguments succeed. Shoulder surgical recommendation denied on degenerative classification. Lumbar claim reduced to aggravation-only conservative care. ACDF challenged on mechanism-proportionality (requires successful IME).</p>
         <p><strong>Cervical:</strong> Accept conservative care only (PT, 2 ESIs). Challenge ACDF recommendation via IME on mechanism-proportionality grounds. No cervical surgical cost. Future cervical care: 6&ndash;12 months of conservative management only.</p>
         <p><strong>Lumbar:</strong> Aggravation of pre-existing only. Accept PT and single ESI. No additional lumbar treatment. No future lumbar surgical reserve.</p>
@@ -1149,27 +1151,27 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
         <tbody>
           <tr>
             <td style="font-weight:500;font-size:13.5px">ACDF Surgery &amp; Recovery</td>
-            <td style="font-family:var(--mono);font-size:12px;color:var(--teal-text)">Months 5&ndash;12</td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--accent-text)">Months 5&ndash;12</td>
             <td style="font-size:13.5px;color:var(--ink-2)">ACDF C5&ndash;C6 (single level). Post-surgical hospitalization: 1&ndash;2 days (outpatient or 23-hour observation increasingly common). Post-operative cervical collar: 4&ndash;6 weeks. Post-operative PT: 6&ndash;8 weeks (2&ndash;3x/week). Post-operative follow-up imaging (X-ray at 6 weeks, 3 months, 6 months, and 12 months post-op to confirm fusion). Expected return to modified duty: 6&ndash;8 weeks post-surgery. Expected return to full duty: 3&ndash;6 months post-surgery. For a warehouse supervisor role with physical demands, the upper end of the return-to-full-duty range is more likely. Expected cervical MMI: 12&ndash;18 months post-ACDF.</td>
           </tr>
           <tr>
             <td style="font-weight:500;font-size:13.5px">Lumbar Conservative Care</td>
-            <td style="font-family:var(--mono);font-size:12px;color:var(--teal-text)">Months 5&ndash;12</td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--accent-text)">Months 5&ndash;12</td>
             <td style="font-size:13.5px;color:var(--ink-2)">Possible second lumbar ESI if symptoms persist through the ACDF recovery phase. Continued medication management (NSAIDs, muscle relaxant). Lumbar PT may resume post-ACDF recovery if symptoms have not resolved. Expected lumbar MMI: 9&ndash;15 months from date of loss. If the lumbar aggravation resolves with the overall recovery, no further lumbar care anticipated. If symptoms persist at lumbar MMI, maintenance care allocation (2&ndash;4 PCP or pain management visits per year, medication management) for 12&ndash;24 months.</td>
           </tr>
           <tr>
             <td style="font-weight:500;font-size:13.5px">Shoulder Conservative Care</td>
-            <td style="font-family:var(--mono);font-size:12px;color:var(--teal-text)">Months 5&ndash;9</td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--accent-text)">Months 5&ndash;9</td>
             <td style="font-size:13.5px;color:var(--ink-2)">One corticosteroid subacromial injection (if not yet administered). Continued PT (shoulder-focused, 4&ndash;6 weeks). Activity modification guidance. Expected shoulder MMI under conservative care: 6&ndash;9 months from date of loss. If the claimant pursues surgical repair despite the challenge recommendation, the surgical timeline and recovery projection from Scenario C would apply. Under Scenario B, no shoulder surgical recovery is projected.</td>
           </tr>
           <tr>
             <td style="font-weight:500;font-size:13.5px">Pain Management</td>
-            <td style="font-family:var(--mono);font-size:12px;color:var(--teal-text)">Months 5&ndash;18</td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--accent-text)">Months 5&ndash;18</td>
             <td style="font-size:13.5px;color:var(--ink-2)">Medication management (gabapentin taper post-ACDF, NSAID as needed, possible short-course muscle relaxant). Monthly pain management visits during active treatment, transitioning to quarterly post-ACDF. No interventional escalation (SCS, pump) projected under Scenario B. If chronic pain persists beyond ACDF recovery and lumbar/shoulder MMI, a maintenance pain management allocation of 6&ndash;12 months is recommended.</td>
           </tr>
           <tr>
             <td style="font-weight:500;font-size:13.5px">Post-MMI Surveillance</td>
-            <td style="font-family:var(--mono);font-size:12px;color:var(--teal-text)">Months 18&ndash;30</td>
+            <td style="font-family:var(--mono);font-size:12px;color:var(--accent-text)">Months 18&ndash;30</td>
             <td style="font-size:13.5px;color:var(--ink-2)">Annual cervical X-ray for 2 years post-ACDF to confirm maintained fusion and monitor adjacent segment. PCP follow-up for residual symptoms. No ongoing active treatment projected beyond 24&ndash;30 months from date of loss under Scenario B. Total projected claim medical duration: 24&ndash;30 months from date of loss to claim closure under the probable scenario.</td>
           </tr>
         </tbody>

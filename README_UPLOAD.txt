@@ -12,3 +12,5 @@ The key fix is _redirects: it removes the bad wildcard rule:
 /* /index.html 200
 
 That wildcard is suitable for a single-page app, but this is a static multi-page site. It makes LinkedIn/shared URLs resolve to the homepage instead of the actual page.
+
+Note: samples.html is retained as a harmless static fallback; Cloudflare _redirects handles /samples.html at CDN level.

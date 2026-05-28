@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Physician Case Intelligence vs. Legal Nurse Consulting — Medisprudence</title>
-<meta name="description" content="The legal nurse consulting profession has been an established part of litigation support for several decades. It is, on its own terms, a valuable layer of.">
+<meta name="description" content="Legal nurse consultants organize records. Physician-authored review adds medical necessity, causation, and vulnerability analysis.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://medisprudence.com/analysis/physician-vs-lnc/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://medisprudence.com/analysis/physician-vs-lnc/">
 <meta property="og:title" content="Physician Case Intelligence vs. Legal Nurse Consulting — Medisprudence">
-<meta property="og:description" content="The legal nurse consulting profession has been an established part of litigation support for several decades. It is, on its own terms, a valuable layer of.">
+<meta property="og:description" content="Legal nurse consultants organize records. Physician-authored review adds medical necessity, causation, and vulnerability analysis.">
 <meta property="og:image" content="https://medisprudence.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Medisprudence">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Physician Case Intelligence vs. Legal Nurse Consulting — Medisprudence">
-<meta name="twitter:description" content="The legal nurse consulting profession has been an established part of litigation support for several decades. It is, on its own terms, a valuable layer of.">
+<meta name="twitter:description" content="Legal nurse consultants organize records. Physician-authored review adds medical necessity, causation, and vulnerability analysis.">
 <meta name="twitter:image" content="https://medisprudence.com/og-image.png">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
@@ -29,7 +29,7 @@
 <body>
 <noscript><div style="padding:16px;font-family:system-ui,sans-serif;background:#FAF7F1;color:#1A1612">Medisprudence provides physician-led medical case intelligence for litigation, including IME deconstruction, case viability screening, defense medical review, medical reserve analysis, and MHPAEA parity review.</div></noscript>
 <nav id="nav">
-<a class="brand" href="/"><svg aria-hidden="true" fill="none" height="22" style="color:var(--teal)" viewbox="0 0 32 32" width="22">
+<a class="brand" href="/"><svg aria-hidden="true" fill="none" height="22" style="color:var(--accent)" viewBox="0 0 32 32" width="22">
 <line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="16" x2="16" y1="4" y2="29"></line>
 <line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="10" x2="22" y1="29" y2="29"></line>
 <line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="5" x2="27" y1="11" y2="11"></line>
@@ -41,7 +41,7 @@
 </svg><span class="brand-wordmark">Medisprudence</span></a>
 <ul class="nav-center">
 <li class="nav-item mega">
-<button>Services <span class="chevron">▾</span></button>
+<button type="button" class="nav-dd-toggle" aria-haspopup="true" aria-expanded="false">Services <span class="chevron" aria-hidden="true">▾</span></button>
 <div class="mega-dropdown">
 <div class="mega-grid">
 <div class="mega-col left">
@@ -51,6 +51,9 @@
 <a href="/case-viability-screening/">Case Viability Screening</a>
 <a href="/defense-medical-lens/">Defense Medical Lens™</a>
 <a href="/full-intelligence-report/">Full Intelligence Report</a>
+<a href="/expert-readiness-brief/">Expert Readiness Brief</a>
+<a href="/pre-existing-condition-dossier/">Pre-existing Condition Dossier</a>
+<a href="/treatment-gap-analysis/">Treatment Gap Analysis</a>
 <a href="/packages/">Case Packages &amp; Bundles</a>
 <a href="/white-label/">White-Label for LNC Firms</a>
 <a class="mega-overview" href="/plaintiff-teams/">Plaintiff Teams Overview →</a>
@@ -84,7 +87,7 @@
 </div>
 </li>
 <li class="nav-item">
-<button>Practice Areas <span class="chevron">▾</span></button>
+<button type="button" class="nav-dd-toggle" aria-haspopup="true" aria-expanded="false">Practice Areas <span class="chevron" aria-hidden="true">▾</span></button>
 <div class="dropdown">
 <a href="/personal-injury/">Personal Injury — Auto &amp; Trucking</a>
 <a href="/medical-malpractice/">Medical Malpractice</a>
@@ -104,12 +107,12 @@
 </ul>
 <div class="nav-right">
 <a class="nav-cta" href="/intake/">Request Case Review</a>
-<button class="mobile-toggle" onclick="toggleDrawer()">☰</button>
+<button class="mobile-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-drawer" aria-expanded="false" onclick="toggleDrawer()">☰</button>
 </div>
 </nav>
-<div class="mobile-drawer" id="mobile-drawer" onclick="if(event.target===this)closeDrawer()" style="display:none">
+<div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation" onclick="if(event.target===this)closeDrawer()" style="display:none">
 <div class="mobile-drawer-panel">
-<div class="drawer-header"><span class="drawer-wordmark">Medisprudence</span><button class="drawer-close" onclick="closeDrawer()">✕</button></div>
+<div class="drawer-header"><span class="drawer-wordmark">Medisprudence</span><button class="drawer-close" type="button" aria-label="Close navigation menu" onclick="closeDrawer()">✕</button></div>
 <div class="drawer-nav-list">
 <a class="drawer-nav primary" href="/">Home</a>
 <a class="drawer-nav primary" href="/samples/">Samples</a>
@@ -119,6 +122,9 @@
 <a class="drawer-nav" href="/case-viability-screening/">Case Viability Screening</a>
 <a class="drawer-nav" href="/full-intelligence-report/">Full Intelligence Report</a>
 <a class="drawer-nav" href="/defense-medical-lens/">Defense Medical Lens™</a>
+<a class="drawer-nav" href="/expert-readiness-brief/">Expert Readiness Brief</a>
+<a class="drawer-nav" href="/pre-existing-condition-dossier/">Pre-existing Condition Dossier</a>
+<a class="drawer-nav" href="/treatment-gap-analysis/">Treatment Gap Analysis</a>
 <a class="drawer-nav" href="/packages/">Case Packages &amp; Bundles</a>
 <a class="drawer-nav" href="/white-label/">White-Label for LNC Firms</a>
 <div class="drawer-section-label">Services · For Defense &amp; Carriers</div>
@@ -128,6 +134,7 @@
 <a class="drawer-nav" href="/medical-reserve-analysis/">Medical Reserve Analysis</a>
 <a class="drawer-nav" href="/ur-process-audit/">UR Process Audit</a>
 <a class="drawer-nav" href="/bellwether-defense-screening/">Bellwether Defense Screening</a>
+<a class="drawer-nav" href="/defense-vulnerability-analysis/">Defense Vulnerability Analysis</a>
 <div class="drawer-section-label">Services · Compliance Consulting</div>
 <a class="drawer-nav" href="/compliance-consulting/" style="color:var(--compliance-text)">Overview</a>
 <a class="drawer-nav" href="/mhpaea-parity-review/" style="color:var(--compliance-text)">MHPAEA Behavioral Health Parity Review</a>
