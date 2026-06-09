@@ -224,3 +224,55 @@ document.addEventListener('click', function(e){
   var panel=document.getElementById(target);
   if(panel) panel.classList.add('active');
 });
+
+
+function buildSignalCheckResult(issue, role, flags, score){
+  var maps = {
+    ime: {title:'IME / defense medical report pathway', service:'IME Report Deconstruction', href:'/ime-deconstruction/', intake:'ime', summary:'The strongest fit is physician-authored IME or opposing medical report analysis. The review should focus on unsupported assertions, omitted medical facts, internal contradictions, and deposition-ready medical questions.'},
+    viability: {title:'Case viability and causation pathway', service:'Case Viability Screening (CVA™)', href:'/case-viability-screening/', intake:'cva', summary:'The strongest fit is pre-expert physician review of whether the medical record supports the case theory, causation pathway, and documentation threshold before expert spend or mediation strategy.'},
+    payer: {title:'Payer criteria / medical necessity pathway', service:'UR Process Audit or denial logic review', href:'/ur-process-audit/', intake:'urpa', summary:'The strongest fit is payer-style criteria analysis: whether InterQual, MCG, plan language, or medical necessity thresholds were applied in a documentarily defensible and individualized way.'},
+    defense: {title:'Defense-side medical exposure pathway', service:'Defense Medical Lens™ / Medical Reserve Analysis', href:'/defense-carriers/', intake:'dml-def', summary:'The strongest fit is defense-side physician review of medical exposure, reserve implications, plaintiff expert vulnerabilities, and the likely pressure points in the record.'},
+    compliance: {title:'Compliance and review-process pathway', service:'MHPAEA or Clinical Denial Pattern Audit', href:'/compliance-consulting/', intake:'compliance', summary:'The strongest fit is pattern-level review of criteria design, denial consistency, medical necessity standards, or parity/compliance exposure rather than single-case IME analysis.'},
+    'not-sure': {title:'Mixed medical-review routing pathway', service:'Scope call / no-PHI inquiry', href:'/intake/', intake:'not-sure', summary:'The issue appears mixed. A no-PHI scope inquiry is appropriate so Medisprudence can route it to IME analysis, CVA™, payer criteria review, defense exposure, or compliance review.'}
+  };
+  var r = maps[issue] || maps['not-sure'];
+  var priority = score >= 6 ? 'High-priority review signal' : (score >= 3 ? 'Moderate review signal' : 'Low-to-moderate review signal');
+  var why = [];
+  if(flags.indexOf('contradiction') !== -1) why.push('<strong>Contradiction signal</strong> Report language may conflict with treating findings or source records.');
+  if(flags.indexOf('omission') !== -1) why.push('<strong>Omission signal</strong> Material imaging, exam findings, labs, or chronology may need line-by-line physician review.');
+  if(flags.indexOf('criteria') !== -1) why.push('<strong>Criteria signal</strong> Medical necessity standards or payer criteria may be central to the analysis.');
+  if(flags.indexOf('causation') !== -1) why.push('<strong>Causation signal</strong> Pre-existing disease, gaps, or alternative explanations may affect record defensibility.');
+  if(flags.indexOf('expert') !== -1) why.push('<strong>Strategy-timing signal</strong> Expert selection, demand, mediation, or disclosure decisions may depend on medical support.');
+  if(flags.indexOf('reserve') !== -1) why.push('<strong>Exposure signal</strong> Reserve or settlement posture may require physician-level medical interpretation.');
+  if(flags.indexOf('pattern') !== -1) why.push('<strong>Pattern signal</strong> Multiple denials or reviews may require systems-level defensibility analysis.');
+  if(flags.indexOf('deadline') !== -1) why.push('<strong>Deadline signal</strong> Near-term litigation timing may justify accelerated scoping.');
+  if(!why.length) why.push('<strong>Initial routing only</strong> Few high-risk flags were selected, but a no-PHI inquiry can still clarify whether review is warranted.');
+  var intakeHref = '/intake/?service=' + encodeURIComponent(r.intake);
+  return '<div class="signal-priority">' + priority + '</div>' +
+    '<h2>' + r.title + '</h2>' +
+    '<p>' + r.summary + '</p>' +
+    '<ul class="signal-route-list">' +
+    '<li><strong>Recommended service</strong>' + r.service + '</li>' +
+    why.slice(0,4).map(function(item){ return '<li>' + item + '</li>'; }).join('') +
+    '</ul>' +
+    '<div class="signal-result-actions"><a class="btn btn-primary" href="' + intakeHref + '">Submit No-PHI Inquiry →</a><a class="btn btn-ghost" href="' + r.href + '">View Relevant Service</a></div>' +
+    '<div class="signal-caution">Preliminary routing only. Not legal advice, medical advice, expert testimony, or a record review.</div>';
+}
+
+document.addEventListener('submit', function(e){
+  var form = e.target && e.target.closest ? e.target.closest('#signal-check-form') : null;
+  if(!form) return;
+  e.preventDefault();
+  var issue = (document.getElementById('signal-issue') || {}).value || 'not-sure';
+  var role = (document.getElementById('signal-role') || {}).value || '';
+  var phi = document.getElementById('signal-phi');
+  if(!role || !issue || !phi || !phi.checked){ form.reportValidity && form.reportValidity(); return; }
+  var boxes = Array.from(form.querySelectorAll('input[type="checkbox"][data-weight]:checked'));
+  var flags = boxes.map(function(b){ return b.value; });
+  var score = boxes.reduce(function(sum,b){ return sum + (parseInt(b.getAttribute('data-weight') || '0',10) || 0); }, 0);
+  if(issue === 'not-sure') score += 1;
+  if(role === 'defense' && (issue === 'defense' || flags.indexOf('reserve') !== -1)) score += 1;
+  if(role === 'erisa' && (issue === 'payer' || issue === 'compliance' || flags.indexOf('criteria') !== -1 || flags.indexOf('pattern') !== -1)) score += 1;
+  var result = document.getElementById('signal-result');
+  if(result){ result.innerHTML = buildSignalCheckResult(issue, role, flags, score); }
+});
