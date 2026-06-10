@@ -7,767 +7,15 @@
 <link rel="canonical" href="https://medisprudence.com/specimens/specimen-dva.html">
 <title>Medisprudence — Specimen: Defense Vulnerability Analysis (DVA™)</title>
 <meta name="description" content="Specimen DVA deliverable — premises liability slip-and-fall with pre-existing OA, CRPS challenge, and TKA necessity analysis. Fictional clinical data. No PHI.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-/* ───────────────────────────────────────────────────────────
-   MEDISPRUDENCE — SPECIMEN STYLES
-   Shared CSS for all specimen deliverables.
-   Matches editorial/case-file aesthetic of medisprudence.com
-   ─────────────────────────────────────────────────────────── */
-
-:root{
-  --bg:#FAF7F1;
-  --bg-alt:#F1ECE0;
-  --bg-inset:#EDE6D6;
-  --paper:#FFFCF5;
-  --ink:#1A1612;
-  --ink-2:#3D352D;
-  --ink-3:#76695B;
-  --accent:#7A1F2B;
-  --accent-text:#6B1A24;
-  --accent-dim:rgba(122,31,43,.07);
-  --accent-tint:rgba(122,31,43,.04);
-  --accent-glow:rgba(122,31,43,.18);
-  --danger:#8B2418;
-  --danger-dim:rgba(139,36,24,.08);
-  --danger-glow:rgba(139,36,24,.20);
-  --caution:#8C6A1F;
-  --caution-dim:rgba(140,106,31,.09);
-  --caution-glow:rgba(140,106,31,.22);
-  --rule:rgba(26,22,18,.10);
-  --rule-md:rgba(26,22,18,.16);
-  --rule-dark:rgba(26,22,18,.28);
-  --serif:'Spectral','Georgia',serif;
-  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
-  --mono:'JetBrains Mono','SF Mono',ui-monospace,monospace;
-  --r-sm:2px;
-  --r-md:3px;
-  --r-lg:4px;
-}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
-body{
-  font-family:var(--sans);
-  color:var(--ink);
-  line-height:1.7;
-  font-size:15px;
-  background:var(--bg);
-  padding-top:44px;
-}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--accent);color:#fff}
-*:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-
-h1,h2,h3,h4{
-  font-family:var(--serif);
-  line-height:1.15;
-  font-weight:400;
-  color:var(--ink);
-  letter-spacing:-.015em;
-}
-.mono{font-family:var(--mono)}
-
-/* ── TOP BAR (specimen disclaimer / back nav) ── */
-.top-bar{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  height:44px;background:rgba(250,247,241,.94);
-  backdrop-filter:blur(20px) saturate(1.6);
-  border-bottom:1px solid var(--rule);
-  display:flex;align-items:center;gap:24px;
-  padding:0 32px;
-}
-.top-bar a.back{
-  font-family:var(--mono);font-size:11.5px;
-  letter-spacing:.10em;text-transform:uppercase;
-  color:var(--ink-2);
-  display:inline-flex;align-items:center;gap:6px;
-  transition:color .18s;
-}
-.top-bar a.back:hover{color:var(--accent)}
-.top-bar .specimen-tag{
-  font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink-3);padding-left:20px;
-  border-left:1px solid var(--rule);
-}
-.top-bar .specimen-tag strong{color:var(--accent-text);font-weight:500}
-
-/* ── DOC HEADER ── */
-.doc-header{
-  background:var(--bg);
-  padding:28px 48px 22px;
-  border-bottom:1px solid var(--rule);
-}
-.doc-header-top{
-  display:flex;justify-content:space-between;align-items:flex-end;
-  padding-bottom:14px;
-  border-bottom:1px solid var(--rule);
-  margin-bottom:18px;
-  gap:24px;flex-wrap:wrap;
-}
-.doc-brand{
-  font-family:var(--serif);font-size:20px;font-weight:400;
-  color:var(--ink);letter-spacing:-.02em;
-  display:flex;align-items:center;gap:8px;
-}
-.doc-brand svg{color:var(--accent);flex-shrink:0}
-.doc-stamp{text-align:right}
-.doc-stamp-label{
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink-3);
-}
-.doc-stamp-val{
-  font-family:var(--mono);font-size:11.5px;
-  letter-spacing:.06em;text-transform:uppercase;
-  color:var(--accent-text);font-weight:500;margin-top:3px;
-}
-.doc-title{
-  font-family:var(--serif);font-size:clamp(24px,3vw,32px);
-  font-weight:400;color:var(--ink);letter-spacing:-.02em;
-  margin-bottom:8px;line-height:1.15;
-}
-.doc-title em{font-style:italic;color:var(--accent);font-weight:400}
-.doc-subtitle{
-  font-size:13.5px;color:var(--ink-3);
-  font-family:var(--sans);
-  letter-spacing:.005em;
-}
-
-/* ── DOC NAV (anchor pills) ── */
-.doc-nav{
-  background:var(--bg-alt);
-  border-bottom:1px solid var(--rule);
-  padding:12px 48px;
-  display:flex;gap:6px;flex-wrap:wrap;
-}
-.doc-nav a{
-  font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.10em;text-transform:uppercase;
-  color:var(--ink-2);text-decoration:none;
-  padding:6px 12px;
-  border:1px solid var(--rule);
-  border-radius:var(--r-sm);
-  background:var(--bg);
-  transition:.18s;white-space:nowrap;
-}
-.doc-nav a:hover{
-  color:var(--accent-text);
-  border-color:var(--accent);
-  background:var(--accent-dim);
-}
-
-/* ── BODY WRAP ── */
-.doc{
-  max-width:920px;
-  margin:0 auto;
-  padding:36px 48px 56px;
-}
-
-/* ── CASE CAPTION (file metadata) ── */
-.caption{
-  background:var(--bg-alt);
-  border:1px solid var(--rule-md);
-  border-radius:var(--r-sm);
-  padding:6px 24px;
-  margin-bottom:28px;
-}
-.caption-row{
-  display:grid;grid-template-columns:1fr 1fr;gap:18px;
-  padding:14px 0;
-  border-bottom:1px dotted var(--rule-md);
-  font-size:14px;
-}
-.caption-row:last-child{border-bottom:none}
-.caption-label{
-  font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:2px;
-}
-.caption-val{
-  font-weight:500;color:var(--ink);font-size:14.5px;
-  line-height:1.5;
-}
-
-/* ── KPI / SCORECARD STRIP ── */
-.kpi-strip{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  border:1px solid var(--rule-md);
-  border-radius:var(--r-sm);
-  margin-bottom:32px;
-  background:var(--bg);
-  overflow:hidden;
-}
-.kpi-strip.cols-5{grid-template-columns:repeat(5,1fr)}
-.kpi{
-  padding:18px 14px;text-align:center;
-  border-right:1px solid var(--rule);
-  background:var(--bg);
-}
-.kpi:last-child{border-right:none}
-.kpi-label{
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:8px;
-}
-.kpi-val{
-  font-family:var(--serif);font-size:24px;
-  font-weight:400;color:var(--ink);
-  letter-spacing:-.01em;line-height:1.1;
-}
-.kpi-val.red{color:var(--danger)}
-.kpi-val.amber{color:var(--caution)}
-.kpi-val.green,
-.kpi-val.teal{color:var(--accent)}
-
-/* ── COMPONENT (numbered section block) ── */
-.component{
-  margin-bottom:36px;
-  border:1px solid var(--rule-md);
-  border-radius:var(--r-sm);
-  overflow:hidden;
-  background:var(--bg);
-}
-.comp-head{
-  background:var(--bg-alt);
-  padding:16px 24px;
-  display:flex;justify-content:space-between;align-items:center;
-  gap:14px;flex-wrap:wrap;
-  border-bottom:1px solid var(--rule);
-  position:relative;
-}
-.comp-head::before{
-  content:"";position:absolute;left:0;top:0;bottom:0;
-  width:3px;background:var(--accent);
-}
-.comp-head.alert::before{background:var(--danger)}
-.comp-head.exclusive{
-  background:var(--ink);color:#fff;
-  border-bottom:1px solid var(--ink);
-}
-.comp-head.exclusive::before{background:var(--accent);width:3px}
-.comp-num{
-  font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--accent-text);font-weight:500;
-  margin-bottom:3px;
-}
-.comp-head.exclusive .comp-num{color:rgba(217,205,182,.85)}
-.comp-title{
-  font-family:var(--serif);font-size:21px;
-  font-weight:400;color:var(--ink);
-  letter-spacing:-.01em;line-height:1.2;
-}
-.comp-head.exclusive .comp-title{color:#fff}
-.comp-badge{
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-3);
-}
-.comp-head.exclusive .comp-badge{color:rgba(217,205,182,.55)}
-.comp-body{padding:24px 26px}
-.comp-body p{
-  color:var(--ink-2);margin-bottom:11px;
-  font-size:14.5px;line-height:1.75;
-}
-.comp-body p strong{color:var(--ink);font-weight:500}
-.comp-body h3{
-  font-family:var(--serif);font-size:18px;
-  font-weight:400;color:var(--ink);
-  margin:18px 0 8px;letter-spacing:-.01em;
-}
-
-/* ── FINDINGS (callouts) ── */
-.finding{
-  border-left:3px solid var(--accent);
-  padding:14px 18px;margin:14px 0;
-  background:var(--accent-dim);
-  border-radius:0 var(--r-sm) var(--r-sm) 0;
-}
-.finding.warn{
-  border-left-color:var(--danger);
-  background:var(--danger-dim);
-}
-.finding.caution{
-  border-left-color:var(--caution);
-  background:var(--caution-dim);
-}
-.finding-label{
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:.14em;text-transform:uppercase;
-  font-weight:500;margin-bottom:6px;
-  color:var(--accent-text);
-}
-.finding.warn .finding-label{color:var(--danger)}
-.finding.caution .finding-label{color:var(--caution)}
-.finding p{
-  font-size:14px;color:var(--ink);
-  margin-bottom:0;line-height:1.7;
-}
-.finding p + p{margin-top:8px}
-.finding p strong{color:var(--ink);font-weight:600}
-
-/* ── EXCLUSIVE / REBUTTAL (dark inset) ── */
-.exclusive,
-.rebuttal{
-  background:var(--ink);
-  color:#fff;
-  padding:20px 24px;
-  margin:16px 0;
-  border-radius:var(--r-sm);
-  border-left:3px solid var(--accent);
-}
-.exclusive .finding-label,
-.rebuttal .finding-label{
-  color:#D8A89F;letter-spacing:.16em;
-  font-weight:500;margin-bottom:8px;
-}
-.exclusive p,
-.rebuttal p{
-  color:rgba(255,255,255,.82);
-  font-size:14px;line-height:1.75;
-}
-.exclusive p strong,
-.rebuttal p strong{color:#fff;font-weight:600}
-.exclusive p + p,
-.rebuttal p + p{margin-top:10px}
-
-/* ── TABLES ── */
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin:14px 0;
-  font-size:13.5px;
-  background:var(--bg);
-}
-th,td{
-  padding:11px 13px;
-  border:1px solid var(--rule);
-  vertical-align:top;
-  text-align:left;
-  line-height:1.6;
-}
-thead th{
-  background:var(--bg-inset);
-  color:var(--ink);
-  font-family:var(--sans);
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  font-weight:600;
-  border-color:var(--rule-md);
-}
-tbody td:first-child{
-  font-weight:500;color:var(--ink);
-  background:var(--bg-alt);
-}
-tbody tr:nth-child(even) td{background:var(--bg-alt)}
-tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
-.ref{
-  font-family:var(--mono);font-size:11px;
-  color:var(--accent-text);font-weight:500;
-  letter-spacing:.02em;
-}
-
-/* ── TIMELINE (CMIP medmal) ── */
-.timeline{
-  border-left:2px solid var(--rule-md);
-  margin:20px 0;
-  padding-left:24px;
-}
-.timeline-event{
-  position:relative;
-  padding-bottom:22px;
-}
-.timeline-event:last-child{padding-bottom:0}
-.timeline-event::before{
-  content:"";position:absolute;
-  left:-30px;top:5px;
-  width:11px;height:11px;
-  border-radius:50%;
-  background:var(--bg);
-  border:2px solid var(--rule-dark);
-}
-.timeline-event.critical::before{
-  background:var(--danger);border-color:var(--danger);
-}
-.timeline-event.flag::before{
-  background:var(--caution);border-color:var(--caution);
-}
-.timeline-event.good::before{
-  background:var(--accent);border-color:var(--accent);
-}
-.timeline-date{
-  font-family:var(--mono);font-size:11px;
-  letter-spacing:.06em;
-  color:var(--accent-text);font-weight:500;
-  margin-bottom:4px;text-transform:uppercase;
-}
-.timeline-event.critical .timeline-date{color:var(--danger)}
-.timeline-event.flag .timeline-date{color:var(--caution)}
-.timeline-event p{
-  font-size:14px;color:var(--ink-2);
-  margin:0;line-height:1.7;
-}
-.timeline-event strong{color:var(--ink);font-weight:600}
-
-/* ── IME QUOTE BOX ── */
-.ime-quote{
-  border:1px solid var(--rule-md);
-  background:var(--paper);
-  padding:16px 20px 14px;
-  margin:14px 0;
-  position:relative;
-  border-radius:var(--r-sm);
-}
-.ime-quote::before{
-  content:"IME report states";
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-3);
-  position:absolute;top:-7px;left:14px;
-  background:var(--bg);padding:0 8px;
-}
-.ime-quote p{
-  font-family:var(--serif);font-size:15px;
-  color:var(--ink);font-style:italic;
-  margin:0;line-height:1.55;letter-spacing:.005em;
-}
-
-/* ── DEPOSITION QUESTIONS ── */
-.depo-q{counter-reset:depo;list-style:none}
-.depo-q li{
-  list-style:none;
-  padding:14px 16px 14px 50px;
-  border-bottom:1px dotted var(--rule-md);
-  font-size:14px;
-  color:var(--ink);
-  counter-increment:depo;
-  position:relative;
-  line-height:1.65;
-}
-.depo-q li::before{
-  content:"Q" counter(depo);
-  position:absolute;left:14px;top:13px;
-  font-family:var(--mono);font-size:11px;
-  color:var(--accent-text);font-weight:500;
-  letter-spacing:.05em;
-}
-.depo-q li:last-child{border-bottom:none}
-.depo-q li em{
-  font-style:italic;color:var(--ink-3);
-  display:block;margin-top:5px;font-size:12.5px;
-  font-family:var(--sans);
-}
-
-/* ── PRE-EXISTING GRID (DML) ── */
-.pe-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;margin:16px 0;
-}
-.pe-card{
-  border:1px solid var(--rule-md);
-  border-radius:var(--r-sm);
-  padding:18px 20px;
-  background:var(--bg);
-}
-.pe-card.primary{
-  border-color:var(--danger-glow);
-  background:var(--danger-dim);
-}
-.pe-card.positive{
-  border-color:var(--accent-glow);
-  background:var(--accent-dim);
-}
-.pe-label{
-  font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:8px;font-weight:500;
-}
-.pe-card.primary .pe-label{color:var(--danger)}
-.pe-card.positive .pe-label{color:var(--accent-text)}
-.pe-card h4{
-  font-family:var(--serif);font-size:16px;
-  font-weight:500;color:var(--ink);
-  margin-bottom:8px;letter-spacing:-.01em;
-}
-.pe-card p{
-  font-size:13.5px;color:var(--ink-2);
-  line-height:1.7;
-}
-
-/* ── ACTION LIST (DML) ── */
-.action-list{
-  list-style:none;
-  display:flex;flex-direction:column;
-  gap:12px;margin-top:18px;
-}
-.action-item{
-  display:grid;
-  grid-template-columns:36px 1fr;
-  gap:14px;align-items:flex-start;
-  border:1px solid var(--rule-md);
-  border-radius:var(--r-sm);
-  padding:18px 20px;
-  background:var(--bg);
-}
-.action-item.priority{
-  border-color:var(--accent-glow);
-  background:var(--accent-dim);
-  border-left:3px solid var(--accent);
-}
-.action-num{
-  font-family:var(--mono);font-size:14px;
-  font-weight:500;color:var(--accent-text);
-  margin-top:1px;
-}
-.action-body strong{
-  font-family:var(--serif);font-size:16px;
-  font-weight:500;color:var(--ink);
-  display:block;margin-bottom:6px;
-  line-height:1.3;letter-spacing:-.01em;
-}
-.action-body p{
-  font-size:13.5px;color:var(--ink-2);
-  line-height:1.75;margin:0;
-}
-.action-body .priority-note{
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--accent-text);font-weight:500;
-  margin-bottom:6px;
-}
-
-/* ── BADGES / PILLS ── */
-.badge{
-  display:inline-block;
-  padding:3px 8px;
-  border-radius:var(--r-sm);
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:.10em;text-transform:uppercase;
-  font-weight:500;line-height:1.4;
-  border:1px solid currentColor;
-}
-.b-high{color:var(--danger);background:var(--danger-dim)}
-.b-moderate{color:var(--caution);background:var(--caution-dim)}
-.b-lowmod{color:var(--ink-2);background:var(--bg-inset)}
-.b-low{color:var(--accent-text);background:var(--accent-dim)}
-
-.pill{
-  display:inline-block;
-  padding:3px 10px;
-  border-radius:999px;
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:.08em;text-transform:uppercase;
-  font-weight:500;
-}
-.pill-red{background:var(--danger-dim);color:var(--danger)}
-.pill-amber{background:var(--caution-dim);color:var(--caution)}
-.pill-green{background:var(--accent-dim);color:var(--accent-text)}
-
-/* ── CASE BOX (DML) ── */
-.case-box{
-  background:var(--bg-alt);
-  border:1px solid var(--rule-md);
-  border-left:3px solid var(--ink);
-  border-radius:var(--r-sm);
-  padding:22px 26px;
-  margin-bottom:30px;
-}
-.case-box-label{
-  font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:14px;font-weight:500;
-}
-.case-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px 22px;
-  margin-bottom:14px;
-}
-.ci-label{
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:.10em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:3px;
-}
-.ci-val{
-  font-family:var(--mono);font-size:13px;
-  color:var(--ink);font-weight:500;
-  line-height:1.5;letter-spacing:.01em;
-}
-.case-summary{
-  font-size:14.5px;color:var(--ink-2);
-  line-height:1.75;
-  border-top:1px solid var(--rule);
-  padding-top:14px;margin-top:8px;
-}
-
-/* ── SECTION (CVA + DML alternative section style) ── */
-.section{margin-bottom:34px}
-.sec-num{
-  font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--accent-text);margin-bottom:8px;font-weight:500;
-}
-.sec-title{
-  font-family:var(--serif);font-size:23px;
-  font-weight:400;color:var(--ink);letter-spacing:-.015em;
-  margin-bottom:6px;padding-bottom:10px;
-  border-bottom:1px solid var(--ink);
-}
-.sec-sub{
-  font-size:13.5px;color:var(--ink-3);
-  margin-bottom:18px;font-style:italic;line-height:1.7;
-  max-width:760px;
-}
-.body-text{
-  font-size:14.5px;color:var(--ink-2);
-  line-height:1.78;margin-bottom:14px;
-}
-.body-text strong{color:var(--ink);font-weight:500}
-
-/* ── CALLOUT (DML, alternate style) ── */
-.callout{
-  border-left:3px solid var(--accent);
-  background:var(--accent-dim);
-  padding:16px 20px;
-  border-radius:0 var(--r-sm) var(--r-sm) 0;
-  margin:14px 0;
-}
-.callout.danger{
-  border-left-color:var(--danger);
-  background:var(--danger-dim);
-}
-.callout.warn{
-  border-left-color:var(--caution);
-  background:var(--caution-dim);
-}
-.callout.neutral{
-  border-left-color:var(--ink-3);
-  background:var(--bg-alt);
-}
-.callout-label{
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:.14em;text-transform:uppercase;
-  font-weight:500;margin-bottom:8px;
-  color:var(--accent-text);
-}
-.callout.danger .callout-label{color:var(--danger)}
-.callout.warn .callout-label{color:var(--caution)}
-.callout.neutral .callout-label{color:var(--ink-2)}
-.callout p{
-  font-size:14px;color:var(--ink);
-  line-height:1.75;
-}
-.callout p + p{margin-top:8px}
-
-/* ── VERDICT BOX ── */
-.verdict{
-  border:1px solid var(--rule-md);
-  border-left:3px solid var(--accent);
-  background:var(--bg-alt);
-  padding:24px 28px;
-  margin:24px 0 8px;
-  border-radius:var(--r-sm);
-}
-.verdict.warn{
-  border-left-color:var(--danger);
-  background:var(--danger-dim);
-  border-color:var(--danger-glow);
-}
-.verdict-label{
-  font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--accent-text);margin-bottom:10px;font-weight:500;
-}
-.verdict.warn .verdict-label{color:var(--danger)}
-.verdict h3{
-  font-family:var(--serif);font-size:22px;
-  font-weight:400;color:var(--ink);
-  margin-bottom:10px;letter-spacing:-.015em;line-height:1.25;
-  max-width:760px;
-}
-.verdict.warn h3{color:var(--ink)}
-.verdict p{
-  font-size:14.5px;color:var(--ink-2);
-  line-height:1.75;margin-top:8px;
-}
-
-/* ── DOC FOOTER + DISCLAIMER ── */
-.doc-footer{
-  border-top:1px solid var(--ink);
-  padding-top:18px;margin-top:44px;
-  display:flex;justify-content:space-between;
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:.10em;text-transform:uppercase;
-  color:var(--ink-3);gap:14px;flex-wrap:wrap;
-}
-.doc-footer span:first-child{color:var(--ink-2)}
-
-.disclaimer{
-  margin-top:18px;
-  padding:18px 22px;
-  background:var(--bg-alt);
-  border-left:3px solid var(--ink);
-  border-radius:0 var(--r-sm) var(--r-sm) 0;
-  font-size:12.5px;
-  color:var(--ink-3);
-  line-height:1.75;
-  font-style:italic;
-}
-.disclaimer strong{
-  color:var(--ink-2);font-style:normal;font-weight:600;
-  font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.14em;text-transform:uppercase;
-  display:block;margin-bottom:6px;
-}
-
-/* ── TABLE-OVERFLOW WRAPPER ── */
-.table-wrap{
-  overflow-x:auto;margin:14px 0;
-  border-radius:var(--r-sm);
-}
-
-/* ── RESPONSIVE ── */
-@media(max-width:780px){
-  .doc{padding:24px 20px 40px}
-  .doc-header{padding:22px 20px 18px}
-  .doc-nav{padding:10px 20px}
-  .top-bar{padding:0 16px;gap:14px}
-  .top-bar .specimen-tag{padding-left:14px}
-  .kpi-strip,.kpi-strip.cols-5{grid-template-columns:1fr 1fr}
-  .caption-row{grid-template-columns:1fr;gap:10px}
-  .comp-head{flex-direction:column;align-items:flex-start;gap:6px}
-  .case-grid{grid-template-columns:1fr 1fr}
-  .pe-grid{grid-template-columns:1fr}
-  .doc-header-top{flex-direction:column;align-items:flex-start;gap:14px}
-  .doc-stamp{text-align:left}
-}
-@media(max-width:520px){
-  .case-grid{grid-template-columns:1fr}
-  .doc-footer{flex-direction:column;gap:8px}
-}
-
-/* ── PRINT ── */
-@media print{
-  .top-bar,.doc-nav{display:none}
-  body{padding-top:0;background:#fff;font-size:11pt}
-  .component,.caption,.kpi-strip,.case-box{break-inside:avoid;page-break-inside:avoid}
-  .doc{padding:0;max-width:100%}
-}
-
-</style>
+<link rel="stylesheet" href="specimen.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- ── TOP BAR ── -->
 <div class="top-bar">
   <a class="back" href="/samples/">&larr; Back to Medisprudence</a>
+  <a class="back" href="/medical-evidence-in-litigation/">Field Guide</a>
   <span class="specimen-tag"><strong>Specimen</strong> &nbsp;·&nbsp; Fictional clinical data &nbsp;·&nbsp; No PHI</span>
 </div>
 
@@ -792,7 +40,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
       <div class="doc-stamp-val">Defense Vulnerability Analysis (DVA&trade;)</div>
     </div>
   </div>
-  <div class="doc-title">Defense Vulnerability Analysis &mdash; <em>Premises Liability / Left Knee</em></div>
+  <h1 class="doc-title" id="main-content" tabindex="-1">Defense Vulnerability Analysis &mdash; <em>Premises Liability / Left Knee</em></h1>
   <div class="doc-subtitle">Specimen &middot; Fictional clinical data &middot; No PHI &middot; Approx. 1,240 pages / 11 providers &middot; Prepared for defense counsel</div>
 </div>
 
@@ -1063,7 +311,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
       <div class="comp-badge">Budapest criteria audit</div>
     </div>
     <div class="comp-body">
-      <p>Complex Regional Pain Syndrome (CRPS) is among the most contested diagnoses in litigation medicine. The current diagnostic standard is the Budapest Criteria, which requires documented findings across four clinical categories: sensory, vasomotor, sudomotor/edema, and motor/trophic. This section audits the treating pain management physician&rsquo;s CRPS diagnosis against the Budapest Criteria documentation requirements and identifies specific clinical and documentation vulnerabilities available to the defense.</p>
+      <p>Complex Regional Pain Syndrome (CRPS) is among the most contested diagnoses in litigation medicine. The current diagnostic standard is the Budapest Criteria, which requires documented findings across four clinical categories: sensory, vasomotor, sudomotor/edema, and motor/trophic. This section audits the treating pain management physician&rsquo;s CRPS diagnosis against the Budapest Criteria documentation requirements: continuing disproportionate pain, symptoms reported in at least three of four categories, signs observed in at least two of four categories, and no better alternative diagnosis. The defense challenge is not based on an incorrect sign-count threshold; it is based on incomplete symptom documentation, unaddressed alternative explanations for the documented signs, absent objective corroboration, and anatomically mismatched treatment selection.</p>
 
       <div class="table-wrap">
       <table>
@@ -1083,7 +331,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
           <tr>
             <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Vasomotor</td>
             <td style="text-align:center"><span class="pill pill-red">Absent</span></td>
-            <td style="font-size:13.5px;color:var(--ink-2)"><strong>No vasomotor signs are documented in the pain management evaluation or in any note in this record.</strong> The Budapest Criteria require at least one sign in at least three of the four categories. Vasomotor findings (temperature asymmetry, skin color changes) are among the most objective and verifiable CRPS signs. Their absence is significant. No thermographic assessment or documented temperature comparison between extremities was performed.</td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong>No vasomotor signs are documented in the pain management evaluation or in any note in this record.</strong> The Budapest Criteria require observed signs in at least two categories, and symptoms in at least three categories. If the defense concedes sensory allodynia and edema as two possible sign categories, the sign-count threshold may be numerically satisfied; the vulnerability is that the more objective vasomotor category was never documented, no temperature comparison was performed, and the note does not show a systematic symptom-and-sign audit across all four categories.</td>
           </tr>
           <tr>
             <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Sudomotor / Edema</td>
@@ -1093,21 +341,21 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
           <tr>
             <td style="font-weight:500;color:var(--ink);font-family:var(--serif);font-size:14.5px">Motor / Trophic</td>
             <td style="text-align:center"><span class="pill pill-red">Absent</span></td>
-            <td style="font-size:13.5px;color:var(--ink-2)"><strong>No motor or trophic changes are documented.</strong> No muscle weakness assessment, no ROM deficit attributed to CRPS (as opposed to post-surgical limitation), no skin texture changes, no hair growth changes, no nail changes. The Budapest Criteria require signs in at least three categories. With vasomotor absent and motor/trophic absent, the documented findings satisfy at most two categories (sensory and sudomotor/edema), both of which have alternative explanations (post-surgical pain and post-surgical/comorbidity-related edema).</td>
+            <td style="font-size:13.5px;color:var(--ink-2)"><strong>No motor or trophic changes are documented.</strong> No muscle weakness assessment, no ROM deficit attributed to CRPS rather than post-surgical limitation, no skin texture changes, no hair growth changes, and no nail changes. This matters because the documented sign evidence is limited to sensory findings and edema. Those two categories may meet the sign-count requirement only if accepted at face value, but both have plausible non-CRPS explanations in this record: post-surgical nociceptive sensitization and post-surgical, obesity-related, or diabetes-related edema.</td>
           </tr>
         </tbody>
       </table>
       </div>
 
       <div class="finding warn">
-        <div class="finding-label">Physician assessment &mdash; CRPS diagnosis does not meet Budapest Criteria on this record</div>
-        <p><strong>The CRPS Type I diagnosis documented at Week 18 does not satisfy the Budapest Clinical Criteria based on the documentation in this record.</strong> The Budapest Criteria require: (1) continuing pain disproportionate to the inciting event; (2) at least one symptom reported in three of four categories; (3) at least one sign observed in two or more categories; and (4) no other diagnosis that better explains the findings. On this record, signs are documented in at most two categories (sensory and sudomotor/edema), both with plausible alternative explanations (post-surgical nociceptive sensitization and comorbidity-related edema). Vasomotor and motor/trophic categories have no documented findings. No confirmatory testing (three-phase bone scan, thermography, quantitative sudomotor axon reflex testing) was obtained. The pain management physician&rsquo;s note does not reference the Budapest Criteria, does not systematically document findings across all four categories, and does not address or rule out alternative diagnoses.</p>
+        <div class="finding-label">Physician assessment &mdash; CRPS diagnosis is not adequately documented under Budapest Criteria</div>
+        <p><strong>The CRPS Type I diagnosis documented at Week 18 is not adequately supported by a systematic Budapest Clinical Criteria analysis in this record.</strong> The Budapest Criteria require: (1) continuing pain disproportionate to the inciting event; (2) at least one symptom reported in three of four categories; (3) at least one sign observed in two or more categories; and (4) no other diagnosis that better explains the findings. The available note documents, at most, two possible sign categories: sensory allodynia and edema. That may meet the sign-count threshold if accepted, but the record does not document symptoms across three categories, does not show vasomotor or motor/trophic findings, and does not explain why post-surgical pain, post-surgical edema, obesity-related edema, diabetes-related edema, or knee osteoarthritis do not better explain the findings. No confirmatory testing (three-phase bone scan, thermography, or quantitative sudomotor axon reflex testing) was obtained. The pain management note does not reference the Budapest Criteria and does not systematically document the symptom, sign, or alternative-diagnosis elements.</p>
         <p>This is a diagnosis that a defense medical expert can credibly challenge as not meeting the accepted diagnostic standard. If the CRPS diagnosis is excluded, the damages exposure attributable to CRPS (pain management treatment, gabapentin, stellate ganglion block, pending SCS evaluation, and the CRPS-attributed disability and pain and suffering claim) may be significantly reduced.</p>
       </div>
 
       <div class="exclusive">
         <div class="finding-label">Medisprudence exclusive &mdash; available only in DVA deliverables</div>
-        <p><strong>Diagnostic credibility attack sequence.</strong> For defense expert or cross-examination use: <strong>(1)</strong> Establish that Budapest Criteria are the accepted diagnostic standard for CRPS. <strong>(2)</strong> Walk through each of the four categories against the record documentation. <strong>(3)</strong> Identify the two categories with no documented findings (vasomotor, motor/trophic). <strong>(4)</strong> Establish that the findings in the remaining two categories (allodynia, edema) have documented alternative explanations (post-surgical pain, obesity/DM-related edema). <strong>(5)</strong> Note the absence of any confirmatory diagnostic testing. <strong>(6)</strong> Note the anatomical error in the treatment selection (stellate ganglion block for lower extremity CRPS). This sequence systematically dismantles the CRPS diagnosis without requiring the defense expert to assert it does not exist &mdash; the documentation simply does not support it.</p>
+        <p><strong>Diagnostic credibility attack sequence.</strong> For defense expert or cross-examination use: <strong>(1)</strong> Establish that Budapest Criteria are the accepted diagnostic standard for CRPS. <strong>(2)</strong> Walk through each symptom category and sign category separately. <strong>(3)</strong> Establish that vasomotor and motor/trophic findings were not documented. <strong>(4)</strong> Establish that the documented sensory finding and edema have plausible alternative explanations (post-surgical pain, obesity/DM-related edema). <strong>(5)</strong> Establish that the note does not document symptoms in three of four categories or rule out better alternative diagnoses. <strong>(6)</strong> Note the absence of confirmatory diagnostic testing and the anatomical error in the treatment selection (stellate ganglion block for lower extremity CRPS). This sequence systematically dismantles the CRPS diagnosis without requiring the defense expert to assert it does not exist &mdash; the documentation simply does not support it.</p>
       </div>
     </div>
   </div>
@@ -1220,7 +468,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
           <tr>
             <td style="font-family:var(--mono);font-weight:500;text-align:center">6</td>
             <td style="font-weight:500;font-size:13.5px">CRPS diagnosis lacks Budapest Criteria documentation</td>
-            <td style="font-size:13.5px;color:var(--ink-2)">Pain management note does not reference Budapest Criteria. Only 2 of 4 sign categories documented. No confirmatory testing. No alternative diagnoses ruled out.</td>
+            <td style="font-size:13.5px;color:var(--ink-2)">Pain management note does not reference Budapest Criteria. Possible signs are limited to sensory allodynia and edema; symptom categories are not systematically documented. No confirmatory testing. No alternative diagnoses ruled out.</td>
             <td style="font-size:12px;color:var(--ink-3)">CRPS diagnosis challenge</td>
           </tr>
           <tr>
@@ -1289,7 +537,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
           <div class="action-body">
             <div class="priority-note">Critical focus area</div>
             <strong>CRPS diagnosis &mdash; Budapest Criteria assessment on examination</strong>
-            <p>The IME physician should perform a systematic Budapest Criteria evaluation at the examination. Key questions: Does the physical examination demonstrate signs in at least three of the four Budapest categories? Are vasomotor signs present (temperature asymmetry, skin color changes)? Are motor/trophic signs present? Can the sensory findings (allodynia) be distinguished from post-surgical nociceptive sensitization? Can the observed edema be distinguished from post-surgical, obesity-related, or diabetes-related edema? Does any other diagnosis better explain the findings? The IME physician should document the Budapest Criteria assessment systematically in the report.</p>
+            <p>The IME physician should perform a systematic Budapest Criteria evaluation at the examination. Key questions: Does the history document symptoms in at least three of the four Budapest categories? Does the physical examination demonstrate signs in at least two categories? Are vasomotor signs present (temperature asymmetry, skin color changes)? Are motor/trophic signs present? Can the sensory findings (allodynia) be distinguished from post-surgical nociceptive sensitization? Can the observed edema be distinguished from post-surgical, obesity-related, or diabetes-related edema? Does any other diagnosis better explain the findings? The IME physician should document the Budapest Criteria assessment systematically in the report.</p>
           </div>
         </li>
         <li class="action-item">
@@ -1350,7 +598,7 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
       <p style="font-size:13px;color:var(--ink-3);margin-bottom:14px;font-style:italic">Focus: CRPS diagnostic rigor, Budapest Criteria compliance, and treatment selection</p>
       <ol class="depo-q">
         <li>Doctor, when you diagnosed Complex Regional Pain Syndrome Type I, did you apply the Budapest Clinical Diagnostic Criteria? <em>Target: establish whether the accepted diagnostic standard was used.</em></li>
-        <li>The Budapest Criteria require at least one sign observed in at least three of four categories: sensory, vasomotor, sudomotor or edema, and motor or trophic. In your evaluation, how many of those four categories had documented clinical signs? <em>Target: force enumeration &mdash; the record supports at most two.</em></li>
+        <li>The Budapest Criteria require symptoms reported in at least three of four categories and signs observed in at least two of four categories. In your evaluation, where did you document the symptom categories separately from the examination signs? <em>Target: expose whether the diagnosis was made by systematic criteria application or by label.</em></li>
         <li>Did you observe any vasomotor signs &mdash; temperature asymmetry or skin color changes &mdash; on your examination? <em>Target: no vasomotor findings are documented.</em></li>
         <li>Did you observe any motor or trophic changes &mdash; muscle weakness, tremor, decreased range of motion attributable to CRPS, skin texture changes, hair growth changes, or nail changes? <em>Target: no motor/trophic findings are documented.</em></li>
         <li>The edema you documented in the left lower extremity &mdash; did you consider whether that edema could be attributable to the claimant&rsquo;s Class II obesity or her poorly controlled Type 2 diabetes rather than to CRPS? <em>Target: alternative diagnoses for the only sudomotor/edema finding.</em></li>
@@ -1400,8 +648,8 @@ tbody tr:nth-child(even) td:first-child{background:var(--bg-inset)}
 
       <div class="verdict">
         <div class="verdict-label">CRPS Type I &mdash; diagnostic validity</div>
-        <h3>Defense position: Very Strong &mdash; Budapest Criteria not met on documentation</h3>
-        <p>The CRPS diagnosis does not satisfy the Budapest Clinical Criteria based on the documentation in this record. Signs are documented in at most two of four required categories, both with plausible non-CRPS explanations. No confirmatory testing was obtained. The anatomically inappropriate treatment selection (stellate ganglion block for lower extremity CRPS) further undermines the treating physician&rsquo;s diagnostic credibility. This diagnosis should be vigorously challenged. If excluded, the CRPS-attributable treatment costs, disability, and pain and suffering claims are eliminated from the damages exposure.</p>
+        <h3>Defense position: Very Strong &mdash; CRPS documentation and treatment selection are vulnerable</h3>
+        <p>The CRPS diagnosis is vulnerable because the record does not show a systematic Budapest Criteria analysis. The possible sign evidence is limited to sensory allodynia and edema, both with plausible non-CRPS explanations; symptoms are not documented across the required three categories; alternative diagnoses are not ruled out; and no confirmatory testing was obtained. The anatomically inappropriate treatment selection (stellate ganglion block for lower-extremity CRPS) further undermines the treating physician&rsquo;s diagnostic credibility. The stronger defense position is not a simplistic sign-count attack; it is that the diagnosis and CRPS-attributable damages lack a reliable documented foundation.</p>
       </div>
 
       <div class="verdict warn">

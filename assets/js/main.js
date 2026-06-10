@@ -276,3 +276,34 @@ document.addEventListener('submit', function(e){
   var result = document.getElementById('signal-result');
   if(result){ result.innerHTML = buildSignalCheckResult(issue, role, flags, score); }
 });
+
+/* Field Guide — PDF request form (matches intake Formspree pattern) */
+function fgHandlePdf(e){
+  if(!window.fetch) return true;
+  e.preventDefault();
+  if(window._fgPdfSubmitting) return false;
+  var form = document.getElementById('fgPdfForm');
+  var msg = document.getElementById('fgFormMsg');
+  var btn = form ? form.querySelector('.fg-pdf-submit') : null;
+  if(!form){ return false; }
+  if(form.reportValidity && !form.reportValidity()) return false;
+  window._fgPdfSubmitting = true;
+  var original = btn ? btn.textContent : '';
+  if(btn){ btn.disabled = true; btn.textContent = 'Submitting…'; }
+  if(msg){ msg.textContent = ''; msg.className = 'fg-form-msg'; }
+  var data = new FormData(form);
+  fetch(form.getAttribute('action') || 'https://formspree.io/f/xnjwkapj', {
+    method: form.getAttribute('method') || 'POST', body: data, headers: { 'Accept': 'application/json' }
+  }).then(function(r){
+    if(r.ok){
+      form.reset();
+      if(msg){ msg.textContent = 'Thank you — your PDF request was received. We manually review requests and will send the field guide by email. If you need it urgently, email contact@medisprudence.com.'; msg.className = 'fg-form-msg ok'; }
+    }else{ throw new Error('failed'); }
+  }).catch(function(){
+    if(msg){ msg.textContent = 'Submission failed. Please try again, or email contact@medisprudence.com (no PHI).'; msg.className = 'fg-form-msg err'; }
+  }).finally(function(){
+    window._fgPdfSubmitting = false;
+    if(btn){ btn.disabled = false; btn.textContent = original || 'Request PDF version →'; }
+  });
+  return false;
+}
