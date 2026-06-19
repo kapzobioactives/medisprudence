@@ -1,417 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Analysis — Medisprudence</title>
-<meta name="description" content="Medisprudence analysis on IME defects, payer-side review, case viability, medical reserves, MHPAEA, ERISA, and utilization management litigation.">
-<meta name="robots" content="index,follow">
+<meta name="description" content="Physician notes on medical records, IMEs, payer review logic, medical charges, and denial defensibility.">
 <link rel="canonical" href="https://medisprudence.com/analysis/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://medisprudence.com/analysis/">
 <meta property="og:title" content="Analysis — Medisprudence">
-<meta property="og:description" content="Medisprudence analysis on IME defects, payer-side review, case viability, medical reserves, MHPAEA, ERISA, and utilization management litigation.">
+<meta property="og:description" content="Physician notes on medical records, IMEs, payer review logic, medical charges, and denial defensibility.">
 <meta property="og:image" content="https://medisprudence.com/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="Medisprudence">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Analysis — Medisprudence">
-<meta name="twitter:description" content="Medisprudence analysis on IME defects, payer-side review, case viability, medical reserves, MHPAEA, ERISA, and utilization management litigation.">
-<meta name="twitter:image" content="https://medisprudence.com/og-image.png">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/svg+xml" href="/logo-mark.svg">
-<link rel="apple-touch-icon" href="/favicon.png">
-<link rel="stylesheet" href="/assets/css/styles.css?v=20260619-redesign">
+<link rel="stylesheet" href="/assets/css/styles.css?v=20260620-complete-rebuild">
 </head>
-<body>
+<body class="analysis-index">
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<noscript><div>Medisprudence provides physician-led medical case intelligence for litigation, including IME deconstruction, case viability screening, defense medical review, medical reserve analysis, and MHPAEA parity review.</div></noscript>
-<nav id="nav" class="nav-redesigned">
-<a class="brand" href="/"><svg aria-hidden="true" fill="none" height="22" viewBox="0 0 32 32" width="22">
-<line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="16" x2="16" y1="4" y2="29"></line>
-<line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="10" x2="22" y1="29" y2="29"></line>
-<line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="5" x2="27" y1="11" y2="11"></line>
-<circle cx="16" cy="11" fill="currentColor" r="2.4"></circle>
-<line stroke="currentColor" stroke-linecap="round" stroke-width="1.3" x1="5" x2="5" y1="11" y2="19"></line>
-<path d="M1.5 19 Q5 24.5 8.5 19" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path>
-<line stroke="currentColor" stroke-linecap="round" stroke-width="1.3" x1="27" x2="27" y1="11" y2="19"></line>
-<path d="M23.5 19 Q27 24.5 30.5 19" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path>
-</svg><span class="brand-wordmark">Medisprudence</span></a>
-<ul class="nav-center">
-<li class="nav-item mega">
-<button type="button" class="nav-dd-toggle" aria-haspopup="true" aria-expanded="false">Services <span class="chevron" aria-hidden="true">▾</span></button>
-<div class="mega-dropdown redesigned-mega">
-<div class="mega-grid service-mega-grid">
-<div class="mega-col left">
-<div class="mega-col-inner">
-<div class="mega-col-head"><span class="mega-mark">⚖</span> For Plaintiff Teams</div>
-<a href="/ime-deconstruction/">IME Report Deconstruction</a>
-<a href="/case-viability-screening/">Case Viability Screening</a>
-<a href="/full-intelligence-report/">Full Intelligence Report / CMIP™</a>
-<a href="/defense-medical-lens/">Defense Medical Lens™</a>
-<a class="mega-overview" href="/plaintiff-teams/">All plaintiff services →</a>
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="/" aria-label="Medisprudence home">
+      <img src="/logo-mark.svg" alt="" class="brand-mark"/>
+      <span><strong>Medisprudence</strong><em>Medical review. Litigation clarity.</em></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <div class="nav-drop">
+        <button type="button" class="nav-link" aria-expanded="false">Services</button>
+        <div class="mega-menu">
+          <div class="mega-grid">
+            <div><h4>For Plaintiff Teams</h4>
+              <a href="/ime-deconstruction/">IME Report Deconstruction</a>
+              <a href="/case-viability-screening/">Case Viability Screening</a>
+              <a href="/full-intelligence-report/">Full Intelligence Report / CMIP™</a>
+              <a href="/defense-medical-lens/">Defense Medical Lens™</a>
+              <a class="mega-more" href="/plaintiff-teams/">All plaintiff services →</a>
+            </div>
+            <div><h4>For Defense & Carriers</h4>
+              <a href="/ime-quality-review/">IME Quality Review</a>
+              <a href="/plaintiff-expert-analysis/">Plaintiff Expert Report Analysis</a>
+              <a href="/medical-reserve-analysis/">Medical Reserve Analysis</a>
+              <a href="/ur-process-audit/">UR Process Audit</a>
+              <a class="mega-more" href="/defense-carriers/">All defense services →</a>
+            </div>
+            <div><h4>Both Sides</h4>
+              <a href="/medical-charge-necessity-review/">Medical Charge & Necessity Review</a>
+              <a href="/treatment-gap-analysis/">Treatment Gap Analysis</a>
+              <a href="/pre-existing-condition-dossier/">Pre-existing Condition Dossier</a>
+              <a class="mega-more" href="/#service-map">Full service map →</a>
+            </div>
+            <div><h4>Compliance</h4>
+              <a href="/mhpaea-parity-review/">MHPAEA Parity Review</a>
+              <a href="/clinical-denial-pattern-audit/">Clinical Denial Pattern Audit</a>
+              <a href="/compliance-consulting/">Compliance Overview</a>
+              <a class="mega-more" href="/medical-review-signal-check/">Start with Signal Check →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button type="button" class="nav-link" aria-expanded="false">Who we help</button>
+        <div class="drop-menu">
+          <a href="/personal-injury/">Personal Injury</a>
+          <a href="/medical-malpractice/">Medical Malpractice</a>
+          <a href="/bad-faith-insurance/">Bad Faith Insurance</a>
+          <a href="/workers-compensation/">Workers Compensation</a>
+          <a href="/mass-tort-mdl/">Mass Tort / MDL</a>
+          <a href="/ltd-erisa/">LTD & ERISA</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button type="button" class="nav-link" aria-expanded="false">Resources</button>
+        <div class="drop-menu">
+          <a href="/samples/">Samples & Specimens</a>
+          <a href="/specimens/">Specimen Library</a>
+          <a href="/analysis/">Analysis</a>
+          <a href="/medical-evidence-in-litigation/">Field Guide</a>
+          <a href="/packages/">Packages</a>
+          <a href="/faq/">FAQ</a>
+        </div>
+      </div>
+      <a class="nav-link" href="/about/">About</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary nav-cta" href="/intake/">Request a Review</a>
+      <button class="mobile-toggle" type="button" aria-label="Open navigation" onclick="openDrawer()">☰</button>
+    </div>
+  </div>
+</header>
+<div class="mobile-drawer" id="mobile-drawer" onclick="if(event.target===this)closeDrawer()">
+  <div class="drawer-panel">
+    <div class="drawer-head"><strong>Medisprudence</strong><button type="button" onclick="closeDrawer()" aria-label="Close navigation">×</button></div>
+    <a href="/" class="drawer-primary">Home</a>
+    <a href="/intake/" class="drawer-primary">Request a Review</a>
+    <a href="/samples/" class="drawer-primary">Samples & Specimens</a>
+    <h4>Services · Plaintiff</h4>
+    <a href="/plaintiff-teams/">Plaintiff Overview</a><a href="/ime-deconstruction/">IME Report Deconstruction</a><a href="/case-viability-screening/">Case Viability Screening</a><a href="/full-intelligence-report/">Full Intelligence Report / CMIP™</a><a href="/defense-medical-lens/">Defense Medical Lens™</a>
+    <h4>Services · Defense</h4>
+    <a href="/defense-carriers/">Defense Overview</a><a href="/ime-quality-review/">IME Quality Review</a><a href="/plaintiff-expert-analysis/">Plaintiff Expert Report Analysis</a><a href="/medical-reserve-analysis/">Medical Reserve Analysis</a><a href="/ur-process-audit/">UR Process Audit</a>
+    <h4>Both / Compliance</h4>
+    <a href="/medical-charge-necessity-review/">Medical Charge & Necessity Review</a><a href="/mhpaea-parity-review/">MHPAEA Parity Review</a><a href="/clinical-denial-pattern-audit/">Clinical Denial Pattern Audit</a>
+    <h4>Resources</h4>
+    <a href="/packages/">Packages</a><a href="/analysis/">Analysis</a><a href="/medical-evidence-in-litigation/">Field Guide</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+  </div>
 </div>
-</div>
-<div class="mega-col right">
-<div class="mega-col-inner">
-<div class="mega-col-head"><span class="mega-mark">⛨</span> For Defense &amp; Carriers</div>
-<a href="/ime-quality-review/">IME Quality Review</a>
-<a href="/plaintiff-expert-analysis/">Plaintiff Expert Report Analysis</a>
-<a href="/medical-reserve-analysis/">Medical Reserve Analysis</a>
-<a href="/ur-process-audit/">UR Process Audit</a>
-<a class="mega-overview" href="/defense-carriers/">All defense services →</a>
-</div>
-</div>
-<div class="mega-col both">
-<div class="mega-col-inner">
-<div class="mega-col-head"><span class="mega-mark">◆</span> Both Sides</div>
-<a href="/medical-charge-necessity-review/">Medical Charge &amp; Necessity Review</a>
-<a href="/defense-vulnerability-analysis/">Defense Vulnerability Analysis</a>
-<a href="/treatment-gap-analysis/">Treatment Gap Analysis</a>
-<a href="/pre-existing-condition-dossier/">Pre-existing Condition Dossier</a>
-<a class="mega-overview" href="/#service-map">View the full service map →</a>
-</div>
-</div>
-<div class="mega-col compliance">
-<div class="mega-col-inner">
-<div class="mega-col-head"><span class="mega-mark">⚕</span> Compliance</div>
-<a href="/mhpaea-parity-review/">MHPAEA Parity Review</a>
-<a href="/clinical-denial-pattern-audit/">Clinical Denial Pattern Audit</a>
-<a class="mega-overview" href="/compliance-consulting/">All compliance services →</a>
-</div>
-</div>
-</div>
-<div class="mega-foot">
-<span class="mega-foot-note">Conflict-screened on every matter</span>
-<div class="mega-foot-links"><a href="/medical-review-signal-check/">Start Signal Check →</a><a href="/conflict-policy/">How we handle both sides →</a></div>
-</div>
-</div>
-</li>
-<li class="nav-item">
-<button type="button" class="nav-dd-toggle" aria-haspopup="true" aria-expanded="false">Who we help <span class="chevron" aria-hidden="true">▾</span></button>
-<div class="dropdown dropdown-wide">
-<a href="/personal-injury/">Personal Injury</a>
-<a href="/medical-malpractice/">Medical Malpractice</a>
-<a href="/bad-faith-insurance/">Bad Faith Insurance</a>
-<a href="/workers-compensation/">Workers Compensation</a>
-<a href="/mass-tort-mdl/">Mass Tort / MDL</a>
-<a href="/ltd-erisa/">LTD &amp; ERISA</a>
-<div class="dd-section-label">Plan / compliance</div>
-<a href="/mhpaea-parity-review/">MHPAEA &amp; Parity</a>
-<a href="/clinical-denial-pattern-audit/">ERISA Denial Defensibility</a>
-</div>
-</li>
-<li class="nav-item">
-<button type="button" class="nav-dd-toggle" aria-haspopup="true" aria-expanded="false">Resources <span class="chevron" aria-hidden="true">▾</span></button>
-<div class="dropdown dropdown-wide">
-<a href="/samples/">Samples &amp; Specimens</a>
-<a href="/specimens/">Specimen Library</a>
-<a href="/analysis/">Analysis</a>
-<a href="/medical-evidence-in-litigation/">Field Guide</a>
-<a href="/packages/">Packages</a>
-<a href="/faq/">FAQ</a>
-</div>
-</li>
-<li class="nav-item"><a href="/about/">About</a></li>
-</ul>
-<div class="nav-right">
-<a class="nav-cta" href="/intake/">Request a Review</a>
-<button class="mobile-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-drawer" aria-expanded="false" onclick="toggleDrawer()">☰</button>
-</div>
-</nav>
-<div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation" onclick="if(event.target===this)closeDrawer()">
-<div class="mobile-drawer-panel">
-<div class="drawer-header"><span class="drawer-wordmark">Medisprudence</span><button class="drawer-close" type="button" aria-label="Close navigation menu" onclick="closeDrawer()">✕</button></div>
-<div class="drawer-nav-list">
-<a class="drawer-nav primary" href="/">Home</a>
-<a class="drawer-nav primary" href="/intake/">Request a Review</a>
-<a class="drawer-nav primary" href="/samples/">Samples &amp; Specimens</a>
-<div class="drawer-section-label">Services · Plaintiff</div>
-<a class="drawer-nav" href="/plaintiff-teams/">Plaintiff Overview</a>
-<a class="drawer-nav" href="/ime-deconstruction/">IME Report Deconstruction</a>
-<a class="drawer-nav" href="/case-viability-screening/">Case Viability Screening</a>
-<a class="drawer-nav" href="/full-intelligence-report/">Full Intelligence Report / CMIP™</a>
-<a class="drawer-nav" href="/defense-medical-lens/">Defense Medical Lens™</a>
-<div class="drawer-section-label">Services · Defense</div>
-<a class="drawer-nav" href="/defense-carriers/">Defense Overview</a>
-<a class="drawer-nav" href="/ime-quality-review/">IME Quality Review</a>
-<a class="drawer-nav" href="/plaintiff-expert-analysis/">Plaintiff Expert Report Analysis</a>
-<a class="drawer-nav" href="/medical-reserve-analysis/">Medical Reserve Analysis</a>
-<a class="drawer-nav" href="/ur-process-audit/">UR Process Audit</a>
-<div class="drawer-section-label">Both sides</div>
-<a class="drawer-nav" href="/medical-charge-necessity-review/">Medical Charge &amp; Necessity Review</a>
-<a class="drawer-nav" href="/treatment-gap-analysis/">Treatment Gap Analysis</a>
-<a class="drawer-nav" href="/pre-existing-condition-dossier/">Pre-existing Condition Dossier</a>
-<div class="drawer-section-label">Compliance</div>
-<a class="drawer-nav" href="/compliance-consulting/">Compliance Overview</a>
-<a class="drawer-nav" href="/mhpaea-parity-review/">MHPAEA Behavioral Health Parity Review</a>
-<a class="drawer-nav" href="/clinical-denial-pattern-audit/">Clinical Denial Pattern Audit</a>
-<div class="drawer-section-label">Who we help</div>
-<a class="drawer-nav" href="/personal-injury/">Personal Injury</a>
-<a class="drawer-nav" href="/medical-malpractice/">Medical Malpractice</a>
-<a class="drawer-nav" href="/bad-faith-insurance/">Bad Faith Insurance</a>
-<a class="drawer-nav" href="/workers-compensation/">Workers Compensation</a>
-<a class="drawer-nav" href="/mass-tort-mdl/">Mass Tort / MDL</a>
-<a class="drawer-nav" href="/ltd-erisa/">LTD &amp; ERISA</a>
-<div class="drawer-section-label">Resources / Firm</div>
-<a class="drawer-nav" href="/analysis/">Analysis</a>
-<a class="drawer-nav" href="/medical-evidence-in-litigation/">Field Guide</a>
-<a class="drawer-nav" href="/packages/">Packages</a>
-<a class="drawer-nav" href="/conflict-policy/">Conflict Policy</a>
-<a class="drawer-nav" href="/about/">About</a>
-<a class="drawer-nav" href="/contact/">Contact</a>
-</div>
-<a class="drawer-cta" href="/intake/">Request Case Review</a>
-</div>
-</div>
-<div class="page active page-overview" id="p-analysis">
-<div class="page-hero">
-<div class="wrap">
-<a class="btn-back" href="/">← Home</a>
-<div class="label">Analysis</div>
-<h1 id="main-content" tabindex="-1">Physician notes on medical records, IMEs, and the logic of defense reviewers</h1>
-<p class="hero-sub">Practical reading for litigation teams. Written from the perspective of a physician with payer-side US claim review experience under InterQual and MCG, now applying that lens to plaintiff and defense work.</p>
-</div>
-</div>
-<div class="sec">
-<div class="wrap">
-<div class="analysis-toolbar">
-<div class="analysis-filters" id="analysis-filters">
-<button class="pill active" data-aud="all" onclick="filterArticles('all')" type="button">All <span class="pill-count">16</span></button>
-<button class="pill" data-aud="plaintiff" onclick="filterArticles('plaintiff')" type="button">⚖ Plaintiff &amp; Claimant <span class="pill-count">9</span></button>
-<button class="pill" data-aud="defense" onclick="filterArticles('defense')" type="button">⛨ Defense &amp; Carriers <span class="pill-count">10</span></button>
-<button class="pill" data-aud="compliance" onclick="filterArticles('compliance')" type="button">⚕ Compliance <span class="pill-count">3</span></button>
-</div>
-<label class="analysis-sort">Sort
-        <select id="analysis-sort-select" onchange="sortArticles(this.value)">
-<option value="new">Newest first</option>
-<option value="old">Oldest first</option>
-</select>
-</label>
-</div>
-<div class="analysis-grid" id="analysis-grid">
-<a class="an-card" data-audience="both" data-date="2026-06-19" href="/analysis/reasonable-and-necessary/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Both sides</span>
-<div class="an-date">Jun 19, 2026<small>9 min read</small></div>
-</div>
-<div class="an-tag">Methodology &middot; Medical Charges</div>
-<h3>When &ldquo;Reasonable&rdquo; and &ldquo;Necessary&rdquo; Get Fought in the Same Breath</h3>
-<p>Necessity and charge reasonableness are usually handled by two different people who never compare notes. Why that split is the biggest structural weakness in how medical bills get litigated &mdash; and what one combined physician review does instead.</p>
-<div class="an-card-foot"><span>Methodology</span><span class="an-arrow">Read &rarr;</span></div>
-</a>
-<a class="an-card" data-audience="both" data-date="2026-06-17" href="/analysis/billed-paid-reasonable/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Both sides</span>
-<div class="an-date">Jun 17, 2026<small>9 min read</small></div>
-</div>
-<div class="an-tag">Medical Charges &middot; Damages</div>
-<h3>Billed, Paid, and Reasonable Are Three Different Numbers: How a Payer Reviewer Reads a Medical Bill</h3>
-<p>The number at the bottom of a medical bill is the least informative one on the page. The five figures hiding behind it &mdash; billed, allowed, paid, Medicare, and tort reasonable value &mdash; and why the gaps decide the damages fight.</p>
-<div class="an-card-foot"><span>Medical Charges</span><span class="an-arrow">Read &rarr;</span></div>
-</a>
-<a class="an-card" data-audience="compliance" data-date="2026-05-20" href="/analysis/erisa-fiduciary-um-physician/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Compliance</span>
-<div class="an-date">May 20, 2026<small>7 min read</small></div>
-</div>
-<div class="an-tag">ERISA · Positioning</div>
-<h3>Why ERISA Fiduciary Defense Needs a UM Physician, Not a Compliance Attorney</h3>
-<p>The missing piece in ERISA benefits defense: a clinician who has actually applied the criteria under dispute. Why compliance attorneys and actuaries cannot answer the central clinical question.</p>
-<div class="an-card-foot"><span>ERISA</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="compliance" data-date="2026-05-13" href="/analysis/denial-clinical-defensibility/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Compliance</span>
-<div class="an-date">May 13, 2026<small>8 min read</small></div>
-</div>
-<div class="an-tag">Denial Defensibility · ERISA</div>
-<h3>What Makes a Medical Necessity Denial Clinically Defensible — and What Doesn't</h3>
-<p>The four-dimension test a physician reviewer applies to every denial. Written from first-hand criteria application — the operational standard, not the legal standard.</p>
-<div class="an-card-foot"><span>Denial Defensibility</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="compliance" data-date="2026-05-06" href="/analysis/mhpaea-nqtl-um-practice/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Compliance</span>
-<div class="an-date">May 6, 2026<small>9 min read</small></div>
-</div>
-<div class="an-tag">MHPAEA · Parity</div>
-<h3>What MHPAEA's Six NQTL Categories Mean in Actual UM Practice</h3>
-<p>Most MHPAEA writing is legal. This is operational — what each of the six NQTL categories looks like from inside the utilization review operation, and where the disparities actually emerge.</p>
-<div class="an-card-foot"><span>MHPAEA</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="both" data-date="2026-06-10" href="/analysis/ur-record-subpoena/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Defense &amp; Carriers</span>
-<div class="an-date">Jun 10, 2026<small>7 min read</small></div>
-</div>
-<div class="an-tag">Litigation Prep · Defense/Carrier</div>
-<h3>The Utilization Review Record: What Plaintiff's Counsel Will Subpoena and What It Needs to Show</h3>
-<p>Defense and carrier orientation. Written for in-house counsel and defense firms preparing for bad faith litigation.</p>
-<div class="an-card-foot"><span>Bad Faith</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="defense" data-date="2026-06-03" href="/analysis/criteria-application-bad-faith/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Defense &amp; Carriers</span>
-<div class="an-date">Jun 3, 2026<small>8 min read</small></div>
-</div>
-<div class="an-tag">Bad Faith Defense · Criteria</div>
-<h3>Criteria Application in Bad Faith Defense: What Makes a Denial Documentarily Defensible</h3>
-<p>Written from first-hand criteria application experience. For insurance defense counsel and carrier legal teams.</p>
-<div class="an-card-foot"><span>Bad Faith Defense</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="defense" data-date="2026-05-27" href="/analysis/plaintiff-expert-daubert/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Defense &amp; Carriers</span>
-<div class="an-date">May 27, 2026<small>9 min read</small></div>
-</div>
-<div class="an-tag">Daubert · Defense</div>
-<h3>When the Plaintiff's Expert Report Doesn't Survive Daubert: The Analytical Defects</h3>
-<p>The mirror image of the seven IME defects — applied to plaintiff expert reports. What defense counsel should look for before deposition.</p>
-<div class="an-card-foot"><span>Daubert</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="defense" data-date="2026-05-20" href="/analysis/reserve-setting-medical-evidence/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Defense &amp; Carriers</span>
-<div class="an-date">May 20, 2026<small>7 min read</small></div>
-</div>
-<div class="an-tag">Reserve Analysis · TPA/Carrier</div>
-<h3>Reserve-Setting with Medical Evidence: The Documentation Standard for Defensible Reserve Decisions</h3>
-<p>What a physician-authored reserve analysis provides that a claims adjuster cannot. Why documented defensible reserves matter in bad faith exposure management.</p>
-<div class="an-card-foot"><span>Reserve Analysis</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="defense" data-date="2026-05-13" href="/analysis/ime-quality-pre-submission/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Defense &amp; Carriers</span>
-<div class="an-date">May 13, 2026<small>8 min read</small></div>
-</div>
-<div class="an-tag">IME Quality · Defense</div>
-<h3>Before Your IME Goes Out: The Seven Defects That Create Cross-Examination Problems</h3>
-<p>The same seven-defect framework — but for defense counsel who commissioned the IME. What the plaintiff will attack, and how to address it before submission.</p>
-<div class="an-card-foot"><span>IME Quality</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="plaintiff" data-date="2026-05-06" href="/analysis/pre-existing-conditions/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Plaintiff &amp; Claimant</span>
-<div class="an-date">May 6, 2026<small>8 min read</small></div>
-</div>
-<div class="an-tag">Causation · PI</div>
-<h3>Pre-existing Conditions in PI Cases: What the Defense Will Argue and How to Counter</h3>
-<p>Prior pathology is the single most common defense angle in soft-tissue and orthopedic PI cases. What the documentation has to show to reduce its impact — and the temporal markers that strengthen an aggravation theory.</p>
-<div class="an-card-foot"><span>Personal Injury</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="both" data-date="2026-04-29" href="/analysis/physician-vs-lnc/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Both sides</span>
-<div class="an-date">Apr 29, 2026<small>7 min read</small></div>
-</div>
-<div class="an-tag">Service Boundaries</div>
-<h3>Physician Case Intelligence vs. Legal Nurse Consulting: Where the Lines Are</h3>
-<p>Two services that look adjacent on the surface and are structurally different in what they can defensibly assert. When each is the right answer, and how firms that use both organize the work.</p>
-<div class="an-card-foot"><span>Methodology</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="plaintiff" data-date="2026-04-22" href="/analysis/viability-before-expert/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Plaintiff &amp; Claimant</span>
-<div class="an-date">Apr 22, 2026<small>7 min read</small></div>
-</div>
-<div class="an-tag">Case Economics</div>
-<h3>Why Case Viability Screening Before You Retain an Expert Saves $5,000+</h3>
-<p>The economics of pre-expert screening when expert retainers start at $2,500 and run to $15,000+. What screening catches that the first expert call won't, and when screening is unnecessary.</p>
-<div class="an-card-foot"><span>Case Economics</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="both" data-date="2026-04-15" href="/analysis/more-likely-than-not/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Both sides</span>
-<div class="an-date">Apr 15, 2026<small>8 min read</small></div>
-</div>
-<div class="an-tag">Causation</div>
-<h3>More Likely Than Not: What the Medical Evidence Actually Has to Show</h3>
-<p>The civil causation standard is conceptually simple and operationally subtle. What a physician reviewer looks for when asked whether the record supports the 51% threshold — and the four most common reasons records fall short.</p>
-<div class="an-card-foot"><span>Causation</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="plaintiff" data-date="2026-04-08" href="/analysis/defense-ime-defects/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Plaintiff &amp; Claimant</span>
-<div class="an-date">Apr 8, 2026<small>9 min read</small></div>
-</div>
-<div class="an-tag">IME Deconstruction</div>
-<h3>Seven Defects We Find in Almost Every Defense IME Report</h3>
-<p>Defense IMEs follow a recognizable internal logic with recognizable failure modes. The seven defects that appear in the majority of reports we read, with the deposition question each one supports.</p>
-<div class="an-card-foot"><span>IME Deconstruction</span><span class="an-arrow">Read →</span></div>
-</a>
-<a class="an-card" data-audience="both" data-date="2026-04-01" href="/analysis/payer-reviewer-perspective/">
-<div class="an-card-top">
-<span class="an-badge"><span class="an-badge-dot"></span>Both sides</span>
-<div class="an-date">Apr 1, 2026<small>10 min read</small></div>
-</div>
-<div class="an-tag">Methodology · Founding Essay</div>
-<h3>What a Payer Reviewer Actually Looks For in a Medical Record</h3>
-<p>Most discussion of utilization review is written from the outside. This is written from first-hand application of the methodology. What the mental model actually is, why it produces the denials it produces, and what it means for litigation records that travel through similar reviewer logic.</p>
-<div class="an-card-foot"><span>Founding Essay</span><span class="an-arrow">Read →</span></div>
-</a>
-<div class="an-empty" id="an-empty">No posts match this filter yet.</div>
-</div>
-<div>
-<div class="label">New analysis posts</div>
-<p>New pieces are added as clinical and methodological questions arise from active engagements. Referenced in case letters when directly relevant to the matter.</p>
-<a class="btn btn-primary" href="/intake/">Request Case Review</a>
-</div>
-</div>
-</div>
-</div>
-<footer>
-<div class="wrap">
-<div class="footer-grid redesigned-footer">
-<div>
-<div class="footer-brand-name">Medisprudence</div>
-<div class="footer-tagline">Medical case intelligence for litigation.<br/>Physician-authored. Payer-informed. Attorney-directed.<br/>We follow the analysis, not a side.</div>
-</div>
-<div class="footer-col"><h6>Services</h6><ul>
-<li><a href="/ime-deconstruction/">IME Deconstruction</a></li>
-<li><a href="/case-viability-screening/">Case Viability Screening</a></li>
-<li><a href="/full-intelligence-report/">Full Intelligence Report</a></li>
-<li><a href="/medical-charge-necessity-review/">Charge &amp; Necessity Review</a></li>
-<li><a href="/ime-quality-review/">IME Quality Review</a></li>
-<li><a href="/medical-reserve-analysis/">Medical Reserve Analysis</a></li>
-<li><a href="/mhpaea-parity-review/">MHPAEA Parity Review</a></li>
-</ul></div>
-<div class="footer-col"><h6>Who We Help</h6><ul>
-<li><a href="/plaintiff-teams/">Plaintiff Teams</a></li>
-<li><a href="/defense-carriers/">Defense &amp; Carriers</a></li>
-<li><a href="/compliance-consulting/">Compliance Teams</a></li>
-<li><a href="/personal-injury/">Personal Injury</a></li>
-<li><a href="/medical-malpractice/">Medical Malpractice</a></li>
-<li><a href="/bad-faith-insurance/">Bad Faith</a></li>
-<li><a href="/ltd-erisa/">LTD &amp; ERISA</a></li>
-</ul></div>
-<div class="footer-col"><h6>Resources</h6><ul>
-<li><a href="/medical-review-signal-check/"><strong>Signal Check →</strong></a></li>
-<li><a href="/samples/"><strong>Samples &amp; Specimens →</strong></a></li>
-<li><a href="/analysis/">Analysis</a></li>
-<li><a href="/medical-evidence-in-litigation/">Field Guide</a></li>
-<li><a href="/packages/">Packages</a></li>
-<li><a href="/faq/">FAQ</a></li>
-<li><a href="/security/">Security</a></li>
-<li><a href="/contact/">Contact</a></li>
-</ul></div>
-</div>
-<div class="footer-bottom">
-<div class="footer-legal-links">
-<a href="/privacy/">Privacy Policy</a>
-<a href="/terms/">Terms of Use</a>
-<a href="/ai-use-policy/">AI Use Disclosure</a>
-<a href="/conflict-policy/">Conflict Policy</a>
-</div>
-<p>© 2026 Medisprudence™ · <a href="mailto:contact@medisprudence.com">contact@medisprudence.com</a> · Operated from India · Cross-border processing disclosed before records are accepted · Do not send PHI by email.</p>
-<p>Medisprudence provides physician-directed medical case intelligence under attorney supervision. Not a patient-facing medical service. We do not provide legal advice, legal representation, or independent expert testimony.</p>
-</div>
-</div>
+<main id="main-content">
+
+<section class="page-hero"><div class="wrap narrow"><span class="eyebrow">Analysis</span><h1>Physician notes on medical records, IMEs, and the logic of defense reviewers</h1><p class="hero-sub">Educational analysis for attorneys, carriers, TPAs, and compliance teams working with medical evidence.</p></div></section>
+<section class="section"><div class="wrap"><div class="article-grid"><a class="article-card" href="/analysis/billed-paid-reasonable/"><span>Dr. Arun Kasturi, MBBS · June 17, 2026 · 9 min read</span><h3>Billed, Paid, and Reasonable Are Three Different Numbers: How a Payer Reviewer Reads a Medical Bill</h3><p>The number at the bottom of a medical bill is the least informative one on the page. Billed, allowed, paid, Medicare, and tort reasonable value are five different figures — and the gaps between them decide the damages fight.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/criteria-application-bad-faith/"><span>Dr. Arun Kasturi, MBBS · Jun 3, 2026 · 8 min read</span><h3>Criteria Application in Bad Faith Defense: What Makes a Denial Documentarily Defensible</h3><p>Bad faith disputes often turn on whether the insurer&#x27;s physician reviewer applied criteria fairly, consistently, and defensibly.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/defense-ime-defects/"><span>Dr. Arun Kasturi, MBBS · April 8, 2026 · 9 min read</span><h3>Seven Defects We Find in Almost Every Defense IME Report</h3><p>A defense IME can look authoritative while carrying predictable medical weaknesses. This article explains the seven defects we often find.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/denial-clinical-defensibility/"><span>Dr. Arun Kasturi, MBBS · May 13, 2026 · 8 min read</span><h3>What Makes a Medical Necessity Denial Clinically Defensible — and What Doesn&#x27;t</h3><p>Denial disputes rarely turn on diagnosis alone. They turn on whether the record meets the criteria threshold for requested care.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/erisa-fiduciary-um-physician/"><span>Dr. Arun Kasturi, MBBS · May 20, 2026 · 7 min read</span><h3>Why ERISA Fiduciary Defense Needs a UM Physician, Not a Compliance Attorney</h3><p>ERISA benefit disputes often hinge on how physician reviewers apply plan language, criteria, and documented medical necessity.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/ime-quality-pre-submission/"><span>Dr. Arun Kasturi, MBBS · May 13, 2026 · 8 min read</span><h3>Before Your IME Goes Out: The Seven Defects That Create Cross-Examination Problems</h3><p>A pre-submission physician review can catch unsupported IME conclusions, missing records, and avoidable medical vulnerabilities.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/mhpaea-nqtl-um-practice/"><span>Dr. Arun Kasturi, MBBS · May 6, 2026 · 9 min read</span><h3>What MHPAEA&#x27;s Six NQTL Categories Mean in Actual UM Practice</h3><p>MHPAEA disputes require comparing how medical necessity criteria are applied to behavioral health and medical-surgical claims.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/more-likely-than-not/"><span>Dr. Arun Kasturi, MBBS · April 15, 2026 · 8 min read</span><h3>More Likely Than Not: What the Medical Evidence Actually Has to Show</h3><p>Causation analysis must explain why the claimed injury is more likely than not supported by the medical record.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/payer-reviewer-perspective/"><span>Dr. Arun Kasturi, MBBS · April 1, 2026 · 10 min read</span><h3>What a Payer Reviewer Actually Looks For in a Medical Record</h3><p>A payer-side reviewer reads records differently, focusing on criteria, contradictions, documentation gaps, and defensibility.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/physician-vs-lnc/"><span>Dr. Arun Kasturi, MBBS · April 29, 2026 · 7 min read</span><h3>Physician Case Intelligence vs. Legal Nurse Consulting: Where the Lines Are</h3><p>Legal nurse consultants organize records. Physician-authored review adds medical necessity, causation, and vulnerability analysis.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/plaintiff-expert-daubert/"><span>Dr. Arun Kasturi, MBBS · May 27, 2026 · 9 min read</span><h3>When the Plaintiff&#x27;s Expert Report Doesn&#x27;t Survive Daubert: The Analytical Defects</h3><p>Plaintiff expert reports need medical support strong enough for deposition, Daubert scrutiny, mediation, and trial strategy.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/pre-existing-conditions/"><span>Dr. Arun Kasturi, MBBS · May 6, 2026 · 8 min read</span><h3>Pre-existing Conditions in PI Cases: What the Defense Will Argue and How to Counter</h3><p>Pre-existing conditions can help or hurt a claim depending on chronology, flare patterns, and medical record interpretation.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/reasonable-and-necessary/"><span>Dr. Arun Kasturi, MBBS · June 19, 2026 · 9 min read</span><h3>When “Reasonable” and “Necessary” Get Fought in the Same Breath</h3><p>Medical necessity and charge reasonableness are usually handled by two different people who never compare notes. Why that split is the biggest structural weakness in how medical bills get litigated — and what one combined physician review does instead.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/reserve-setting-medical-evidence/"><span>Dr. Arun Kasturi, MBBS · May 20, 2026 · 7 min read</span><h3>Reserve-Setting with Medical Evidence: The Documentation Standard for Defensible Reserve Decisions</h3><p>Medical reserve analysis connects documented injuries, treatment trajectory, and future-care exposure to claims decisions.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/ur-record-subpoena/"><span>Dr. Arun Kasturi, MBBS · Jun 10, 2026 · 7 min read</span><h3>The Utilization Review Record: What Plaintiff&#x27;s Counsel Will Subpoena and What It Needs to Show</h3><p>A utilization-review record can reveal criteria defects, process gaps, and defensibility issues in insurance litigation.</p><strong>Read analysis →</strong></a><a class="article-card" href="/analysis/viability-before-expert/"><span>Dr. Arun Kasturi, MBBS · April 22, 2026 · 7 min read</span><h3>Why Case Viability Screening Before You Retain an Expert Saves $5,000+</h3><p>Before retaining an expert, case viability review tests whether the records support the medical theory and next litigation decision.</p><strong>Read analysis →</strong></a></div></div></section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h3>Medisprudence</h3>
+      <p>Medical case intelligence for litigation. Physician-authored. Payer-informed. Attorney-directed.</p>
+      <p class="small">We follow the analysis, not a side.</p>
+    </div>
+    <div><h4>Services</h4>
+      <a href="/ime-deconstruction/">IME Deconstruction</a>
+      <a href="/case-viability-screening/">Case Viability Screening</a>
+      <a href="/medical-charge-necessity-review/">Charge & Necessity Review</a>
+      <a href="/medical-reserve-analysis/">Medical Reserve Analysis</a>
+      <a href="/mhpaea-parity-review/">MHPAEA Parity Review</a>
+    </div>
+    <div><h4>Who We Help</h4>
+      <a href="/plaintiff-teams/">Plaintiff Teams</a>
+      <a href="/defense-carriers/">Defense & Carriers</a>
+      <a href="/compliance-consulting/">Compliance Teams</a>
+      <a href="/personal-injury/">Personal Injury</a>
+      <a href="/ltd-erisa/">LTD & ERISA</a>
+    </div>
+    <div><h4>Resources</h4>
+      <a href="/samples/">Samples</a>
+      <a href="/analysis/">Analysis</a>
+      <a href="/packages/">Packages</a>
+      <a href="/security/">Security</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Medisprudence™ · contact@medisprudence.com</span>
+    <span>Do not send PHI by email or through an unapproved channel.</span>
+  </div>
 </footer>
-<script src="/assets/js/main.js?v=20260619-redesign"></script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -425,5 +159,6 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<script src="/assets/js/main.js"></script>
 </body>
 </html>
