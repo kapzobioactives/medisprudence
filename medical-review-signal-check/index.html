@@ -1,204 +1,318 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Medical Review Signal Check — Medisprudence</title>
-<meta name="description" content="A no-PHI triage path to identify which review fits the matter before records are requested.">
-<link rel="canonical" href="https://medisprudence.com/medical-review-signal-check/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://medisprudence.com/medical-review-signal-check/">
-<meta property="og:title" content="Medical Review Signal Check — Medisprudence">
-<meta property="og:description" content="A no-PHI triage path to identify which review fits the matter before records are requested.">
-<meta property="og:image" content="https://medisprudence.com/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/svg+xml" href="/logo-mark.svg">
-<link rel="stylesheet" href="/assets/css/styles.css?v=20260620-complete-rebuild">
+<meta content="A no-PHI guided triage tool to identify whether a matter may need IME analysis, case viability review, payer criteria analysis, causation review, defense-side exposure assessment, or compliance review." name="description"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://medisprudence.com/medical-review-signal-check/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://medisprudence.com/medical-review-signal-check/" property="og:url"/>
+<meta content="Medical Review Signal Check — Medisprudence" property="og:title"/>
+<meta content="A no-PHI guided triage tool to identify whether a matter may need IME analysis, case viability review, payer criteria analysis, causation review, defense-side exposure assessment, or compliance review." property="og:description"/>
+<meta content="https://medisprudence.com/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Medisprudence" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Medical Review Signal Check — Medisprudence" name="twitter:title"/>
+<meta content="A no-PHI guided triage tool to identify whether a matter may need IME analysis, case viability review, payer criteria analysis, causation review, defense-side exposure assessment, or compliance review." name="twitter:description"/>
+<meta content="https://medisprudence.com/og-image.png" name="twitter:image"/>
+<link href="/favicon.ico" rel="shortcut icon"/>
+<link href="/favicon.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/logo-mark.svg" rel="icon" type="image/svg+xml"/>
+<link href="/favicon.png" rel="apple-touch-icon"/>
+<link href="/assets/css/styles.css?v=20260609e" rel="stylesheet"/>
 </head>
-<body class="service-detail lane-both">
+<body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<header class="site-header">
-  <div class="nav-shell">
-    <a class="brand" href="/" aria-label="Medisprudence home">
-      <img src="/logo-mark.svg" alt="" class="brand-mark"/>
-      <span><strong>Medisprudence</strong><em>Medical review. Litigation clarity.</em></span>
-    </a>
-    <nav class="desktop-nav" aria-label="Primary navigation">
-      <div class="nav-drop">
-        <button type="button" class="nav-link" aria-expanded="false">Services</button>
-        <div class="mega-menu">
-          <div class="mega-grid">
-            <div><h4>For Plaintiff Teams</h4>
-              <a href="/ime-deconstruction/">IME Report Deconstruction</a>
-              <a href="/case-viability-screening/">Case Viability Screening</a>
-              <a href="/full-intelligence-report/">Full Intelligence Report / CMIP™</a>
-              <a href="/defense-medical-lens/">Defense Medical Lens™</a>
-              <a class="mega-more" href="/plaintiff-teams/">All plaintiff services →</a>
-            </div>
-            <div><h4>For Defense & Carriers</h4>
-              <a href="/ime-quality-review/">IME Quality Review</a>
-              <a href="/plaintiff-expert-analysis/">Plaintiff Expert Report Analysis</a>
-              <a href="/medical-reserve-analysis/">Medical Reserve Analysis</a>
-              <a href="/ur-process-audit/">UR Process Audit</a>
-              <a class="mega-more" href="/defense-carriers/">All defense services →</a>
-            </div>
-            <div><h4>Both Sides</h4>
-              <a href="/medical-charge-necessity-review/">Medical Charge & Necessity Review</a>
-              <a href="/treatment-gap-analysis/">Treatment Gap Analysis</a>
-              <a href="/pre-existing-condition-dossier/">Pre-existing Condition Dossier</a>
-              <a class="mega-more" href="/#service-map">Full service map →</a>
-            </div>
-            <div><h4>Compliance</h4>
-              <a href="/mhpaea-parity-review/">MHPAEA Parity Review</a>
-              <a href="/clinical-denial-pattern-audit/">Clinical Denial Pattern Audit</a>
-              <a href="/compliance-consulting/">Compliance Overview</a>
-              <a class="mega-more" href="/medical-review-signal-check/">Start with Signal Check →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="nav-drop">
-        <button type="button" class="nav-link" aria-expanded="false">Who we help</button>
-        <div class="drop-menu">
-          <a href="/personal-injury/">Personal Injury</a>
-          <a href="/medical-malpractice/">Medical Malpractice</a>
-          <a href="/bad-faith-insurance/">Bad Faith Insurance</a>
-          <a href="/workers-compensation/">Workers Compensation</a>
-          <a href="/mass-tort-mdl/">Mass Tort / MDL</a>
-          <a href="/ltd-erisa/">LTD & ERISA</a>
-        </div>
-      </div>
-      <div class="nav-drop">
-        <button type="button" class="nav-link" aria-expanded="false">Resources</button>
-        <div class="drop-menu">
-          <a href="/samples/">Samples & Specimens</a>
-          <a href="/specimens/">Specimen Library</a>
-          <a href="/analysis/">Analysis</a>
-          <a href="/medical-evidence-in-litigation/">Field Guide</a>
-          <a href="/packages/">Packages</a>
-          <a href="/faq/">FAQ</a>
-        </div>
-      </div>
-      <a class="nav-link" href="/about/">About</a>
-    </nav>
-    <div class="nav-actions">
-      <a class="btn btn-primary nav-cta" href="/intake/">Request a Review</a>
-      <button class="mobile-toggle" type="button" aria-label="Open navigation" onclick="openDrawer()">☰</button>
+<noscript><div style="padding:16px;font-family:system-ui,sans-serif;background:#FAF7F1;color:#1A1612">Medisprudence provides physician-led medical case intelligence for litigation, including IME deconstruction, case viability screening, defense medical review, medical reserve analysis, and MHPAEA parity review.</div></noscript>
+<nav id="nav">
+<a class="brand" href="/"><svg aria-hidden="true" fill="none" height="22" style="color:var(--accent)" viewBox="0 0 32 32" width="22">
+<line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="16" x2="16" y1="4" y2="29"></line>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="10" x2="22" y1="29" y2="29"></line>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="5" x2="27" y1="11" y2="11"></line>
+<circle cx="16" cy="11" fill="currentColor" r="2.4"></circle>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="1.3" x1="5" x2="5" y1="11" y2="19"></line>
+<path d="M1.5 19 Q5 24.5 8.5 19" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="1.3" x1="27" x2="27" y1="11" y2="19"></line>
+<path d="M23.5 19 Q27 24.5 30.5 19" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path>
+</svg><span class="brand-wordmark">Medisprudence</span></a>
+<ul class="nav-center">
+<li class="nav-item mega">
+<button aria-expanded="false" aria-haspopup="true" class="nav-dd-toggle" type="button">Services <span aria-hidden="true" class="chevron">▾</span></button>
+<div class="mega-dropdown">
+<div class="mega-grid">
+<div class="mega-col left">
+<div class="mega-col-inner">
+<div class="mega-col-head"><span class="mega-mark">⚖</span> For Plaintiff Teams</div>
+<a href="/ime-deconstruction/">IME Report Deconstruction</a>
+<a href="/case-viability-screening/">Case Viability Screening</a>
+<a href="/defense-medical-lens/">Defense Medical Lens™</a>
+<a href="/full-intelligence-report/">Full Intelligence Report</a>
+<a href="/expert-readiness-brief/">Expert Readiness Brief</a>
+<a href="/pre-existing-condition-dossier/">Pre-existing Condition Dossier</a>
+<a href="/treatment-gap-analysis/">Treatment Gap Analysis</a>
+<a href="/medical-charge-necessity-review/">Medical Charge &amp; Necessity Review</a>
+<a href="/packages/">Case Packages &amp; Bundles</a>
+<a href="/white-label/">White-Label for LNC Firms</a>
+<a class="mega-overview" href="/plaintiff-teams/">Plaintiff Teams Overview →</a>
+</div>
+</div>
+<div class="mega-col right">
+<div class="mega-col-inner">
+<div class="mega-col-head"><span class="mega-mark">⛨</span> For Defense &amp; Carriers</div>
+<a href="/ime-quality-review/">IME Quality Review</a>
+<a href="/plaintiff-expert-analysis/">Plaintiff Expert Report Analysis</a>
+<a href="/medical-reserve-analysis/">Medical Reserve Analysis</a>
+<a href="/ur-process-audit/">UR Process Audit</a>
+<a href="/bellwether-defense-screening/">Bellwether Defense Screening</a>
+<a href="/defense-vulnerability-analysis/">Defense Vulnerability Analysis</a>
+<a href="/medical-charge-necessity-review/">Medical Charge &amp; Necessity Review</a>
+<a class="mega-overview" href="/defense-carriers/">Defense &amp; Carriers Overview →</a>
+</div>
+</div>
+<div class="mega-col compliance">
+<div class="mega-col-inner">
+<div class="mega-col-head"><span class="mega-mark">⚕</span> Compliance Consulting</div>
+<a href="/mhpaea-parity-review/">MHPAEA Parity Review</a>
+<a href="/clinical-denial-pattern-audit/">Clinical Denial Pattern Audit</a>
+<a class="mega-overview" href="/compliance-consulting/">Compliance Consulting Overview →</a>
+</div>
+</div>
+</div>
+<div class="mega-foot">
+<span class="mega-foot-note">Conflict-screened on every matter</span>
+<div class="mega-foot-links"><a href="/medical-review-signal-check/">Start Signal Check →</a><a href="/conflict-policy/">How we handle both sides →</a></div>
+</div>
+</div>
+</li>
+<li class="nav-item">
+<button aria-expanded="false" aria-haspopup="true" class="nav-dd-toggle" type="button">Practice Areas <span aria-hidden="true" class="chevron">▾</span></button>
+<div class="dropdown">
+<a href="/personal-injury/">Personal Injury — Auto &amp; Trucking</a>
+<a href="/medical-malpractice/">Medical Malpractice</a>
+<a href="/bad-faith-insurance/">Bad Faith Insurance Litigation</a>
+<a href="/workers-compensation/">Workers Compensation</a>
+<a href="/mass-tort-mdl/">Mass Tort / MDL</a>
+<a href="/ltd-erisa/">Long-Term Disability &amp; ERISA</a>
+<div class="dd-section-label">Compliance</div>
+<a href="/mhpaea-parity-review/" style="color:var(--compliance-text)">MHPAEA &amp; Behavioral Health Parity</a>
+<a href="/clinical-denial-pattern-audit/" style="color:var(--compliance-text)">ERISA Plan Denial Defensibility</a>
+</div>
+</li>
+<li class="nav-item"><a href="/samples/">Samples</a></li>
+<li class="nav-item"><a href="/analysis/">Analysis</a></li>
+<li class="nav-item"><a href="/about/">About</a></li>
+<li class="nav-item"><a href="/packages/">Packages</a></li>
+<li class="nav-item"><a href="/medical-evidence-in-litigation/">Field Guide</a></li>
+</ul>
+<div class="nav-right">
+<a class="nav-cta" href="/intake/">Request Case Review</a>
+<button aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open navigation menu" class="mobile-toggle" onclick="toggleDrawer()" type="button">☰</button>
+</div>
+</nav>
+<div aria-label="Mobile navigation" aria-modal="true" class="mobile-drawer" id="mobile-drawer" onclick="if(event.target===this)closeDrawer()" role="dialog" style="display:none">
+<div class="mobile-drawer-panel">
+<div class="drawer-header"><span class="drawer-wordmark">Medisprudence</span><button aria-label="Close navigation menu" class="drawer-close" onclick="closeDrawer()" type="button">✕</button></div>
+<div class="drawer-nav-list">
+<a class="drawer-nav primary" href="/">Home</a>
+<a class="drawer-nav primary" href="/medical-review-signal-check/">Medical Review Signal Check</a>
+<a class="drawer-nav primary" href="/samples/">Samples</a>
+<div class="drawer-section-label">Services · For Plaintiff Teams</div>
+<a class="drawer-nav" href="/plaintiff-teams/">Overview</a>
+<a class="drawer-nav" href="/ime-deconstruction/">IME Report Deconstruction</a>
+<a class="drawer-nav" href="/case-viability-screening/">Case Viability Screening</a>
+<a class="drawer-nav" href="/full-intelligence-report/">Full Intelligence Report</a>
+<a class="drawer-nav" href="/defense-medical-lens/">Defense Medical Lens™</a>
+<a class="drawer-nav" href="/expert-readiness-brief/">Expert Readiness Brief</a>
+<a class="drawer-nav" href="/pre-existing-condition-dossier/">Pre-existing Condition Dossier</a>
+<a class="drawer-nav" href="/treatment-gap-analysis/">Treatment Gap Analysis</a>
+<a class="drawer-nav" href="/medical-charge-necessity-review/">Medical Charge &amp; Necessity Review</a>
+<a class="drawer-nav" href="/packages/">Case Packages &amp; Bundles</a>
+<a class="drawer-nav" href="/white-label/">White-Label for LNC Firms</a>
+<div class="drawer-section-label">Services · For Defense &amp; Carriers</div>
+<a class="drawer-nav" href="/defense-carriers/">Overview</a>
+<a class="drawer-nav" href="/ime-quality-review/">IME Quality Review</a>
+<a class="drawer-nav" href="/plaintiff-expert-analysis/">Plaintiff Expert Report Analysis</a>
+<a class="drawer-nav" href="/medical-reserve-analysis/">Medical Reserve Analysis</a>
+<a class="drawer-nav" href="/ur-process-audit/">UR Process Audit</a>
+<a class="drawer-nav" href="/bellwether-defense-screening/">Bellwether Defense Screening</a>
+<a class="drawer-nav" href="/defense-vulnerability-analysis/">Defense Vulnerability Analysis</a>
+<a class="drawer-nav" href="/medical-charge-necessity-review/">Medical Charge &amp; Necessity Review</a>
+<div class="drawer-section-label">Services · Compliance Consulting</div>
+<a class="drawer-nav" href="/compliance-consulting/" style="color:var(--compliance-text)">Overview</a>
+<a class="drawer-nav" href="/mhpaea-parity-review/" style="color:var(--compliance-text)">MHPAEA Behavioral Health Parity Review</a>
+<a class="drawer-nav" href="/clinical-denial-pattern-audit/" style="color:var(--compliance-text)">Clinical Denial Pattern Audit</a>
+<div class="drawer-section-label">Practice Areas</div>
+<a class="drawer-nav" href="/personal-injury/">Personal Injury</a>
+<a class="drawer-nav" href="/medical-malpractice/">Medical Malpractice</a>
+<a class="drawer-nav" href="/bad-faith-insurance/">Bad Faith Insurance</a>
+<a class="drawer-nav" href="/workers-compensation/">Workers Compensation</a>
+<a class="drawer-nav" href="/mass-tort-mdl/">Mass Tort / MDL</a>
+<a class="drawer-nav" href="/ltd-erisa/">LTD &amp; ERISA</a>
+<div class="drawer-section-label">Firm</div>
+<a class="drawer-nav" href="/conflict-policy/">How We Handle Both Sides</a>
+<a class="drawer-nav" href="/analysis/">Analysis</a>
+<a class="drawer-nav" href="/medical-evidence-in-litigation/">Field Guide</a>
+<a class="drawer-nav" href="/about/">About</a>
+<a class="drawer-nav" href="/packages/">Packages</a>
+<a class="drawer-nav" href="/contact/">Contact</a>
+</div>
+<a class="drawer-cta" href="/intake/">Request Case Review</a>
+</div>
+</div>
+<div class="page active" id="p-signal-check">
+<div class="page-hero signal-hero">
+  <div class="wrap">
+    <a class="btn-back" href="/">← Home</a>
+    <div class="label">No-PHI Guided Triage</div>
+    <h1 id="main-content" tabindex="-1" style="margin-top:10px">Medical Review Signal Check</h1>
+    <p class="hero-sub">Identify whether a matter may need IME analysis, case viability review, payer criteria analysis, causation review, defense-side exposure assessment, or compliance review. This is a preliminary routing tool only — do not enter patient identifiers or PHI.</p>
+    <div class="signal-hero-flags">
+      <span>No file upload</span><span>No patient names</span><span>No dates of birth</span><span>No medical record numbers</span>
     </div>
-  </div>
-</header>
-<div class="mobile-drawer" id="mobile-drawer" onclick="if(event.target===this)closeDrawer()">
-  <div class="drawer-panel">
-    <div class="drawer-head"><strong>Medisprudence</strong><button type="button" onclick="closeDrawer()" aria-label="Close navigation">×</button></div>
-    <a href="/" class="drawer-primary">Home</a>
-    <a href="/intake/" class="drawer-primary">Request a Review</a>
-    <a href="/samples/" class="drawer-primary">Samples & Specimens</a>
-    <h4>Services · Plaintiff</h4>
-    <a href="/plaintiff-teams/">Plaintiff Overview</a><a href="/ime-deconstruction/">IME Report Deconstruction</a><a href="/case-viability-screening/">Case Viability Screening</a><a href="/full-intelligence-report/">Full Intelligence Report / CMIP™</a><a href="/defense-medical-lens/">Defense Medical Lens™</a>
-    <h4>Services · Defense</h4>
-    <a href="/defense-carriers/">Defense Overview</a><a href="/ime-quality-review/">IME Quality Review</a><a href="/plaintiff-expert-analysis/">Plaintiff Expert Report Analysis</a><a href="/medical-reserve-analysis/">Medical Reserve Analysis</a><a href="/ur-process-audit/">UR Process Audit</a>
-    <h4>Both / Compliance</h4>
-    <a href="/medical-charge-necessity-review/">Medical Charge & Necessity Review</a><a href="/mhpaea-parity-review/">MHPAEA Parity Review</a><a href="/clinical-denial-pattern-audit/">Clinical Denial Pattern Audit</a>
-    <h4>Resources</h4>
-    <a href="/packages/">Packages</a><a href="/analysis/">Analysis</a><a href="/medical-evidence-in-litigation/">Field Guide</a><a href="/about/">About</a><a href="/contact/">Contact</a>
   </div>
 </div>
-<main id="main-content">
-
-<section class="page-hero lane-both">
-  <div class="wrap narrow">
-    <a class="back-link" href="/#service-map">← All services</a>
-    <span class="eyebrow">All Buyers</span>
-    <h1>Medical Review Signal Check</h1>
-    <p class="hero-sub">A no-PHI triage path to identify which review fits the matter before records are requested.</p>
-    <div class="meta-strip"><div class="meta-chip"><span>Starting scope</span><strong>No-PHI scoping</strong></div><div class="meta-chip"><span>Turnaround</span><strong>Initial response after inquiry</strong></div><div class="meta-chip"><span>Deliverable</span><strong>Scope recommendation</strong></div></div>
-  </div>
-</section>
-<section class="section">
+<div class="sec">
   <div class="wrap">
-    <div class="founder-note"><span>Founder’s Advantage</span><p>Medisprudence applies physician review logic shaped by payer-side utilization review: documentation thresholds, medical necessity, causation support, treatment consistency, and criteria application.</p></div>
-    <div class="two-col">
-      <div class="panel"><h2>What this review answers</h2><ul class="checklist"><li>Which Medisprudence review fits this matter?</li><li>Is a short screen enough, or is a full report warranted?</li><li>What can be determined before PHI is transmitted?</li></ul></div>
-      <div class="panel"><h2>Best used when</h2><ul class="checklist"><li>When you are unsure which service fits.</li><li>Before sending records or requesting a formal scope.</li></ul></div>
-    </div>
-    <div class="panel wide">
-      <h2>What you receive</h2>
-      <div class="deliverable-grid"><div>Service recommendation</div><div>Preliminary scope category</div><div>Record list if engagement proceeds</div><div>No-PHI safety reminder</div></div>
-    </div>
-    <div class="split small-gap">
-      <div class="panel specimen-panel">
-        <span class="eyebrow">Specimen / sample</span>
-        <h2>See a related work product.</h2>
-        <p>Samples use fictionalized or de-identified demonstration content and are not client outcomes.</p>
-        <a class="btn btn-secondary" href="/intake/">View specimen →</a>
-      </div>
-      <div class="panel">
-        <span class="eyebrow">Scope note</span>
-        <h2>No-PHI first.</h2>
-        <p>Initial inquiry should describe the matter without patient identifiers, claim numbers, dates of birth, or medical records. If engaged, secure transfer is confirmed before records are accepted.</p>
-      </div>
-    </div>
-    <div class="section-head"><span class="eyebrow">Pairs with this review</span><h2>Related services</h2></div><div class="service-grid three">
-<a class="service-card lane-plaintiff" href="/case-viability-screening/">
-  <div><h3>Case Viability Screening — Pre-Expert Medical Record Assessment</h3><p>A focused physician screen to determine whether the medical record supports the case theory before larger expert or litigation spend.</p></div>
-  <div class="card-meta"><span>From $350</span><strong>View service →</strong></div>
-</a>
-<a class="service-card lane-plaintiff" href="/ime-deconstruction/">
-  <div><h3>IME Report Deconstruction</h3><p>Physician review of a defense IME report to identify unsupported conclusions, omissions, contradictions, and deposition pressure points.</p></div>
-  <div class="card-meta"><span>From $500</span><strong>View service →</strong></div>
-</a>
-<a class="service-card lane-both" href="/medical-charge-necessity-review/">
-  <div><h3>Medical Charge &amp; Necessity Review — Are the Claimed Specials Defensible?</h3><p>A physician-authored review of medical specials: necessity, relatedness, coding integrity, and reasonable-value range.</p></div>
-  <div class="card-meta"><span>From $450 memo / $1,200 standard</span><strong>View service →</strong></div>
-</a></div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="wrap cta-inner">
-    <div><span class="eyebrow">No-PHI first contact</span><h2>Ready to clarify the medical record?</h2><p>Send a no-PHI case summary. We will confirm the right review before records are requested.</p></div>
-    <div class="cta-actions"><a class="btn btn-primary" href="/intake/">Request Case Review →</a><a class="btn btn-secondary" href="/samples/">View Samples →</a></div>
-  </div>
-</section>
-
-</main>
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div>
-      <h3>Medisprudence</h3>
-      <p>Medical case intelligence for litigation. Physician-authored. Payer-informed. Attorney-directed.</p>
-      <p class="small">We follow the analysis, not a side.</p>
-    </div>
-    <div><h4>Services</h4>
-      <a href="/ime-deconstruction/">IME Deconstruction</a>
-      <a href="/case-viability-screening/">Case Viability Screening</a>
-      <a href="/medical-charge-necessity-review/">Charge & Necessity Review</a>
-      <a href="/medical-reserve-analysis/">Medical Reserve Analysis</a>
-      <a href="/mhpaea-parity-review/">MHPAEA Parity Review</a>
-    </div>
-    <div><h4>Who We Help</h4>
-      <a href="/plaintiff-teams/">Plaintiff Teams</a>
-      <a href="/defense-carriers/">Defense & Carriers</a>
-      <a href="/compliance-consulting/">Compliance Teams</a>
-      <a href="/personal-injury/">Personal Injury</a>
-      <a href="/ltd-erisa/">LTD & ERISA</a>
-    </div>
-    <div><h4>Resources</h4>
-      <a href="/samples/">Samples</a>
-      <a href="/analysis/">Analysis</a>
-      <a href="/packages/">Packages</a>
-      <a href="/security/">Security</a>
-      <a href="/contact/">Contact</a>
+    <div class="signal-check-layout">
+      <form class="signal-check-card" id="signal-check-form">
+        <div class="signal-question-block">
+          <label for="signal-role">Your role</label>
+          <select id="signal-role" name="role" required>
+            <option value="">— Select —</option>
+            <option value="plaintiff">Plaintiff / claimant attorney or team</option>
+            <option value="defense">Defense counsel, TPA, carrier, or claims team</option>
+            <option value="erisa">ERISA / benefits / parity attorney</option>
+            <option value="lnc">Legal nurse consultant or litigation support</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="signal-question-block">
+          <label for="signal-issue">What are you trying to evaluate?</label>
+          <select id="signal-issue" name="issue" required>
+            <option value="">— Select the closest issue —</option>
+            <option value="ime">An IME, defense medical report, or opposing medical opinion</option>
+            <option value="viability">Case viability, causation support, or pre-expert medical record strength</option>
+            <option value="payer">Medical necessity denial, payer criteria logic, or UR decision defensibility</option>
+            <option value="defense">Defense-side medical exposure, reserve, or plaintiff expert vulnerability</option>
+            <option value="charges">Medical bills, special damages, charge reasonableness, or treatment cost exposure</option>
+            <option value="compliance">Compliance, MHPAEA, denial pattern, or medical review process concern</option>
+            <option value="not-sure">Not sure — I need routing guidance</option>
+          </select>
+        </div>
+        <fieldset class="signal-question-block">
+          <legend>Which signals are present? <span>Select all that apply.</span></legend>
+          <label class="signal-check-option"><input type="checkbox" value="contradiction" data-weight="2"> IME or report contradicts treating records without explaining why</label>
+          <label class="signal-check-option"><input type="checkbox" value="omission" data-weight="2"> Key imaging, examination findings, labs, or chronology appear omitted</label>
+          <label class="signal-check-option"><input type="checkbox" value="criteria" data-weight="2"> Denial or review cites InterQual, MCG, plan criteria, or medical necessity thresholds</label>
+          <label class="signal-check-option"><input type="checkbox" value="causation" data-weight="2"> Causation is complicated by pre-existing disease, gaps, or alternative explanations</label>
+          <label class="signal-check-option"><input type="checkbox" value="expert" data-weight="1"> Expert selection, mediation, demand, or disclosure decision depends on medical support</label>
+          <label class="signal-check-option"><input type="checkbox" value="reserve" data-weight="1"> Reserve, exposure, or settlement posture depends on physician-level medical interpretation</label>
+          <label class="signal-check-option"><input type="checkbox" value="pattern" data-weight="2"> Multiple denials or reviews suggest a criteria-application pattern, not a single isolated issue</label>
+          <label class="signal-check-option"><input type="checkbox" value="deadline" data-weight="1"> There is a near-term deadline, mediation, deposition, or expert-retention decision</label>
+          <label class="signal-check-option"><input type="checkbox" value="charges-major" data-weight="2"> Medical specials are a major part of the claimed damages or settlement value</label>
+          <label class="signal-check-option"><input type="checkbox" value="charges-inflated" data-weight="2"> Billed charges, surgery, or provider costs appear high relative to the injury or mechanism</label>
+          <label class="signal-check-option"><input type="checkbox" value="lien" data-weight="1"> Lien-based, referral-network, or high-volume provider billing is involved</label>
+        </fieldset>
+        <div class="signal-question-block signal-phi-box">
+          <label class="signal-check-option"><input id="signal-phi" type="checkbox" required> I understand this tool is for general, non-identifying facts only. I will not enter PHI or patient identifiers.</label>
+        </div>
+        <button class="btn btn-primary" type="submit">Generate Preliminary Routing →</button>
+      </form>
+      <aside class="signal-result-card" id="signal-result" aria-live="polite">
+        <div class="signal-result-empty">
+          <div class="label">Preliminary Output</div>
+          <h2>Your result will appear here.</h2>
+          <p>After you answer the questions, the tool will suggest the most relevant Medisprudence pathway and whether physician review appears low, moderate, or high priority.</p>
+        </div>
+      </aside>
     </div>
   </div>
-  <div class="wrap footer-bottom">
-    <span>© 2026 Medisprudence™ · contact@medisprudence.com</span>
-    <span>Do not send PHI by email or through an unapproved channel.</span>
+</div>
+<div class="sec-tight" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Important Boundary</div>
+      <h2 style="margin-top:10px;font-size:clamp(22px,2.6vw,30px)">This is not a legal opinion, medical advice, or expert testimony.</h2>
+      <p class="lede">The Signal Check only routes the matter type. Formal review requires conflict screening, engagement terms, secure record transfer, and physician-authored analysis of source documents.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h4>Use general facts only</h4><p>Case type, report type, issue category, and broad documentation concerns are enough. Do not include names, dates of birth, record numbers, claim numbers, or attached files.</p></div>
+      <div class="step"><h4>Review the suggested pathway</h4><p>The output maps the issue to IME analysis, CVA™, payer criteria review, Defense Medical Lens™, reserve analysis, or compliance review.</p></div>
+      <div class="step"><h4>Submit a no-PHI inquiry</h4><p>If physician review seems appropriate, submit only general facts. Medisprudence confirms fit, conflict status, scope, fee, and secure transfer steps before records are requested.</p></div>
+    </div>
   </div>
+</div>
+<div class="cta-bar">
+  <div class="wrap" style="text-align:center">
+    <h2>Need physician-authored analysis after the preliminary routing?</h2>
+    <p>Start with a no-PHI inquiry. No records required to get scope and pricing confirmation.</p>
+    <a class="btn btn-teal" href="/intake/">Request Case Review</a>
+  </div>
+</div>
+</div>
+<footer>
+<div class="wrap">
+<div class="footer-grid">
+<div>
+<div class="footer-brand-name">Medisprudence</div>
+<div class="footer-tagline">Medical case intelligence for litigation.<br/>Physician-authored. Payer-informed. Attorney-directed.<br/>We follow the analysis, not a side.</div>
+</div>
+<div class="footer-col"><h6>Services</h6><ul>
+<li><a href="/medical-review-signal-check/"><strong>Medical Review Signal Check →</strong></a></li>
+<li><a href="/samples/"><strong>Sample Deliverables →</strong></a></li>
+<li><a href="/packages/">Case Packages</a></li>
+<li><a href="/ime-deconstruction/">IME Deconstruction</a></li>
+<li><a href="/case-viability-screening/">Case Viability</a></li>
+<li><a href="/full-intelligence-report/">Full Intelligence Report</a></li>
+<li><a href="/medical-charge-necessity-review/">Charge &amp; Necessity Review</a></li>
+<li><a href="/defense-medical-lens/">Defense Medical Lens™</a></li>
+<li><a href="/white-label/">White-Label</a></li>
+</ul><h6 style="margin-top:14px">Defense &amp; Institutional</h6><ul>
+<li><a href="/ime-quality-review/">IME Quality Review</a></li>
+<li><a href="/plaintiff-expert-analysis/">Plaintiff Expert Analysis</a></li>
+<li><a href="/medical-reserve-analysis/">Medical Reserve Analysis</a></li>
+<li><a href="/ur-process-audit/">UR Process Audit</a></li>
+<li><a href="/bellwether-defense-screening/">Bellwether Defense</a></li>
+<li><a href="/medical-charge-necessity-review/">Billed-Charge Exposure Review</a></li>
+</ul></div>
+<div class="footer-col"><h6>Practice Areas</h6><ul>
+<li><a href="/personal-injury/">Personal Injury</a></li>
+<li><a href="/medical-malpractice/">Medical Malpractice</a></li>
+<li><a href="/bad-faith-insurance/">Bad Faith</a></li>
+<li><a href="/workers-compensation/">Workers Compensation</a></li>
+<li><a href="/mass-tort-mdl/">Mass Tort / MDL</a></li>
+<li><a href="/ltd-erisa/">LTD &amp; ERISA</a></li>
+</ul></div>
+<div class="footer-col"><h6>Firm</h6><ul>
+<li><a href="/plaintiff-teams/">Plaintiff Teams</a></li>
+<li><a href="/defense-carriers/">Defense &amp; Carriers</a></li>
+<li><a href="/conflict-policy/">How We Handle Both Sides</a></li>
+<li><a href="/analysis/">Analysis</a></li>
+<li><a href="/medical-evidence-in-litigation/">Field Guide</a></li>
+<li><a href="/about/">About</a></li>
+<li><a href="/faq/">FAQ</a></li>
+<li><a href="/security/">Data Security</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul></div>
+</div>
+<div class="footer-bottom">
+<div class="footer-legal-links">
+<a href="/privacy/">Privacy Policy</a>
+<a href="/terms/">Terms of Use</a>
+<a href="/ai-use-policy/">AI Use Disclosure</a>
+</div>
+<p>© 2026 Medisprudence™ · <a href="mailto:contact@medisprudence.com" style="color:inherit">contact@medisprudence.com</a> · Operated from India · Cross-border processing disclosed before records are accepted · Do not send PHI by email</p>
+<p>Medisprudence provides physician-directed medical case intelligence under attorney supervision. Not a patient-facing medical service. We do not provide legal advice, legal representation, or independent expert testimony.</p>
+</div>
+</div>
 </footer>
+<script src="/assets/js/main.js?v=20260610a"></script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -212,6 +326,5 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-<script src="/assets/js/main.js"></script>
 </body>
 </html>
