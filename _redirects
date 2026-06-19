@@ -21,6 +21,8 @@
 /analysis/reserve-setting-medical-evidence /analysis/reserve-setting-medical-evidence/ 301
 /analysis/ur-record-subpoena /analysis/ur-record-subpoena/ 301
 /analysis/viability-before-expert /analysis/viability-before-expert/ 301
+/analysis/billed-paid-reasonable /analysis/billed-paid-reasonable/ 301
+/analysis/reasonable-and-necessary /analysis/reasonable-and-necessary/ 301
 /bad-faith-insurance /bad-faith-insurance/ 301
 /bellwether-defense-screening /bellwether-defense-screening/ 301
 /case-viability-screening /case-viability-screening/ 301
@@ -39,6 +41,11 @@
 /intake /intake/ 301
 /ltd-erisa /ltd-erisa/ 301
 /mass-tort-mdl /mass-tort-mdl/ 301
+/medical-charge-necessity-review /medical-charge-necessity-review/ 301
+/medical-bill-review /medical-charge-necessity-review/ 301
+/medical-special-damages-review /medical-charge-necessity-review/ 301
+/billed-charge-exposure-review /medical-charge-necessity-review/ 301
+/reasonable-value-of-medical-charges /medical-charge-necessity-review/ 301
 /medical-evidence-in-litigation /medical-evidence-in-litigation/ 301
 /medical-malpractice /medical-malpractice/ 301
 /medical-reserve-analysis /medical-reserve-analysis/ 301

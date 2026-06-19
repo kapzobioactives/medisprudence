@@ -24,7 +24,7 @@ function updateIntakeForm(){
   var dmlServices = ['dml','dml-def','pkg-ime','pkg-full'];
   var cvaServices = ['cva','cva-def','pkg-full'];
   var cmipServices = ['cmip','pkg-full'];
-  var genericServices = ['dva','erb','pec','tga','pea','mra','urpa','bds'];
+  var genericServices = ['dva','erb','pec','tga','pea','mra','urpa','bds','mcnr','mcnr-def'];
   var isCompliance = complianceServices.indexOf(svc) !== -1;
   iv('ib-case-context', svc !== 'white-label' && !isCompliance);
   iv('ib-ime', imeServices.indexOf(svc) !== -1);
@@ -232,10 +232,12 @@ function buildSignalCheckResult(issue, role, flags, score){
     viability: {title:'Case viability and causation pathway', service:'Case Viability Screening (CVA™)', href:'/case-viability-screening/', intake:'cva', summary:'The strongest fit is pre-expert physician review of whether the medical record supports the case theory, causation pathway, and documentation threshold before expert spend or mediation strategy.'},
     payer: {title:'Payer criteria / medical necessity pathway', service:'UR Process Audit or denial logic review', href:'/ur-process-audit/', intake:'urpa', summary:'The strongest fit is payer-style criteria analysis: whether InterQual, MCG, plan language, or medical necessity thresholds were applied in a documentarily defensible and individualized way.'},
     defense: {title:'Defense-side medical exposure pathway', service:'Defense Medical Lens™ / Medical Reserve Analysis', href:'/defense-carriers/', intake:'dml-def', summary:'The strongest fit is defense-side physician review of medical exposure, reserve implications, plaintiff expert vulnerabilities, and the likely pressure points in the record.'},
+    charges: {title:'Medical charges / special damages pathway', service:'Medical Charge & Necessity Review', href:'/medical-charge-necessity-review/', intake:'mcnr', summary:'The strongest fit is physician review of whether the claimed medical specials are clinically necessary, related to the injury, coded consistently, and reasonable in amount — producing a defensible reasonable-value range for demand, reserve, or settlement.'},
     compliance: {title:'Compliance and review-process pathway', service:'MHPAEA or Clinical Denial Pattern Audit', href:'/compliance-consulting/', intake:'compliance', summary:'The strongest fit is pattern-level review of criteria design, denial consistency, medical necessity standards, or parity/compliance exposure rather than single-case IME analysis.'},
     'not-sure': {title:'Mixed medical-review routing pathway', service:'Scope call / no-PHI inquiry', href:'/intake/', intake:'not-sure', summary:'The issue appears mixed. A no-PHI scope inquiry is appropriate so Medisprudence can route it to IME analysis, CVA™, payer criteria review, defense exposure, or compliance review.'}
   };
   var r = maps[issue] || maps['not-sure'];
+  if(issue === 'charges' && role === 'defense'){ r = {title:'Billed-charge exposure pathway', service:'Medical Charge & Necessity Review — Billed-Charge Exposure', href:'/medical-charge-necessity-review/', intake:'mcnr-def', summary:'The strongest fit is a defense-side billed-charge exposure review: identifying unnecessary, unrelated, inflated, miscoded, or duplicative charges and a documented reasonable-value range before reserve and settlement posture is set.'}; }
   var priority = score >= 6 ? 'High-priority review signal' : (score >= 3 ? 'Moderate review signal' : 'Low-to-moderate review signal');
   var why = [];
   if(flags.indexOf('contradiction') !== -1) why.push('<strong>Contradiction signal</strong> Report language may conflict with treating findings or source records.');
@@ -246,6 +248,9 @@ function buildSignalCheckResult(issue, role, flags, score){
   if(flags.indexOf('reserve') !== -1) why.push('<strong>Exposure signal</strong> Reserve or settlement posture may require physician-level medical interpretation.');
   if(flags.indexOf('pattern') !== -1) why.push('<strong>Pattern signal</strong> Multiple denials or reviews may require systems-level defensibility analysis.');
   if(flags.indexOf('deadline') !== -1) why.push('<strong>Deadline signal</strong> Near-term litigation timing may justify accelerated scoping.');
+  if(flags.indexOf('charges-major') !== -1) why.push('<strong>Special-damages signal</strong> The value of the claimed medical bills may be central to demand, reserve, or settlement posture.');
+  if(flags.indexOf('charges-inflated') !== -1) why.push('<strong>Charge-reasonableness signal</strong> Billed amounts may warrant necessity, coding, and reasonableness review against available benchmark references.');
+  if(flags.indexOf('lien') !== -1) why.push('<strong>Provider-billing signal</strong> Lien or high-volume provider billing may require line-item necessity and coding scrutiny.');
   if(!why.length) why.push('<strong>Initial routing only</strong> Few high-risk flags were selected, but a no-PHI inquiry can still clarify whether review is warranted.');
   var intakeHref = '/intake/?service=' + encodeURIComponent(r.intake);
   return '<div class="signal-priority">' + priority + '</div>' +
