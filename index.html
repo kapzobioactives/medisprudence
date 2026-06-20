@@ -180,10 +180,14 @@
 </div>
 </li>
 <li class="nav-item"><a href="/samples/">Samples</a></li>
-<li class="nav-item"><a href="/analysis/">Analysis</a></li>
 <li class="nav-item"><a href="/about/">About</a></li>
-<li class="nav-item"><a href="/packages/">Packages</a></li>
-<li class="nav-item"><a href="/medical-evidence-in-litigation/">Field Guide</a></li>
+<li class="nav-item">
+<button type="button" class="nav-dd-toggle" aria-haspopup="true" aria-expanded="false">Resources <span class="chevron" aria-hidden="true">▾</span></button>
+<div class="dropdown">
+<a href="/analysis/">Analysis</a>
+<a href="/medical-evidence-in-litigation/">Field Guide</a>
+</div>
+</li>
 </ul>
 <div class="nav-right">
 <a class="nav-cta" href="/intake/">Request Case Review</a>
@@ -234,7 +238,6 @@
 <a class="drawer-nav" href="/analysis/">Analysis</a>
 <a class="drawer-nav" href="/medical-evidence-in-litigation/">Field Guide</a>
 <a class="drawer-nav" href="/about/">About</a>
-<a class="drawer-nav" href="/packages/">Packages</a>
 <a class="drawer-nav" href="/contact/">Contact</a>
 </div>
 <a class="drawer-cta" href="/intake/">Request Case Review</a>
@@ -278,30 +281,22 @@
           <div class="reviewer-foot">File · MED-2026 <span>Attorney-directed · No PHI by email</span></div>
         </aside>
       </div>
-      <div class="premium-service-strip" aria-label="Service summary">
-        <div><span>Plaintiff</span><strong>IME deconstruction, viability, CMIP™</strong></div>
-        <div><span>Defense &amp; Carriers</span><strong>IME quality, reserve, UR audit</strong></div>
-        <div><span>Compliance</span><strong>MHPAEA parity, denial pattern audit</strong></div>
-        <div><span>Turnaround</span><strong>48-72 hours to first deliverable</strong></div>
+      <div class="rd-hero-tracks" aria-label="Service tracks">
+        <a class="rd-ht-plaintiff" href="/plaintiff-teams/"><span class="rd-ht-label"><span class="rd-ht-tick"></span>Plaintiff</span><strong>IME deconstruction, viability, CMIP™</strong><span class="rd-ht-go">View track →</span></a>
+        <a class="rd-ht-defense" href="/defense-carriers/"><span class="rd-ht-label"><span class="rd-ht-tick"></span>Defense &amp; Carriers</span><strong>IME quality, reserve, UR audit</strong><span class="rd-ht-go">View track →</span></a>
+        <a class="rd-ht-compliance" href="/compliance-consulting/"><span class="rd-ht-label"><span class="rd-ht-tick"></span>Compliance</span><strong>MHPAEA parity, denial pattern audit</strong><span class="rd-ht-go">View track →</span></a>
+        <div class="rd-ht-meta"><span class="rd-ht-label">Turnaround</span><strong>48–72 hours to first deliverable</strong></div>
       </div>
     </div>
   </div>
 </div>
-<!-- ========== TRUST STRIP — 3 stats + bilateral chips, single thin row ========== -->
-<div class="trust-strip">
+<!-- ========== TRUST BAR — standards & safeguards (rebuilt) ========== -->
+<div class="rd-trust">
 <div class="wrap">
-<div class="trust-strip-inner">
-<div class="trust-stats">
-<div class="trust-stat"><span class="ts-num">3,000+</span><span class="ts-label">Payer-side claims reviewed under InterQual / MCG</span></div>
-<div class="trust-stat"><span class="ts-num">48 hours</span><span class="ts-label">Defense Medical Lens turnaround</span></div>
-<div class="trust-stat"><span class="ts-num">72 hrs</span><span class="ts-label">Case viability screening</span></div>
-</div>
-<div class="trust-chips">
-<span>⚖ Plaintiff Teams</span>
-<span>⛨ Defense &amp; Carriers</span>
-<span>✓ Conflict-screened on every matter</span>
-</div>
-</div>
+<div class="pill"><div class="k"><i></i>Source-referenced</div><p>Every conclusion ties to a record citation — not narrative opinion.</p></div>
+<div class="pill"><div class="k"><i></i>Payer-grade criteria</div><p>Reviewed against InterQual® &amp; MCG® — the standards carriers use.</p></div>
+<div class="pill"><div class="k"><i></i>Conflict-screened</div><p>Plaintiff and defense handled as separate, walled matters.</p></div>
+<div class="pill"><div class="k"><i></i>Safe intake</div><p>No PHI by email; BAA and engagement terms before records move.</p></div>
 </div>
 </div>
 <!-- ========== DIFFERENCE — single anchor block (canonical home for this claim) ========== -->
@@ -313,160 +308,47 @@
 <div style="margin-top:18px"><a class="btn btn-ghost" href="/about/">Read the Founder’s Background →</a></div>
 </div>
 </div>
-<!-- ========== MEDICAL REVIEW SIGNAL CHECK — compact gateway ========== -->
-<div class="signal-cta-strip" aria-labelledby="signal-cta-title">
+<!-- ========== SERVICES — flagship tracks, all visible ========== -->
+<div class="rd-services flagship-services" id="services">
   <div class="wrap">
-    <div class="signal-cta-panel">
-      <div class="signal-cta-copy">
-        <div class="label">Guided Triage</div>
-        <h2 id="signal-cta-title">Not sure which review fits the matter?</h2>
-        <p>Answer a short, no-PHI checklist to route the matter toward IME analysis, case viability, payer-criteria review, causation support, defense-side exposure, or compliance review.</p>
+    <div class="rd-svc-head">
+      <div><div class="label">Services</div><h2>Flagship Physician Medical Record Review Services</h2></div>
+      <div class="rd-svc-note">All services visible · no hidden tabs<br>conflict-screened, separate matters</div>
+    </div>
+    <p class="flagship-intro">Most attorney and carrier matters start with one of these flagship reviews. Secondary reviews remain available, but the homepage now shows the core commercial offers first.</p>
+    <div class="rd-track-grid flagship-grid">
+      <div class="rd-track">
+        <div class="rd-track-head"><div class="rd-track-who">For Plaintiff &amp; Claimant Teams</div><div class="rd-track-name">Build, substantiate, and pressure-test the medical case</div></div>
+        <div class="rd-track-body">
+          <a class="rd-row is-flagship" href="/ime-deconstruction/"><div class="rd-row-top"><span class="rd-row-name">IME Report Deconstruction</span><span class="rd-row-price">From $500</span></div><div class="rd-row-desc">Attack unsupported IME opinions, omissions, contradictions, and deposition weak points.</div></a>
+          <a class="rd-row is-flagship" href="/case-viability-screening/"><div class="rd-row-top"><span class="rd-row-name">Case Viability Screening</span><span class="rd-row-price">From $350</span></div><div class="rd-row-desc">Decide whether the medical record supports the case before expert spend.</div></a>
+          <a class="rd-row is-flagship" href="/full-intelligence-report/"><div class="rd-row-top"><span class="rd-row-name">Full Intelligence Report / CMIP™</span><span class="rd-row-price">From $1,500</span></div><div class="rd-row-desc">Chronology, causation, gaps, pre-existing condition analysis, and defense vulnerability map.</div></a>
+          <a class="rd-row is-flagship" href="/medical-charge-necessity-review/"><div class="rd-row-top"><span class="rd-row-name">Medical Charge &amp; Necessity Review</span><span class="rd-row-price">From $450</span></div><div class="rd-row-desc">Substantiate medical specials: necessity, relatedness, coding, and reasonable value.</div></a>
+          <a class="rd-row is-flagship" href="/defense-medical-lens/"><div class="rd-row-top"><span class="rd-row-name">Defense Medical Lens™</span><span class="rd-row-price">From $400 add-on</span></div><div class="rd-row-desc">See how the defense will attack the record before mediation or settlement talks.</div></a>
+          <div class="also-available"><strong>Also available:</strong> <a href="/pre-existing-condition-dossier/">Pre-existing Condition Dossier</a> · <a href="/treatment-gap-analysis/">Treatment Gap Analysis</a> · <a href="/expert-readiness-brief/">Expert Readiness Brief</a> · <a href="/defense-vulnerability-analysis/">Defense Vulnerability Analysis</a> · <a href="/white-label/">White-Label LNC Support</a></div>
+        </div>
       </div>
-      <div class="signal-cta-actions">
-        <a class="btn btn-teal" href="/medical-review-signal-check/">Start the Signal Check →</a>
-        <div class="signal-safe-list">
-          <span>No patient identifiers</span>
-          <span>No file upload</span>
-          <span>Static preliminary triage</span>
+      <div class="rd-track is-defense">
+        <div class="rd-track-head"><div class="rd-track-who">For Defense, TPA &amp; Carrier Teams</div><div class="rd-track-name">Stress-test exposure before reports, reserves, and mediation</div></div>
+        <div class="rd-track-body">
+          <a class="rd-row is-flagship" href="/ime-quality-review/"><div class="rd-row-top"><span class="rd-row-name">IME Quality Review</span><span class="rd-row-price">From $400</span></div><div class="rd-row-desc">Stress-test a defense IME before plaintiff counsel attacks it.</div></a>
+          <a class="rd-row is-flagship" href="/plaintiff-expert-analysis/"><div class="rd-row-top"><span class="rd-row-name">Plaintiff Expert Report Analysis</span><span class="rd-row-price">From $500</span></div><div class="rd-row-desc">Deconstruct the plaintiff expert’s medical reasoning before deposition or mediation.</div></a>
+          <a class="rd-row is-flagship" href="/medical-reserve-analysis/"><div class="rd-row-top"><span class="rd-row-name">Medical Reserve Analysis</span><span class="rd-row-price">From $750</span></div><div class="rd-row-desc">Physician-authored exposure estimate for reserve and settlement decisions.</div></a>
+          <a class="rd-row is-flagship" href="/ur-process-audit/"><div class="rd-row-top"><span class="rd-row-name">UR Process Audit</span><span class="rd-row-price">From $600</span></div><div class="rd-row-desc">Test whether denial and medical-necessity reasoning is documentarily defensible.</div></a>
+          <a class="rd-row is-flagship" href="/medical-charge-necessity-review/"><div class="rd-row-top"><span class="rd-row-name">Medical Charge &amp; Necessity Review</span><span class="rd-row-price">From $450</span></div><div class="rd-row-desc">Challenge inflated, unrelated, unnecessary, duplicative, or unsupported charges.</div></a>
+          <div class="also-available"><strong>Also available:</strong> <a href="/bellwether-defense-screening/">Bellwether Defense Screening</a> · <a href="/defense-vulnerability-analysis/">Defense Vulnerability Analysis</a> · <a href="/defense-medical-lens/">Defense Medical Lens™</a></div>
+        </div>
+      </div>
+      <div class="rd-track is-compliance flagship-compliance">
+        <div class="rd-track-head"><div class="rd-track-who">For ERISA Attorneys &amp; Plan Compliance</div><div class="rd-track-name">Test criteria and denial patterns at the systems level</div></div>
+        <div class="rd-track-body compliance-mini-grid">
+          <a class="rd-row" href="/mhpaea-parity-review/"><div class="rd-row-top"><span class="rd-row-name">MHPAEA Behavioral Health Parity Review</span><span class="rd-row-price">$3k–$8k</span></div><div class="rd-row-desc">Compare BH/SUD utilization criteria against medical/surgical criteria across NQTL categories.</div></a>
+          <a class="rd-row" href="/clinical-denial-pattern-audit/"><div class="rd-row-top"><span class="rd-row-name">Clinical Denial Pattern Audit</span><span class="rd-row-price">$4k–$10k</span></div><div class="rd-row-desc">Review claim samples for criteria mismatch, inconsistent medical necessity logic, and denial defensibility.</div></a>
+          <a class="rd-row" href="/ltd-erisa/"><div class="rd-row-top"><span class="rd-row-name">LTD / ERISA Medical Review</span><span class="rd-row-price">Quote</span></div><div class="rd-row-desc">Functional capacity, medical necessity, and administrative-record weaknesses.</div></a>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- ========== SERVICES — tabbed (Plaintiff / Defense) ========== -->
-<div class="sec" style="background:var(--bg-alt)">
-<div class="wrap">
-<div class="tab-section-head">
-<div class="tsh-title sec-head" style="margin-bottom:0">
-<div class="label">Services</div>
-<h2 style="margin:10px 0 0">Physician Medical Record Review Services for Litigation and Claims Defensibility</h2>
-</div>
-<div class="tab-bar" data-tab-group="services" role="tablist">
-<button aria-selected="true" class="tab-btn active" data-tab="services-plaintiff" role="tab" type="button"><span class="tab-dot"></span>Plaintiff &amp; Claimant</button>
-<button aria-selected="false" class="tab-btn tab-defense" data-tab="services-defense" role="tab" type="button"><span class="tab-dot"></span>Defense, TPA &amp; Carrier</button>
-<button aria-selected="false" class="tab-btn tab-compliance" data-tab="services-compliance" role="tab" type="button"><span class="tab-dot"></span>Compliance Consulting</button>
-</div>
-</div>
-<!-- TAB: PLAINTIFF -->
-<div class="tab-panel active" id="services-plaintiff" role="tabpanel">
-<div class="card-grid card-grid-4" style="margin-bottom:6px">
-<a class="card card-teal" href="/ime-deconstruction/">
-<h4>IME Report Deconstruction</h4>
-<p>Every unsupported assertion, omitted fact, internal contradiction, and 20+ physician-authored deposition questions.</p>
-<div class="card-price">From $500</div>
-</a>
-<a class="card" href="/case-viability-screening/">
-<h4>Case Viability Screening</h4>
-<p>Does the record support the case theory? Pre-expert intelligence calibrated to how the other side will challenge it.</p>
-<div class="card-price">From $350</div>
-</a>
-<a class="card" href="/full-intelligence-report/">
-<h4>Full Intelligence Report (CMIP™)</h4>
-<p>Seven-component report: chronology, coherence map, pre-existing dossier, gap analysis, defense vulnerability, expert brief.</p>
-<div class="card-price">From $1,500</div>
-</a>
-<a class="card" href="/defense-medical-lens/">
-<h4>Defense Medical Lens™</h4>
-<p>Pre-mediation reconstruction of how a defense reviewer evaluates the record — built by someone who performed that role.</p>
-<div class="card-price">From $400 add-on · $950 standalone</div>
-</a>
-</div>
-<div class="svc-secondary-label">Also available · Components of CMIP™ &amp; partnership</div>
-<div class="card-grid-secondary">
-<a class="card-mini" href="/defense-vulnerability-analysis/"><h5>Defense Vulnerability Analysis</h5><p>Ranked map of where the record is most exposed to challenge.</p><div class="mini-meta">Included in CMIP</div></a>
-<a class="card-mini" href="/expert-readiness-brief/"><h5>Expert Readiness Brief</h5><p>Right specialty, right documentation, Daubert readiness — before you commit the expert budget.</p><div class="mini-meta">Included in CMIP</div></a>
-<a class="card-mini" href="/pre-existing-condition-dossier/"><h5>Pre-existing Condition Dossier</h5><p>Documents what the defense will argue about prior pathology — and what reduces its impact.</p><div class="mini-meta">Included in CMIP</div></a>
-<a class="card-mini" href="/white-label/"><h5>White-Label for LNC Firms</h5><p>Physician intelligence delivered under your brand.</p><div class="mini-meta">Custom pricing</div></a>
-</div>
-</div>
-<!-- TAB: DEFENSE -->
-<div class="tab-panel" id="services-defense" role="tabpanel">
-<div class="card-grid card-grid-4" style="margin-bottom:6px">
-<a class="card card-defense" href="/ime-quality-review/">
-<h4>IME Quality Review</h4>
-<p>Pre-submission physician review of your IME report — seven-defect analysis before it is exposed to cross-examination.</p>
-<div class="card-price">From $400</div>
-</a>
-<a class="card card-defense" href="/plaintiff-expert-analysis/">
-<h4>Plaintiff Expert Report Analysis</h4>
-<p>Analytical deconstruction of the plaintiff's disclosed medical expert report — the mirror of IME deconstruction.</p>
-<div class="card-price">From $500</div>
-</a>
-<a class="card card-defense" href="/medical-reserve-analysis/">
-<h4>Medical Reserve Analysis</h4>
-<p>Physician-authored medical exposure assessment for reserve decisions — documented basis that survives internal audit.</p>
-<div class="card-price">From $750</div>
-</a>
-<a class="card card-defense" href="/ur-process-audit/">
-<h4>UR Process Audit</h4>
-<p>Was the denial documentarily defensible? Criteria application review for bad faith defense teams.</p>
-<div class="card-price">From $600</div>
-</a>
-</div>
-<div style="margin-top:22px;text-align:center"><a class="btn btn-ghost" href="/defense-carriers/">All defense &amp; carrier services →</a></div>
-</div>
-<!-- TAB: COMPLIANCE CONSULTING -->
-<div class="tab-panel" id="services-compliance" role="tabpanel">
-<div style="width:100%;max-width:none;margin-bottom:24px;padding:18px 22px;background:var(--compliance-dim);border-left:3px solid var(--compliance);border-radius:0 var(--r-md) var(--r-md) 0">
-<div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--compliance-text);margin-bottom:6px">For ERISA Benefits Attorneys &amp; Plan Compliance Officers</div>
-<p style="font-size:15px;line-height:1.7;color:var(--ink-2);margin:0">The same payer-side UM experience that deconstructs IMEs reveals where health plans are exposed at the systems level — in criteria design, medical necessity standards, and denial defensibility under regulatory scrutiny.</p>
-</div>
-<div class="card-grid card-grid-2" style="max-width:900px">
-<div class="card card-compliance" style="padding:24px 26px">
-<h4 style="font-size:clamp(15px,1.5vw,18px);line-height:1.25">MHPAEA Behavioral Health Parity Review</h4>
-<div class="compliance-badge">ERISA Benefits Attorneys · Plan Compliance Officers</div>
-<p style="margin-top:14px;font-size:15px;line-height:1.72;color:var(--ink-2)">Physician-authored comparative analysis of a health plan's behavioral health UM criteria against its medical/surgical criteria across all six NQTL categories. Identifies where BH criteria are more restrictive than analogous M/S criteria — the exact disparity DOL and HHS are enforcing since CAA 2021 and the 2024 MHPAEA final rule.</p>
-<div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--rule)">
-<div style="font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px">Deliverable includes</div>
-<ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:4px">
-<li style="font-size:13.5px;color:var(--ink-2)">— Side-by-side NQTL comparison table, all six categories</li>
-<li style="font-size:13.5px;color:var(--ink-2)">— Physician narrative with citation (29 CFR §2590.712)</li>
-<li style="font-size:13.5px;color:var(--ink-2)">— Risk grading: Compliant / Borderline / Exposed</li>
-<li style="font-size:13.5px;color:var(--ink-2)">— Physician credential block and engagement disclaimer</li>
-</ul>
-</div>
-<div class="card-price" style="margin-top:14px;color:var(--compliance-text)">$3,000 – $8,000 · 10–15 business days</div>
-</div>
-<div class="card card-compliance" style="padding:24px 26px">
-<h4 style="font-size:clamp(15px,1.5vw,18px);line-height:1.25">Clinical Denial Pattern Audit</h4>
-<div class="compliance-badge">ERISA Benefits Attorneys · Plan Sponsors · TPAs</div>
-<p style="margin-top:14px;font-size:15px;line-height:1.72;color:var(--ink-2)">Physician-authored review of a 20–50 claim sample assessing whether medical necessity criteria were applied in a defensible and consistent manner. Framed for ERISA fiduciary defense or pre-litigation DOL audit response — criteria mismatch analysis, risk grading, physician narrative.</p>
-<div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--rule)">
-<div style="font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px">Deliverable includes</div>
-<ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:4px">
-<li style="font-size:13.5px;color:var(--ink-2)">— Denial rationale categorization and criteria mismatch analysis</li>
-<li style="font-size:13.5px;color:var(--ink-2)">— Clinical defensibility assessment per denial category</li>
-<li style="font-size:13.5px;color:var(--ink-2)">— Pattern summary: Defensible / Questionable / Indefensible</li>
-<li style="font-size:13.5px;color:var(--ink-2)">— Physician narrative and engagement disclaimer</li>
-</ul>
-</div>
-<div class="card-price" style="margin-top:14px;color:var(--compliance-text)">$4,000 – $10,000 · 15–20 business days</div>
-</div>
-</div>
-<div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-ghost" href="/mhpaea-parity-review/" style="border-color:var(--compliance-glow);color:var(--compliance-text)">MHPAEA Parity Review →</a><a class="btn btn-ghost" href="/clinical-denial-pattern-audit/" style="border-color:var(--compliance-glow);color:var(--compliance-text)">Denial Pattern Audit →</a></div>
-</div>
-</div>
-</div>
-<!-- ========== MCNR — bilateral flagship band ========== -->
-<div class="sec">
-<div class="wrap">
-<div class="label">New · Both Sides</div>
-<h2 style="margin:10px 0 6px">Medical Charge &amp; Necessity Review</h2>
-<p style="max-width:760px;color:var(--ink-2);font-size:16px;line-height:1.7;margin-bottom:24px">When the injury isn’t the fight but the dollar value of the bills is: a physician-authored review of whether the claimed medical specials are clinically necessary, related to the injury, correctly coded, and reasonable in amount — bundled into one work product, not split between a coder and a doctor.</p>
-<div class="card-grid card-grid-2">
-<a class="card card-teal" href="/medical-charge-necessity-review/">
-<h4>For Plaintiff Teams — Substantiate the Specials</h4>
-<p>Show the treatment and charges are defensible before the defense attacks them — necessity, relatedness, coding, and reasonableness, documented.</p>
-<div class="card-price">From $450</div>
-</a>
-<a class="card card-defense" href="/medical-charge-necessity-review/">
-<h4>For Defense, TPAs &amp; Carriers — Billed-Charge Exposure</h4>
-<p>Identify unnecessary, unrelated, inflated, miscoded, or duplicative charges — and a documented reasonable-value range — before reserve and mediation.</p>
-<div class="card-price">From $450 · Net 15</div>
-</a>
-</div>
-</div>
 </div>
 <!-- ========== EXHIBIT INTERLUDE — full-bleed dark plate ========== -->
 <div class="exhibit-feature">
@@ -495,33 +377,33 @@
 </div>
 </div>
 </div>
-<!-- ========== FIELD GUIDE — pillar resource teaser ========== -->
-<div class="sec-tight fg-home-teaser" style="border-top:1px solid var(--rule);background:var(--bg-alt);">
+<!-- ========== MEDICAL REVIEW SIGNAL CHECK — compact gateway ========== -->
+<div class="signal-cta-strip" aria-labelledby="signal-cta-title">
   <div class="wrap">
-    <div class="fg-home-grid">
-      <div class="fg-home-copy">
-        <div class="ef-label"><span aria-hidden="true"></span>Field Guide</div>
-        <h2 style="margin:10px 0 0;font-size:clamp(24px,2.8vw,33px);line-height:1.14;">Medical Evidence in Litigation</h2>
-        <p style="margin:14px 0 0;color:var(--ink-2);max-width:620px;font-size:16.5px;line-height:1.7;">A physician reviewer's reference on how medical records, IME reports, medical-necessity criteria, and expert opinions behave as evidence — IMEs, causation, payer criteria, expert reliability, reserve exposure, and clinical denial defensibility. Free to read.</p>
-        <a class="sample-home-btn" href="/medical-evidence-in-litigation/" style="margin-top:20px;">Read the Field Guide →</a>
+    <div class="signal-cta-panel">
+      <div class="signal-cta-copy">
+        <div class="label">Guided Triage</div>
+        <h2 id="signal-cta-title">Not sure which review fits the matter?</h2>
+        <p>Answer a short, no-PHI checklist to route the matter toward IME analysis, case viability, payer-criteria review, causation support, defense-side exposure, or compliance review.</p>
       </div>
-      <ul class="fg-home-list" aria-label="Field guide topics">
-        <li>IME &amp; defense medical reports</li>
-        <li>Causation, prior conditions &amp; treatment gaps</li>
-        <li>Medical necessity &amp; payer criteria (InterQual / MCG)</li>
-        <li>Medical experts, Daubert &amp; FRE 702</li>
-        <li>Reserve-setting &amp; bad-faith UR defensibility</li>
-        <li>MHPAEA, ERISA &amp; clinical criteria review</li>
-      </ul>
+      <div class="signal-cta-actions">
+        <a class="btn btn-teal" href="/medical-review-signal-check/">Start the Signal Check →</a>
+        <div class="signal-safe-list">
+          <span>No patient identifiers</span>
+          <span>No file upload</span>
+          <span>Static preliminary triage</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 <!-- ========== PACKAGES — clean engagement options ========== -->
 <div class="sec-tight" style="border-top:1px solid var(--rule);background:var(--bg);">
   <div class="wrap">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:22px;flex-wrap:wrap;margin-bottom:22px;">
       <div class="sec-head" style="margin-bottom:0;max-width:760px;">
-        <div class="label">Engagement Options</div>
+        <div class="label">Common Engagements</div>
         <h2 style="margin-top:10px;font-size:clamp(26px,3vw,38px);line-height:1.12;">Choose the review depth after scope is confirmed.</h2>
         <p style="margin-top:10px;max-width:720px;">Each matter is scoped first using general, no-PHI facts. Records are requested only after fit, fee, turnaround, and conflict status are confirmed.</p>
       </div>
@@ -549,47 +431,55 @@
     </div>
   </div>
 </div>
-<!-- ========== PRACTICE AREAS — horizontal link strip ========== -->
-<div class="sec-tight">
-<div class="wrap">
-<div class="sec-head" style="margin-bottom:6px">
-<div class="label">Practice Areas</div>
-<h2 style="margin-top:10px;font-size:clamp(22px,2.6vw,30px)">Where physician medical review usually changes the litigation analysis</h2>
+<!-- ========== FIELD GUIDE — compact authority band ========== -->
+<div class="rd-fg">
+  <div class="wrap">
+    <div class="rd-fg-copy">
+      <div class="k">Field Guide · Free to read</div>
+      <h2>Medical Evidence in Litigation</h2>
+      <p>A physician reviewer's reference on how medical records, IME reports, medical-necessity criteria, and expert opinions behave as evidence.</p>
+      <a class="sample-home-btn" href="/medical-evidence-in-litigation/">Read the Field Guide →</a>
+    </div>
+    <div class="rd-fg-topics">
+      <span>IME &amp; defense reports</span>
+      <span>Causation &amp; prior conditions</span>
+      <span>Necessity &amp; payer criteria</span>
+      <span>Daubert &amp; FRE 702</span>
+      <span>Reserve &amp; bad-faith UR</span>
+      <span>MHPAEA &amp; ERISA criteria</span>
+    </div>
+  </div>
 </div>
-<div class="practice-strip">
-<a href="/personal-injury/" title="Spine, TBI, and soft-tissue cases with contested IMEs and causation disputes.">Personal Injury</a>
-<a href="/medical-malpractice/" title="Standard-of-care documentation analysis and pre-expert case intelligence.">Medical Malpractice</a>
-<a href="/bad-faith-insurance/" title="When a patient sues the insurer — our payer reviewer background is directly material.">Bad Faith Insurance</a>
-<a href="/workers-compensation/" title="Causation disputes and treatment necessity analysis for claimant attorneys, defense firms, TPAs, and carriers.">Workers Compensation</a>
-<a href="/mass-tort-mdl/" title="Bellwether case viability screening and defense medical coordination — for plaintiff liaison and defense liaison counsel.">Mass Tort / MDL</a>
-<a href="/ltd-erisa/" title="Disability claim analysis for claimant attorneys, carrier defense teams, and ERISA external review.">LTD &amp; ERISA</a>
-<a href="/mhpaea-parity-review/" style="color:var(--compliance-text)" title="Physician-authored NQTL comparative analysis for ERISA benefits attorneys.">MHPAEA &amp; Parity Compliance</a>
-<a href="/clinical-denial-pattern-audit/" style="color:var(--compliance-text)" title="Physician-authored denial pattern audit for ERISA fiduciary defense.">ERISA Denial Defensibility</a>
+<!-- ========== PRACTICE AREAS — refined informative grid ========== -->
+<div class="rd-practice">
+  <div class="wrap">
+    <div class="sec-head"><div class="label">Practice Areas</div><h2 style="margin-top:10px;font-size:clamp(22px,2.6vw,30px)">Where physician medical review usually changes the litigation analysis</h2></div>
+    <div class="rd-practice-grid">
+      <a class="rd-pa" href="/personal-injury/"><h4>Personal Injury</h4><p>Contested IMEs and causation in spine, TBI, and soft-tissue cases.</p></a>
+      <a class="rd-pa" href="/medical-malpractice/"><h4>Medical Malpractice</h4><p>Standard-of-care documentation analysis and pre-expert intelligence.</p></a>
+      <a class="rd-pa" href="/bad-faith-insurance/"><h4>Bad Faith Insurance</h4><p>Payer-reviewer background is directly material when a patient sues the insurer.</p></a>
+      <a class="rd-pa" href="/workers-compensation/"><h4>Workers' Compensation</h4><p>Causation and treatment-necessity for claimant, defense, TPA, and carrier.</p></a>
+      <a class="rd-pa" href="/mass-tort-mdl/"><h4>Mass Tort / MDL</h4><p>Bellwether viability screening and defense medical coordination.</p></a>
+      <a class="rd-pa" href="/ltd-erisa/"><h4>LTD &amp; ERISA</h4><p>Disability analysis for claimant, carrier defense, and external review.</p></a>
+      <a class="rd-pa is-compliance" href="/mhpaea-parity-review/"><h4>MHPAEA &amp; Parity Compliance</h4><p>Physician-authored NQTL comparative analysis for ERISA attorneys.</p></a>
+      <a class="rd-pa is-compliance" href="/clinical-denial-pattern-audit/"><h4>ERISA Denial Defensibility</h4><p>Physician-authored denial pattern audit for fiduciary defense.</p></a>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-<!-- ========== HOW IT WORKS — tightened ========== -->
-<div class="sec-tight" style="background:var(--bg-alt)">
-<div class="wrap">
-<div class="sec-head">
-<div class="label">How it works</div>
-<h2 style="margin-top:10px;font-size:clamp(22px,2.6vw,30px)">No-PHI Intake for Physician-Led Medical Case Review</h2>
-</div>
-<div class="steps">
-<div class="step"><h4>Send only general facts</h4><p>Case type, injury, IME status, approximate record volume, deadline, and the decision you need to make. Do not send PHI by email.</p></div>
-<div class="step"><h4>Scope and safeguards confirmed</h4><p>Medisprudence confirms fit, deliverable type, fee, turnaround, and conflict status. BAA and engagement terms handled before records are sent.</p></div>
-<div class="step"><h4>Physician-authored report delivered</h4><p>Source-referenced, component-disclosed, structured for the specific case decision: viability, IME response, expert readiness, or mediation preparation.</p></div>
-</div>
-<div style="margin-top:24px"><a class="btn btn-ghost" href="/intake/">Start with a No-PHI Inquiry →</a></div>
-</div>
-</div>
-<!-- ========== FINAL CTA ========== -->
-<div class="cta-bar">
-<div class="wrap" style="text-align:center">
-<h2>Payer-Side Utilization Review Analysis for Plaintiff, Defense, ERISA, and MHPAEA Matters</h2>
-<p>Start with a no-PHI inquiry. No records required to get a scope and pricing confirmation.</p>
-<a class="btn btn-teal" href="/intake/">Request Case Review</a>
-</div>
+<!-- ========== CLOSE — how-it-works + final CTA consolidated ========== -->
+<div class="rd-close">
+  <div class="wrap">
+    <div class="k">How it works · No-PHI intake</div>
+    <h2>Payer-side utilization review analysis for plaintiff, defense, ERISA, and MHPAEA matters.</h2>
+    <p class="sub">Start with a no-PHI inquiry. No records required to get a scope and pricing confirmation.</p>
+    <div class="rd-close-steps">
+      <div class="rd-step"><div class="n">01 — Send</div><h4>Send only general facts</h4><p>Case type, injury, IME status, approximate record volume, deadline, and the decision you need. No PHI by email.</p></div>
+      <div class="rd-step"><div class="n">02 — Scope</div><h4>Scope &amp; safeguards confirmed</h4><p>Fit, deliverable type, fee, turnaround, and conflict status. BAA and engagement terms handled before records are sent.</p></div>
+      <div class="rd-step"><div class="n">03 — Deliver</div><h4>Physician-authored report delivered</h4><p>Source-referenced, component-disclosed, structured for the specific case decision.</p></div>
+    </div>
+    <a class="rd-close-cta" href="/intake/">Request Case Review <span>→</span></a>
+    <div class="rd-close-foot">Conflict-screened on every matter · Attorney-directed · Operated from India</div>
+  </div>
 </div>
 </div>
 <footer>
