@@ -1527,7 +1527,7 @@ body{padding-top:0!important;}
 
 /* ---- TRUST BAR rebuilt ---- */
 .rd-trust{background:var(--bg);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
-.rd-trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
+.rd-trust .wrap{display:grid;grid-template-columns:repeat(5,1fr);}
 .rd-trust .pill{padding:26px 28px;border-right:1px solid var(--rule);}
 .rd-trust .pill:last-child{border-right:none;}
 .rd-trust .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin-bottom:9px;display:flex;align-items:center;gap:8px;}
@@ -1623,6 +1623,8 @@ body{padding-top:0!important;}
 /* ---- RESPONSIVE (stacking) ---- */
 @media(max-width:1024px){
   .rd-practice-grid{grid-template-columns:repeat(2,1fr);}
+  .rd-trust .wrap{grid-template-columns:repeat(3,1fr);}
+  .rd-trust .pill:nth-child(3n){border-right:none;}
   #p-home .rd-hero-tracks{grid-template-columns:repeat(2,1fr);}
   #p-home .rd-hero-tracks a:nth-child(2),#p-home .rd-hero-tracks div:last-child{border-right:none;}
 }
