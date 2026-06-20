@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Why Medisprudence — Why we win, by service</title>
+<meta name="description" content="What attorneys and carriers use today, where it falls short, and why Medisprudence wins — by service. Fixed-fee, payer-grade, bilateral physician medical review."/>
+<link href="https://medisprudence.com/why-medisprudence/" rel="canonical"/>
+<link href="/favicon.ico" rel="shortcut icon"/>
+<link href="/favicon.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/logo-mark.svg" rel="icon" type="image/svg+xml"/>
+<link href="/favicon.png" rel="apple-touch-icon"/>
+<link href="/assets/css/styles.css?v=20260609e" rel="stylesheet"/>
+<style>
+/* Page-specific layout (uses existing tokens only) */
+.wmp-intro{padding:clamp(40px,4.5vw,68px) 0 8px;}
+.wmp-lede{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.1vw,26px);line-height:1.32;letter-spacing:-.015em;color:var(--ink);max-width:920px;margin:18px 0 0;}
+.wmp-lnc{background:#FBF7EE;border:1px solid rgba(26,22,18,.14);border-left:3px solid var(--accent);border-radius:4px;padding:18px 22px;margin:28px 0 0;max-width:920px;}
+.wmp-lnc .wmp-lnc-k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-text);margin-bottom:6px;}
+.wmp-lnc p{font-family:var(--sans);font-size:14.5px;line-height:1.6;color:var(--ink-2);margin:0;}
+.wmp-section{padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--rule);}
+.wmp-section.alt{background:var(--bg-alt);}
+.wmp-sec-head{margin-bottom:26px;max-width:780px;}
+.wmp-sec-head .label{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);font-weight:500;}
+.wmp-sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.1;letter-spacing:-.018em;margin:10px 0 0;color:var(--ink);}
+.wmp-sec-head p{font-family:var(--sans);font-size:15.5px;line-height:1.6;color:var(--ink-2);margin:12px 0 0;}
+
+/* Moat table */
+.wmp-table{width:100%;border-collapse:separate;border-spacing:0;background:#FFFCF6;border:1px solid rgba(26,22,18,.16);border-radius:4px;overflow:hidden;}
+.wmp-table thead th{background:var(--bg-alt);font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:500;text-align:left;padding:14px 22px;border-bottom:1px solid rgba(26,22,18,.14);}
+.wmp-table tbody td{padding:18px 22px;font-family:var(--sans);font-size:14.5px;line-height:1.55;color:var(--ink-2);border-bottom:1px solid rgba(26,22,18,.08);vertical-align:top;}
+.wmp-table tbody tr:last-child td{border-bottom:none;}
+.wmp-table tbody td:first-child{font-weight:600;color:var(--ink);width:24%;}
+.wmp-table tbody td:last-child{font-family:var(--mono);font-size:12.5px;color:var(--accent-text);}
+@media(max-width:780px){.wmp-table thead{display:none;}.wmp-table tbody tr{display:block;padding:14px 6px;border-bottom:1px solid rgba(26,22,18,.10);}.wmp-table tbody tr:last-child{border-bottom:none;}.wmp-table tbody td{display:block;border:none;padding:4px 16px;}.wmp-table tbody td:first-child{font-size:15.5px;padding-top:8px;}.wmp-table tbody td:last-child{padding-bottom:8px;color:var(--accent-text);}}
+
+/* Service tables — one per audience */
+.wmp-track-label{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px;}
+.wmp-track-label i{width:8px;height:8px;border-radius:1px;background:var(--accent);display:inline-block;}
+.is-defense .wmp-track-label{color:var(--defense);}.is-defense .wmp-track-label i{background:var(--defense);}
+.is-compliance .wmp-track-label{color:var(--compliance-text);}.is-compliance .wmp-track-label i{background:var(--compliance);}
+.wmp-svc-table{width:100%;border-collapse:separate;border-spacing:0;background:#FFFCF6;border:1px solid rgba(26,22,18,.16);border-radius:4px;overflow:hidden;margin-top:16px;}
+.wmp-svc-table.is-defense{border-top:3px solid var(--defense);}
+.wmp-svc-table.is-plaintiff{border-top:3px solid var(--accent);}
+.wmp-svc-table.is-compliance{border-top:3px solid var(--compliance);}
+.wmp-svc-table.is-bilateral{border-top:3px solid var(--accent);background-image:linear-gradient(90deg,var(--accent) 0 50%,var(--defense) 50% 100%);background-size:100% 3px;background-position:top;background-repeat:no-repeat;}
+.wmp-svc-table thead th{background:var(--bg-alt);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:500;text-align:left;padding:14px 18px;border-bottom:1px solid rgba(26,22,18,.14);}
+.wmp-svc-table thead th:nth-child(1){width:21%;}
+.wmp-svc-table thead th:nth-child(2){width:23%;}
+.wmp-svc-table thead th:nth-child(3){width:32%;}
+.wmp-svc-table thead th:nth-child(4){width:24%;}
+.wmp-svc-table tbody td{padding:16px 18px;font-family:var(--sans);font-size:14px;line-height:1.55;color:var(--ink-2);border-bottom:1px solid rgba(26,22,18,.08);vertical-align:top;}
+.wmp-svc-table tbody tr:last-child td{border-bottom:none;}
+.wmp-svc-table tbody td:first-child{font-family:var(--sans);font-weight:600;color:var(--ink);font-size:14.5px;}
+.wmp-svc-table tbody td:last-child{font-family:var(--serif);font-style:italic;font-size:14.5px;color:var(--ink);line-height:1.45;}
+@media(max-width:900px){
+  .wmp-svc-table thead{display:none;}
+  .wmp-svc-table tbody tr{display:block;border-bottom:1px solid rgba(26,22,18,.10);padding:8px 0;}
+  .wmp-svc-table tbody tr:last-child{border-bottom:none;}
+  .wmp-svc-table tbody td{display:block;border:none;padding:6px 18px;}
+  .wmp-svc-table tbody td:first-child{padding-top:14px;font-size:16px;}
+  .wmp-svc-table tbody td:before{content:attr(data-label);display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px;}
+  .wmp-svc-table tbody td:first-child:before{display:none;}
+  .wmp-svc-table tbody td:last-child{padding-bottom:14px;}
+}
+
+/* Guardrails block */
+.wmp-guardrails{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.wmp-guardrails .g{background:#FFFCF6;border:1px solid rgba(26,22,18,.14);border-radius:4px;padding:18px 22px;}
+.wmp-guardrails .g-k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:7px;}
+.wmp-guardrails .g p{font-family:var(--sans);font-size:14px;line-height:1.55;color:var(--ink-2);margin:0;}
+@media(max-width:680px){.wmp-guardrails{grid-template-columns:1fr;}}
+
+/* Close */
+.wmp-close{text-align:center;padding:clamp(48px,6vw,80px) 0;background:var(--bg-alt);border-top:1px solid var(--rule);}
+.wmp-close h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.6vw,32px);line-height:1.15;letter-spacing:-.018em;color:var(--ink);margin:0 auto;max-width:720px;}
+.wmp-close p{font-family:var(--sans);font-size:15.5px;color:var(--ink-2);max-width:560px;margin:14px auto 22px;line-height:1.55;}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#home-h1">Skip to main content</a>
+<noscript><div style="padding:16px;font-family:system-ui,sans-serif;background:#FAF7F1;color:#1A1612">Medisprudence provides physician medical record review and IME analysis for litigation, including case viability screening, defense medical review, medical reserve analysis, and MHPAEA parity review.</div></noscript>
+<nav id="nav">
+<a class="brand" href="/"><svg aria-hidden="true" fill="none" height="22" style="color:var(--accent)" viewBox="0 0 32 32" width="22">
+<line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="16" x2="16" y1="4" y2="29"></line>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="10" x2="22" y1="29" y2="29"></line>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="1.9" x1="5" x2="27" y1="11" y2="11"></line>
+<circle cx="16" cy="11" fill="currentColor" r="2.4"></circle>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="1.3" x1="5" x2="5" y1="11" y2="19"></line>
+<path d="M1.5 19 Q5 24.5 8.5 19" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="1.3" x1="27" x2="27" y1="11" y2="19"></line>
+<path d="M23.5 19 Q27 24.5 30.5 19" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path>
+</svg><span class="brand-wordmark">Medisprudence</span></a>
+<ul class="nav-center">
+<li class="nav-item mega">
+<button type="button" class="nav-dd-toggle" aria-haspopup="true" aria-expanded="false">Services <span class="chevron" aria-hidden="true">▾</span></button>
+<div class="mega-dropdown">
+<div class="mega-grid">
+<div class="mega-col left">
+<div class="mega-col-inner">
+<div class="mega-col-head"><span class="mega-mark">⚖</span> For Plaintiff Teams</div>
+<a href="/ime-deconstruction/">IME Report Deconstruction</a>
+<a href="/case-viability-screening/">Case Viability Screening</a>
+<a href="/defense-medical-lens/">Defense Medical Lens™</a>
+<a href="/full-intelligence-report/">Full Intelligence Report</a>
+<a href="/expert-readiness-brief/">Expert Readiness Brief</a>
+<a href="/pre-existing-condition-dossier/">Pre-existing Condition Dossier</a>
+<a href="/treatment-gap-analysis/">Treatment Gap Analysis</a>
+<a href="/medical-charge-necessity-review/">Medical Charge &amp; Necessity Review</a>
+<a href="/packages/">Case Packages &amp; Bundles</a>
+<a href="/white-label/">White-Label for LNC Firms</a>
+<a class="mega-overview" href="/plaintiff-teams/">Plaintiff Teams Overview →</a>
+</div>
+</div>
+<div class="mega-col right">
+<div class="mega-col-inner">
+<div class="mega-col-head"><span class="mega-mark">⛨</span> For Defense &amp; Carriers</div>
+<a href="/ime-quality-review/">IME Quality Review</a>
+<a href="/plaintiff-expert-analysis/">Plaintiff Expert Report Analysis</a>
+<a href="/medical-reserve-analysis/">Medical Reserve Analysis</a>
+<a href="/ur-process-audit/">UR Process Audit</a>
+<a href="/bellwether-defense-screening/">Bellwether Defense Screening</a>
+<a href="/defense-vulnerability-analysis/">Defense Vulnerability Analysis</a>
+<a href="/medical-charge-necessity-review/">Medical Charge &amp; Necessity Review</a>
+<a class="mega-overview" href="/defense-carriers/">Defense &amp; Carriers Overview →</a>
+</div>
+</div>
+<div class="mega-col compliance">
+<div class="mega-col-inner">
+<div class="mega-col-head"><span class="mega-mark">⚕</span> Compliance Consulting</div>
+<a href="/mhpaea-parity-review/">MHPAEA Parity Review</a>
+<a href="/clinical-denial-pattern-audit/">Clinical Denial Pattern Audit</a>
+<a class="mega-overview" href="/compliance-consulting/">Compliance Consulting Overview →</a>
+</div>
+</div>
+</div>
+<div class="mega-foot">
+<span class="mega-foot-note">Conflict-screened on every matter</span>
+<div class="mega-foot-links"><a href="/medical-review-signal-check/">Start Signal Check →</a><a href="/conflict-policy/">How we handle both sides →</a></div>
+</div>
+</div>
+</li>
+<li class="nav-item">
+<button type="button" class="nav-dd-toggle" aria-haspopup="true" aria-expanded="false">Practice Areas <span class="chevron" aria-hidden="true">▾</span></button>
+<div class="dropdown">
+<a href="/personal-injury/">Personal Injury — Auto &amp; Trucking</a>
+<a href="/medical-malpractice/">Medical Malpractice</a>
+<a href="/bad-faith-insurance/">Bad Faith Insurance Litigation</a>
+<a href="/workers-compensation/">Workers Compensation</a>
+<a href="/mass-tort-mdl/">Mass Tort / MDL</a>
+<a href="/ltd-erisa/">Long-Term Disability &amp; ERISA</a>
+<div class="dd-section-label">Compliance</div>
+<a href="/mhpaea-parity-review/" style="color:var(--compliance-text)">MHPAEA &amp; Behavioral Health Parity</a>
+<a href="/clinical-denial-pattern-audit/" style="color:var(--compliance-text)">ERISA Plan Denial Defensibility</a>
+</div>
+</li>
+<li class="nav-item"><a href="/samples/">Samples</a></li>
+<li class="nav-item"><a href="/about/">About</a></li>
+<li class="nav-item">
+<button type="button" class="nav-dd-toggle" aria-haspopup="true" aria-expanded="false">Resources <span class="chevron" aria-hidden="true">▾</span></button>
+<div class="dropdown">
+<a href="/why-medisprudence/">Why Medisprudence</a>
+<a href="/analysis/">Analysis</a>
+<a href="/medical-evidence-in-litigation/">Field Guide</a>
+</div>
+</li>
+</ul>
+<div class="nav-right">
+<a class="nav-cta" href="/intake/">Request Case Review</a>
+<button class="mobile-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-drawer" aria-expanded="false" onclick="toggleDrawer()">☰</button>
+</div>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation" onclick="if(event.target===this)closeDrawer()" style="display:none">
+<div class="mobile-drawer-panel">
+<div class="drawer-header"><span class="drawer-wordmark">Medisprudence</span><button class="drawer-close" type="button" aria-label="Close navigation menu" onclick="closeDrawer()">✕</button></div>
+<div class="drawer-nav-list">
+<a class="drawer-nav primary" href="/">Home</a>
+<a class="drawer-nav primary" href="/medical-review-signal-check/">Medical Review Signal Check</a>
+<a class="drawer-nav primary" href="/samples/">Samples</a>
+<div class="drawer-section-label">Services · For Plaintiff Teams</div>
+<a class="drawer-nav" href="/plaintiff-teams/">Overview</a>
+<a class="drawer-nav" href="/ime-deconstruction/">IME Report Deconstruction</a>
+<a class="drawer-nav" href="/case-viability-screening/">Case Viability Screening</a>
+<a class="drawer-nav" href="/full-intelligence-report/">Full Intelligence Report</a>
+<a class="drawer-nav" href="/defense-medical-lens/">Defense Medical Lens™</a>
+<a class="drawer-nav" href="/expert-readiness-brief/">Expert Readiness Brief</a>
+<a class="drawer-nav" href="/pre-existing-condition-dossier/">Pre-existing Condition Dossier</a>
+<a class="drawer-nav" href="/treatment-gap-analysis/">Treatment Gap Analysis</a>
+<a class="drawer-nav" href="/medical-charge-necessity-review/">Medical Charge &amp; Necessity Review</a>
+<a class="drawer-nav" href="/packages/">Case Packages &amp; Bundles</a>
+<a class="drawer-nav" href="/white-label/">White-Label for LNC Firms</a>
+<div class="drawer-section-label">Services · For Defense &amp; Carriers</div>
+<a class="drawer-nav" href="/defense-carriers/">Overview</a>
+<a class="drawer-nav" href="/ime-quality-review/">IME Quality Review</a>
+<a class="drawer-nav" href="/plaintiff-expert-analysis/">Plaintiff Expert Report Analysis</a>
+<a class="drawer-nav" href="/medical-reserve-analysis/">Medical Reserve Analysis</a>
+<a class="drawer-nav" href="/ur-process-audit/">UR Process Audit</a>
+<a class="drawer-nav" href="/bellwether-defense-screening/">Bellwether Defense Screening</a>
+<a class="drawer-nav" href="/defense-vulnerability-analysis/">Defense Vulnerability Analysis</a>
+<a class="drawer-nav" href="/medical-charge-necessity-review/">Medical Charge &amp; Necessity Review</a>
+<div class="drawer-section-label">Services · Compliance Consulting</div>
+<a class="drawer-nav" href="/compliance-consulting/" style="color:var(--compliance-text)">Overview</a>
+<a class="drawer-nav" href="/mhpaea-parity-review/" style="color:var(--compliance-text)">MHPAEA Behavioral Health Parity Review</a>
+<a class="drawer-nav" href="/clinical-denial-pattern-audit/" style="color:var(--compliance-text)">Clinical Denial Pattern Audit</a>
+<div class="drawer-section-label">Practice Areas</div>
+<a class="drawer-nav" href="/personal-injury/">Personal Injury</a>
+<a class="drawer-nav" href="/medical-malpractice/">Medical Malpractice</a>
+<a class="drawer-nav" href="/bad-faith-insurance/">Bad Faith Insurance</a>
+<a class="drawer-nav" href="/workers-compensation/">Workers Compensation</a>
+<a class="drawer-nav" href="/mass-tort-mdl/">Mass Tort / MDL</a>
+<a class="drawer-nav" href="/ltd-erisa/">LTD &amp; ERISA</a>
+<div class="drawer-section-label">Firm</div>
+<a class="drawer-nav" href="/why-medisprudence/">Why Medisprudence</a>
+<a class="drawer-nav" href="/conflict-policy/">How We Handle Both Sides</a>
+<a class="drawer-nav" href="/analysis/">Analysis</a>
+<a class="drawer-nav" href="/medical-evidence-in-litigation/">Field Guide</a>
+<a class="drawer-nav" href="/about/">About</a>
+<a class="drawer-nav" href="/contact/">Contact</a>
+</div>
+<a class="drawer-cta" href="/intake/">Request Case Review</a>
+</div>
+</div>
+
+<div class="page active" id="p-why">
+
+<div class="page-hero">
+<div class="wrap">
+<a class="btn-back" href="/">← Home</a>
+<div class="label">Why Medisprudence</div>
+<h1 id="main-content" tabindex="-1" style="margin-top:10px">Why attorneys and carriers choose Medisprudence — by service.</h1>
+<p class="hero-sub">What firms use today, where it falls short, and the specific edge Medisprudence offers — economic and substantive — for each deliverable.</p>
+</div>
+</div>
+
+<div class="wmp-intro">
+<div class="wrap">
+<p class="wmp-lede">Every service is one application of a single, hard-to-copy engine: <strong style="color:var(--ink);font-weight:600">apply real payer-side utilization-management methodology — the InterQual and MCG logic insurers actually use — to a document or claim set, then rank where it is clinically and legally exposed.</strong> The economic model amplifies it: flat fees, screening tiers priced ~10× below an expert's review, and turnaround that competes with a calendar, not an expert's availability.</p>
+<div class="wmp-lnc">
+<div class="wmp-lnc-k">A note on LNCs</div>
+<p>Legal Nurse Consultants are a partner channel, not a competitor. Through White-Label, LNC firms resell our physician layer under their own brand. The only line we ever draw is scope of practice — a nurse summarizes the record expertly; only a physician can render the <em>medical opinion</em> (causation, necessity, methodology critique). Complementary, not competitive.</p>
+</div>
+</div>
+</div>
+
+<!-- ================= MOAT ================= -->
+<div class="wmp-section">
+<div class="wrap">
+<div class="wmp-sec-head">
+<div class="label">The Moat</div>
+<h2>Six structural advantages every service inherits.</h2>
+<p>None of these is a tactic a competitor can copy by trying harder. Each is built into how Medisprudence is structured, priced, or staffed.</p>
+</div>
+<table class="wmp-table">
+<thead><tr><th>Advantage</th><th>What it replaces</th><th>Why it can't be copied</th></tr></thead>
+<tbody>
+<tr><td>Payer-side UM vantage</td><td>Outside-in medical analysis</td><td>You must have sat in the seat that approves and denies — InterQual/MCG applied to 3,000+ real claims.</td></tr>
+<tr><td>Fixed fee, never hourly</td><td>The hourly expert meter</td><td>Their revenue model <em>is</em> the meter; a flat fee also removes the bias attack on cross.</td></tr>
+<tr><td>Bilateral, conflict-screened</td><td>A "side's" hired opinion</td><td>Both sides paying the <em>same</em> fee is the objectivity proof — and the reason our defense view of plaintiff cases is real.</td></tr>
+<tr><td>Non-testifying / consulting</td><td>Testifying-expert rates + discoverability</td><td>Their whole value is testifying — they can't price or position out of that role.</td></tr>
+<tr><td>Physician at a non-US cost base</td><td>The US expert price floor</td><td>A US-based physician expert can't profitably sell a $350 screen — the cost base forbids it.</td></tr>
+<tr><td>48–72h turnaround</td><td>Weeks to recruit and schedule an expert</td><td>Scheduling a scarce human can't be compressed below a calendar.</td></tr>
+</tbody>
+</table>
+<p style="font-family:var(--sans);font-size:14.5px;line-height:1.6;color:var(--ink-3);margin-top:20px;max-width:920px;"><strong style="color:var(--ink-2)">The recurring move:</strong> a $350–$750 screen sits roughly an order of magnitude below a single expert's record-review engagement, and two orders below a full expert workup. Its job is to make the expensive downstream bet <em>conditional</em>.</p>
+</div>
+</div>
+
+<!-- ================= PLAINTIFF ================= -->
+<div class="wmp-section alt is-plaintiff">
+<div class="wrap">
+<div class="wmp-sec-head">
+<span class="wmp-track-label"><i></i>Plaintiff &amp; Claimant Teams</span>
+<h2>Build and pressure-test the medical case.</h2>
+</div>
+<table class="wmp-svc-table is-plaintiff">
+<thead><tr><th>Service</th><th>Today they use…</th><th>Why Medisprudence wins</th><th>In one line</th></tr></thead>
+<tbody>
+<tr><td data-label="Service">IME Report Deconstruction</td><td data-label="Today they use…">A treating-physician rebuttal letter</td><td data-label="Why Medisprudence wins">Physician methodology attack + 20 page-cited deposition questions for ~$500 — built by someone who wrote the IME's own template from the payer side.</td><td data-label="In one line">Buy the cross-exam, pre-written, for an hour of expert time.</td></tr>
+<tr><td data-label="Service">Case Viability Screening (CVA™)</td><td data-label="Today they use…">A $1.5k–$10k retainer to find out if the case holds</td><td data-label="Why Medisprudence wins">A $350 defense-calibrated go/no-go — option-pricing a five-figure downstream decision.</td><td data-label="In one line">A $350 screen that protects the $25k decision behind it.</td></tr>
+<tr><td data-label="Service">Full Intelligence Report (CMIP™)</td><td data-label="Today they use…">3–4 separate vendors stitched together</td><td data-label="Why Medisprudence wins">One physician spine across all seven layers at one fixed fee, with a citable physician-verified chronology.</td><td data-label="In one line">One physician, one fee, one story.</td></tr>
+<tr><td data-label="Service">Defense Medical Lens™</td><td data-label="Today they use…">Guessing the defense's medical theory</td><td data-label="Why Medisprudence wins">A 48-hour ranked pressure-point map timed to the pre-mediation window — information that's worthless after authority is set.</td><td data-label="In one line">See your case the way the other side's doctor will.</td></tr>
+<tr><td data-label="Service">Pre-existing · Gaps · DVA · Expert Readiness</td><td data-label="Today they use…">React inside a chronology; pick an expert on instinct</td><td data-label="Why Medisprudence wins">Productized payer-side attacks, ranked + documentation action list; prevents the most expensive error — the wrong specialty retainer.</td><td data-label="In one line">We make the defense's argument first, so you fix it before they raise it.</td></tr>
+<tr><td data-label="Service">White-Label for LNC Firms <em style="color:var(--ink-3);font-weight:400">(partner)</em></td><td data-label="Today they use…">Refer physician work out, or hire a doctor</td><td data-label="Why Medisprudence wins">Physician layer under the LNC's own brand at a flat wholesale fee — adds a service without putting a physician on payroll.</td><td data-label="In one line">Physician-grade analysis under your name — no doctor on payroll.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- ================= DEFENSE ================= -->
+<div class="wmp-section is-defense">
+<div class="wrap">
+<div class="wmp-sec-head">
+<span class="wmp-track-label"><i></i>Defense, TPA &amp; Carrier Teams</span>
+<h2>Stress-test the record before exposure crystallizes.</h2>
+</div>
+<table class="wmp-svc-table is-defense">
+<thead><tr><th>Service</th><th>Today they use…</th><th>Why Medisprudence wins</th><th>In one line</th></tr></thead>
+<tbody>
+<tr><td data-label="Service">IME Quality Review</td><td data-label="Today they use…">Find IME defects at deposition (too late)</td><td data-label="Why Medisprudence wins">Pre-service seven-defect scan + remediation list, ~$400 — fix the report while you can still fix it.</td><td data-label="In one line">Find the holes in your own IME before the other side does.</td></tr>
+<tr><td data-label="Service">Plaintiff Expert Report Analysis (PED)</td><td data-label="Today they use…">Lean on the retained expert to respond</td><td data-label="Why Medisprudence wins">Motion-ready 702 challenge points + a coordination note that shortens your own expert's billable hours, ~$500.</td><td data-label="In one line">Sharpen the exclusion motion <em>and</em> shrink your expert bill.</td></tr>
+<tr><td data-label="Service">Medical Reserve Analysis (MRA)</td><td data-label="Today they use…">Adjuster's lay reading of the medicine</td><td data-label="Why Medisprudence wins">Physician exposure range as the documented anchor for the reserve committee, $750 — against the six-figure dollars it calibrates.</td><td data-label="In one line">A defensible range, not a guess — for a fraction of the reserve.</td></tr>
+<tr><td data-label="Service">UR Process Audit (URP)</td><td data-label="Today they use…">Learn defensibility when plaintiff subpoenas the file</td><td data-label="Why Medisprudence wins">The founder's exact prior role: a former payer-side UM reviewer auditing UR defensibility under the very criteria he applied, $600 against extracontractual exposure.</td><td data-label="In one line">The person who wrote these denials tells you if yours survives.</td></tr>
+<tr><td data-label="Service">Bellwether Defense Screening</td><td data-label="Today they use…">Ad hoc, case-by-case screening at inventory scale</td><td data-label="Why Medisprudence wins">Physician evaluation under a single repeatable criteria framework, priced per file — the consistency hourly experts can't deliver at volume.</td><td data-label="In one line">One medical yardstick across the whole inventory.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- ================= COMPLIANCE + BILATERAL ================= -->
+<div class="wmp-section alt is-compliance">
+<div class="wrap">
+<div class="wmp-sec-head">
+<span class="wmp-track-label"><i></i>Compliance, ERISA &amp; Bilateral</span>
+<h2>The clinical-application judgment lawyers and actuaries can't supply.</h2>
+</div>
+<table class="wmp-svc-table is-compliance">
+<thead><tr><th>Service</th><th>Today they use…</th><th>Why Medisprudence wins</th><th>In one line</th></tr></thead>
+<tbody>
+<tr><td data-label="Service">MHPAEA Behavioral Health Parity Review</td><td data-label="Today they use…">Benefits attorneys and compliance consultants</td><td data-label="Why Medisprudence wins">Lawyers parse the statute; a physician supplies the clinical-application comparison the rule actually turns on — and engaging a qualified physician is itself evidence of the fiduciary's prudent selection.</td><td data-label="In one line">Only a physician shows the clinical disparity the regulator is looking for.</td></tr>
+<tr><td data-label="Service">Clinical Denial Pattern Audit</td><td data-label="Today they use…">Actuaries counting denial rates</td><td data-label="Why Medisprudence wins">Across 20–50 claims a physician classifies each denial Defensible / Questionable / Indefensible — the characterization that drives fiduciary and parity exposure.</td><td data-label="In one line">Counting denials isn't knowing which ones were wrong.</td></tr>
+<tr><td data-label="Service">LTD / ERISA Medical Review</td><td data-label="Today they use…">Carrier's internal reviewer, or a treater letter</td><td data-label="Why Medisprudence wins">Neutral physician read of functional capacity, necessity, and administrative-record weaknesses — usable by claimant counsel or carrier defense, flat fee.</td><td data-label="In one line">A neutral read of the document the case is actually decided on.</td></tr>
+</tbody>
+</table>
+
+<table class="wmp-svc-table is-bilateral" style="margin-top:22px">
+<thead><tr><th>Service</th><th>Today they use…</th><th>Why Medisprudence wins</th><th>In one line</th></tr></thead>
+<tbody>
+<tr><td data-label="Service">Medical Charge &amp; Necessity Review (MCNR) <em style="color:var(--ink-3);font-weight:400">— both sides</em></td><td data-label="Today they use…">A coder <em>and</em> a doctor (2–3 vendors)</td><td data-label="Why Medisprudence wins">One physician work product covering necessity + relatedness + coding + reasonable value — unbundling several vendors into one coherent narrative at one fixed fee.</td><td data-label="In one line">One physician, one fee — not a coder and a doctor who disagree.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- ================= ECONOMIC MODEL ================= -->
+<div class="wmp-section">
+<div class="wrap">
+<div class="wmp-sec-head">
+<div class="label">The Economic Model</div>
+<h2>Why "flat fee" is a strategy, not a discount.</h2>
+<p>Six pricing levers, each replacing something the alternatives can't structurally match.</p>
+</div>
+<table class="wmp-table">
+<thead><tr><th>Lever</th><th>What it replaces</th><th>Why competitors can't match it</th></tr></thead>
+<tbody>
+<tr><td>Fixed fee</td><td>Hourly expert meter</td><td>Their revenue model <em>is</em> the meter; flat fee removes their upside and their bias exposure.</td></tr>
+<tr><td>Option-priced triage</td><td>Committing a $5k–$25k retainer to learn a case is weak</td><td>Experts have no incentive to give a cheap, honest no-go.</td></tr>
+<tr><td>Unbundling (MCNR, CMIP)</td><td>2–3 separate vendors + coordination cost</td><td>They <em>are</em> one of the separate vendors.</td></tr>
+<tr><td>Non-testifying / work-product</td><td>Testifying-expert rates + discoverability</td><td>Their value <em>is</em> testifying.</td></tr>
+<tr><td>Cost-base arbitrage</td><td>US physician-expert price floor</td><td>They can't profitably price here without relocating.</td></tr>
+<tr><td>Speed (48–72h)</td><td>Weeks to recruit and schedule a live expert</td><td>Scheduling a scarce human can't be compressed.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- ================= GUARDRAILS ================= -->
+<div class="wmp-section alt">
+<div class="wrap">
+<div class="wmp-sec-head">
+<div class="label">How we talk about it</div>
+<h2>Guardrails — what Medisprudence never claims.</h2>
+<p>The integrity of the work product depends on what we <em>don't</em> say as much as what we do.</p>
+</div>
+<div class="wmp-guardrails">
+<div class="g"><div class="g-k">On LNCs</div><p>"The physician layer they can add" — never "better than." Comparisons are aimed at hourly experts, IME companies, coding consultants, and lay/in-house reads, never at nurses as a profession.</p></div>
+<div class="g"><div class="g-k">On outcomes</div><p>Every ROI claim is framed as <em>fee versus cost or risk avoided</em>. Never a guaranteed result. The deliverable shapes the decision; the verdict is not ours to promise.</p></div>
+<div class="g"><div class="g-k">On compliance work</div><p>Clinical-criteria analysis supporting counsel — never legal advice. Legal conclusions stay with retained attorneys.</p></div>
+<div class="g"><div class="g-k">On fees</div><p>Flat fee only — never contingency or success-based. Tying medical analysis to a recovery implies bias, risks exclusion, and would destroy the "same fee, both sides" objectivity story that is one of our strongest assets.</p></div>
+</div>
+</div>
+</div>
+
+<!-- ================= CLOSE ================= -->
+<div class="wmp-close">
+<div class="wrap">
+<div class="label" style="font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-text);margin-bottom:14px">Start a matter</div>
+<h3>Send a no-PHI case summary. We'll confirm the right review fits before any records are requested.</h3>
+<p>Scope, fee, turnaround, and conflict status confirmed before records move. No PHI by email.</p>
+<a class="btn btn-primary" href="/intake/">Request Case Review →</a>
+</div>
+</div>
+
+</div>
+<footer>
+<div class="wrap">
+<div class="footer-grid">
+<div>
+<div class="footer-brand-name">Medisprudence</div>
+<div class="footer-tagline">Medical case intelligence for litigation.<br/>Physician-authored. Payer-informed. Attorney-directed.<br/>We follow the analysis, not a side.</div>
+</div>
+<div class="footer-col"><h6>Services</h6><ul>
+<li><a href="/medical-review-signal-check/"><strong>Medical Review Signal Check →</strong></a></li>
+<li><a href="/samples/"><strong>Sample Deliverables →</strong></a></li>
+<li><a href="/packages/">Case Packages</a></li>
+<li><a href="/ime-deconstruction/">IME Deconstruction</a></li>
+<li><a href="/case-viability-screening/">Case Viability</a></li>
+<li><a href="/full-intelligence-report/">Full Intelligence Report</a></li>
+<li><a href="/medical-charge-necessity-review/">Charge &amp; Necessity Review</a></li>
+<li><a href="/defense-medical-lens/">Defense Medical Lens™</a></li>
+<li><a href="/white-label/">White-Label</a></li>
+</ul><h6 style="margin-top:14px">Defense &amp; Institutional</h6><ul>
+<li><a href="/ime-quality-review/">IME Quality Review</a></li>
+<li><a href="/plaintiff-expert-analysis/">Plaintiff Expert Analysis</a></li>
+<li><a href="/medical-reserve-analysis/">Medical Reserve Analysis</a></li>
+<li><a href="/ur-process-audit/">UR Process Audit</a></li>
+<li><a href="/bellwether-defense-screening/">Bellwether Defense</a></li>
+<li><a href="/medical-charge-necessity-review/">Billed-Charge Exposure Review</a></li>
+</ul></div>
+<div class="footer-col"><h6>Practice Areas</h6><ul>
+<li><a href="/personal-injury/">Personal Injury</a></li>
+<li><a href="/medical-malpractice/">Medical Malpractice</a></li>
+<li><a href="/bad-faith-insurance/">Bad Faith</a></li>
+<li><a href="/workers-compensation/">Workers Compensation</a></li>
+<li><a href="/mass-tort-mdl/">Mass Tort / MDL</a></li>
+<li><a href="/ltd-erisa/">LTD &amp; ERISA</a></li>
+</ul></div>
+<div class="footer-col"><h6>Firm</h6><ul>
+<li><a href="/plaintiff-teams/">Plaintiff Teams</a></li>
+<li><a href="/defense-carriers/">Defense &amp; Carriers</a></li>
+<li><a href="/why-medisprudence/"><strong>Why Medisprudence →</strong></a></li>
+<li><a href="/conflict-policy/">How We Handle Both Sides</a></li>
+<li><a href="/analysis/">Analysis</a></li>
+<li><a href="/medical-evidence-in-litigation/">Field Guide</a></li>
+<li><a href="/about/">About</a></li>
+<li><a href="/faq/">FAQ</a></li>
+<li><a href="/security/">Data Security</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul></div>
+</div>
+<div class="footer-bottom">
+<div class="footer-legal-links">
+<a href="/privacy/">Privacy Policy</a>
+<a href="/terms/">Terms of Use</a>
+<a href="/ai-use-policy/">AI Use Disclosure</a>
+</div>
+<p>© 2026 Medisprudence™ · <a href="mailto:contact@medisprudence.com" style="color:inherit">contact@medisprudence.com</a> · Operated from India · Cross-border processing disclosed before records are accepted · Do not send PHI by email</p>
+<p>Medisprudence provides physician-directed medical case intelligence under attorney supervision. Not a patient-facing medical service. We do not provide legal advice, legal representation, or independent expert testimony.</p>
+</div>
+</div>
+</footer>
+<script src="/assets/js/main.js?v=20260610a"></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a187f06d3ac631c39c1cd0e/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+</body>
+</html>
