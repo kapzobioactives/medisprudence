@@ -1719,3 +1719,21 @@ body{padding-top:0!important;}
 .sg-faq details p{font-size:15.5px;line-height:1.72;color:var(--ink-2);max-width:860px;margin:-4px 0 21px;}
 @media(max-width:820px){.sg-prose,.sg-split,.sg-boundaries{grid-template-columns:1fr;}.sg-prose{gap:16px;margin-bottom:44px;}.sg-boundaries section+section{border-left:none;border-top:1px solid rgba(26,22,18,.16);}.sg-panel,.sg-boundaries section{padding:24px 22px;}}
 @media(max-width:520px){.service-guide{padding:46px 0;}.sg-step{grid-template-columns:42px 1fr;gap:10px;}.sg-intro h2{font-size:30px;}.sg-lede{font-size:17px;}}
+
+
+/* SERVICE GUIDE REFINEMENTS — comparison audit implementation */
+.sg-section-note{font-size:15.5px;line-height:1.72;color:var(--ink-2);max-width:880px;margin:12px 0 0;}
+.sg-options,.sg-compare{margin-bottom:64px;}
+.sg-option-grid,.sg-compare-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+.sg-option,.sg-compare-grid article{border:1px solid rgba(26,22,18,.15);border-top:3px solid var(--accent);background:var(--bg);border-radius:4px;padding:25px 26px;}
+.sg-option h3,.sg-compare-grid h3{font-family:var(--sans);font-size:17px;line-height:1.35;color:var(--ink);margin:0 0 9px;}
+.sg-option p,.sg-compare-grid p{font-size:15px;line-height:1.68;color:var(--ink-2);margin:0;}
+.sg-compare-grid article:nth-child(2){border-top-color:var(--defense);}
+.sg-compare-grid article:nth-child(3){border-top-color:var(--compliance-text);}
+.sg-compare-label{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-text);font-weight:600;margin-bottom:10px;}
+.sg-scope-note{display:block;margin:-34px 0 64px;padding:18px 21px;border-left:3px solid var(--accent);background:rgba(180,138,59,.075);font-size:14.5px;line-height:1.68;color:var(--ink-2);}
+.sg-scope-note strong{color:var(--ink);font-weight:650;}
+.service-guide--compact{padding-top:clamp(46px,5vw,68px);}
+.sg-intro-compact{margin-bottom:36px;}
+@media(max-width:900px){.sg-option-grid,.sg-compare-grid{grid-template-columns:1fr;}}
+@media(max-width:520px){.sg-option,.sg-compare-grid article{padding:22px 20px;}.sg-scope-note{margin-top:-34px;padding:16px 17px;}}

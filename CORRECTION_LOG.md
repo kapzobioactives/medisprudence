@@ -24,3 +24,15 @@ Correction date: 10 June 2026
 ## Remaining dashboard-only item
 
 Cloudflare Web Analytics still must be enabled in the Cloudflare dashboard, unless a manual analytics token is supplied and inserted into the HTML. No fake token was added to this build.
+
+
+## Service-page comparison audit implementation
+
+- Kept the ChatGPT service-guide build as the base.
+- Restored the **Founder's Advantage** label only where the generic **Reviewer perspective** label had replaced it; retained service-specific labels where they communicate more accurately.
+- Added concise, non-disparaging comparisons with common review options on seven pages where buyers are likely to confuse scope.
+- Added a DVA vs Defense Medical Lens vs CMIP comparison.
+- Reduced MCNR duplication by retaining its original methodology and converting the added guide into a compact engagement section.
+- Reworked Bellwether and White-Label workflows from forced five-step sequences into four-stage models.
+- Added targeted scope callouts and expanded only FAQs that were materially under-answered.
+- Did not add unsupported market prices, outcome claims, or universal fee-recoverability statements.
